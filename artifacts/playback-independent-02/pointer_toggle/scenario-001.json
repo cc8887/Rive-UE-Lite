@@ -1,0 +1,37 @@
+{
+  "mode": "state_machine",
+  "artboard": "New Artboard",
+  "state_machine": "Switch",
+  "events": [
+    {
+      "time": 0.25,
+      "type": "pointer_down",
+      "x": 150,
+      "y": 258,
+      "pointer_id": 0
+    },
+    {
+      "time": 0.25,
+      "type": "pointer_up",
+      "x": 150,
+      "y": 258,
+      "pointer_id": 0
+    },
+    {
+      "time": 1.25,
+      "type": "pointer_down",
+      "x": 150,
+      "y": 258,
+      "pointer_id": 0
+    },
+    {
+      "time": 1.25,
+      "type": "pointer_up",
+      "x": 150,
+      "y": 258,
+      "pointer_id": 0
+    }
+  ],
+  "fixed_delta": 0.016666666666666666,
+  "target_time": 0.75
+}

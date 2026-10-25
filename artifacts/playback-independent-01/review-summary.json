@@ -1,0 +1,55 @@
+{
+  "status": "failed",
+  "summary_sha256": "ce73567ac87ff14442a2516e5aca6c30c3b0de8280ee0928076f1f7db13236f3",
+  "normal_exit_with_png": 60,
+  "capture_count": 60,
+  "pair_count": 30,
+  "exact_rgba_alpha_passed_pairs": 29,
+  "failed_pairs": [
+    {
+      "case": "static_bankcard",
+      "time": 0,
+      "different_pixels": 72399,
+      "alpha_different_pixels": 9804,
+      "max_channel_error": 19
+    }
+  ],
+  "all_host_draw_playback_cpu_gates_passed": true,
+  "required_image_changes": {
+    "passed": 16,
+    "total": 16
+  },
+  "same_time_input_effect_checks": {
+    "passed": 12,
+    "total": 12
+  },
+  "all_inputs_unchanged": "passed",
+  "independent_cooks": {
+    "lite": {
+      "status": "passed",
+      "archive": {
+        "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/shaders-independent-lite-01/global.bin",
+        "bytes": 17147039,
+        "sha256": "a252df0dd066ebbb06f754617dceaa38a4f75bb95c184d8dacb45a45e96d3d2d"
+      },
+      "execution_id": "0c6d7fa0-602d-4113-b48f-fe9a59f4f1af",
+      "total_permutations": 11468,
+      "rive_permutations": 11360
+    },
+    "reference": {
+      "status": "passed",
+      "archive": {
+        "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/shaders-canonical/full-01/global.bin",
+        "bytes": 7082186,
+        "sha256": "64e87e74218e9dfe1e23ed0c268ec47d2bbb6fc7a71b0cbcd710d26c4138aa0e"
+      },
+      "execution_id": "7465ea0b-86fe-49dd-a788-e90565fd076d",
+      "total_permutations": 11469,
+      "rive_permutations": 11360
+    }
+  },
+  "gallery": "gallery.html",
+  "gallery_audit": "gallery-audit.json",
+  "measurement_scope": "correctness only; prior package/performance reports remain separate",
+  "failure_policy": "exact RGBA8 and alpha without tolerance or mask; failed evidence retained unchanged"
+}

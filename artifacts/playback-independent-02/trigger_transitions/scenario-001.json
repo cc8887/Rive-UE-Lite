@@ -1,0 +1,19 @@
+{
+  "mode": "state_machine",
+  "artboard": "main",
+  "state_machine": "State Machine 1",
+  "events": [
+    {
+      "time": 0.25,
+      "type": "trigger",
+      "name": "Trigger 1"
+    },
+    {
+      "time": 0.75,
+      "type": "trigger",
+      "name": "Trigger 1"
+    }
+  ],
+  "fixed_delta": 0.016666666666666666,
+  "target_time": 0.5
+}

@@ -1,0 +1,16 @@
+engine/
+vendor/
+dependencies/
+artifacts/
+build/
+package/
+Binaries/
+Intermediate/
+Saved/
+*.user
+*.log
+*.pyc
+__pycache__/
+Source/**/syntax-check/
+Source/RiveLiteRenderer/native-build-result.json
+Source/RiveLiteRenderer/source-validation.json

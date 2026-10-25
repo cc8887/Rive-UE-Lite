@@ -1,0 +1,77 @@
+{
+	"schema_version": 1,
+	"api_calls":
+	{
+		"animation_advance": 0,
+		"animation_apply": 0,
+		"artboard_advance": 0,
+		"state_machine_advance_and_apply": 32,
+		"pointer_down": 0,
+		"pointer_up": 0,
+		"pointer_move": 0,
+		"pointer_exit": 0,
+		"bool_set": 1,
+		"number_set": 0,
+		"trigger_fire": 0
+	},
+	"state_machine": "Button",
+	"status": "completed",
+	"mode": "state_machine",
+	"artboard": "New Artboard",
+	"artboard_index": 0,
+	"selected_index": 0,
+	"fixed_delta": 0.016666666666666666,
+	"target_time": 0.5,
+	"advanced_time": 0.5,
+	"advance_count": 30,
+	"initialization_advance_count": 1,
+	"event_settle_advance_count": 1,
+	"events_applied": [
+		{
+			"time": 0.25,
+			"tick": 15,
+			"type": "bool",
+			"name": "Hover",
+			"value": true
+		}
+	],
+	"state_changes": [
+		{
+			"time": 0,
+			"tick": 0,
+			"layer_index": 0,
+			"state_index": 3,
+			"core_type": 61,
+			"animation": "idle",
+			"kind": "animation"
+		},
+		{
+			"time": 0.25,
+			"tick": 15,
+			"layer_index": 0,
+			"state_index": 2,
+			"core_type": 61,
+			"animation": "Roll_over",
+			"kind": "animation"
+		}
+	],
+	"final_inputs": [
+		{
+			"name": "Hover",
+			"type": "bool",
+			"value": true
+		},
+		{
+			"name": "Press",
+			"type": "bool",
+			"value": false
+		}
+	],
+	"current_animations": [
+		{
+			"name": "Roll_over",
+			"time": 0.25,
+			"duration_seconds": 0.66666668653488159
+		}
+	]
+}

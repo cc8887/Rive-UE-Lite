@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "gallery": "/mnt/f/Github/Rive-UE-Lite/artifacts/playback-independent-02/gallery.html",
+  "gallery_sha256": "77e49f496aa63fc89690b1af99631f652f1ee29d8e972bd1b7773566c3052371",
+  "img_elements": 60,
+  "original_png_files": 60,
+  "local_links_checked": 123,
+  "bad_links": [],
+  "pngs_missing_or_changed": [],
+  "errors": [],
+  "original_png_path_sets_equal": true,
+  "images_modified": false,
+  "report_status": "passed",
+  "scope": "HTML relative references and original raw PNG hashes only; does not change matrix acceptance"
+}

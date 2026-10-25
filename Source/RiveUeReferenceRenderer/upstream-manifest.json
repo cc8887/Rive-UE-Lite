@@ -1,0 +1,92 @@
+{
+  "source_commit": "8461a2dc90924aeadc1f7eed99e6ae2de1b490f0",
+  "runtime_commit": "47d1cd54ccefd468db7cb26ecc4699ae1723dd85",
+  "scope": "Engine/Renderer-linked offscreen reference; no Editor viewport or UMG composition",
+  "engine_texture_wrappers": "preserved",
+  "ore_enabled": false,
+  "files": [
+    {
+      "upstream": "Source/RiveRenderer/Private/Platform/RenderContextRHIImpl.hpp",
+      "output": "Source/RiveUeReferenceRenderer/Public/Platform/RenderContextRHIImpl.hpp",
+      "source_sha256": "55c66bed36cd0466034ff13769f22fa4b8c6ce9815563affa30a996922fd80ef",
+      "output_sha256": "47f84ca89f440db16b573e2cf763be1feb5c063bf131c179e5e10945c07b6e05"
+    },
+    {
+      "upstream": "Source/RiveRenderer/Private/Platform/RenderContextRHIImpl.cpp",
+      "output": "Source/RiveUeReferenceRenderer/Private/Platform/RenderContextRHIImpl.cpp",
+      "source_sha256": "e4efe5ad921c9d47bcd4fb9d55680d8a25eadeb9f10bca5593ec0608e533fcaf",
+      "output_sha256": "c0c6c5acbc4a90252be91bf2e2f9eb7bd62554531ee3ce0dbd9c8d97d3d94c82"
+    },
+    {
+      "upstream": "Source/RiveRenderer/Public/TextureRHIImpl.hpp",
+      "output": "Source/RiveUeReferenceRenderer/Public/TextureRHIImpl.hpp",
+      "source_sha256": "eabb698e2649fb4322a646cae72dd1e698fb64b39fb103f81152cd850f49c7ad",
+      "output_sha256": "5e51d3c4a02e5e13a64c2c4b15dd7d5020376cb9a988a754aec0f8ada8f7fee9"
+    },
+    {
+      "upstream": "Source/RiveRenderer/Private/TextureRHIImpl.cpp",
+      "output": "Source/RiveUeReferenceRenderer/Private/TextureRHIImpl.cpp",
+      "source_sha256": "e03577b8f02d805d7e090b9db8cce19a7e0a66e77b2b753f35c70cbdadd35a4d",
+      "output_sha256": "5d37df328f948cda956a66a86b088317158f65da74cceadb6dc4f3b5359c3e2d"
+    },
+    {
+      "upstream": "Source/RiveRenderer/Private/RenderGraphHelpers/RivePassFunctions.h",
+      "output": "Source/RiveUeReferenceRenderer/Private/RenderGraphHelpers/RivePassFunctions.h",
+      "source_sha256": "7c75a5d53ec29784ba3255b1876fa37c29f4e5df81515fbbb49aee6dd83c5dda",
+      "output_sha256": "33cbc06de47ef884781c2393bb811aa4781967c993569f6db3f2760f4188836b"
+    },
+    {
+      "upstream": "Source/RiveRenderer/Private/RenderGraphHelpers/RivePassFunctions.cpp",
+      "output": "Source/RiveUeReferenceRenderer/Private/RenderGraphHelpers/RivePassFunctions.cpp",
+      "source_sha256": "35be7a2502f9aae367b299215e03c7238cdfaa4fdbd55ba98304a5799eeba381",
+      "output_sha256": "8ae3f1984761cdb63017ee355e8e6a825152b78025018d082807e0118dcacffe"
+    },
+    {
+      "upstream": "Source/RiveRenderer/Public/PlatformRHI.h",
+      "output": "Source/RiveUeReferenceRenderer/Public/PlatformRHI.h",
+      "source_sha256": "e92879ab9f022b3583edbc6ae17fe000f7704032978b99caba8f857577cd0929",
+      "output_sha256": "9c962739f8a8cc4257bded198a82af7d6780cd9a2ae168a9cd010fa6933052f9"
+    },
+    {
+      "upstream": "Source/RiveRenderer/Private/PlatformRHI.cpp",
+      "output": "Source/RiveUeReferenceRenderer/Private/PlatformRHI.cpp",
+      "source_sha256": "03f4e8fdabf345316642b5e4ecca3dad3e3e21c7b25b57c39a2a0f7be29c7ee3",
+      "output_sha256": "953cd3bb5a8a4b73445dfdc3a4fd94cc1ee75e8612d57dad72470ed0d5f58e8b"
+    },
+    {
+      "upstream": "Source/RiveRenderer/Public/Logs/RiveRendererLog.h",
+      "output": "Source/RiveUeReferenceRenderer/Public/Logs/RiveRendererLog.h",
+      "source_sha256": "fd8badf7bdcf0f06d4453fa3f4c71efbef9470c0eada88fd1e2c1592d7506659",
+      "output_sha256": "c4348357dffeed25dbb15b0d1b6b9de25d599a68d82074c20fc81540f987bce0"
+    },
+    {
+      "upstream": "Source/RiveRenderer/Private/Logs/RiveRendererLog.cpp",
+      "output": "Source/RiveUeReferenceRenderer/Private/Logs/RiveRendererLog.cpp",
+      "source_sha256": "f784279d552f639d116a0e03ad7bba8ad1dace48acdad8f6ef3b765414e777e9",
+      "output_sha256": "f22b9a4411df3ab6597380e4dd6357e9ba4653986411bad7499852edef279821"
+    },
+    {
+      "upstream": "Source/RiveShaders/Public/RiveShaderTypes.h",
+      "output": "Source/RiveUeReferenceRenderer/Public/RiveShaderTypes.h",
+      "source_sha256": "fce69c372aa328e79bf6a845a1e8f1980da431bc00071329b5b05186005509fb",
+      "output_sha256": "de75fe7111231bcef30659bd772d61f138821c9413123d6e9d29e1706e07e7fb"
+    },
+    {
+      "upstream": "Source/RiveShaders/Private/RiveShaderTypes.cpp",
+      "output": "Source/RiveUeReferenceRenderer/Private/RiveShaderTypes.cpp",
+      "source_sha256": "bf93b507ed3d2567c0ff52e2b6c1997498dfd6ced15eb0586694611df05fd611",
+      "output_sha256": "9d12822f1610beef8fbd66d642fb4de76a1d84d0308b2445f9a2d9c9ff4f8104"
+    },
+    {
+      "upstream": "Source/RiveStats/Public/RiveStats.h",
+      "output": "Source/RiveUeReferenceRenderer/Public/RiveStats.h",
+      "source_sha256": "af76acb652af9e5c9f8b9f7526bbebf5328b2f2eeb9261424637a066f4feb351",
+      "output_sha256": "450787e025de972060336ecf34e2f0c1b83ee33daf7b1379e0fec3cd70b4d64f"
+    }
+  ],
+  "invariants": {
+    "flush_implementation_sha256": "b4b3928c96034bca7609aaf4fe6d36a8a7127c9d9f3bc059f0023e6616fcb923",
+    "pass_functions_sha256": "8ae3f1984761cdb63017ee355e8e6a825152b78025018d082807e0118dcacffe"
+  },
+  "shared_shader_manifest_sha256": "e493d3ffed65d93fc6575cad64c02843bdb156aabdfe99e6c61c724fb8f4f1c2"
+}

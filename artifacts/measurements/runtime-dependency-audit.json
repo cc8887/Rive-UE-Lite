@@ -1,0 +1,772 @@
+{
+  "timestamp_utc": "2026-10-24T11:35:09.799536+00:00",
+  "scope": "dependency inventory repair only; no executable invocation or performance rerun",
+  "script_sha256": "96ae8751a826ab0c23085ca96fd496e3f733d8c1d3b09cabe2c18d2f72f4bb26",
+  "mount_namespace": "mnt:[4026532229]",
+  "gpu_device_nodes_absent": true,
+  "reports": [
+    {
+      "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/measurements/default-02/lite/report.json",
+      "sha256": "f2d760950f8145a4407dfc8aa2262c3c7da762a0277edcfe60ea10e15f702b28",
+      "status": "passed",
+      "inventory": {
+        "status": "passed",
+        "libraries": [
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libpthread.so.0",
+            "roles": [
+              "application ELF dependency"
+            ],
+            "bytes": 14408,
+            "sha256": "90491a21ce44efcf3bd4b65ec82501c091d7ebe7f8d9b341dd01d721001d9ecd",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libdl.so.2",
+            "roles": [
+              "application ELF dependency"
+            ],
+            "bytes": 14408,
+            "sha256": "c2994527172cc23b7fb0f7d611b71e00a37da27af12c2e5e9e0dc1a742886c96",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/librt.so.1",
+            "roles": [
+              "application ELF dependency"
+            ],
+            "bytes": 14624,
+            "sha256": "6d072187d88e092e81561a44c03a4a41397319022c6d43519757cc051c576d82",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libm.so.6",
+            "roles": [
+              "application ELF dependency",
+              "Vulkan loader ELF dependency",
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 952616,
+            "sha256": "fce00b6f25f459cf4ae0b7fae4257909a1a8a86f9149e7c029a5d617baf1ccd0",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+            "roles": [
+              "application ELF dependency",
+              "Vulkan loader ELF dependency",
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 2129424,
+            "sha256": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+            "roles": [
+              "application ELF dependency",
+              "Vulkan loader ELF dependency",
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 236616,
+            "sha256": "c20a2dc8917c755f02b94049356320fe1f62ac7d9f8994731f807d9df39302da",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+            "roles": [
+              "application ELF dependency",
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 183024,
+            "sha256": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libvulkan.so.1.3.275",
+            "roles": [
+              "Vulkan loader"
+            ],
+            "bytes": 510592,
+            "sha256": "e833b010f814b72c6aca0300c8b5f19b6106ffa06c24ddc95a293970c7d6058e",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libvulkan_lvp.so",
+            "roles": [
+              "selected Vulkan ICD"
+            ],
+            "bytes": 11929384,
+            "sha256": "9d69cae2004b16572acca424741109be37c4ffc759c2461af69d75f7d1c6c139",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libLLVM.so.20.1",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 143545784,
+            "sha256": "4b93481bd1c9d42c0951275dd275d4a9d30db78c309ae2cc0405669bc6dbbf8a",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libz.so.1.3",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 113000,
+            "sha256": "86200da370f20476a2507e9097a789b5ef97269b4ca8d5e164ad82dab9d99892",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.5",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 755864,
+            "sha256": "0a2128bc10841fb29e76d08d945864dfb0b6a66da5df6df5d8299197439e54bb",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libdrm.so.2.125.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 92760,
+            "sha256": "ff39219aa058421e46afd36851342370cd1932d2557eb22f54e129755642bf67",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libexpat.so.1.9.1",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 186624,
+            "sha256": "286682ecbc5e59a638963b1a4e6351e65eb32fcf4bdcb9cb7569b6a61fe06a8d",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 162392,
+            "sha256": "7958a0136b121bdc4c708968569ad152a9ed208ab026e2537b1005dde64ca440",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libxcb-randr.so.0.1.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 67784,
+            "sha256": "9fa6b0ec4af163a86bc9a9ded3309a5979155fb5ef2d311fdda7fff0e9eee01a",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libX11-xcb.so.1.0.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 14024,
+            "sha256": "966fc171a949852a606efdf44d255f6f91b35c16328f5405c1b24743b6708ea7",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libxcb-dri3.so.0.1.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 22744,
+            "sha256": "a919146693e71897484c2996beb837273a7a278d1a2afe477bc072f10681f3b0",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libxcb-present.so.0.0.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 14536,
+            "sha256": "d06d982abe6e9202aecd22322166be8ba49e68e05889fb6c6faec0daa88530a4",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libxcb-xfixes.so.0.0.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 35016,
+            "sha256": "e59ef497333a6ede2096a0bd9eeb6ec4023374c16d3a8d7511d1251fb7f9b9df",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libxcb-sync.so.1.0.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 35032,
+            "sha256": "27c2d6dddde34146904c3c64cfcc885a14a351636d6611877368a48e29355c39",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libxcb-shm.so.0.0.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 14552,
+            "sha256": "ad78a7b22409685ca82e54346c2b9465d697f303e69e74a9c1693bb206e319df",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libxshmfence.so.1.0.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 14480,
+            "sha256": "7d40b02b27d449b6b26cea10ea10aafd0cce5a1e2d7859ea57f34b29fe88923f",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libwayland-client.so.0.22.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 64776,
+            "sha256": "1c22abb422953442aa12822ea51ac76d1c8be92ed143e0159e0f830776cde2b2",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 2592224,
+            "sha256": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libffi.so.8.1.4",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 47672,
+            "sha256": "00f593fe192f2851b8ce23b25cec2488d769beb5a8f63e8c9e563071e1075153",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libedit.so.2.0.72",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 220472,
+            "sha256": "195c607216f8581dbf516346ed38f4c73500cac4b84e18eb0a4fd49931e4cd56",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libxml2.so.2.9.14",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 1967424,
+            "sha256": "209e941be9eb2eb9ab36caaa0b81d1c6b36c8f5d7268c24f19e81039137e6485",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libXau.so.6.0.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 18696,
+            "sha256": "8040da3f8516c1acfe39f04ff022480cdb273705ba5e7a4ca70bbdb1527cd67a",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 26776,
+            "sha256": "667d97d6da16016400ab10de9f83ef4ab209ceb6adf68ff9650225ec13e723b0",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libtinfo.so.6.4",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 208328,
+            "sha256": "e6089d7bb95eee5b545f3770dd69095b0bca47d26701cad145af429561d16306",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libbsd.so.0.12.1",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 80888,
+            "sha256": "e86cd4f0019f42c2ba5e60602e0edc8694d2948377d98c3654d0f6bddb5254bb",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libicuuc.so.74.2",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 2140336,
+            "sha256": "7560aadde38e5f4237a47a1ddd5891f9b36768a77a60faae30beee003ac01901",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/liblzma.so.5.4.5",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 202904,
+            "sha256": "696e868dd0700a19a6d65fc01608ec2d70d3cb91f65710e89180cd2e688f30cb",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libmd.so.0.1.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 55536,
+            "sha256": "423e18586b6ea740f4465afd64f7a9a4cb7264ed979c8e7256f9085af5345fef",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libicudata.so.74.2",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 30795392,
+            "sha256": "ddbb3718b8bd9cbd780e5ab08b4503c30a6c4fa0706ebe5d074ed6b596c1714e",
+            "packaged": false
+          }
+        ],
+        "loader_cache_probe": {
+          "command": [
+            "/sbin/ldconfig",
+            "-p"
+          ],
+          "exit_code": 0,
+          "output": "320 libs found in cache `/etc/ld.so.cache'\n\tlibzstd.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libzstd.so.1\n\tlibz.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libz.so.1\n\tlibz.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libz.so\n\tlibyaml-0.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libyaml-0.so.2\n\tlibxxhash.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxxhash.so.0\n\tlibxtables.so.12 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxtables.so.12\n\tlibxshmfence.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxshmfence.so.1\n\tlibxml2.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxml2.so.2\n\tlibxmlb.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxmlb.so.2\n\tlibxkbcommon.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxkbcommon.so.0\n\tlibxcb.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxcb.so.1\n\tlibxcb-xfixes.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxcb-xfixes.so.0\n\tlibxcb-sync.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxcb-sync.so.1\n\tlibxcb-shm.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxcb-shm.so.0\n\tlibxcb-render.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxcb-render.so.0\n\tlibxcb-randr.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxcb-randr.so.0\n\tlibxcb-present.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxcb-present.so.0\n\tlibxcb-glx.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxcb-glx.so.0\n\tlibxcb-dri3.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxcb-dri3.so.0\n\tlibwebp.so.7 (libc6,x86-64) => /lib/x86_64-linux-gnu/libwebp.so.7\n\tlibwayland-egl.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libwayland-egl.so.1\n\tlibwayland-cursor.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libwayland-cursor.so.0\n\tlibwayland-client.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libwayland-client.so.0\n\tlibvulkan_virtio.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_virtio.so\n\tlibvulkan_radeon.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_radeon.so\n\tlibvulkan_nouveau.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_nouveau.so\n\tlibvulkan_lvp.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_lvp.so\n\tlibvulkan_intel_hasvk.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_intel_hasvk.so\n\tlibvulkan_intel.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_intel.so\n\tlibvulkan_gfxstream.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_gfxstream.so\n\tlibvulkan_asahi.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_asahi.so\n\tlibvulkan.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan.so.1\n\tlibuuid.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libuuid.so.1\n\tlibutil.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libutil.so.1\n\tlibutempter.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libutempter.so.0\n\tlibunwind.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libunwind.so.8\n\tlibunwind-x86_64.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libunwind-x86_64.so.8\n\tlibunwind-ptrace.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libunwind-ptrace.so.0\n\tlibunwind-coredump.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libunwind-coredump.so.0\n\tlibunistring.so.5 (libc6,x86-64) => /lib/x86_64-linux-gnu/libunistring.so.5\n\tlibudev.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libudev.so.1\n\tlibuchardet.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libuchardet.so.0\n\tlibubsan.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libubsan.so.1\n\tlibtsan.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libtsan.so.2\n\tlibtirpc.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libtirpc.so.3\n\tlibtinfo.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libtinfo.so.6\n\tlibtiff.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libtiff.so.6\n\tlibtic.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libtic.so.6\n\tlibthread_db.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libthread_db.so.1\n\tlibthread_db.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libthread_db.so\n\tlibthai.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libthai.so.0\n\tlibtasn1.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libtasn1.so.6\n\tlibsystemd.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsystemd.so.0\n\tlibstemmer.so.0d (libc6,x86-64) => /lib/x86_64-linux-gnu/libstemmer.so.0d\n\tlibstdc++.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libstdc++.so.6\n\tlibssl.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libssl.so.3\n\tlibssh.so.4 (libc6,x86-64) => /lib/x86_64-linux-gnu/libssh.so.4\n\tlibss.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libss.so.2\n\tlibsqlite3.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsqlite3.so.0\n\tlibsodium.so.23 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsodium.so.23\n\tlibsmartcols.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsmartcols.so.1\n\tlibslang.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libslang.so.2\n\tlibsigsegv.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsigsegv.so.2\n\tlibsharpyuv.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsharpyuv.so.0\n\tlibsframe.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsframe.so.1\n\tlibsepol.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsepol.so.2\n\tlibsensors.so.5 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsensors.so.5\n\tlibsemanage.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsemanage.so.2\n\tlibselinux.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libselinux.so.1\n\tlibseccomp.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libseccomp.so.2\n\tlibsasl2.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsasl2.so.2\n\tlibrtmp.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/librtmp.so.1\n\tlibrt.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/librt.so.1\n\tlibrsvg-2.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/librsvg-2.so.2\n\tlibresolv.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libresolv.so.2\n\tlibresolv.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libresolv.so\n\tlibreadline.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libreadline.so.8\n\tlibquadmath.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libquadmath.so.0\n\tlibp11-kit.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libp11-kit.so.0\n\tlibpython3.12.so.1.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpython3.12.so.1.0\n\tlibpython3.12.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libpython3.12.so\n\tlibpthread.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpthread.so.0\n\tlibpsx.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpsx.so.2\n\tlibpsl.so.5 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpsl.so.5\n\tlibproc2.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libproc2.so.0\n\tlibpopt.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpopt.so.0\n\tlibpolkit-gobject-1.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpolkit-gobject-1.so.0\n\tlibpolkit-agent-1.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpolkit-agent-1.so.0\n\tlibpng16.so.16 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpng16.so.16\n\tlibpixman-1.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpixman-1.so.0\n\tlibpipeline.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpipeline.so.1\n\tlibperl.so.5.38 (libc6,x86-64) => /lib/x86_64-linux-gnu/libperl.so.5.38\n\tlibpcre2-8.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpcre2-8.so.0\n\tlibpcprofile.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libpcprofile.so\n\tlibpciaccess.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpciaccess.so.0\n\tlibpangoft2-1.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpangoft2-1.0.so.0\n\tlibpangocairo-1.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpangocairo-1.0.so.0\n\tlibpango-1.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpango-1.0.so.0\n\tlibpanelw.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpanelw.so.6\n\tlibpamc.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpamc.so.0\n\tlibpam_misc.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpam_misc.so.0\n\tlibpam.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpam.so.0\n\tlibpackagekit-glib2.so.18 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpackagekit-glib2.so.18\n\tlibopcodes-2.42-system.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libopcodes-2.42-system.so\n\tlibnvwgf2umx.so (libc6,x86-64) => /usr/lib/wsl/lib/libnvwgf2umx.so\n\tlibnvoptix_loader.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libnvoptix_loader.so.1\n\tlibnvidia-opticalflow.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libnvidia-opticalflow.so.1\n\tlibnvidia-ngx.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libnvidia-ngx.so.1\n\tlibnvidia-ml.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libnvidia-ml.so.1\n\tlibnvidia-gpucomp.so.610.43.02 (libc6,x86-64) => /usr/lib/wsl/lib/libnvidia-gpucomp.so.610.43.02\n\tlibnvidia-encode.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libnvidia-encode.so.1\n\tlibnvdxdlkernels.so (libc6,x86-64) => /usr/lib/wsl/lib/libnvdxdlkernels.so\n\tlibnvcuvid.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libnvcuvid.so.1\n\tlibnss_systemd.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnss_systemd.so.2\n\tlibnss_hesiod.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnss_hesiod.so.2\n\tlibnss_hesiod.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libnss_hesiod.so\n\tlibnss_files.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnss_files.so.2\n\tlibnss_dns.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnss_dns.so.2\n\tlibnss_compat.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnss_compat.so.2\n\tlibnss_compat.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libnss_compat.so\n\tlibnsl.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnsl.so.1\n\tlibnpth.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnpth.so.0\n\tlibnghttp2.so.14 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnghttp2.so.14\n\tlibnewt.so.0.52 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnewt.so.0.52\n\tlibnettle.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnettle.so.8\n\tlibnetplan.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnetplan.so.1\n\tlibncursesw.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libncursesw.so.6\n\tlibmvec.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libmvec.so.1\n\tlibmvec.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libmvec.so\n\tlibmpfr.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libmpfr.so.6\n\tlibmpc.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libmpc.so.3\n\tlibmount.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libmount.so.1\n\tlibmnl.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libmnl.so.0\n\tlibmenuw.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libmenuw.so.6\n\tlibmemusage.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libmemusage.so\n\tlibmd.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libmd.so.0\n\tlibmagic.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libmagic.so.1\n\tlibm.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libm.so.6\n\tliblz4.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/liblz4.so.1\n\tliblzo2.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/liblzo2.so.2\n\tliblzma.so.5 (libc6,x86-64) => /lib/x86_64-linux-gnu/liblzma.so.5\n\tliblsan.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/liblsan.so.0\n\tlibldap.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libldap.so.2\n\tliblcms2.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/liblcms2.so.2\n\tliblber.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/liblber.so.2\n\tlibk5crypto.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libk5crypto.so.3\n\tlibksba.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libksba.so.8\n\tlibkrb5support.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libkrb5support.so.0\n\tlibkrb5.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libkrb5.so.3\n\tlibkmod.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libkmod.so.2\n\tlibkeyutils.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libkeyutils.so.1\n\tlibjson-c.so.5 (libc6,x86-64) => /lib/x86_64-linux-gnu/libjson-c.so.5\n\tlibjpeg.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libjpeg.so.8\n\tlibjbig.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libjbig.so.0\n\tlibjansson.so.4 (libc6,x86-64) => /lib/x86_64-linux-gnu/libjansson.so.4\n\tlibitm.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libitm.so.1\n\tlibisl.so.23 (libc6,x86-64) => /lib/x86_64-linux-gnu/libisl.so.23\n\tlibidn2.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libidn2.so.0\n\tlibicuuc.so.74 (libc6,x86-64) => /lib/x86_64-linux-gnu/libicuuc.so.74\n\tlibicutu.so.74 (libc6,x86-64) => /lib/x86_64-linux-gnu/libicutu.so.74\n\tlibicutest.so.74 (libc6,x86-64) => /lib/x86_64-linux-gnu/libicutest.so.74\n\tlibicui18n.so.74 (libc6,x86-64) => /lib/x86_64-linux-gnu/libicui18n.so.74\n\tlibicuio.so.74 (libc6,x86-64) => /lib/x86_64-linux-gnu/libicuio.so.74\n\tlibicudata.so.74 (libc6,x86-64) => /lib/x86_64-linux-gnu/libicudata.so.74\n\tlibhwasan.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libhwasan.so.0\n\tlibhogweed.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libhogweed.so.6\n\tlibhistory.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libhistory.so.8\n\tlibheif.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libheif.so.1\n\tlibharfbuzz.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libharfbuzz.so.0\n\tlibgtk-3.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgtk-3.so.0\n\tlibgthread-2.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgthread-2.0.so.0\n\tlibgstreamer-1.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgstreamer-1.0.so.0\n\tlibgstnet-1.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgstnet-1.0.so.0\n\tlibgstcontroller-1.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgstcontroller-1.0.so.0\n\tlibgstcheck-1.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgstcheck-1.0.so.0\n\tlibgstbase-1.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgstbase-1.0.so.0\n\tlibgssapi_krb5.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgssapi_krb5.so.2\n\tlibgraphite2.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgraphite2.so.3\n\tlibgprofng.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgprofng.so.0\n\tlibgpm.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgpm.so.2\n\tlibgpg-error.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgpg-error.so.0\n\tlibgomp.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgomp.so.1\n\tlibgobject-2.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgobject-2.0.so.0\n\tlibgnutls.so.30 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgnutls.so.30\n\tlibgmp.so.10 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgmp.so.10\n\tlibgmodule-2.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgmodule-2.0.so.0\n\tlibglib-2.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libglib-2.0.so.0\n\tlibgirepository-1.0.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgirepository-1.0.so.1\n\tlibgio-2.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgio-2.0.so.0\n\tlibgdk_pixbuf-2.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0\n\tlibgdk-3.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgdk-3.so.0\n\tlibgdbm_compat.so.4 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgdbm_compat.so.4\n\tlibgdbm.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgdbm.so.6\n\tlibgd.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgd.so.3\n\tlibgcrypt.so.20 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgcrypt.so.20\n\tlibgcc_s.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgcc_s.so.1\n\tlibgbm.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgbm.so.1\n\tlibgallium-25.2.8-0ubuntu0.24.04.2.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libgallium-25.2.8-0ubuntu0.24.04.2.so\n\tlibfuse3.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfuse3.so.3\n\tlibfribidi.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfribidi.so.0\n\tlibfreetype.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfreetype.so.6\n\tlibformw.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libformw.so.6\n\tlibfontconfig.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfontconfig.so.1\n\tlibfido2.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfido2.so.1\n\tlibffi.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libffi.so.8\n\tlibfdisk.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfdisk.so.1\n\tlibfastjson.so.4 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfastjson.so.4\n\tlibfakeroot-0.so (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-0.so\n\tlibe2p.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libe2p.so.2\n\tlibext2fs.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libext2fs.so.2\n\tlibexpatw.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libexpatw.so.1\n\tlibexpatw.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libexpatw.so\n\tlibexpat.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libexpat.so.1\n\tlibexpat.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libexpat.so\n\tlibevent_core-2.1.so.7 (libc6,x86-64) => /lib/x86_64-linux-gnu/libevent_core-2.1.so.7\n\tlibestr.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libestr.so.0\n\tlibepoxy.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libepoxy.so.0\n\tlibelf.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libelf.so.1\n\tlibedit.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libedit.so.2\n\tlibeatmydata.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libeatmydata.so.1\n\tlibeatmydata.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libeatmydata.so\n\tlibd3d12core.so (libc6,x86-64) => /usr/lib/wsl/lib/libd3d12core.so\n\tlibd3d12.so (libc6,x86-64) => /usr/lib/wsl/lib/libd3d12.so\n\tlibdxcore.so (libc6,x86-64) => /usr/lib/wsl/lib/libdxcore.so\n\tlibdw.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdw.so.1\n\tlibduktape.so.207 (libc6,x86-64) => /lib/x86_64-linux-gnu/libduktape.so.207\n\tlibdrop_ambient.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdrop_ambient.so.0\n\tlibdrm_intel.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdrm_intel.so.1\n\tlibdrm_amdgpu.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdrm_amdgpu.so.1\n\tlibdrm.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdrm.so.2\n\tlibdl.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdl.so.2\n\tlibdevmapper.so.1.02.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdevmapper.so.1.02.1\n\tlibdeflate.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdeflate.so.0\n\tlibdebconfclient.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdebconfclient.so.0\n\tlibdconf.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdconf.so.1\n\tlibdbus-1.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdbus-1.so.3\n\tlibdb-5.3.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libdb-5.3.so\n\tlibdatrie.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdatrie.so.1\n\tlibcurl.so.4 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcurl.so.4\n\tlibcurl-gnutls.so.4 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcurl-gnutls.so.4\n\tlibcups.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcups.so.2\n\tlibcudadebugger.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libcudadebugger.so.1\n\tlibcuda.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libcuda.so.1\n\tlibctf.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libctf.so.0\n\tlibctf-nobfd.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libctf-nobfd.so.0\n\tlibcryptsetup.so.12 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcryptsetup.so.12\n\tlibcrypto.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcrypto.so.3\n\tlibcrypt.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcrypt.so.1\n\tlibcrypt.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libcrypt.so\n\tlibcom_err.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcom_err.so.2\n\tlibcolordprivate.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcolordprivate.so.2\n\tlibcolord.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcolord.so.2\n\tlibcc1.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcc1.so.0\n\tlibcbor.so.0.10 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcbor.so.0.10\n\tlibcap.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcap.so.2\n\tlibcap-ng.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcap-ng.so.0\n\tlibcairo.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcairo.so.2\n\tlibcairo-gobject.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcairo-gobject.so.2\n\tlibc_malloc_debug.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libc_malloc_debug.so.0\n\tlibc_malloc_debug.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libc_malloc_debug.so\n\tlibc.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libc.so.6\n\tlibbz2.so.1.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libbz2.so.1.0\n\tlibbsd.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libbsd.so.0\n\tlibbrotlienc.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libbrotlienc.so.1\n\tlibbrotlidec.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libbrotlidec.so.1\n\tlibbrotlicommon.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libbrotlicommon.so.1\n\tlibbpf.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libbpf.so.1\n\tlibblkid.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libblkid.so.1\n\tlibbfd-2.42-system.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libbfd-2.42-system.so\n\tlibavahi-common.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libavahi-common.so.3\n\tlibavahi-client.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libavahi-client.so.3\n\tlibaudit.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libaudit.so.1\n\tlibattr.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libattr.so.1\n\tlibatspi.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libatspi.so.0\n\tlibatomic.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libatomic.so.1\n\tlibatm.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libatm.so.1\n\tlibatk-1.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libatk-1.0.so.0\n\tlibatk-bridge-2.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0\n\tlibassuan.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libassuan.so.0\n\tlibasan.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libasan.so.8\n\tlibargon2.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libargon2.so.1\n\tlibapt-private.so.0.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libapt-private.so.0.0\n\tlibapt-pkg.so.6.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libapt-pkg.so.6.0\n\tlibappstream.so.5 (libc6,x86-64) => /lib/x86_64-linux-gnu/libappstream.so.5\n\tlibapparmor.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libapparmor.so.1\n\tlibaom.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libaom.so.3\n\tlibanl.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libanl.so.1\n\tlibanl.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libanl.so\n\tlibacl.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libacl.so.1\n\tlibX11.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libX11.so.6\n\tlibX11-xcb.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libX11-xcb.so.1\n\tlibXxf86vm.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXxf86vm.so.1\n\tlibXtst.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXtst.so.6\n\tlibXrender.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXrender.so.1\n\tlibXrandr.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXrandr.so.2\n\tlibXpm.so.4 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXpm.so.4\n\tlibXmuu.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXmuu.so.1\n\tlibXinerama.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXinerama.so.1\n\tlibXi.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXi.so.6\n\tlibXfixes.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXfixes.so.3\n\tlibXext.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXext.so.6\n\tlibXdmcp.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXdmcp.so.6\n\tlibXdamage.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXdamage.so.1\n\tlibXcursor.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXcursor.so.1\n\tlibXcomposite.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXcomposite.so.1\n\tlibXau.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXau.so.6\n\tlibVkLayer_MESA_overlay.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libVkLayer_MESA_overlay.so\n\tlibVkLayer_MESA_device_select.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libVkLayer_MESA_device_select.so\n\tlibVkLayer_INTEL_nullhw.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libVkLayer_INTEL_nullhw.so\n\tlibLerc.so.4 (libc6,x86-64) => /lib/x86_64-linux-gnu/libLerc.so.4\n\tlibLLVM.so.20.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libLLVM.so.20.1\n\tlibGLdispatch.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libGLdispatch.so.0\n\tlibGLX_mesa.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libGLX_mesa.so.0\n\tlibGLX.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libGLX.so.0\n\tlibGL.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libGL.so.1\n\tlibEGL_mesa.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libEGL_mesa.so.0\n\tlibEGL.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libEGL.so.1\n\tlibBrokenLocale.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libBrokenLocale.so.1\n\tlibBrokenLocale.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libBrokenLocale.so\n\tld-linux-x86-64.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/ld-linux-x86-64.so.2\nCache generated by: ldconfig (Ubuntu GLIBC 2.39-0ubuntu8.9) stable release version 2.39\n"
+        },
+        "icd_manifest": {
+          "path": "/usr/share/vulkan/icd.d/lvp_icd.json",
+          "sha256": "70d49f7fd41a7593a4e283543ed4855c139c700e5c1b31792f56e9576ede2398"
+        },
+        "inventory_complete": true,
+        "external_dependencies_required": true,
+        "external_library_bytes_deduplicated": 199481112,
+        "package_plus_external_library_bytes": 252975273,
+        "standalone_bundle": false,
+        "deployment_kind": "application bundle requiring listed host ELF libraries",
+        "unresolved": [],
+        "dependency_probes": [
+          {
+            "command": [
+              "ldd",
+              "/lib/x86_64-linux-gnu/libvulkan.so.1"
+            ],
+            "exit_code": 0,
+            "output": "\tlinux-vdso.so.1 (0x00007ffc0f9bd000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x000077478523d000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000774785000000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007747853ab000)\n",
+            "role": "Vulkan loader"
+          },
+          {
+            "command": [
+              "ldd",
+              "/lib/x86_64-linux-gnu/libvulkan_lvp.so"
+            ],
+            "exit_code": 0,
+            "output": "\tlinux-vdso.so.1 (0x00007ffcfa9f5000)\n\tlibLLVM.so.20.1 => /lib/x86_64-linux-gnu/libLLVM.so.20.1 (0x00007329f5600000)\n\tlibz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007329fdfdf000)\n\tlibzstd.so.1 => /lib/x86_64-linux-gnu/libzstd.so.1 (0x00007329f5546000)\n\tlibdrm.so.2 => /lib/x86_64-linux-gnu/libdrm.so.2 (0x00007329fdfc8000)\n\tlibexpat.so.1 => /lib/x86_64-linux-gnu/libexpat.so.1 (0x00007329fdf9a000)\n\tlibxcb.so.1 => /lib/x86_64-linux-gnu/libxcb.so.1 (0x00007329f551d000)\n\tlibxcb-randr.so.0 => /lib/x86_64-linux-gnu/libxcb-randr.so.0 (0x00007329f550c000)\n\tlibX11-xcb.so.1 => /lib/x86_64-linux-gnu/libX11-xcb.so.1 (0x00007329fdf93000)\n\tlibxcb-dri3.so.0 => /lib/x86_64-linux-gnu/libxcb-dri3.so.0 (0x00007329f5505000)\n\tlibxcb-present.so.0 => /lib/x86_64-linux-gnu/libxcb-present.so.0 (0x00007329fdf8e000)\n\tlibxcb-xfixes.so.0 => /lib/x86_64-linux-gnu/libxcb-xfixes.so.0 (0x00007329f54fb000)\n\tlibxcb-sync.so.1 => /lib/x86_64-linux-gnu/libxcb-sync.so.1 (0x00007329f54f0000)\n\tlibxcb-shm.so.0 => /lib/x86_64-linux-gnu/libxcb-shm.so.0 (0x00007329f54eb000)\n\tlibxshmfence.so.1 => /lib/x86_64-linux-gnu/libxshmfence.so.1 (0x00007329f54e6000)\n\tlibwayland-client.so.0 => /lib/x86_64-linux-gnu/libwayland-client.so.0 (0x00007329f54d6000)\n\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007329f5200000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007329f5117000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007329f54a6000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007329f4e00000)\n\tlibffi.so.8 => /lib/x86_64-linux-gnu/libffi.so.8 (0x00007329f549a000)\n\tlibedit.so.2 => /lib/x86_64-linux-gnu/libedit.so.2 (0x00007329f50dd000)\n\tlibxml2.so.2 => /lib/x86_64-linux-gnu/libxml2.so.2 (0x00007329f4c1e000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007329feb8f000)\n\tlibXau.so.6 => /lib/x86_64-linux-gnu/libXau.so.6 (0x00007329f5492000)\n\tlibXdmcp.so.6 => /lib/x86_64-linux-gnu/libXdmcp.so.6 (0x00007329f548a000)\n\tlibtinfo.so.6 => /lib/x86_64-linux-gnu/libtinfo.so.6 (0x00007329f50a9000)\n\tlibbsd.so.0 => /lib/x86_64-linux-gnu/libbsd.so.0 (0x00007329f5093000)\n\tlibicuuc.so.74 => /lib/x86_64-linux-gnu/libicuuc.so.74 (0x00007329f4a00000)\n\tliblzma.so.5 => /lib/x86_64-linux-gnu/liblzma.so.5 (0x00007329f5061000)\n\tlibmd.so.0 => /lib/x86_64-linux-gnu/libmd.so.0 (0x00007329f5052000)\n\tlibicudata.so.74 => /lib/x86_64-linux-gnu/libicudata.so.74 (0x00007329f2c00000)\n",
+            "role": "selected Vulkan ICD"
+          }
+        ],
+        "scope": "application DT_NEEDED plus Vulkan loader/selected ICD and their ldd closure; application-specific dlopen, fonts, shaders and other assets need host/package manifest review"
+      }
+    },
+    {
+      "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/measurements/cpu2-01/lite/report.json",
+      "sha256": "7f7b2a297a68eebb77bd20cde58334b17f04018ad21a2ba7deeee7b68e1af840",
+      "status": "passed",
+      "inventory": {
+        "status": "passed",
+        "libraries": [
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libpthread.so.0",
+            "roles": [
+              "application ELF dependency"
+            ],
+            "bytes": 14408,
+            "sha256": "90491a21ce44efcf3bd4b65ec82501c091d7ebe7f8d9b341dd01d721001d9ecd",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libdl.so.2",
+            "roles": [
+              "application ELF dependency"
+            ],
+            "bytes": 14408,
+            "sha256": "c2994527172cc23b7fb0f7d611b71e00a37da27af12c2e5e9e0dc1a742886c96",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/librt.so.1",
+            "roles": [
+              "application ELF dependency"
+            ],
+            "bytes": 14624,
+            "sha256": "6d072187d88e092e81561a44c03a4a41397319022c6d43519757cc051c576d82",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libm.so.6",
+            "roles": [
+              "application ELF dependency",
+              "Vulkan loader ELF dependency",
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 952616,
+            "sha256": "fce00b6f25f459cf4ae0b7fae4257909a1a8a86f9149e7c029a5d617baf1ccd0",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+            "roles": [
+              "application ELF dependency",
+              "Vulkan loader ELF dependency",
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 2129424,
+            "sha256": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+            "roles": [
+              "application ELF dependency",
+              "Vulkan loader ELF dependency",
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 236616,
+            "sha256": "c20a2dc8917c755f02b94049356320fe1f62ac7d9f8994731f807d9df39302da",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+            "roles": [
+              "application ELF dependency",
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 183024,
+            "sha256": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libvulkan.so.1.3.275",
+            "roles": [
+              "Vulkan loader"
+            ],
+            "bytes": 510592,
+            "sha256": "e833b010f814b72c6aca0300c8b5f19b6106ffa06c24ddc95a293970c7d6058e",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libvulkan_lvp.so",
+            "roles": [
+              "selected Vulkan ICD"
+            ],
+            "bytes": 11929384,
+            "sha256": "9d69cae2004b16572acca424741109be37c4ffc759c2461af69d75f7d1c6c139",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libLLVM.so.20.1",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 143545784,
+            "sha256": "4b93481bd1c9d42c0951275dd275d4a9d30db78c309ae2cc0405669bc6dbbf8a",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libz.so.1.3",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 113000,
+            "sha256": "86200da370f20476a2507e9097a789b5ef97269b4ca8d5e164ad82dab9d99892",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.5",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 755864,
+            "sha256": "0a2128bc10841fb29e76d08d945864dfb0b6a66da5df6df5d8299197439e54bb",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libdrm.so.2.125.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 92760,
+            "sha256": "ff39219aa058421e46afd36851342370cd1932d2557eb22f54e129755642bf67",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libexpat.so.1.9.1",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 186624,
+            "sha256": "286682ecbc5e59a638963b1a4e6351e65eb32fcf4bdcb9cb7569b6a61fe06a8d",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 162392,
+            "sha256": "7958a0136b121bdc4c708968569ad152a9ed208ab026e2537b1005dde64ca440",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libxcb-randr.so.0.1.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 67784,
+            "sha256": "9fa6b0ec4af163a86bc9a9ded3309a5979155fb5ef2d311fdda7fff0e9eee01a",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libX11-xcb.so.1.0.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 14024,
+            "sha256": "966fc171a949852a606efdf44d255f6f91b35c16328f5405c1b24743b6708ea7",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libxcb-dri3.so.0.1.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 22744,
+            "sha256": "a919146693e71897484c2996beb837273a7a278d1a2afe477bc072f10681f3b0",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libxcb-present.so.0.0.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 14536,
+            "sha256": "d06d982abe6e9202aecd22322166be8ba49e68e05889fb6c6faec0daa88530a4",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libxcb-xfixes.so.0.0.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 35016,
+            "sha256": "e59ef497333a6ede2096a0bd9eeb6ec4023374c16d3a8d7511d1251fb7f9b9df",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libxcb-sync.so.1.0.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 35032,
+            "sha256": "27c2d6dddde34146904c3c64cfcc885a14a351636d6611877368a48e29355c39",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libxcb-shm.so.0.0.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 14552,
+            "sha256": "ad78a7b22409685ca82e54346c2b9465d697f303e69e74a9c1693bb206e319df",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libxshmfence.so.1.0.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 14480,
+            "sha256": "7d40b02b27d449b6b26cea10ea10aafd0cce5a1e2d7859ea57f34b29fe88923f",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libwayland-client.so.0.22.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 64776,
+            "sha256": "1c22abb422953442aa12822ea51ac76d1c8be92ed143e0159e0f830776cde2b2",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 2592224,
+            "sha256": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libffi.so.8.1.4",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 47672,
+            "sha256": "00f593fe192f2851b8ce23b25cec2488d769beb5a8f63e8c9e563071e1075153",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libedit.so.2.0.72",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 220472,
+            "sha256": "195c607216f8581dbf516346ed38f4c73500cac4b84e18eb0a4fd49931e4cd56",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libxml2.so.2.9.14",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 1967424,
+            "sha256": "209e941be9eb2eb9ab36caaa0b81d1c6b36c8f5d7268c24f19e81039137e6485",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libXau.so.6.0.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 18696,
+            "sha256": "8040da3f8516c1acfe39f04ff022480cdb273705ba5e7a4ca70bbdb1527cd67a",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 26776,
+            "sha256": "667d97d6da16016400ab10de9f83ef4ab209ceb6adf68ff9650225ec13e723b0",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libtinfo.so.6.4",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 208328,
+            "sha256": "e6089d7bb95eee5b545f3770dd69095b0bca47d26701cad145af429561d16306",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libbsd.so.0.12.1",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 80888,
+            "sha256": "e86cd4f0019f42c2ba5e60602e0edc8694d2948377d98c3654d0f6bddb5254bb",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libicuuc.so.74.2",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 2140336,
+            "sha256": "7560aadde38e5f4237a47a1ddd5891f9b36768a77a60faae30beee003ac01901",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/liblzma.so.5.4.5",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 202904,
+            "sha256": "696e868dd0700a19a6d65fc01608ec2d70d3cb91f65710e89180cd2e688f30cb",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libmd.so.0.1.0",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 55536,
+            "sha256": "423e18586b6ea740f4465afd64f7a9a4cb7264ed979c8e7256f9085af5345fef",
+            "packaged": false
+          },
+          {
+            "path": "/usr/lib/x86_64-linux-gnu/libicudata.so.74.2",
+            "roles": [
+              "selected Vulkan ICD ELF dependency"
+            ],
+            "bytes": 30795392,
+            "sha256": "ddbb3718b8bd9cbd780e5ab08b4503c30a6c4fa0706ebe5d074ed6b596c1714e",
+            "packaged": false
+          }
+        ],
+        "loader_cache_probe": {
+          "command": [
+            "/sbin/ldconfig",
+            "-p"
+          ],
+          "exit_code": 0,
+          "output": "320 libs found in cache `/etc/ld.so.cache'\n\tlibzstd.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libzstd.so.1\n\tlibz.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libz.so.1\n\tlibz.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libz.so\n\tlibyaml-0.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libyaml-0.so.2\n\tlibxxhash.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxxhash.so.0\n\tlibxtables.so.12 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxtables.so.12\n\tlibxshmfence.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxshmfence.so.1\n\tlibxml2.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxml2.so.2\n\tlibxmlb.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxmlb.so.2\n\tlibxkbcommon.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxkbcommon.so.0\n\tlibxcb.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxcb.so.1\n\tlibxcb-xfixes.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxcb-xfixes.so.0\n\tlibxcb-sync.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxcb-sync.so.1\n\tlibxcb-shm.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxcb-shm.so.0\n\tlibxcb-render.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxcb-render.so.0\n\tlibxcb-randr.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxcb-randr.so.0\n\tlibxcb-present.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxcb-present.so.0\n\tlibxcb-glx.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxcb-glx.so.0\n\tlibxcb-dri3.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libxcb-dri3.so.0\n\tlibwebp.so.7 (libc6,x86-64) => /lib/x86_64-linux-gnu/libwebp.so.7\n\tlibwayland-egl.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libwayland-egl.so.1\n\tlibwayland-cursor.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libwayland-cursor.so.0\n\tlibwayland-client.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libwayland-client.so.0\n\tlibvulkan_virtio.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_virtio.so\n\tlibvulkan_radeon.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_radeon.so\n\tlibvulkan_nouveau.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_nouveau.so\n\tlibvulkan_lvp.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_lvp.so\n\tlibvulkan_intel_hasvk.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_intel_hasvk.so\n\tlibvulkan_intel.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_intel.so\n\tlibvulkan_gfxstream.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_gfxstream.so\n\tlibvulkan_asahi.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan_asahi.so\n\tlibvulkan.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libvulkan.so.1\n\tlibuuid.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libuuid.so.1\n\tlibutil.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libutil.so.1\n\tlibutempter.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libutempter.so.0\n\tlibunwind.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libunwind.so.8\n\tlibunwind-x86_64.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libunwind-x86_64.so.8\n\tlibunwind-ptrace.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libunwind-ptrace.so.0\n\tlibunwind-coredump.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libunwind-coredump.so.0\n\tlibunistring.so.5 (libc6,x86-64) => /lib/x86_64-linux-gnu/libunistring.so.5\n\tlibudev.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libudev.so.1\n\tlibuchardet.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libuchardet.so.0\n\tlibubsan.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libubsan.so.1\n\tlibtsan.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libtsan.so.2\n\tlibtirpc.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libtirpc.so.3\n\tlibtinfo.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libtinfo.so.6\n\tlibtiff.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libtiff.so.6\n\tlibtic.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libtic.so.6\n\tlibthread_db.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libthread_db.so.1\n\tlibthread_db.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libthread_db.so\n\tlibthai.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libthai.so.0\n\tlibtasn1.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libtasn1.so.6\n\tlibsystemd.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsystemd.so.0\n\tlibstemmer.so.0d (libc6,x86-64) => /lib/x86_64-linux-gnu/libstemmer.so.0d\n\tlibstdc++.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libstdc++.so.6\n\tlibssl.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libssl.so.3\n\tlibssh.so.4 (libc6,x86-64) => /lib/x86_64-linux-gnu/libssh.so.4\n\tlibss.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libss.so.2\n\tlibsqlite3.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsqlite3.so.0\n\tlibsodium.so.23 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsodium.so.23\n\tlibsmartcols.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsmartcols.so.1\n\tlibslang.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libslang.so.2\n\tlibsigsegv.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsigsegv.so.2\n\tlibsharpyuv.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsharpyuv.so.0\n\tlibsframe.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsframe.so.1\n\tlibsepol.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsepol.so.2\n\tlibsensors.so.5 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsensors.so.5\n\tlibsemanage.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsemanage.so.2\n\tlibselinux.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libselinux.so.1\n\tlibseccomp.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libseccomp.so.2\n\tlibsasl2.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libsasl2.so.2\n\tlibrtmp.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/librtmp.so.1\n\tlibrt.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/librt.so.1\n\tlibrsvg-2.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/librsvg-2.so.2\n\tlibresolv.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libresolv.so.2\n\tlibresolv.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libresolv.so\n\tlibreadline.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libreadline.so.8\n\tlibquadmath.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libquadmath.so.0\n\tlibp11-kit.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libp11-kit.so.0\n\tlibpython3.12.so.1.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpython3.12.so.1.0\n\tlibpython3.12.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libpython3.12.so\n\tlibpthread.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpthread.so.0\n\tlibpsx.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpsx.so.2\n\tlibpsl.so.5 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpsl.so.5\n\tlibproc2.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libproc2.so.0\n\tlibpopt.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpopt.so.0\n\tlibpolkit-gobject-1.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpolkit-gobject-1.so.0\n\tlibpolkit-agent-1.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpolkit-agent-1.so.0\n\tlibpng16.so.16 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpng16.so.16\n\tlibpixman-1.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpixman-1.so.0\n\tlibpipeline.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpipeline.so.1\n\tlibperl.so.5.38 (libc6,x86-64) => /lib/x86_64-linux-gnu/libperl.so.5.38\n\tlibpcre2-8.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpcre2-8.so.0\n\tlibpcprofile.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libpcprofile.so\n\tlibpciaccess.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpciaccess.so.0\n\tlibpangoft2-1.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpangoft2-1.0.so.0\n\tlibpangocairo-1.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpangocairo-1.0.so.0\n\tlibpango-1.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpango-1.0.so.0\n\tlibpanelw.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpanelw.so.6\n\tlibpamc.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpamc.so.0\n\tlibpam_misc.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpam_misc.so.0\n\tlibpam.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpam.so.0\n\tlibpackagekit-glib2.so.18 (libc6,x86-64) => /lib/x86_64-linux-gnu/libpackagekit-glib2.so.18\n\tlibopcodes-2.42-system.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libopcodes-2.42-system.so\n\tlibnvwgf2umx.so (libc6,x86-64) => /usr/lib/wsl/lib/libnvwgf2umx.so\n\tlibnvoptix_loader.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libnvoptix_loader.so.1\n\tlibnvidia-opticalflow.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libnvidia-opticalflow.so.1\n\tlibnvidia-ngx.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libnvidia-ngx.so.1\n\tlibnvidia-ml.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libnvidia-ml.so.1\n\tlibnvidia-gpucomp.so.610.43.02 (libc6,x86-64) => /usr/lib/wsl/lib/libnvidia-gpucomp.so.610.43.02\n\tlibnvidia-encode.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libnvidia-encode.so.1\n\tlibnvdxdlkernels.so (libc6,x86-64) => /usr/lib/wsl/lib/libnvdxdlkernels.so\n\tlibnvcuvid.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libnvcuvid.so.1\n\tlibnss_systemd.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnss_systemd.so.2\n\tlibnss_hesiod.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnss_hesiod.so.2\n\tlibnss_hesiod.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libnss_hesiod.so\n\tlibnss_files.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnss_files.so.2\n\tlibnss_dns.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnss_dns.so.2\n\tlibnss_compat.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnss_compat.so.2\n\tlibnss_compat.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libnss_compat.so\n\tlibnsl.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnsl.so.1\n\tlibnpth.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnpth.so.0\n\tlibnghttp2.so.14 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnghttp2.so.14\n\tlibnewt.so.0.52 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnewt.so.0.52\n\tlibnettle.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnettle.so.8\n\tlibnetplan.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libnetplan.so.1\n\tlibncursesw.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libncursesw.so.6\n\tlibmvec.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libmvec.so.1\n\tlibmvec.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libmvec.so\n\tlibmpfr.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libmpfr.so.6\n\tlibmpc.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libmpc.so.3\n\tlibmount.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libmount.so.1\n\tlibmnl.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libmnl.so.0\n\tlibmenuw.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libmenuw.so.6\n\tlibmemusage.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libmemusage.so\n\tlibmd.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libmd.so.0\n\tlibmagic.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libmagic.so.1\n\tlibm.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libm.so.6\n\tliblz4.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/liblz4.so.1\n\tliblzo2.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/liblzo2.so.2\n\tliblzma.so.5 (libc6,x86-64) => /lib/x86_64-linux-gnu/liblzma.so.5\n\tliblsan.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/liblsan.so.0\n\tlibldap.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libldap.so.2\n\tliblcms2.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/liblcms2.so.2\n\tliblber.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/liblber.so.2\n\tlibk5crypto.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libk5crypto.so.3\n\tlibksba.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libksba.so.8\n\tlibkrb5support.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libkrb5support.so.0\n\tlibkrb5.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libkrb5.so.3\n\tlibkmod.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libkmod.so.2\n\tlibkeyutils.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libkeyutils.so.1\n\tlibjson-c.so.5 (libc6,x86-64) => /lib/x86_64-linux-gnu/libjson-c.so.5\n\tlibjpeg.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libjpeg.so.8\n\tlibjbig.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libjbig.so.0\n\tlibjansson.so.4 (libc6,x86-64) => /lib/x86_64-linux-gnu/libjansson.so.4\n\tlibitm.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libitm.so.1\n\tlibisl.so.23 (libc6,x86-64) => /lib/x86_64-linux-gnu/libisl.so.23\n\tlibidn2.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libidn2.so.0\n\tlibicuuc.so.74 (libc6,x86-64) => /lib/x86_64-linux-gnu/libicuuc.so.74\n\tlibicutu.so.74 (libc6,x86-64) => /lib/x86_64-linux-gnu/libicutu.so.74\n\tlibicutest.so.74 (libc6,x86-64) => /lib/x86_64-linux-gnu/libicutest.so.74\n\tlibicui18n.so.74 (libc6,x86-64) => /lib/x86_64-linux-gnu/libicui18n.so.74\n\tlibicuio.so.74 (libc6,x86-64) => /lib/x86_64-linux-gnu/libicuio.so.74\n\tlibicudata.so.74 (libc6,x86-64) => /lib/x86_64-linux-gnu/libicudata.so.74\n\tlibhwasan.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libhwasan.so.0\n\tlibhogweed.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libhogweed.so.6\n\tlibhistory.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libhistory.so.8\n\tlibheif.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libheif.so.1\n\tlibharfbuzz.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libharfbuzz.so.0\n\tlibgtk-3.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgtk-3.so.0\n\tlibgthread-2.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgthread-2.0.so.0\n\tlibgstreamer-1.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgstreamer-1.0.so.0\n\tlibgstnet-1.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgstnet-1.0.so.0\n\tlibgstcontroller-1.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgstcontroller-1.0.so.0\n\tlibgstcheck-1.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgstcheck-1.0.so.0\n\tlibgstbase-1.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgstbase-1.0.so.0\n\tlibgssapi_krb5.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgssapi_krb5.so.2\n\tlibgraphite2.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgraphite2.so.3\n\tlibgprofng.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgprofng.so.0\n\tlibgpm.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgpm.so.2\n\tlibgpg-error.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgpg-error.so.0\n\tlibgomp.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgomp.so.1\n\tlibgobject-2.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgobject-2.0.so.0\n\tlibgnutls.so.30 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgnutls.so.30\n\tlibgmp.so.10 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgmp.so.10\n\tlibgmodule-2.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgmodule-2.0.so.0\n\tlibglib-2.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libglib-2.0.so.0\n\tlibgirepository-1.0.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgirepository-1.0.so.1\n\tlibgio-2.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgio-2.0.so.0\n\tlibgdk_pixbuf-2.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgdk_pixbuf-2.0.so.0\n\tlibgdk-3.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgdk-3.so.0\n\tlibgdbm_compat.so.4 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgdbm_compat.so.4\n\tlibgdbm.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgdbm.so.6\n\tlibgd.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgd.so.3\n\tlibgcrypt.so.20 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgcrypt.so.20\n\tlibgcc_s.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgcc_s.so.1\n\tlibgbm.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libgbm.so.1\n\tlibgallium-25.2.8-0ubuntu0.24.04.2.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libgallium-25.2.8-0ubuntu0.24.04.2.so\n\tlibfuse3.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfuse3.so.3\n\tlibfribidi.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfribidi.so.0\n\tlibfreetype.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfreetype.so.6\n\tlibformw.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libformw.so.6\n\tlibfontconfig.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfontconfig.so.1\n\tlibfido2.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfido2.so.1\n\tlibffi.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libffi.so.8\n\tlibfdisk.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfdisk.so.1\n\tlibfastjson.so.4 (libc6,x86-64) => /lib/x86_64-linux-gnu/libfastjson.so.4\n\tlibfakeroot-0.so (libc6,x86-64) => /usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-0.so\n\tlibe2p.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libe2p.so.2\n\tlibext2fs.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libext2fs.so.2\n\tlibexpatw.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libexpatw.so.1\n\tlibexpatw.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libexpatw.so\n\tlibexpat.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libexpat.so.1\n\tlibexpat.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libexpat.so\n\tlibevent_core-2.1.so.7 (libc6,x86-64) => /lib/x86_64-linux-gnu/libevent_core-2.1.so.7\n\tlibestr.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libestr.so.0\n\tlibepoxy.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libepoxy.so.0\n\tlibelf.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libelf.so.1\n\tlibedit.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libedit.so.2\n\tlibeatmydata.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libeatmydata.so.1\n\tlibeatmydata.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libeatmydata.so\n\tlibd3d12core.so (libc6,x86-64) => /usr/lib/wsl/lib/libd3d12core.so\n\tlibd3d12.so (libc6,x86-64) => /usr/lib/wsl/lib/libd3d12.so\n\tlibdxcore.so (libc6,x86-64) => /usr/lib/wsl/lib/libdxcore.so\n\tlibdw.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdw.so.1\n\tlibduktape.so.207 (libc6,x86-64) => /lib/x86_64-linux-gnu/libduktape.so.207\n\tlibdrop_ambient.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdrop_ambient.so.0\n\tlibdrm_intel.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdrm_intel.so.1\n\tlibdrm_amdgpu.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdrm_amdgpu.so.1\n\tlibdrm.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdrm.so.2\n\tlibdl.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdl.so.2\n\tlibdevmapper.so.1.02.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdevmapper.so.1.02.1\n\tlibdeflate.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdeflate.so.0\n\tlibdebconfclient.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdebconfclient.so.0\n\tlibdconf.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdconf.so.1\n\tlibdbus-1.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdbus-1.so.3\n\tlibdb-5.3.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libdb-5.3.so\n\tlibdatrie.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libdatrie.so.1\n\tlibcurl.so.4 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcurl.so.4\n\tlibcurl-gnutls.so.4 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcurl-gnutls.so.4\n\tlibcups.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcups.so.2\n\tlibcudadebugger.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libcudadebugger.so.1\n\tlibcuda.so.1 (libc6,x86-64) => /usr/lib/wsl/lib/libcuda.so.1\n\tlibctf.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libctf.so.0\n\tlibctf-nobfd.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libctf-nobfd.so.0\n\tlibcryptsetup.so.12 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcryptsetup.so.12\n\tlibcrypto.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcrypto.so.3\n\tlibcrypt.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcrypt.so.1\n\tlibcrypt.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libcrypt.so\n\tlibcom_err.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcom_err.so.2\n\tlibcolordprivate.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcolordprivate.so.2\n\tlibcolord.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcolord.so.2\n\tlibcc1.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcc1.so.0\n\tlibcbor.so.0.10 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcbor.so.0.10\n\tlibcap.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcap.so.2\n\tlibcap-ng.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcap-ng.so.0\n\tlibcairo.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcairo.so.2\n\tlibcairo-gobject.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libcairo-gobject.so.2\n\tlibc_malloc_debug.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libc_malloc_debug.so.0\n\tlibc_malloc_debug.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libc_malloc_debug.so\n\tlibc.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libc.so.6\n\tlibbz2.so.1.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libbz2.so.1.0\n\tlibbsd.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libbsd.so.0\n\tlibbrotlienc.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libbrotlienc.so.1\n\tlibbrotlidec.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libbrotlidec.so.1\n\tlibbrotlicommon.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libbrotlicommon.so.1\n\tlibbpf.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libbpf.so.1\n\tlibblkid.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libblkid.so.1\n\tlibbfd-2.42-system.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libbfd-2.42-system.so\n\tlibavahi-common.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libavahi-common.so.3\n\tlibavahi-client.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libavahi-client.so.3\n\tlibaudit.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libaudit.so.1\n\tlibattr.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libattr.so.1\n\tlibatspi.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libatspi.so.0\n\tlibatomic.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libatomic.so.1\n\tlibatm.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libatm.so.1\n\tlibatk-1.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libatk-1.0.so.0\n\tlibatk-bridge-2.0.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libatk-bridge-2.0.so.0\n\tlibassuan.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libassuan.so.0\n\tlibasan.so.8 (libc6,x86-64) => /lib/x86_64-linux-gnu/libasan.so.8\n\tlibargon2.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libargon2.so.1\n\tlibapt-private.so.0.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libapt-private.so.0.0\n\tlibapt-pkg.so.6.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libapt-pkg.so.6.0\n\tlibappstream.so.5 (libc6,x86-64) => /lib/x86_64-linux-gnu/libappstream.so.5\n\tlibapparmor.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libapparmor.so.1\n\tlibaom.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libaom.so.3\n\tlibanl.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libanl.so.1\n\tlibanl.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libanl.so\n\tlibacl.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libacl.so.1\n\tlibX11.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libX11.so.6\n\tlibX11-xcb.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libX11-xcb.so.1\n\tlibXxf86vm.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXxf86vm.so.1\n\tlibXtst.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXtst.so.6\n\tlibXrender.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXrender.so.1\n\tlibXrandr.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXrandr.so.2\n\tlibXpm.so.4 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXpm.so.4\n\tlibXmuu.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXmuu.so.1\n\tlibXinerama.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXinerama.so.1\n\tlibXi.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXi.so.6\n\tlibXfixes.so.3 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXfixes.so.3\n\tlibXext.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXext.so.6\n\tlibXdmcp.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXdmcp.so.6\n\tlibXdamage.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXdamage.so.1\n\tlibXcursor.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXcursor.so.1\n\tlibXcomposite.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXcomposite.so.1\n\tlibXau.so.6 (libc6,x86-64) => /lib/x86_64-linux-gnu/libXau.so.6\n\tlibVkLayer_MESA_overlay.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libVkLayer_MESA_overlay.so\n\tlibVkLayer_MESA_device_select.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libVkLayer_MESA_device_select.so\n\tlibVkLayer_INTEL_nullhw.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libVkLayer_INTEL_nullhw.so\n\tlibLerc.so.4 (libc6,x86-64) => /lib/x86_64-linux-gnu/libLerc.so.4\n\tlibLLVM.so.20.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libLLVM.so.20.1\n\tlibGLdispatch.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libGLdispatch.so.0\n\tlibGLX_mesa.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libGLX_mesa.so.0\n\tlibGLX.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libGLX.so.0\n\tlibGL.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libGL.so.1\n\tlibEGL_mesa.so.0 (libc6,x86-64) => /lib/x86_64-linux-gnu/libEGL_mesa.so.0\n\tlibEGL.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libEGL.so.1\n\tlibBrokenLocale.so.1 (libc6,x86-64) => /lib/x86_64-linux-gnu/libBrokenLocale.so.1\n\tlibBrokenLocale.so (libc6,x86-64) => /lib/x86_64-linux-gnu/libBrokenLocale.so\n\tld-linux-x86-64.so.2 (libc6,x86-64) => /lib/x86_64-linux-gnu/ld-linux-x86-64.so.2\nCache generated by: ldconfig (Ubuntu GLIBC 2.39-0ubuntu8.9) stable release version 2.39\n"
+        },
+        "icd_manifest": {
+          "path": "/usr/share/vulkan/icd.d/lvp_icd.json",
+          "sha256": "70d49f7fd41a7593a4e283543ed4855c139c700e5c1b31792f56e9576ede2398"
+        },
+        "inventory_complete": true,
+        "external_dependencies_required": true,
+        "external_library_bytes_deduplicated": 199481112,
+        "package_plus_external_library_bytes": 252975273,
+        "standalone_bundle": false,
+        "deployment_kind": "application bundle requiring listed host ELF libraries",
+        "unresolved": [],
+        "dependency_probes": [
+          {
+            "command": [
+              "ldd",
+              "/lib/x86_64-linux-gnu/libvulkan.so.1"
+            ],
+            "exit_code": 0,
+            "output": "\tlinux-vdso.so.1 (0x00007ffcf7f96000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x0000730a35f2f000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000730a35c00000)\n\t/lib64/ld-linux-x86-64.so.2 (0x0000730a3609d000)\n",
+            "role": "Vulkan loader"
+          },
+          {
+            "command": [
+              "ldd",
+              "/lib/x86_64-linux-gnu/libvulkan_lvp.so"
+            ],
+            "exit_code": 0,
+            "output": "\tlinux-vdso.so.1 (0x00007ffc63f1e000)\n\tlibLLVM.so.20.1 => /lib/x86_64-linux-gnu/libLLVM.so.20.1 (0x00007a68ad000000)\n\tlibz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007a68b674b000)\n\tlibzstd.so.1 => /lib/x86_64-linux-gnu/libzstd.so.1 (0x00007a68b6691000)\n\tlibdrm.so.2 => /lib/x86_64-linux-gnu/libdrm.so.2 (0x00007a68b667a000)\n\tlibexpat.so.1 => /lib/x86_64-linux-gnu/libexpat.so.1 (0x00007a68b664c000)\n\tlibxcb.so.1 => /lib/x86_64-linux-gnu/libxcb.so.1 (0x00007a68b6621000)\n\tlibxcb-randr.so.0 => /lib/x86_64-linux-gnu/libxcb-randr.so.0 (0x00007a68b6610000)\n\tlibX11-xcb.so.1 => /lib/x86_64-linux-gnu/libX11-xcb.so.1 (0x00007a68b660b000)\n\tlibxcb-dri3.so.0 => /lib/x86_64-linux-gnu/libxcb-dri3.so.0 (0x00007a68b6604000)\n\tlibxcb-present.so.0 => /lib/x86_64-linux-gnu/libxcb-present.so.0 (0x00007a68b65ff000)\n\tlibxcb-xfixes.so.0 => /lib/x86_64-linux-gnu/libxcb-xfixes.so.0 (0x00007a68b65f5000)\n\tlibxcb-sync.so.1 => /lib/x86_64-linux-gnu/libxcb-sync.so.1 (0x00007a68b65ea000)\n\tlibxcb-shm.so.0 => /lib/x86_64-linux-gnu/libxcb-shm.so.0 (0x00007a68b65e5000)\n\tlibxshmfence.so.1 => /lib/x86_64-linux-gnu/libxshmfence.so.1 (0x00007a68b65e0000)\n\tlibwayland-client.so.0 => /lib/x86_64-linux-gnu/libwayland-client.so.0 (0x00007a68b65d0000)\n\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007a68acc00000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007a68acf17000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007a68b65a0000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007a68ac800000)\n\tlibffi.so.8 => /lib/x86_64-linux-gnu/libffi.so.8 (0x00007a68b6594000)\n\tlibedit.so.2 => /lib/x86_64-linux-gnu/libedit.so.2 (0x00007a68b59c6000)\n\tlibxml2.so.2 => /lib/x86_64-linux-gnu/libxml2.so.2 (0x00007a68aca1e000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007a68b676e000)\n\tlibXau.so.6 => /lib/x86_64-linux-gnu/libXau.so.6 (0x00007a68b59c0000)\n\tlibXdmcp.so.6 => /lib/x86_64-linux-gnu/libXdmcp.so.6 (0x00007a68b59b8000)\n\tlibtinfo.so.6 => /lib/x86_64-linux-gnu/libtinfo.so.6 (0x00007a68acee3000)\n\tlibbsd.so.0 => /lib/x86_64-linux-gnu/libbsd.so.0 (0x00007a68b59a2000)\n\tlibicuuc.so.74 => /lib/x86_64-linux-gnu/libicuuc.so.74 (0x00007a68ac400000)\n\tliblzma.so.5 => /lib/x86_64-linux-gnu/liblzma.so.5 (0x00007a68aceb1000)\n\tlibmd.so.0 => /lib/x86_64-linux-gnu/libmd.so.0 (0x00007a68b5993000)\n\tlibicudata.so.74 => /lib/x86_64-linux-gnu/libicudata.so.74 (0x00007a68aa600000)\n",
+            "role": "selected Vulkan ICD"
+          }
+        ],
+        "scope": "application DT_NEEDED plus Vulkan loader/selected ICD and their ldd closure; application-specific dlopen, fonts, shaders and other assets need host/package manifest review"
+      }
+    }
+  ],
+  "status": "passed"
+}

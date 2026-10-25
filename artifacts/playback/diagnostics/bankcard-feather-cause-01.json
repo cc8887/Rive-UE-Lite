@@ -1,0 +1,433 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-24T13:17:14.113147+00:00",
+  "status": "source_supported_hypothesis_not_runtime_confirmed",
+  "scope": "Read-only diagnosis of the original independent-archive bankcard difference. This report does not claim a successful repair, independent shader equivalence, Editor/UMG parity, or library-wide acceptance.",
+  "observed_difference": {
+    "pixel_difference_count": 72399,
+    "alpha_pixel_difference_count": 9804,
+    "maximum_absolute_channel_difference": 19,
+    "changed_bounds_inclusive": [
+      129,
+      50,
+      382,
+      470
+    ],
+    "direction": "Native brighter / higher alpha; glow/shadow and transparent border regions dominate. Source of regional observation is the linked existing diagnostic.",
+    "regional_diagnostic": {
+      "path": "F:/Github/Rive-UE-Lite/artifacts/playback/diagnostics/bankcard-regions-01.json",
+      "bytes": 12808,
+      "sha256": "7eb7aa0b69c21e8afd87051328c9205ab07c94c51217159fe2eb44b99771efee"
+    },
+    "reference_png": {
+      "path": "F:/Github/Rive-UE-Lite/artifacts/playback-independent-01/static_bankcard/reference/output.png",
+      "bytes": 48350,
+      "sha256": "a3cdfb22b42140e5b680f5d680f6c0ca0b2680ce2dda5522901244b7fa6fd503"
+    },
+    "lite_png": {
+      "path": "F:/Github/Rive-UE-Lite/artifacts/playback-independent-01/static_bankcard/lite/output.png",
+      "bytes": 34832,
+      "sha256": "0e12a0d972fabf61ee47a05cbda0ce31bedc781704e3eef8804065f9dd45059d"
+    }
+  },
+  "old_lite_input": {
+    "provenance": {
+      "path": "F:/Github/Rive-UE-Lite/artifacts/shaders-independent-lite-01/provenance.json",
+      "bytes": 23669,
+      "sha256": "e79eafab6caa5e44c33d3782ca5e3c8c29ba0771ef41378e2030896a2f213f0b"
+    },
+    "recorded_compiler_source": {
+      "path": "/mnt/f/Github/Rive-UE-Lite/Source/RiveLiteShaderCompiler/Private/RiveLiteShaderCompiler.cpp",
+      "bytes": 26826,
+      "sha256": "42ab4fda3ae95bd158c31d3e76621cab9fed1ee6757a596596d44d7523c499cf"
+    },
+    "old_source_reconstruction": {
+      "method": "Read current helper bytes; remove only the already-added COMPILER_DXC comment and SetDefine lines in memory; compare SHA256 with the immutable lite-01 provenance. No reconstructed source file was written.",
+      "removed_bytes": 141,
+      "sha256": "42ab4fda3ae95bd158c31d3e76621cab9fed1ee6757a596596d44d7523c499cf",
+      "matches_old_provenance": true,
+      "contains_COMPILER_DXC_token": false
+    },
+    "effective_COMPILER_DXC": 0,
+    "effective_value_basis": "Old SetupInput contains no COMPILER_DXC assignment. Vulkan format sets Vulkan compiler identity but not COMPILER_DXC; Platform.ush supplies #ifndef COMPILER_DXC / #define COMPILER_DXC 0. This is source-derived; no old per-feather preprocessor dump was captured.",
+    "current_helper": {
+      "path": "F:/Github/Rive-UE-Lite/Source/RiveLiteShaderCompiler/Private/RiveLiteShaderCompiler.cpp",
+      "bytes": 26967,
+      "sha256": "c23461e1b881eebd9e97f315054eaea7c3c001c3127f2f4848a6b6b74d5b9d96"
+    },
+    "current_helper_is_already_modified_by_other_agent": true,
+    "archive": {
+      "path": "F:/Github/Rive-UE-Lite/artifacts/shaders-independent-lite-01/global.bin",
+      "bytes": 17147039,
+      "sha256": "a252df0dd066ebbb06f754617dceaa38a4f75bb95c184d8dacb45a45e96d3d2d"
+    }
+  },
+  "native_input": {
+    "define_csv": {
+      "path": "F:/Github/Rive-UE-Lite/artifacts/shaders-canonical/full-01/global.bin.first-rive-defines.csv",
+      "bytes": 5866,
+      "sha256": "f92a8e965f29e4f5f2937a923851c3cb36d7f09bf29665464d5dcba7242f7b06"
+    },
+    "observed_csv_row": [
+      "COMPILER_DXC",
+      "Integer",
+      "1"
+    ],
+    "csv_scope": "CSV is the first Rive job, FRiveRDGVisualizeBufferPixelShader perm0, not a feather-specific dump. ShaderCompiler.cpp sets COMPILER_DXC through the common native GlobalBeginCompileShader path used for all submitted global jobs.",
+    "archive": {
+      "path": "F:/Github/Rive-UE-Lite/artifacts/shaders-canonical/full-01/global.bin",
+      "bytes": 7082186,
+      "sha256": "64e87e74218e9dfe1e23ed0c268ec47d2bbb6fc7a71b0cbcd710d26c4138aa0e"
+    }
+  },
+  "causal_chain": [
+    {
+      "path": "F:/Github/Rive-UE-Lite/engine/Engine/Source/Runtime/Engine/Private/ShaderCompiler/ShaderCompiler.cpp",
+      "bytes": 261917,
+      "sha256": "58d13a50d0142ef577059cd9cae5008b77ba45e3c623913121d42278abe015a4",
+      "line_start": 3964,
+      "line_end": 3970,
+      "claim": "Native GlobalBeginCompileShader derives bIsDxcEnabled and sets COMPILER_DXC; the observed native CSV value is 1."
+    },
+    {
+      "path": "F:/Github/Rive-UE-Lite/engine/Engine/Shaders/Public/Platform.ush",
+      "bytes": 52855,
+      "sha256": "eaf3557f00c50e58239f5640807318f4527a9b47b6d840a487360f7d85f21a48",
+      "line_start": 85,
+      "line_end": 87,
+      "claim": "Absent COMPILER_DXC defaults to 0 before Rive generated includes are expanded."
+    },
+    {
+      "path": "F:/Github/Rive-UE-Lite/Shaders/Private/Rive/draw_atlas_fill.usf",
+      "bytes": 482,
+      "sha256": "fdaf41cd60532edabef1ab95142cc8ab96ddd941b4830aea38fad5f91284ab49",
+      "line_start": 1,
+      "line_end": 19,
+      "claim": "Atlas fill defines DRAW_PATH, ENABLE_FEATHER, ATLAS_FEATHERED_FILL and includes the unchanged Rive RHI, feather evaluation and render_atlas shader sources."
+    },
+    {
+      "path": "F:/Github/Rive-UE-Lite/Shaders/Private/Rive/Generated/rhi.minified.ush",
+      "bytes": 26827,
+      "sha256": "1d7639f8e0584b9bb7db4f9b97bb351f1d7b8fba060f2fc797f0524e4cbb7e84",
+      "line_start": 511,
+      "line_end": 518,
+      "claim": "For Vulkan, COMPILER_DXC=1 maps front face to clockwise unchanged; 0 logically negates front face."
+    },
+    {
+      "path": "F:/Github/Rive-UE-Lite/Shaders/Private/Rive/Generated/rhi.minified.ush",
+      "bytes": 26827,
+      "sha256": "1d7639f8e0584b9bb7db4f9b97bb351f1d7b8fba060f2fc797f0524e4cbb7e84",
+      "line_start": 551,
+      "line_end": 561,
+      "claim": "FRAG_DATA_MAIN_WITH_CLOCKWISE consumes SV_IsFrontFace and computes _clockwise with that macro."
+    },
+    {
+      "path": "F:/Github/Rive-UE-Lite/Shaders/Private/Rive/Generated/render_atlas.minified.ush",
+      "bytes": 7576,
+      "sha256": "2b5157cd8cb1d9faf986257f7c8163f9c59360bf95cdcee3b8a3f45028b2f177",
+      "line_start": 68,
+      "line_end": 76,
+      "claim": "signed_fill_coverage evaluates feather coverage, then negates it when !clockwise."
+    },
+    {
+      "path": "F:/Github/Rive-UE-Lite/Shaders/Private/Rive/Generated/render_atlas.minified.ush",
+      "bytes": 7576,
+      "sha256": "2b5157cd8cb1d9faf986257f7c8163f9c59360bf95cdcee3b8a3f45028b2f177",
+      "line_start": 263,
+      "line_end": 275,
+      "claim": "The float render-target atlas fill branch directly emits signed_fill_coverage; it does not take abs."
+    },
+    {
+      "path": "F:/Github/Rive-UE-Lite/Source/RiveLiteRenderer/Private/Platform/RenderContextRHIImpl.cpp",
+      "bytes": 138520,
+      "sha256": "e32388f980cc9d019f9118698e690ed74cc46b38bd103338e22e89a48977ab07",
+      "line_start": 1934,
+      "line_end": 1949,
+      "claim": "Feather atlas uses PF_R16F, a floating-point coverage texture."
+    },
+    {
+      "path": "F:/Github/Rive-UE-Lite/Source/RiveLiteRenderer/Private/Platform/RenderContextRHIImpl.cpp",
+      "bytes": 138520,
+      "sha256": "e32388f980cc9d019f9118698e690ed74cc46b38bd103338e22e89a48977ab07",
+      "line_start": 2334,
+      "line_end": 2385,
+      "claim": "Atlas starts with a clear, then emits real feather fill batches with Gaussian LUT and original pass shader."
+    },
+    {
+      "path": "F:/Github/Rive-UE-Lite/Source/RiveLiteRenderer/Private/RenderGraphHelpers/RivePassFunctions.cpp",
+      "bytes": 109521,
+      "sha256": "8ae3f1984761cdb63017ee355e8e6a825152b78025018d082807e0118dcacffe",
+      "line_start": 2736,
+      "line_end": 2768,
+      "claim": "Atlas fill blending is BO_Add / BF_One / BF_One, accumulating signed coverage. This is the preserved upstream RHI/RDG algorithm."
+    },
+    {
+      "path": "F:/Github/Rive-UE-Lite/Shaders/Private/Rive/Generated/atomic_draw.minified.ush",
+      "bytes": 39435,
+      "sha256": "f3aa7e5510c44368d8a2cf958cf4d8e0871dff63332fdffe4624457481617d7f",
+      "line_start": 1097,
+      "line_end": 1108,
+      "claim": "FEATHER_ATLAS_BLIT samples the atlas and clamps coverage to [0,1]; global sign reversal is not cancelled by abs. Originally positive feather coverage can become negative and disappear."
+    },
+    {
+      "path": "F:/Github/Rive-UE-Lite/Shaders/Private/Rive/Generated/render_atlas.minified.ush",
+      "bytes": 7576,
+      "sha256": "2b5157cd8cb1d9faf986257f7c8163f9c59360bf95cdcee3b8a3f45028b2f177",
+      "line_start": 279,
+      "line_end": 284,
+      "claim": "Stroke atlas directly evaluates stroke coverage without front-face sign, so this cause predicts fill-specific behavior."
+    }
+  ],
+  "fixture_wire_inspection": {
+    "fixture": {
+      "path": "F:/Github/Rive-UE-Lite/fixtures/bankcard.riv",
+      "bytes": 174403,
+      "sha256": "1d7f8000b315c5c0fe1e8f756057be6313ca18b72ae2c7d313a64672c233bc5a"
+    },
+    "runtime_commit": "47d1cd54ccefd468db7cb26ecc4699ae1723dd85",
+    "method": [
+      "Read the RIVE fingerprint and varuint version/file ID, terminated property-key TOC and its packed 2-bit field types.",
+      "Resolve actual typeKey/property key constants from the pinned generated *_base.hpp files and field types from generated CoreRegistry::propertyFieldId.",
+      "Walk each type-key object and zero-terminated property sequence exactly to EOF. Decode uint varints, length-prefixed strings/bytes, little-endian float32/color32 and boolean bytes.",
+      "Do not search compressed/raw byte signatures for asset classification. An ff-d8-ff sequence inside embedded font data is not an ImageAsset."
+    ],
+    "method_sources": [
+      {
+        "path": "F:/Github/Rive-UE-Lite/vendor/rive-unreal/submodules/rive-runtime/include/rive/runtime_header.hpp",
+        "bytes": 2881,
+        "sha256": "c8ea00406e1d88f5800090cc4c9e0c5e6a41b1a54295483a6b1ba95d839bda2a",
+        "line_start": 43,
+        "line_end": 106,
+        "claim": "Header and fallback property TOC layout."
+      },
+      {
+        "path": "F:/Github/Rive-UE-Lite/vendor/rive-unreal/submodules/rive-runtime/src/file.cpp",
+        "bytes": 78936,
+        "sha256": "81dc7a5464effb5a5de13887472e210ab795754efa1f8da19e8b60a339a6608f",
+        "line_start": 252,
+        "line_end": 320,
+        "claim": "Object/property wire decoder and field type handling."
+      },
+      {
+        "path": "F:/Github/Rive-UE-Lite/vendor/rive-unreal/submodules/rive-runtime/src/file.cpp",
+        "bytes": 78936,
+        "sha256": "81dc7a5464effb5a5de13887472e210ab795754efa1f8da19e8b60a339a6608f",
+        "line_start": 527,
+        "line_end": 558,
+        "claim": "Object stream iterates to EOF."
+      },
+      {
+        "path": "F:/Github/Rive-UE-Lite/vendor/rive-unreal/submodules/rive-runtime/include/rive/generated/core_registry.hpp",
+        "bytes": 349997,
+        "sha256": "1cf8f7c1e4e4ac8ff50d5840510ceee2d3aaa39d8b55fbcb239cfd0b54fe36c4",
+        "line_start": 4890,
+        "line_end": 5012,
+        "claim": "Pinned property-to-wire-field registry."
+      },
+      {
+        "path": "F:/Github/Rive-UE-Lite/vendor/rive-unreal/submodules/rive-runtime/src/core/field_types/core_double_type.cpp",
+        "bytes": 549,
+        "sha256": "55061c00a4fb43b06398bffb2e7b802a0e99603197ae2ca71fd05eac2b9fb878",
+        "line_start": 6,
+        "line_end": 9,
+        "claim": "The serialized double field is actually float32."
+      },
+      {
+        "path": "F:/Github/Rive-UE-Lite/vendor/rive-unreal/submodules/rive-runtime/include/rive/generated/shapes/paint/feather_base.hpp",
+        "bytes": 4012,
+        "sha256": "c9282a0d8714903370fd4de45859c40dd33b552c25f613dc5221986b6f3a3414",
+        "line_start": 19,
+        "line_end": 37,
+        "claim": "Feather type/key/default definitions; absent properties retain these defaults."
+      }
+    ],
+    "decoded_to_eof": true,
+    "bytes_consumed": 174403,
+    "header": {
+      "major": 7,
+      "minor": 0,
+      "file_id": 1393506
+    },
+    "object_count": 544,
+    "object_type_counts": {
+      "BackboardBase": 1,
+      "FontAssetBase": 1,
+      "FileAssetContentsBase": 1,
+      "ViewModelBase": 1,
+      "ViewModelPropertyColorBase": 1,
+      "ViewModelPropertyStringBase": 4,
+      "ViewModelInstanceBase": 1,
+      "ViewModelInstanceColorBase": 1,
+      "ViewModelInstanceStringBase": 4,
+      "ArtboardBase": 2,
+      "TextBase": 7,
+      "TextStylePaintBase": 7,
+      "SolidColorBase": 18,
+      "TextStyleAxisBase": 7,
+      "TextValueRunBase": 7,
+      "LayoutComponentBase": 11,
+      "LayoutComponentStyleBase": 13,
+      "DataBindContextBase": 12,
+      "LinearGradientBase": 3,
+      "GradientStopBase": 207,
+      "NodeBase": 3,
+      "ShapeBase": 44,
+      "RectangleBase": 4,
+      "FeatherBase": 6,
+      "NestedArtboardBase": 1,
+      "NestedStateMachineBase": 1,
+      "FillBase": 21,
+      "ElasticInterpolatorBase": 1,
+      "LinearAnimationBase": 2,
+      "KeyedObjectBase": 3,
+      "KeyedPropertyBase": 5,
+      "KeyFrameDoubleBase": 10,
+      "StateMachineBase": 2,
+      "StateMachineLayerBase": 2,
+      "AnimationStateBase": 2,
+      "ExitStateBase": 2,
+      "AnyStateBase": 2,
+      "EntryStateBase": 2,
+      "StateTransitionBase": 2,
+      "PolygonBase": 40,
+      "RadialGradientBase": 40,
+      "StrokeBase": 40
+    },
+    "feathers": [
+      {
+        "type": "FeatherBase",
+        "file_offset": 166696,
+        "serialized_properties": {
+          "parentId": 59,
+          "strength": 69.0
+        }
+      },
+      {
+        "type": "FeatherBase",
+        "file_offset": 166786,
+        "serialized_properties": {
+          "parentId": 60,
+          "strength": 69.0
+        }
+      },
+      {
+        "type": "FeatherBase",
+        "file_offset": 166849,
+        "serialized_properties": {
+          "parentId": 61,
+          "strength": 245.0,
+          "offsetY": 20.0
+        }
+      },
+      {
+        "type": "FeatherBase",
+        "file_offset": 173002,
+        "serialized_properties": {
+          "parentId": 415,
+          "strength": 3.0,
+          "offsetX": 1.0,
+          "offsetY": 5.0
+        }
+      },
+      {
+        "type": "FeatherBase",
+        "file_offset": 173801,
+        "serialized_properties": {
+          "parentId": 371,
+          "strength": 3.0,
+          "offsetY": 3.0,
+          "inner": true
+        }
+      },
+      {
+        "type": "FeatherBase",
+        "file_offset": 173843,
+        "serialized_properties": {
+          "parentId": 372,
+          "strength": 2.0,
+          "offsetY": -2.0,
+          "inner": true
+        }
+      }
+    ],
+    "font_assets": [
+      {
+        "type": "FontAssetBase",
+        "file_offset": 210,
+        "serialized_properties": {
+          "name": "Manrope",
+          "assetId": 2891237
+        }
+      }
+    ],
+    "embedded_asset_contents": [
+      {
+        "type": "FileAssetContentsBase",
+        "file_offset": 229,
+        "serialized_properties": {
+          "bytes": {
+            "bytes": 165420
+          }
+        }
+      }
+    ],
+    "image_asset_count": 0,
+    "interpretation": "Six actual feathers with serialized strengths 69,69,245,3,3,2; strength245 has offsetY20. Seven text runs, one Manrope font asset, three linear gradients, forty radial gradients and 207 gradient stops. Broad feather glows are consistent with changed pixels beyond artboard bounds.",
+    "limits": [
+      "This wire walk identifies serialized object types and explicit authored values, not semantically hydrated object layout or an executed draw trace.",
+      "Two artboards are present; counts cover the entire file, including nested content. It does not prove all authored feathers emit an atlas batch in this capture.",
+      "No source, fixture, archive, PNG or earlier audit was changed; the only output from this task is this diagnostic JSON."
+    ]
+  },
+  "secondary_checks": {
+    "gaussian_lut_path": {
+      "source": {
+        "path": "F:/Github/Rive-UE-Lite/Source/RiveLiteRenderer/Private/Platform/RenderContextRHIImpl.cpp",
+        "bytes": 138520,
+        "sha256": "e32388f980cc9d019f9118698e690ed74cc46b38bd103338e22e89a48977ab07"
+      },
+      "lines": [
+        1428,
+        1446,
+        1477,
+        1520
+      ],
+      "facts": "Bilinear clamp samplers and the same PF_R16F Gaussian/inverse-Gaussian CPU table upload are used in both hosts; no LUT generation or sampler change is proposed."
+    },
+    "texture_sampling_macros": {
+      "source": {
+        "path": "F:/Github/Rive-UE-Lite/Shaders/Private/Rive/Generated/rhi.minified.ush",
+        "bytes": 26827,
+        "sha256": "1d7639f8e0584b9bb7db4f9b97bb351f1d7b8fba060f2fc797f0524e4cbb7e84"
+      },
+      "lines": [
+        203,
+        222
+      ],
+      "facts": "Rive samples via direct HLSL .SampleLevel, including Texture2DArray coordinates for Gaussian lookup; NativeTextureLoad/Sample wrapper macros do not implement this path."
+    },
+    "half_precision": {
+      "source": {
+        "path": "F:/Github/Rive-UE-Lite/engine/Engine/Shaders/Public/Platform.ush",
+        "bytes": 52855,
+        "sha256": "eaf3557f00c50e58239f5640807318f4527a9b47b6d840a487360f7d85f21a48"
+      },
+      "lines": [
+        344,
+        380
+      ],
+      "facts": "In this block COMPILER_DXC only gates a diagnostic pragma. half/min16float selection is gated separately by FORCE_FLOATS, PLATFORM_SUPPORTS_RELAXED_PRECISION and PLATFORM_SUPPORTS_REAL_TYPES. Front-face mapping gives a direct algorithmic difference, while a half-mode mismatch has not been demonstrated."
+    }
+  },
+  "proposed_minimal_repair": {
+    "location": "F:/Github/Rive-UE-Lite/Source/RiveLiteShaderCompiler/Private/RiveLiteShaderCompiler.cpp",
+    "change": "Set COMPILER_DXC=1 in SetupInput before format preprocessing for this DXC Vulkan backend. Keep the Rive shaders, resource tables, draw/flush and native reference archive unchanged.",
+    "state": "Other agent has already prepared the two-line source change. No runtime proof is claimed in this report.",
+    "independent_causal_validation": [
+      "Build a new helper and create a fresh independently recorded Lite archive in a new directory; bind new binary, source and archive SHA256 identities.",
+      "Render one fresh bankcard capture with unchanged host/fixture/timing/clear settings and compare all RGBA bytes to the original canonical native archive capture.",
+      "If the single-variable repair removes the discrepancy, rerun the full selected static/animation/state-machine matrix with both independent archives. Preserve the failed old matrix as diagnostic history.",
+      "Do not generalize a selected fixture/matrix pass to complete shader environment equivalence or whole-library/UMG acceptance."
+    ]
+  }
+}

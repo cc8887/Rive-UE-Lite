@@ -1,0 +1,64 @@
+{
+  "status": "passed",
+  "engine_commit": "62d7c1a7125b52b10ee1b714838f515f3563f795",
+  "files": [
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/ShaderCompiler/ShaderCompiler.cpp",
+      "pinned_git_blob": "4b76665d54cfe72fe70a3c6aefa0dde66c91e12f",
+      "actual_git_blob": "4b76665d54cfe72fe70a3c6aefa0dde66c91e12f",
+      "actual_file_sha256": "58d13a50d0142ef577059cd9cae5008b77ba45e3c623913121d42278abe015a4",
+      "status": "passed"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/ShaderCompiler/ShaderCompilerEditor.cpp",
+      "pinned_git_blob": "2fa2dcac52b8708c60f49462885ae75cfba71f3a",
+      "actual_git_blob": "2fa2dcac52b8708c60f49462885ae75cfba71f3a",
+      "actual_file_sha256": "4cc5ed2ba93933564a6be7f210f85ec905f3cb0b37918e914f03f90a6dfa683b",
+      "status": "passed"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Public/ShaderCompiler.h",
+      "pinned_git_blob": "52e2c6956b4de7d5ba7528b04b017e03d0f018d8",
+      "actual_git_blob": "52e2c6956b4de7d5ba7528b04b017e03d0f018d8",
+      "actual_file_sha256": "4ff4c39d02143ff5ba1fe73c9ff4c08faace2d64b3ee6368dbbe75a7af760919",
+      "status": "passed"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/SceneView.cpp",
+      "pinned_git_blob": "5e2e932c15b8408380ed7a69c190cdb916378607",
+      "actual_git_blob": "5e2e932c15b8408380ed7a69c190cdb916378607",
+      "actual_file_sha256": "745949ad7847a85c7710f254c56b4e20e194a1a8336561e6fca88a5d548b5ffd",
+      "status": "passed"
+    },
+    {
+      "path": "Engine/Source/Runtime/RenderCore/Private/GlobalShader.cpp",
+      "pinned_git_blob": "1791c0afee38de131921b9997b60872eda94fd66",
+      "actual_git_blob": "1791c0afee38de131921b9997b60872eda94fd66",
+      "actual_file_sha256": "8eed0db621f4d6a59dfc95e014dea38b30536f44db47f013621e7d0c7ad1596c",
+      "status": "passed"
+    },
+    {
+      "path": "Engine/Source/Runtime/RenderCore/Private/Shader.cpp",
+      "pinned_git_blob": "fb91bd09fcd57966404b34abb1a7d8bd920c8a01",
+      "actual_git_blob": "fb91bd09fcd57966404b34abb1a7d8bd920c8a01",
+      "actual_file_sha256": "a12726aa204729f747cd732ba33ee0eb1d8308bbcf2f5561410c57be3caecf48",
+      "status": "passed"
+    },
+    {
+      "path": "Engine/Source/Runtime/RenderCore/Private/ShaderCore.cpp",
+      "pinned_git_blob": "84f0eaec6ab034b5298595b3faca01031dfbe340",
+      "actual_git_blob": "84f0eaec6ab034b5298595b3faca01031dfbe340",
+      "actual_file_sha256": "5f75df08527bef4ea2f04b69e7812c7c2d6e77ff8275e9f506c200f3af3095ac",
+      "status": "passed"
+    },
+    {
+      "path": "Engine/Source/Runtime/RenderCore/Public/GlobalShader.h",
+      "pinned_git_blob": "3dfc2704fda53617a83c42cb281608ef0eb820e0",
+      "actual_git_blob": "3dfc2704fda53617a83c42cb281608ef0eb820e0",
+      "actual_file_sha256": "271d06bce339139635c701c9aa8953e9c0405435df09da0aa255275410f9d449",
+      "status": "passed"
+    }
+  ],
+  "scope": "native Engine compile entry/environment, View metadata and global map serialization remain the pinned source; not a claim that every compiler dependency is unmodified",
+  "shared_preprocessor_change": "0006 fixes the pinned stb multiline token-paste regression for both independently executed cookers"
+}

@@ -1,0 +1,125 @@
+{
+  "base_commit": "62d7c1a7125b52b10ee1b714838f515f3563f795",
+  "patch": "0001-vulkanrhi-offscreen-without-engine.patch",
+  "patch_sha256": "a9bd8d7415aafb1e455b32f6f4e9b1e8ae5f563c87d497dfdd14404ee03b5ff8",
+  "changed_files": [
+    {
+      "path": "Engine/Source/Runtime/VulkanRHI/Private/VulkanCommands.cpp",
+      "base_sha256": "b50046d67a6eb7a67c6d96e70c6666ac71f7b667d2cf555a04b2fdc9e0e5d01f",
+      "patched_sha256": "11c60124d5b68e4d62fac2ad6214bcead344ee2a19ea0b9d5a4c03a0ceda1b5e"
+    },
+    {
+      "path": "Engine/Source/Runtime/VulkanRHI/Private/VulkanDynamicRHI.h",
+      "base_sha256": "4be9c11981099576805532f67d46256ea51a54d427622ab0cfadeb989974b07a",
+      "patched_sha256": "2ab739025017e82c6e2439097d4576b57decfac48e25c406e4c0f9f4f9fd510b"
+    },
+    {
+      "path": "Engine/Source/Runtime/VulkanRHI/Private/VulkanExtensions.cpp",
+      "base_sha256": "42ee14e2809ec3df4f5027280cdb8c82fca621a94a604d0718495002a158a4fa",
+      "patched_sha256": "f2f0959c62e0002bd6c3c24a68ab6375656b94753fe5ed32c5f6cb31ffadd425"
+    },
+    {
+      "path": "Engine/Source/Runtime/VulkanRHI/Private/VulkanLayers.cpp",
+      "base_sha256": "d31174246e4e0c68bce163b3dbe80d5ff31f713e58c20dad0627361af5a386e8",
+      "patched_sha256": "c0faca945529c2cecbbfd9ccb2dea652efa747c21ef59969809a7669024fa555"
+    },
+    {
+      "path": "Engine/Source/Runtime/VulkanRHI/Private/VulkanQuery.cpp",
+      "base_sha256": "a92393fa4a2c5e8fe43f62d6bca64fcdd44bb52983950b5bf679f9a2034c5566",
+      "patched_sha256": "1e95b238f6b855ab6fdae18e34895d9210509822b77bfa8664306604da6a75cf"
+    },
+    {
+      "path": "Engine/Source/Runtime/VulkanRHI/Private/VulkanRHI.cpp",
+      "base_sha256": "f4f480fdae1be94e79827537fdf746b571989a07dfa973ded34f4ad4d14ccbdd",
+      "patched_sha256": "78dfb644ba2fb29bb41196a3578c7dbf1503810558cced8914396af8fab1425a"
+    },
+    {
+      "path": "Engine/Source/Runtime/VulkanRHI/Private/VulkanRenderTarget.cpp",
+      "base_sha256": "13e9b94452819f5aa24470ccb602c332600ecec92f1e144c067fba4c13b7d121",
+      "patched_sha256": "9f82ac142ad199521cb153ba0839d87b72236aac9791b855934a4f17c09b1614"
+    },
+    {
+      "path": "Engine/Source/Runtime/VulkanRHI/Private/VulkanSwapChain.cpp",
+      "base_sha256": "d4518b348ce97b63cea9b6fca31985855a257fd54ac61317a8252ed76760fea4",
+      "patched_sha256": "5f400dac3d3c17143325af3cf0e3369f79f75c4326eb0179f5d126aaeeeca600"
+    },
+    {
+      "path": "Engine/Source/Runtime/VulkanRHI/Private/VulkanUtil.cpp",
+      "base_sha256": "c2b404077c0d12eec3a863c903c332e02cd6e6769278f412303c5857d26eea3b",
+      "patched_sha256": "0fc3336b8f24186e081e1fd42a6c681f34777b3526e3c2992bb72f2e86c7112e"
+    },
+    {
+      "path": "Engine/Source/Runtime/VulkanRHI/Private/VulkanViewport.cpp",
+      "base_sha256": "489e1889bdb78d08324af85f4f718ddba59ea17d815b749d827d972c017357ac",
+      "patched_sha256": "61bb6f078d0e27761e6f81116852329b820c326beae21508e0cefbe4588bcd7d"
+    },
+    {
+      "path": "Engine/Source/Runtime/VulkanRHI/VulkanRHI.Build.cs",
+      "base_sha256": "2274d744770721dc179db895c90c95560b3d6c30d4d50b7ca0e8ed9aeaeb60d6",
+      "patched_sha256": "943f02a274d660d67d3676c2bb00ca79718eca11f5ac9a89b9777e02623d23c3"
+    }
+  ],
+  "scope": "Linux generic and Linux platform VulkanRHI sources",
+  "checks": [
+    {
+      "command": [
+        "git",
+        "-C",
+        "F:\\Github\\Rive-UE-Lite\\engine",
+        "diff",
+        "--check",
+        "--",
+        "Engine/Source/Runtime/VulkanRHI"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "F:\\Github\\Rive-UE-Lite\\engine",
+        "apply",
+        "--check",
+        "--cached",
+        "F:\\Github\\Rive-UE-Lite\\prototype\\patches\\0001-vulkanrhi-offscreen-without-engine.patch"
+      ],
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "git",
+        "-C",
+        "F:\\Github\\Rive-UE-Lite\\engine",
+        "apply",
+        "--reverse",
+        "--check",
+        "F:\\Github\\Rive-UE-Lite\\prototype\\patches\\0001-vulkanrhi-offscreen-without-engine.patch"
+      ],
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "source_cut_check": {
+    "with_engine": 0,
+    "files_scanned": 98,
+    "direct_engine_header_or_symbol_violations": [],
+    "unknown_preprocessor_branches": "Both branches conservatively considered possible; this is a source scan, not compilation."
+  },
+  "with_engine_1": "Original dependencies, includes, HMD/stereo/surface-transform behavior retained; missing-CVar guards only change null-pointer case.",
+  "runtime_validation": "Not performed by this worker; build, link, Linux software Vulkan, screenshot parity and metrics remain root integration gates.",
+  "compile_followups": [
+    {
+      "log": "artifacts/setup/probe-build-06.log",
+      "diagnostic": "VulkanRayTracing.h could not find RayTracingBuiltInResources.h",
+      "root_cause": "Pure shared C++/HLSL ABI header lives in Engine/Shaders/Shared; Engine dependency had exposed its include path transitively.",
+      "fix": "Explicit Shaders header-only include module on VulkanRHI; no Engine module or RHI_RAYTRACING ABI change.",
+      "validation": "Passed actual five VulkanRHI unity C++ units and ELF link in probe-build-07.log; complete UBT target build passed in probe-build-08.log. Offscreen software Vulkan/runtime parity evidence is integrated separately by the root worker."
+    }
+  ],
+  "actual_compile_evidence": [
+    "artifacts/setup/probe-build-07.log",
+    "artifacts/setup/probe-build-08.log"
+  ]
+}

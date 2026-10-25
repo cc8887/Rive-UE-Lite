@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "runtime_commit": "47d1cd54ccefd468db7cb26ecc4699ae1723dd85",
+  "scope": "Five selected deterministic fixtures only; not whole-library acceptance",
+  "scenarios": [
+    {
+      "id": "bounce_animation",
+      "fixture": "../ball_test.riv",
+      "sample_times": [
+        0,
+        0.25,
+        0.5,
+        0.75
+      ],
+      "required_changes": [
+        {
+          "from": 0,
+          "to": 0.25,
+          "reason": "Real Bounce animation applies a different ball pose"
+        }
+      ],
+      "require_state_changes": false,
+      "source_test": "tests/unit_tests/runtime/async_work_host_test.cpp:150",
+      "playback": {
+        "mode": "animation",
+        "artboard": "Nested Artboard 2",
+        "animation": "Bounce",
+        "events": [],
+        "fixed_delta": 0.016666666666666666,
+        "target_time": 0.75
+      },
+      "fixture_sha256": "7754e2d48ed666e09324cd4744cd6e27d1d65573feb077e71be1e8b3a3381a69"
+    },
+    {
+      "id": "rocket_bool",
+      "fixture": "../rocket.riv",
+      "sample_times": [
+        0,
+        0.5,
+        1,
+        1.75
+      ],
+      "required_changes": [
+        {
+          "from": 0,
+          "to": 0.5,
+          "reason": "Hover moves from idle to Roll_over"
+        },
+        {
+          "from": 0.5,
+          "to": 1,
+          "reason": "Press selects the Press animation"
+        }
+      ],
+      "require_state_changes": true,
+      "require_state_changes_after_events": true,
+      "event_effect_sample_times": [
+        0.5,
+        1
+      ],
+      "source_test": "tests/unit_tests/runtime/state_machine_test.cpp:30",
+      "playback": {
+        "mode": "state_machine",
+        "artboard": "New Artboard",
+        "state_machine": "Button",
+        "events": [
+          {
+            "time": 0.25,
+            "type": "bool",
+            "name": "Hover",
+            "value": true
+          },
+          {
+            "time": 0.75,
+            "type": "bool",
+            "name": "Press",
+            "value": true
+          },
+          {
+            "time": 1.25,
+            "type": "bool",
+            "name": "Press",
+            "value": false
+          },
+          {
+            "time": 1.5,
+            "type": "bool",
+            "name": "Hover",
+            "value": false
+          }
+        ],
+        "fixed_delta": 0.016666666666666666,
+        "target_time": 1.75
+      },
+      "fixture_sha256": "bda563e691213632a98c4cf11ac9833b11841af2c51240cb9a2403928821ce0e"
+    },
+    {
+      "id": "number_transitions",
+      "fixture": "../animation_reset_cases.riv",
+      "sample_times": [
+        0,
+        0.75,
+        1.5,
+        3
+      ],
+      "required_changes": [
+        {
+          "from": 0,
+          "to": 0.75,
+          "reason": "Number 1=1 starts the rectangle 2.5-second position transition"
+        },
+        {
+          "from": 1.5,
+          "to": 3,
+          "reason": "Number 1=2 starts the ellipse position transition"
+        }
+      ],
+      "require_state_changes": true,
+      "require_state_changes_after_events": true,
+      "event_effect_sample_times": [
+        0.75,
+        3
+      ],
+      "source_test": "tests/unit_tests/runtime/state_machine_test.cpp:368",
+      "playback": {
+        "mode": "state_machine",
+        "artboard": "transitions",
+        "state_machine": "transitions-state-machine",
+        "events": [
+          {
+            "time": 0.25,
+            "type": "number",
+            "name": "Number 1",
+            "value": 1
+          },
+          {
+            "time": 1.75,
+            "type": "number",
+            "name": "Number 1",
+            "value": 2
+          }
+        ],
+        "fixed_delta": 0.016666666666666666,
+        "target_time": 3
+      },
+      "fixture_sha256": "722af52220a33a635810b1ee3dff28a90b42929cb39fb68586f629c440ea1f5c"
+    },
+    {
+      "id": "trigger_transitions",
+      "fixture": "../state_machine_triggers.riv",
+      "sample_times": [
+        0,
+        0.5,
+        1,
+        1.5
+      ],
+      "required_changes": [
+        {
+          "from": 0,
+          "to": 0.5,
+          "reason": "Trigger 1 switches to the second animation state and advances its animation"
+        }
+      ],
+      "require_state_changes": true,
+      "require_state_changes_after_events": true,
+      "event_effect_sample_times": [
+        0.5
+      ],
+      "source_test": "tests/unit_tests/runtime/state_machine_test.cpp:444",
+      "playback": {
+        "mode": "state_machine",
+        "artboard": "main",
+        "state_machine": "State Machine 1",
+        "events": [
+          {
+            "time": 0.25,
+            "type": "trigger",
+            "name": "Trigger 1"
+          },
+          {
+            "time": 0.75,
+            "type": "trigger",
+            "name": "Trigger 1"
+          }
+        ],
+        "fixed_delta": 0.016666666666666666,
+        "target_time": 1.5
+      },
+      "fixture_sha256": "116b7ba0a27ac13d70a6f3e9771a3b9f3b611edc7ba60bb564b8a10698ec509e"
+    },
+    {
+      "id": "pointer_toggle",
+      "fixture": "../light_switch.riv",
+      "sample_times": [
+        0,
+        0.75,
+        1.75
+      ],
+      "required_changes": [
+        {
+          "from": 0,
+          "to": 0.75,
+          "reason": "Real pointer listeners toggle On from true to false"
+        },
+        {
+          "from": 0.75,
+          "to": 1.75,
+          "reason": "Second real pointer click toggles On back to true"
+        }
+      ],
+      "require_state_changes": true,
+      "require_state_changes_after_events": true,
+      "event_effect_sample_times": [
+        0.75
+      ],
+      "source_test": "tests/unit_tests/runtime/state_machine_event_test.cpp:99",
+      "playback": {
+        "mode": "state_machine",
+        "artboard": "New Artboard",
+        "state_machine": "Switch",
+        "events": [
+          {
+            "time": 0.25,
+            "type": "pointer_down",
+            "x": 150,
+            "y": 258,
+            "pointer_id": 0
+          },
+          {
+            "time": 0.25,
+            "type": "pointer_up",
+            "x": 150,
+            "y": 258,
+            "pointer_id": 0
+          },
+          {
+            "time": 1.25,
+            "type": "pointer_down",
+            "x": 150,
+            "y": 258,
+            "pointer_id": 0
+          },
+          {
+            "time": 1.25,
+            "type": "pointer_up",
+            "x": 150,
+            "y": 258,
+            "pointer_id": 0
+          }
+        ],
+        "fixed_delta": 0.016666666666666666,
+        "target_time": 1.75
+      },
+      "fixture_sha256": "d1e4227b1c9817d07466bf52255d4aec22cf73654d0d875e48a7e2a0826a62c2"
+    }
+  ]
+}

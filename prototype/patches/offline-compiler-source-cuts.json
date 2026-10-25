@@ -1,0 +1,81 @@
+{
+  "engine_commit": "62d7c1a7125b52b10ee1b714838f515f3563f795",
+  "scope": "Offline compiler build closure (0003-0005) and separate standard-conforming multiline token-paste repair (0006). Rive shader text and rendering algorithms are unchanged by these patches.",
+  "patches": [
+    {
+      "patch": "0003-targetplatform-offline-without-turnkey.patch",
+      "bytes": 902,
+      "sha256": "f5c3250eb26f371b9fe26c9ee80332f00744ee889a8f464ecb0580550b899190",
+      "checks": {
+        "baseline_apply": {
+          "passed": true,
+          "diagnostic": ""
+        },
+        "patched_reverse": {
+          "passed": true,
+          "diagnostic": ""
+        }
+      }
+    },
+    {
+      "patch": "0004-fileutilities-offline-editor-zip.patch",
+      "bytes": 1607,
+      "sha256": "b069225f793f52de10389999516a9a7cf5908079c092673a2689cfdbffe80aee",
+      "checks": {
+        "baseline_apply": {
+          "passed": true,
+          "diagnostic": ""
+        },
+        "patched_reverse": {
+          "passed": true,
+          "diagnostic": ""
+        }
+      }
+    },
+    {
+      "patch": "0005-shaderpreprocessor-exclude-standalone-extras.patch",
+      "bytes": 410,
+      "sha256": "7ba43a2087e5e76cd1d3da21c68f8f122fd7beef3030cb1ac7d1c048dff9befb",
+      "checks": {
+        "baseline_apply": {
+          "passed": true,
+          "diagnostic": ""
+        },
+        "patched_reverse": {
+          "passed": true,
+          "diagnostic": ""
+        }
+      }
+    },
+    {
+      "patch": "0006-shaderpreprocessor-multiline-token-paste.patch",
+      "bytes": 1409,
+      "sha256": "e87d11c6f388049cd1eea9c8e2b434748a4cb7f43bf14638a9ac3c3d80b1d3f4",
+      "checks": {
+        "baseline_apply": {
+          "passed": true,
+          "diagnostic": ""
+        },
+        "patched_reverse": {
+          "passed": true,
+          "diagnostic": ""
+        }
+      }
+    }
+  ],
+  "actual_compile_evidence": "artifacts/setup/shader-compiler-build-15.log",
+  "actual_archive_evidence": {
+    "log": "artifacts/setup/shader-compiler-full-05.log",
+    "process_exit_code": 0,
+    "path": "artifacts/shaders/RiveGlobalShaderCache-VULKAN_SM5_LINUX.bin",
+    "sha256": "a252df0dd066ebbb06f754617dceaa38a4f75bb95c184d8dacb45a45e96d3d2d",
+    "archive_bytes": 17147039,
+    "selected_permutations": 11468,
+    "cache_hits": 9893,
+    "compile_export_seconds": 61.4564497709998,
+    "shader_scope_reduced": false,
+    "runtime_smoke_log": "artifacts/setup/archive-runtime-load-02.log"
+  },
+  "token_paste_regression_evidence": "artifacts/shaders/multiline-token-paste-regression.json",
+  "excluded_examples": "Pinned HEAD tracks standalone stb_preprocess extras main programs without .ubtignore; UBT recursively compiled them in helper02. The supported marker excludes only this subtree."
+}

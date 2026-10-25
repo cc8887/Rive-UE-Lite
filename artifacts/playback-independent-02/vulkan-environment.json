@@ -1,0 +1,368 @@
+{
+  "schema_version": 1,
+  "timestamp_utc": "2026-10-24T13:21:22.928067+00:00",
+  "status": "passed",
+  "scope": "environment Vulkan instance/enumeration probe only",
+  "is_ue_rive_rendering_evidence": false,
+  "rendered_pixels": false,
+  "renderer_performance_measured": false,
+  "host": {
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "kernel": "6.6.87.2-microsoft-standard-WSL2",
+    "machine": "x86_64",
+    "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "logical_cpu_count": 32,
+    "uid": 1000,
+    "effective_uid": 1000,
+    "gid": 1000,
+    "os_release": "PRETTY_NAME=\"Ubuntu 24.04.3 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.3 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+    "meminfo": "MemTotal:       48089184 kB\nMemFree:        42937632 kB\nMemAvailable:   44695788 kB\nBuffers:           84472 kB\nCached:          2118212 kB\nSwapCached:            0 kB\nActive:           735928 kB\nInactive:        3748748 kB\nActive(anon):       3116 kB\nInactive(anon):  2364584 kB\nActive(file):     732812 kB\nInactive(file):  1384164 kB\nUnevictable:           0 kB\nMlocked:               0 kB\nSwapTotal:      12582912 kB\nSwapFree:       12582912 kB\nDirty:                96 kB\nWriteback:             0 kB\nAnonPages:       2282212 kB\nMapped:          1363396 kB\nShmem:             85628 kB\nKReclaimable:      95696 kB\nSlab:             242996 kB\nSReclaimable:      95696 kB\nSUnreclaim:       147300 kB\nKernelStack:       11632 kB\nPageTables:        15084 kB\nSecPageTables:         0 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    36627504 kB\nCommitted_AS:   17781204 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:       76980 kB\nVmallocChunk:          0 kB\nPercpu:            14592 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:     20480 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nUnaccepted:            0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:      144384 kB\nDirectMap2M:    20617216 kB\nDirectMap1G:    36700160 kB\n",
+    "cpu_model_names": [
+      "AMD Ryzen 9 9950X 16-Core Processor"
+    ],
+    "mount_namespace": "mnt:[4026532231]",
+    "process_restrictions": {
+      "CapEff": "0000000000000000",
+      "CapBnd": "0000000000000000",
+      "CapAmb": "0000000000000000",
+      "NoNewPrivs": "1"
+    },
+    "namespace_device_hiding_requested": true
+  },
+  "device_exposure": {
+    "wsl_dxg": {
+      "path": "/dev/dxg",
+      "exists": false,
+      "reason": "[Errno 2] No such file or directory: '/dev/dxg'"
+    },
+    "dri_nodes": []
+  },
+  "environment_before": {
+    "VK_ICD_FILENAMES": "/usr/share/vulkan/icd.d/lvp_icd.json",
+    "VK_DRIVER_FILES": "/usr/share/vulkan/icd.d/lvp_icd.json",
+    "DISPLAY": null,
+    "WAYLAND_DISPLAY": null
+  },
+  "icd": {
+    "path": "/usr/share/vulkan/icd.d/lvp_icd.json",
+    "sha256": "70d49f7fd41a7593a4e283543ed4855c139c700e5c1b31792f56e9576ede2398",
+    "json": {
+      "ICD": {
+        "api_version": "1.4.318",
+        "library_path": "libvulkan_lvp.so"
+      },
+      "file_format_version": "1.0.1"
+    }
+  },
+  "environment_effective": {
+    "VK_ICD_FILENAMES": "/usr/share/vulkan/icd.d/lvp_icd.json",
+    "VK_DRIVER_FILES": "/usr/share/vulkan/icd.d/lvp_icd.json",
+    "DISPLAY": null,
+    "WAYLAND_DISPLAY": null
+  },
+  "isolation": "Vulkan loader forced to the sole specified ICD; WSL /dev/dxg exposure does not mean hardware GPU was used",
+  "probe_instance_creation_seconds": 0.1507325940001465,
+  "loader": {
+    "library_name": "libvulkan.so.1",
+    "supported_api_version": {
+      "raw": 4206867,
+      "variant": 0,
+      "major": 1,
+      "minor": 3,
+      "patch": 275,
+      "text": "1.3.275"
+    },
+    "requested_api_version": {
+      "raw": 4206592,
+      "variant": 0,
+      "major": 1,
+      "minor": 3,
+      "patch": 0,
+      "text": "1.3.0"
+    },
+    "enabled_layers": [],
+    "enabled_extensions": []
+  },
+  "physical_devices": [
+    {
+      "index": 0,
+      "api_version": {
+        "raw": 4211006,
+        "variant": 0,
+        "major": 1,
+        "minor": 4,
+        "patch": 318,
+        "text": "1.4.318"
+      },
+      "driver_version_raw": 104865800,
+      "vendor_id": 65541,
+      "vendor_id_hex": "0x10005",
+      "device_id": 0,
+      "device_id_hex": "0x0000",
+      "device_type": "CPU",
+      "device_type_raw": 4,
+      "device_name": "llvmpipe (LLVM 20.1.2, 256 bits)",
+      "pipeline_cache_uuid_hex": "32352e322e382d307562756e7475302e",
+      "driver_properties": {
+        "driver_id": 13,
+        "driver_name": "llvmpipe",
+        "driver_info": "Mesa 25.2.8-0ubuntu0.24.04.2 (LLVM 20.1.2)",
+        "conformance_version": [
+          1,
+          3,
+          1,
+          1
+        ]
+      },
+      "queue_families": [
+        {
+          "index": 0,
+          "queue_count": 1,
+          "flags": 15,
+          "graphics": true,
+          "compute": true,
+          "transfer": true
+        }
+      ]
+    }
+  ],
+  "mapped_shared_libraries": [
+    "/usr/lib/python3.12/lib-dynload/_bz2.cpython-312-x86_64-linux-gnu.so",
+    "/usr/lib/python3.12/lib-dynload/_ctypes.cpython-312-x86_64-linux-gnu.so",
+    "/usr/lib/python3.12/lib-dynload/_hashlib.cpython-312-x86_64-linux-gnu.so",
+    "/usr/lib/python3.12/lib-dynload/_json.cpython-312-x86_64-linux-gnu.so",
+    "/usr/lib/python3.12/lib-dynload/_lzma.cpython-312-x86_64-linux-gnu.so",
+    "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+    "/usr/lib/x86_64-linux-gnu/libLLVM.so.20.1",
+    "/usr/lib/x86_64-linux-gnu/libVkLayer_MESA_device_select.so",
+    "/usr/lib/x86_64-linux-gnu/libX11-xcb.so.1.0.0",
+    "/usr/lib/x86_64-linux-gnu/libXau.so.6.0.0",
+    "/usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0",
+    "/usr/lib/x86_64-linux-gnu/libbsd.so.0.12.1",
+    "/usr/lib/x86_64-linux-gnu/libbz2.so.1.0.4",
+    "/usr/lib/x86_64-linux-gnu/libc.so.6",
+    "/usr/lib/x86_64-linux-gnu/libcrypto.so.3",
+    "/usr/lib/x86_64-linux-gnu/libdrm.so.2.125.0",
+    "/usr/lib/x86_64-linux-gnu/libedit.so.2.0.72",
+    "/usr/lib/x86_64-linux-gnu/libexpat.so.1.9.1",
+    "/usr/lib/x86_64-linux-gnu/libffi.so.8.1.4",
+    "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+    "/usr/lib/x86_64-linux-gnu/libicudata.so.74.2",
+    "/usr/lib/x86_64-linux-gnu/libicuuc.so.74.2",
+    "/usr/lib/x86_64-linux-gnu/liblzma.so.5.4.5",
+    "/usr/lib/x86_64-linux-gnu/libm.so.6",
+    "/usr/lib/x86_64-linux-gnu/libmd.so.0.1.0",
+    "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+    "/usr/lib/x86_64-linux-gnu/libtinfo.so.6.4",
+    "/usr/lib/x86_64-linux-gnu/libvulkan.so.1.3.275",
+    "/usr/lib/x86_64-linux-gnu/libvulkan_lvp.so",
+    "/usr/lib/x86_64-linux-gnu/libwayland-client.so.0.22.0",
+    "/usr/lib/x86_64-linux-gnu/libxcb-dri3.so.0.1.0",
+    "/usr/lib/x86_64-linux-gnu/libxcb-present.so.0.0.0",
+    "/usr/lib/x86_64-linux-gnu/libxcb-randr.so.0.1.0",
+    "/usr/lib/x86_64-linux-gnu/libxcb-shm.so.0.0.0",
+    "/usr/lib/x86_64-linux-gnu/libxcb-sync.so.1.0.0",
+    "/usr/lib/x86_64-linux-gnu/libxcb-xfixes.so.0.0.0",
+    "/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0",
+    "/usr/lib/x86_64-linux-gnu/libxml2.so.2.9.14",
+    "/usr/lib/x86_64-linux-gnu/libxshmfence.so.1.0.0",
+    "/usr/lib/x86_64-linux-gnu/libz.so.1.3",
+    "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.5"
+  ],
+  "driver_elf_dependency_closure": {
+    "status": "passed",
+    "root_libraries": [
+      "/usr/lib/x86_64-linux-gnu/libvulkan.so.1.3.275",
+      "/usr/lib/x86_64-linux-gnu/libvulkan_lvp.so"
+    ],
+    "libraries": [
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libvulkan.so.1.3.275",
+        "bytes": 510592,
+        "sha256": "e833b010f814b72c6aca0300c8b5f19b6106ffa06c24ddc95a293970c7d6058e"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libm.so.6",
+        "bytes": 952616,
+        "sha256": "fce00b6f25f459cf4ae0b7fae4257909a1a8a86f9149e7c029a5d617baf1ccd0"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libc.so.6",
+        "bytes": 2129424,
+        "sha256": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "bytes": 236616,
+        "sha256": "c20a2dc8917c755f02b94049356320fe1f62ac7d9f8994731f807d9df39302da"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libvulkan_lvp.so",
+        "bytes": 11929384,
+        "sha256": "9d69cae2004b16572acca424741109be37c4ffc759c2461af69d75f7d1c6c139"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libLLVM.so.20.1",
+        "bytes": 143545784,
+        "sha256": "4b93481bd1c9d42c0951275dd275d4a9d30db78c309ae2cc0405669bc6dbbf8a"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libz.so.1.3",
+        "bytes": 113000,
+        "sha256": "86200da370f20476a2507e9097a789b5ef97269b4ca8d5e164ad82dab9d99892"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libzstd.so.1.5.5",
+        "bytes": 755864,
+        "sha256": "0a2128bc10841fb29e76d08d945864dfb0b6a66da5df6df5d8299197439e54bb"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libdrm.so.2.125.0",
+        "bytes": 92760,
+        "sha256": "ff39219aa058421e46afd36851342370cd1932d2557eb22f54e129755642bf67"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libexpat.so.1.9.1",
+        "bytes": 186624,
+        "sha256": "286682ecbc5e59a638963b1a4e6351e65eb32fcf4bdcb9cb7569b6a61fe06a8d"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0",
+        "bytes": 162392,
+        "sha256": "7958a0136b121bdc4c708968569ad152a9ed208ab026e2537b1005dde64ca440"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libxcb-randr.so.0.1.0",
+        "bytes": 67784,
+        "sha256": "9fa6b0ec4af163a86bc9a9ded3309a5979155fb5ef2d311fdda7fff0e9eee01a"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libX11-xcb.so.1.0.0",
+        "bytes": 14024,
+        "sha256": "966fc171a949852a606efdf44d255f6f91b35c16328f5405c1b24743b6708ea7"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libxcb-dri3.so.0.1.0",
+        "bytes": 22744,
+        "sha256": "a919146693e71897484c2996beb837273a7a278d1a2afe477bc072f10681f3b0"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libxcb-present.so.0.0.0",
+        "bytes": 14536,
+        "sha256": "d06d982abe6e9202aecd22322166be8ba49e68e05889fb6c6faec0daa88530a4"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libxcb-xfixes.so.0.0.0",
+        "bytes": 35016,
+        "sha256": "e59ef497333a6ede2096a0bd9eeb6ec4023374c16d3a8d7511d1251fb7f9b9df"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libxcb-sync.so.1.0.0",
+        "bytes": 35032,
+        "sha256": "27c2d6dddde34146904c3c64cfcc885a14a351636d6611877368a48e29355c39"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libxcb-shm.so.0.0.0",
+        "bytes": 14552,
+        "sha256": "ad78a7b22409685ca82e54346c2b9465d697f303e69e74a9c1693bb206e319df"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libxshmfence.so.1.0.0",
+        "bytes": 14480,
+        "sha256": "7d40b02b27d449b6b26cea10ea10aafd0cce5a1e2d7859ea57f34b29fe88923f"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libwayland-client.so.0.22.0",
+        "bytes": 64776,
+        "sha256": "1c22abb422953442aa12822ea51ac76d1c8be92ed143e0159e0f830776cde2b2"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33",
+        "bytes": 2592224,
+        "sha256": "1fd75fe70354a416d75aef22bcae68c47bd25d20e2d0568c30b1a9838cf62f11"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1",
+        "bytes": 183024,
+        "sha256": "d93224d2b0dab4247598be683adca02f5cf00586f99c187579cd7e92058fb7cb"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libffi.so.8.1.4",
+        "bytes": 47672,
+        "sha256": "00f593fe192f2851b8ce23b25cec2488d769beb5a8f63e8c9e563071e1075153"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libedit.so.2.0.72",
+        "bytes": 220472,
+        "sha256": "195c607216f8581dbf516346ed38f4c73500cac4b84e18eb0a4fd49931e4cd56"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libxml2.so.2.9.14",
+        "bytes": 1967424,
+        "sha256": "209e941be9eb2eb9ab36caaa0b81d1c6b36c8f5d7268c24f19e81039137e6485"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libXau.so.6.0.0",
+        "bytes": 18696,
+        "sha256": "8040da3f8516c1acfe39f04ff022480cdb273705ba5e7a4ca70bbdb1527cd67a"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0",
+        "bytes": 26776,
+        "sha256": "667d97d6da16016400ab10de9f83ef4ab209ceb6adf68ff9650225ec13e723b0"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libtinfo.so.6.4",
+        "bytes": 208328,
+        "sha256": "e6089d7bb95eee5b545f3770dd69095b0bca47d26701cad145af429561d16306"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libbsd.so.0.12.1",
+        "bytes": 80888,
+        "sha256": "e86cd4f0019f42c2ba5e60602e0edc8694d2948377d98c3654d0f6bddb5254bb"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libicuuc.so.74.2",
+        "bytes": 2140336,
+        "sha256": "7560aadde38e5f4237a47a1ddd5891f9b36768a77a60faae30beee003ac01901"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/liblzma.so.5.4.5",
+        "bytes": 202904,
+        "sha256": "696e868dd0700a19a6d65fc01608ec2d70d3cb91f65710e89180cd2e688f30cb"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libmd.so.0.1.0",
+        "bytes": 55536,
+        "sha256": "423e18586b6ea740f4465afd64f7a9a4cb7264ed979c8e7256f9085af5345fef"
+      },
+      {
+        "path": "/usr/lib/x86_64-linux-gnu/libicudata.so.74.2",
+        "bytes": 30795392,
+        "sha256": "ddbb3718b8bd9cbd780e5ab08b4503c30a6c4fa0706ebe5d074ed6b596c1714e"
+      }
+    ],
+    "deduplicated_file_bytes": 199437672,
+    "missing": [],
+    "ldd": [
+      {
+        "command": [
+          "ldd",
+          "/usr/lib/x86_64-linux-gnu/libvulkan.so.1.3.275"
+        ],
+        "exit_code": 0,
+        "output": "\tlinux-vdso.so.1 (0x00007ffc5aff6000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007a45d73dd000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007a45d7000000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007a45d754b000)\n"
+      },
+      {
+        "command": [
+          "ldd",
+          "/usr/lib/x86_64-linux-gnu/libvulkan_lvp.so"
+        ],
+        "exit_code": 0,
+        "output": "\tlinux-vdso.so.1 (0x00007ffdcdd29000)\n\tlibLLVM.so.20.1 => /lib/x86_64-linux-gnu/libLLVM.so.20.1 (0x00007e2b51200000)\n\tlibz.so.1 => /lib/x86_64-linux-gnu/libz.so.1 (0x00007e2b5a8e9000)\n\tlibzstd.so.1 => /lib/x86_64-linux-gnu/libzstd.so.1 (0x00007e2b5a82f000)\n\tlibdrm.so.2 => /lib/x86_64-linux-gnu/libdrm.so.2 (0x00007e2b5a818000)\n\tlibexpat.so.1 => /lib/x86_64-linux-gnu/libexpat.so.1 (0x00007e2b5a7ea000)\n\tlibxcb.so.1 => /lib/x86_64-linux-gnu/libxcb.so.1 (0x00007e2b5a7bf000)\n\tlibxcb-randr.so.0 => /lib/x86_64-linux-gnu/libxcb-randr.so.0 (0x00007e2b5a7ae000)\n\tlibX11-xcb.so.1 => /lib/x86_64-linux-gnu/libX11-xcb.so.1 (0x00007e2b5a7a9000)\n\tlibxcb-dri3.so.0 => /lib/x86_64-linux-gnu/libxcb-dri3.so.0 (0x00007e2b5a7a2000)\n\tlibxcb-present.so.0 => /lib/x86_64-linux-gnu/libxcb-present.so.0 (0x00007e2b5a79d000)\n\tlibxcb-xfixes.so.0 => /lib/x86_64-linux-gnu/libxcb-xfixes.so.0 (0x00007e2b5a793000)\n\tlibxcb-sync.so.1 => /lib/x86_64-linux-gnu/libxcb-sync.so.1 (0x00007e2b59bf7000)\n\tlibxcb-shm.so.0 => /lib/x86_64-linux-gnu/libxcb-shm.so.0 (0x00007e2b59bf2000)\n\tlibxshmfence.so.1 => /lib/x86_64-linux-gnu/libxshmfence.so.1 (0x00007e2b59bed000)\n\tlibwayland-client.so.0 => /lib/x86_64-linux-gnu/libwayland-client.so.0 (0x00007e2b59bdd000)\n\tlibstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x00007e2b50e00000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007e2b51117000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007e2b59baf000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007e2b50a00000)\n\tlibffi.so.8 => /lib/x86_64-linux-gnu/libffi.so.8 (0x00007e2b59ba3000)\n\tlibedit.so.2 => /lib/x86_64-linux-gnu/libedit.so.2 (0x00007e2b510dd000)\n\tlibxml2.so.2 => /lib/x86_64-linux-gnu/libxml2.so.2 (0x00007e2b50c1e000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007e2b5a90c000)\n\tlibXau.so.6 => /lib/x86_64-linux-gnu/libXau.so.6 (0x00007e2b59b9d000)\n\tlibXdmcp.so.6 => /lib/x86_64-linux-gnu/libXdmcp.so.6 (0x00007e2b59b95000)\n\tlibtinfo.so.6 => /lib/x86_64-linux-gnu/libtinfo.so.6 (0x00007e2b510a9000)\n\tlibbsd.so.0 => /lib/x86_64-linux-gnu/libbsd.so.0 (0x00007e2b51093000)\n\tlibicuuc.so.74 => /lib/x86_64-linux-gnu/libicuuc.so.74 (0x00007e2b50600000)\n\tliblzma.so.5 => /lib/x86_64-linux-gnu/liblzma.so.5 (0x00007e2b509ce000)\n\tlibmd.so.0 => /lib/x86_64-linux-gnu/libmd.so.0 (0x00007e2b51084000)\n\tlibicudata.so.74 => /lib/x86_64-linux-gnu/libicudata.so.74 (0x00007e2b4e800000)\n"
+      }
+    ],
+    "scope": "observed Vulkan loader/ICD roots plus their ELF ldd closure; host OS runtime disk bytes, not a Rive package measurement"
+  },
+  "cpu_only_enumeration": true
+}

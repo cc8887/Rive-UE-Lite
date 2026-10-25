@@ -1,0 +1,26 @@
+diff --git a/Engine/Source/Developer/ShaderPreprocessor/Private/stb_preprocess/preprocessor.c b/Engine/Source/Developer/ShaderPreprocessor/Private/stb_preprocess/preprocessor.c
+index 0843379820ac..77be70935552 100644
+--- a/Engine/Source/Developer/ShaderPreprocessor/Private/stb_preprocess/preprocessor.c
++++ b/Engine/Source/Developer/ShaderPreprocessor/Private/stb_preprocess/preprocessor.c
+@@ -3873,8 +3873,20 @@ static void maybe_expand_macro(parse_state* cs, struct macro_definition* pending
+ 				}
+ 				else
+ 				{
++					// Multi-line arguments preserve leading/trailing whitespace for line mapping.
++					// A ## operand must instead start/end at its preprocessing tokens, or the
++					// preserved newline separates the two tokens that should be pasted.
++					const char* argument_text = arguments[an];
++					while (argument_length > 0 && char_is_whitespace(*argument_text))
++					{
++						++argument_text;
++						--argument_length;
++					}
++					while (argument_length > 0 && char_is_whitespace(argument_text[argument_length - 1]))
++						--argument_length;
+ 					off = arraddnindex(tmp, argument_length);
+-					memcpy(tmp + off, arguments[an], argument_length);
++					if (argument_length > 0)
++						memcpy(tmp + off, argument_text, argument_length);
+ 					if (c->wrote_noexpand_sentinel)
+ 					{
+ 						size_t pasted_length = drop_noexpand_sentinels_at_paste_junction(tmp, (size_t)arrlen(tmp), off);

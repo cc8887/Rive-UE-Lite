@@ -1,0 +1,8 @@
+{
+  "mode": "state_machine",
+  "artboard": "main",
+  "state_machine": "State Machine 1",
+  "events": [],
+  "fixed_delta": 0.016666666666666666,
+  "target_time": 0.5
+}

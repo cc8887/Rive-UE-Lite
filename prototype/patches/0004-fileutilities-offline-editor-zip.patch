@@ -1,0 +1,44 @@
+diff --git a/Engine/Source/Developer/FileUtilities/Private/ZipArchivePrivate.h b/Engine/Source/Developer/FileUtilities/Private/ZipArchivePrivate.h
+index dec2f5a9a80f..cc114c8016ea 100644
+--- a/Engine/Source/Developer/FileUtilities/Private/ZipArchivePrivate.h
++++ b/Engine/Source/Developer/FileUtilities/Private/ZipArchivePrivate.h
+@@ -2,10 +2,10 @@
+ 
+ #pragma once
+ 
+-#if WITH_ENGINE
++#if WITH_ENGINE || WITH_EDITOR
+ 
+ #include "Logging/LogMacros.h"
+ 
+ DECLARE_LOG_CATEGORY_EXTERN(LogZipArchive, Display, Display);
+ 
+-#endif
+\ No newline at end of file
++#endif
+diff --git a/Engine/Source/Developer/FileUtilities/Private/ZipArchiveWriter.cpp b/Engine/Source/Developer/FileUtilities/Private/ZipArchiveWriter.cpp
+index 4031413e939c..408078eadebb 100644
+--- a/Engine/Source/Developer/FileUtilities/Private/ZipArchiveWriter.cpp
++++ b/Engine/Source/Developer/FileUtilities/Private/ZipArchiveWriter.cpp
+@@ -2,7 +2,7 @@
+ 
+ #include "FileUtilities/ZipArchiveWriter.h"
+ 
+-#if WITH_ENGINE
++#if WITH_ENGINE || WITH_EDITOR
+ 
+ #include "Containers/Utf8String.h"
+ #include "GenericPlatform/GenericPlatformFile.h"
+diff --git a/Engine/Source/Developer/FileUtilities/Public/FileUtilities/ZipArchiveWriter.h b/Engine/Source/Developer/FileUtilities/Public/FileUtilities/ZipArchiveWriter.h
+index f2a8702b34fc..bd0e0e2ffdd2 100644
+--- a/Engine/Source/Developer/FileUtilities/Public/FileUtilities/ZipArchiveWriter.h
++++ b/Engine/Source/Developer/FileUtilities/Public/FileUtilities/ZipArchiveWriter.h
+@@ -14,7 +14,7 @@
+ 
+ #define UE_API FILEUTILITIES_API
+  
+-#if WITH_ENGINE
++#if WITH_ENGINE || WITH_EDITOR
+ 
+ class IFileHandle;
+ 

@@ -1,0 +1,156 @@
+# Rive UE RHI/RDG 轻量原型
+
+源码、工具和交付物均放在此独立目录，Linux 构建另用专属缓存。`engine/` 固定为 UE6 `62d7c1a7125b52b10ee1b714838f515f3563f795`；`vendor/rive-unreal/` 固定为 `8461a2dc90924aeadc1f7eed99e6ae2de1b490f0`，原生 runtime 固定为 `47d1cd54ccefd468db7cb26ecc4699ae1723dd85`。不修改原引擎、Rive 仓库或现有工程。
+
+## 独立 shader、动画与状态机实测
+
+本轮已将真实 `LinearAnimationInstance` / `StateMachineInstance` 播放驱动接入两个宿主。时间线按固定步长从零重放，在事件的实际时刻应用输入并结算；每张图保存实际驱动选择、调用次数、输入值和状态变化。覆盖 Bounce 动画、bool Hover/Press、number 转换、重复 trigger 和 pointer 开关五个确定性样例。
+
+最终 `playback-independent-02` 已通过：双方各自实际 cook，分别加载不同路径、不同 SHA 的 archive，在隐藏 `/dev/dxg`、`/dev/dri` 的 namespace 中以 uid 1000 使用 llvmpipe CPU Vulkan 渲染。60 次进程均正常退出，30 对完整 RGBA/alpha 截图零差异，无掩码或容差；实际播放 metadata 也完全一致。16 项必需画面变化和 12 项每端同刻输入效果检查均通过。
+
+| 对照范围 | 截图对数 | 结果 |
+| --- | ---: | --- |
+| 原五组静态 fixture | 5 | 全部 RGBA/alpha 零差异 |
+| 动画、bool/number/trigger/pointer 状态机关键帧 | 19 | 全部 RGBA/alpha 与播放记录一致 |
+| 同一时刻无输入控制 | 6 | 两端一致，且输入确实改变画面和状态 |
+
+原生 `WITH_ENGINE=1 / WITH_EDITOR=1` 工具实际调用 Engine 的 `BeginCompileShader → GlobalBeginCompileShader → FShaderCompilingManager → SaveGlobalShaderFile`，正常退出后生成 7,082,186-byte archive，11,469 个排列全部成功。轻量工具独立生成 17,147,055-byte archive，11,468 个排列全部成功，其中 9,889 次命中自己的 job cache、1,579 次实际调用 DXC。两边的 Rive `(type, permutation)` 域精确同为 11,360 个；原生侧多一个 utility 排列。两次执行、工具、输出、日志及编译缓存独立，Mesa 缓存也按宿主分开。
+
+独立 cook 首轮发现了共用 archive 会掩盖的真实问题：轻量编译器使用 DXC 却漏声明 `COMPILER_DXC=1`，使 Rive 羽化填充的正反面覆盖率分支反转。首轮 29/30 对通过，bankcard 有 72,399 个不同像素。只补这一编译环境声明、重新 cook 后，bankcard 聚焦复测归零，完整 60 次新进程对照也全部通过。未修改 Rive shader、draw/flush 算法、两个运行宿主或原生 archive；旧工具、源码和失败证据均保留。
+
+- [播放协议与驱动边界](Source/RivePlayback/README.md)、[五个可复现时间线](fixtures/playback/scenarios.json)
+- [最终简洁报告](artifacts/playback-independent-02/review-summary.json)、[完整验收](artifacts/playback-independent-02/summary.json)、[60 张原图并排画廊](artifacts/playback-independent-02/gallery.html)、[原图与链接审计](artifacts/playback-independent-02/gallery-audit.json)
+- [轻量侧独立 cook](artifacts/shaders-independent-lite-02/provenance.json)、[原生侧独立 cook](artifacts/shaders-canonical/full-01/provenance/provenance.json)、[实际复现命令](scripts/measure_playback_README.md)
+- [首轮失败结果](artifacts/playback-independent-01/review-summary.json)、[羽化源码与素材依据](artifacts/playback/diagnostics/bankcard-feather-cause-01.json)、[单一宏修正的受控运行验证](artifacts/playback/diagnostics/bankcard-dxc-runtime-03.json)
+- [12 次真实进程负例](artifacts/playback/rejections-01/summary.json)、[错误原因审计](artifacts/playback/rejections-01/message-audit.json)
+- [当前轻量链接排除审计](artifacts/playback/lite-linkage-01.json)：实际 21 个模块，无 Engine/Renderer
+- [原生编译核心源码审计](artifacts/playback/canonical-core-source-audit-01.json)：8 个 Engine 编译环境、View metadata 和 archive 序列化关键文件与固定 UE commit 一致；双方共用的 preprocessor 修复单列
+- [播放、adapter 与工程隔离审计](artifacts/playback/final-source-audit-02.json)：14 项检查通过，保留两端原始 draw/flush/pass/shader 路径，原仓既有修改未变化
+- [修正后的部署包与字节实测](artifacts/playback/package-02/report.json)、[压缩包](artifacts/playback/package-02/deploy-package.tar.gz)
+- [隐藏 engine、vendor、GPU 后的包内验证](artifacts/portable/playback-03/summary.json)、[包体与便携验证复现命令](artifacts/playback/package-02/commands.json)
+
+修正后的 `package/playback-02` 包含五个播放样例、时间线及 bankcard，应用文件共 53,561,592 bytes（51.08 MiB），实际 gzip 包 17,547,658 bytes（16.73 MiB），ELF 31,296,864 bytes（29.85 MiB）。本轮未重新采集正式性能数据；下面的 RSS 和出图时间属于第一轮静态包。
+
+包内 bankcard 和 Bounce 0.75 秒均在隐藏 engine/vendor/GPU 的 namespace 中通过实际启动器出图并正常退出：bankcard 与本轮原生 UE 参考图、Bounce 与已验证关键帧均 RGBA/alpha 零差异。包内容运行前后哈希相同。gzip SHA256 为 `ae6fc93ca0fd6c37ace80bbb0ebb52703d9972dece2d783054fe17a50c1b0f3e`。
+
+一致性结论限于这些固定样例的 UE Program 离屏 `FRenderTarget` / RHI / RDG 路径。尚未验证 Editor 视口、UMG/Slate 合成、硬件 GPU 对照、GPU Canvas/Ore、脚本或整个 Rive 库；关键帧是每次从零重放后的截图，不是连续渲染帧率测试。
+
+```sh
+bash package/playback-02/render.sh package/playback-02/fixtures/ball_test.riv /tmp/bounce.png \
+  -Scenario="$PWD/package/playback-02/fixtures/playback/bounce_animation.json" \
+  -PlaybackMetadata=/tmp/bounce-playback.json
+```
+
+## 第一轮静态包的历史性能基线
+
+最小原型已在 Ubuntu 24.04 / WSL2、Mesa 25.2.8 llvmpipe CPU Vulkan 上跑通。运行进程所在的私有 namespace 内 `/dev/dxg`、`/dev/dri` 均不可见；独立部署测试还隐藏开发用的 engine/vendor，从 `/tmp` 调用包内 `render.sh`，成功输出真实 Rive PNG 并正常退出。
+
+以下是第一轮旧 shader archive 对应的 Linux x64 Development 实测，未做 Shipping/LTO 优化。它使用修正前的羽化分支；本轮没有重新采集正式 RSS/出图性能，不能将这些数值或 60 次正确性验证的过程时间当作新版包性能。
+
+| 包体项目 | 实测 |
+| --- | ---: |
+| 轻量 ELF，已剥离调试符号 | 29.80 MiB |
+| 保留 Engine/Renderer 的参考 ELF | 161.32 MiB |
+| 完整应用包，含 shader、配置、备用 Vulkan loader 和卡片 fixture | 51.02 MiB |
+| 实际压缩包 `.tar.gz` | 16.71 MiB |
+
+对内嵌文字、渐变的 `bankcard.riv`，采样默认 artboard 的静态初始帧，输出 512×512 PNG：
+
+| 指标 | 默认 32 逻辑 CPU 可用 | 限制 2 逻辑 CPU，LP_NUM_THREADS=2 |
+| --- | ---: | ---: |
+| 首轮完整 PNG 墙钟时间 | 1.080 s | 1.161 s |
+| 后两轮重复启动中位数 | 1.174 s | 0.907 s |
+| 三轮峰值 RSS 的最大值 | 309.39 MiB | 269.25 MiB |
+
+每轮均为新进程。每组首轮使用全新 Mesa shader 磁盘缓存，后两轮复用该组缓存；未清空 OS 页缓存，也不将结果标为进程内暖机帧耗时。两逻辑 CPU 通过 affinity 限制，仍是同一台 Ryzen 9 9950X / WSL2 主机，并非独立双核云服务器。
+
+第一轮五个静态初态与包含真实 Engine/Renderer 和原插件 `FRenderTarget` 包装的 UE Program 对照，RGBA/alpha 均零差异，但两边共用旧 inline SPIR-V archive，因此未暴露后来独立 cook 发现的羽化问题。当前视觉结论以上面的独立对照为准。`clip_tests` 初态全透明，`circle_clips` 提供可见裁剪覆盖。
+
+交付与证据：
+
+- [全部验收与实测汇总](artifacts/measurements/summary.json)
+- [已测量的部署压缩包](artifacts/measurements/default-02/lite/deploy-package.tar.gz)
+- [默认配置测量报告](artifacts/measurements/default-02/lite/report.json)、[双逻辑 CPU 测量报告](artifacts/measurements/cpu2-01/lite/report.json)
+- [五组逐像素比较](artifacts/captures/integration-02/comparison-five-fixtures.json)、[实际运行与像素内容](artifacts/captures/integration-02/reference-captures.json)
+- [隐藏源码/GPU 后执行包内启动脚本的日志](artifacts/setup/portable-final-launcher.log)
+- [当前源码 pins 与原仓状态](artifacts/source-state.json)、[引擎 patches 验证](prototype/patches/all-patches-validation.json)
+
+应用包依赖服务器已安装的软件 Vulkan ICD 和系统库。系统 loader、Lavapipe 及其闭包与应用 `DT_NEEDED` 合并去重为 199,481,112 bytes（190.24 MiB）；加应用包为 241.26 MiB 的已识别文件，未计入整个基础操作系统。包内备用 loader 已计入应用包，不重复计算。外部库均已解析，`standalone_bundle=false` 表示它们使用服务器安装的系统库。详细清单见 [依赖审计](artifacts/measurements/runtime-dependency-audit.json) 和测量报告的 `runtime_dependency_inventory`。
+
+## 原型组成
+
+- `RiveRhiLite`：Program target，`bCompileAgainstEngine=false`，直接 RHI 创建纹理，原 Rive UE backend 向 RDG 提交 pass，RGBA8 回读并输出 PNG。
+- `RiveLiteRenderer`：从现有 Rive 插件抽取 2D adapter。保留原 `flush()`、RDG pass 实现及 shader；删除 UObject/UMG、Engine 纹理包装。首轮不支持 Ore、GPU Canvas、脚本。
+- `RiveLiteShaderCompiler`：构建阶段的离线编译工具，调用 UE VulkanShaderFormat，输出目标 Linux 的 cooked global shader archive。运行包不携带编译器。
+- `RiveUeReference`：保留真实 Engine/Renderer 模块及原插件的 `FRenderTarget` 包装，作为离屏 UE Program 对照；可指定独立 shader archive 和共享播放协议。它不覆盖编辑器视口或 UMG 合成。细节见 [参考程序说明](Source/RiveUeReference/README.md)。
+- `RiveUeShaderCooker`：独立构建的 `WITH_ENGINE=1`、`WITH_EDITOR=1` Program，使用原生 Engine shader 编译入口、环境和序列化，为 Rive 及所需 utility shaders 生成 Linux archive。它不进入轻量部署包。细节见 [原生编译路径与隔离修改](Source/RiveUeShaderCooker/README.md)。
+- `RivePlayback`：两端共享的原生动画/状态机驱动，记录实际对象、输入、时间推进及状态证据。
+- `RiveLiteRhiProbe`：验证宿主启动、Vulkan、纹理清屏及回读的中间目标；其图片不能用作 Rive 验证。
+- `prototype/patches/`：可重放的 VulkanRHI 隔离 patch 和源码检查证据。
+- `scripts/measure_ue_lite.py`：实际运行、部署包大小、RSS、出图时间及截图比较。详见 `scripts/measure_README.md`。
+
+## 验证标准
+
+只有以下证据都齐全，才能确认本次目标完成：
+
+1. 实际 Linux ELF 和 link response/map 不包含 `Engine`、`Renderer` 模块。
+2. 进程无法访问 GPU 设备节点，并实际选中 CPU Vulkan。
+3. 用相同 fixture、runtime、shader 源码、尺寸、时间和像素/alpha 设置产生 Rive PNG；独立 cook 对照还要求两端各自实际生成 archive，覆盖相同 Rive permutation 域。
+4. 与原生 UE 参考 PNG 做像素比较；静态源码相同不能代替截图。
+5. 基于实际部署包记录压缩前后字节，分别记录宿主驱动依赖；测峰值 RSS、首图和重复出图时间。
+
+各项真实状态写入 `artifacts/`。缺失项必须标为 incomplete，不能用估算值填补。
+
+```mermaid
+flowchart LR
+    A[".riv 文件"] --> B["Rive artboard / draw"]
+    B --> C["原 Rive UE backend"]
+    C --> D["UE RenderCore / RDG"]
+    D --> E["UE Vulkan RHI"]
+    E --> F["Mesa Lavapipe CPU"]
+    F --> G["RGBA8 回读 / PNG"]
+    H["离线 UE shader compiler"] --> I["cooked shader archive"]
+    I --> C
+```
+
+轻量运行时保留 Core、CoreUObject、ApplicationCore、RHI、RHICore、RenderCore 和 VulkanRHI。这里的裁剪目标是 `Engine`、`Renderer` 模块；CPU 出图仍通过真实 Vulkan 驱动执行。第一轮截图采样默认 artboard 的静态 `Seconds=0`，尚未选择动画或状态机实例，不能把 `-Seconds` 当成动画播放验证。
+
+## 构建与运行
+
+依赖、SDK 和生成物不纳入源码交付。准备时应保留精确版本和下载/生成记录；此目录当前已在 Windows + WSL Ubuntu 中准备隔离环境。下面是依赖和生成物已准备完成后的构建片段，不是一键安装脚本。
+
+```sh
+# WSL / Linux；构建系统本身需要 .NET10 和该提交指定的 UE v26 工具链。
+bash scripts/build_linux.sh ubt --source "$PWD/dependencies/nuget-feed" -p:NuGetAudit=false
+bash Source/RiveLiteRenderer/build_native_linux.sh
+bash scripts/build_linux.sh RiveLiteRhiProbe
+bash scripts/build_linux.sh RiveLiteShaderCompiler
+bash scripts/build_linux.sh RiveRhiLite
+```
+
+离线 shader 编译参数见 `Source/RiveLiteShaderCompiler/README.md`。已生成的独立部署包可直接使用：
+
+```sh
+bash package/final-01/render.sh \
+  package/final-01/fixtures/input.riv /absolute/path/output.png \
+  -Width=512 -Height=512 -Seconds=0
+```
+
+在已安装 Mesa/Lavapipe 的 Linux 服务器解压实测包后：
+
+```sh
+tar -xzf deploy-package.tar.gz
+bash final-01/render.sh final-01/fixtures/input.riv /tmp/rive.png
+```
+
+运行 RHI probe 时增加 `-ProbeRHI`，它不需要 `.riv` 或 shader archive。它只测图形启动，不证明 Rive 已运行。
+
+`scripts/measure_no_gpu.sh` 可在私有 mount namespace 隐藏 `/dev/dxg`、`/dev/dri`，再降回普通用户运行测量；不会改变 WSL 全局 `/dev`。同时设置 `VK_ICD_FILENAMES` 和 `VK_DRIVER_FILES` 指向 Lavapipe ICD。已保存的 CPU Vulkan 前置证据不等于 UE/Rive 验证通过。
+
+像素使用 `PF_R8G8B8A8`、无 sRGB texture flag、`RCM_UNorm`、禁止回读 gamma 转换。参考图必须采用相同约定。
+
+部署时用 `scripts/package_linux.py` 从真实 `.target` receipt 打包，并显式加入 archive 与 fixture；SDK、源码、离线编译器、调试符号不进入包体。包内包含 UE 随附的备用 Vulkan loader；系统优先加载的 loader、Lavapipe ICD 及其系统库闭包另外统计。`render.sh` 自动选择已安装的 Lavapipe ICD，也可用 `RIVE_LITE_ICD=/absolute/path/lvp.json` 指定。
+
+包内 shader archive 位于 `shaders/global.bin`；运行时的空 shader 映射目录统一使用 `Engine/Shaders`，避免 Windows 上 `shaders` 与 `Shaders` 的大小写合并。无需携带 shader 源码。
+
+`scripts/check_portable_linux.sh` 会在私有 namespace 隐藏开发用的 engine/vendor、隐藏 GPU 节点、降回普通用户，从 `/tmp` 调用包内的 `render.sh`，以检查源码树回退依赖。`scripts/measure_pair.py` 负责同输入的参考截图和实际测量；每轮必须使用新证据目录。

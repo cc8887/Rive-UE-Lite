@@ -1,0 +1,397 @@
+diff --git a/Engine/Source/Runtime/VulkanRHI/Private/VulkanCommands.cpp b/Engine/Source/Runtime/VulkanRHI/Private/VulkanCommands.cpp
+index d88d95e8e26a..92490950c82f 100644
+--- a/Engine/Source/Runtime/VulkanRHI/Private/VulkanCommands.cpp
++++ b/Engine/Source/Runtime/VulkanRHI/Private/VulkanCommands.cpp
+@@ -7,7 +7,10 @@
+ #include "VulkanRHIPrivate.h"
+ #include "VulkanPendingState.h"
+ #include "VulkanContext.h"
++#include "CoreGlobals.h"
++#if WITH_ENGINE
+ #include "EngineGlobals.h"
++#endif
+ #include "VulkanLLM.h"
+ #include "RenderUtils.h"
+ #include "GlobalRenderResources.h"
+diff --git a/Engine/Source/Runtime/VulkanRHI/Private/VulkanDynamicRHI.h b/Engine/Source/Runtime/VulkanRHI/Private/VulkanDynamicRHI.h
+index 9d9d4a700021..1ffd4a46b2c5 100644
+--- a/Engine/Source/Runtime/VulkanRHI/Private/VulkanDynamicRHI.h
++++ b/Engine/Source/Runtime/VulkanRHI/Private/VulkanDynamicRHI.h
+@@ -17,7 +17,9 @@ class FVulkanViewport;
+ class FVulkanPayload;
+ class FVulkanSemaphore;
+ class FVulkanTexture;
++#if WITH_ENGINE
+ class IHeadMountedDisplayVulkanExtensions;
++#endif
+ class FVulkanThread;
+ struct FRHITransientHeapAllocation;
+ struct FVulkanPlatformCommandList;
+@@ -458,7 +460,9 @@ protected:
+ 	FOptionalVulkanInstanceExtensions OptionalInstanceExtensions;
+ 
+ public:
++	#if WITH_ENGINE
+ 	static TSharedPtr< IHeadMountedDisplayVulkanExtensions, ESPMode::ThreadSafe > HMDVulkanExtensions;
++	#endif
+ };
+ 
+ PRAGMA_ENABLE_DEPRECATION_WARNINGS
+diff --git a/Engine/Source/Runtime/VulkanRHI/Private/VulkanExtensions.cpp b/Engine/Source/Runtime/VulkanRHI/Private/VulkanExtensions.cpp
+index 243f8454ffbb..9408c2e22514 100644
+--- a/Engine/Source/Runtime/VulkanRHI/Private/VulkanExtensions.cpp
++++ b/Engine/Source/Runtime/VulkanRHI/Private/VulkanExtensions.cpp
+@@ -5,8 +5,10 @@
+ #include "VulkanRHIPrivate.h"
+ #include "RHIUtilities.h"
+ 
++#if WITH_ENGINE
+ #include "IHeadMountedDisplayModule.h"
+ #include "IHeadMountedDisplayVulkanExtensions.h"
++#endif
+ #include "Misc/CommandLine.h"
+ 
+ #include "RHICore.h"
+@@ -204,7 +206,9 @@ TAutoConsoleVariable<int32> GCVarVulkanUseCoreStructs(
+ extern TAutoConsoleVariable<int32> GGPUValidationCvar;
+ #endif
+ 
++#if WITH_ENGINE
+ TSharedPtr<IHeadMountedDisplayVulkanExtensions, ESPMode::ThreadSafe> FVulkanDynamicRHI::HMDVulkanExtensions;
++#endif
+ TArray<TSharedRef<FVulkanRHIExternalDeviceExtensionBase>> FVulkanDeviceExtension::ExternalExtensions;
+ TArray<const ANSICHAR*> FVulkanInstanceExtension::ExternalExtensions;
+ 
+@@ -3677,6 +3681,7 @@ FVulkanDeviceExtensionArray FVulkanDeviceExtension::GetUESupportedDeviceExtensio
+ 	FVulkanDeviceExtension::ExternalExtensions.Empty();
+ 
+ 	// Add HMD requested extensions
++	#if WITH_ENGINE
+ 	{
+ 		if (IHeadMountedDisplayModule::IsAvailable())
+ 		{
+@@ -3698,6 +3703,7 @@ FVulkanDeviceExtensionArray FVulkanDeviceExtension::GetUESupportedDeviceExtensio
+ 			}
+ 		}
+ 	}
++	#endif
+ 
+ 	// Now that all the extensions are listed, update their support flags
+ 	FlagExtensionSupport(GetDriverSupportedDeviceExtensions(InDevice->GetPhysicalHandle()), OutUEDeviceExtensions, ApiVersion, "device");
+@@ -3824,6 +3830,7 @@ FVulkanInstanceExtensionArray FVulkanInstanceExtension::GetUESupportedInstanceEx
+ 
+ 
+ 	// Add HMD requested extensions
++	#if WITH_ENGINE
+ 	{
+ 		if (IHeadMountedDisplayModule::IsAvailable())
+ 		{
+@@ -3836,6 +3843,7 @@ FVulkanInstanceExtensionArray FVulkanInstanceExtension::GetUESupportedInstanceEx
+ 			ActivateExternalExtensions(HMDExtensions, "HMD");
+ 		}
+ 	}
++	#endif
+ 
+ 	// Add extensions added outside the RHI (eg plugins)
+ 	ActivateExternalExtensions(ExternalExtensions, "Externally");
+diff --git a/Engine/Source/Runtime/VulkanRHI/Private/VulkanLayers.cpp b/Engine/Source/Runtime/VulkanRHI/Private/VulkanLayers.cpp
+index f9387527b2ff..b1e578b0f2ad 100644
+--- a/Engine/Source/Runtime/VulkanRHI/Private/VulkanLayers.cpp
++++ b/Engine/Source/Runtime/VulkanRHI/Private/VulkanLayers.cpp
+@@ -7,15 +7,17 @@
+ #include "VulkanRHIPrivate.h"
+ #include "VulkanDevice.h"
+ #include "VulkanExtensions.h"
++#if WITH_ENGINE
+ #include "IHeadMountedDisplayModule.h"
+ #include "IHeadMountedDisplayVulkanExtensions.h"
++#endif
+ #include "Misc/CommandLine.h"
+ 
+ #if VULKAN_HAS_DEBUGGING_ENABLED
+ bool GRenderDocFound = false;
+ #endif
+ 
+-#if VULKAN_ENABLE_DESKTOP_HMD_SUPPORT
++#if WITH_ENGINE && VULKAN_ENABLE_DESKTOP_HMD_SUPPORT
+ #include "IHeadMountedDisplayModule.h"
+ #endif
+ 
+diff --git a/Engine/Source/Runtime/VulkanRHI/Private/VulkanQuery.cpp b/Engine/Source/Runtime/VulkanRHI/Private/VulkanQuery.cpp
+index d91dae75858e..f1b7280b46fd 100644
+--- a/Engine/Source/Runtime/VulkanRHI/Private/VulkanQuery.cpp
++++ b/Engine/Source/Runtime/VulkanRHI/Private/VulkanQuery.cpp
+@@ -10,7 +10,10 @@
+ #include "VulkanContext.h"
+ #include "VulkanCommandBuffer.h"
+ #include "VulkanQuery.h"
++#include "CoreGlobals.h"
++#if WITH_ENGINE
+ #include "EngineGlobals.h"
++#endif
+ #include "RenderCore.h"
+ 
+ #if VULKAN_QUERY_CALLSTACK
+diff --git a/Engine/Source/Runtime/VulkanRHI/Private/VulkanRHI.cpp b/Engine/Source/Runtime/VulkanRHI/Private/VulkanRHI.cpp
+index 740d91e2a652..1cdfaf272f1b 100644
+--- a/Engine/Source/Runtime/VulkanRHI/Private/VulkanRHI.cpp
++++ b/Engine/Source/Runtime/VulkanRHI/Private/VulkanRHI.cpp
+@@ -6,7 +6,9 @@
+ 
+ #include "VulkanRHIPrivate.h"
+ #include "BuildSettings.h"
++#if WITH_ENGINE
+ #include "HardwareInfo.h"
++#endif
+ #include "VulkanShaderResources.h"
+ #include "VulkanResources.h"
+ #include "VulkanPendingState.h"
+@@ -26,7 +28,9 @@
+ #include "RHIValidation.h"
+ #include "RHIUtilities.h"
+ #include "ShaderDiagnostics.h"
++#if WITH_ENGINE
+ #include "IHeadMountedDisplayModule.h"
++#endif
+ #include "VulkanRenderpass.h"
+ #include "VulkanTransientResourceAllocator.h"
+ #include "VulkanExtensions.h"
+@@ -57,7 +61,7 @@ TAtomic<uint64> GVulkanImageViewHandleIdCounter{ 0 };
+ TAtomic<uint64> GVulkanSamplerHandleIdCounter{ 0 };
+ TAtomic<uint64> GVulkanDSetLayoutHandleIdCounter{ 0 };
+ 
+-#if VULKAN_ENABLE_DESKTOP_HMD_SUPPORT
++#if WITH_ENGINE && VULKAN_ENABLE_DESKTOP_HMD_SUPPORT
+ #include "IHeadMountedDisplayModule.h"
+ #endif
+ 
+@@ -202,7 +206,7 @@ static VkPhysicalDevice SelectPhysicalDevice(VkInstance InInstance)
+ 	}
+ 
+ 	// Allow HMD to override which graphics adapter is chosen, so we pick the adapter where the HMD is connected
+-#if VULKAN_ENABLE_DESKTOP_HMD_SUPPORT
++#if WITH_ENGINE && VULKAN_ENABLE_DESKTOP_HMD_SUPPORT
+ 	if (IHeadMountedDisplayModule::IsAvailable())
+ 	{
+ 		static_assert(sizeof(uint64) == VK_LUID_SIZE);
+@@ -505,10 +509,13 @@ void FVulkanDynamicRHI::Init()
+ {
+ 	InitInstance();
+ 
++	#if WITH_ENGINE
+ 	bIsStandaloneStereoDevice = IHeadMountedDisplayModule::IsAvailable() && IHeadMountedDisplayModule::Get().IsStandaloneStereoOnlyDevice();
++	#endif
+ 
+ 	static const auto CVarStreamingTexturePoolSize = IConsoleManager::Get().FindTConsoleVariableDataInt(TEXT("r.Streaming.PoolSize"));
+-	int32 StreamingPoolSizeValue = CVarStreamingTexturePoolSize->GetValueOnAnyThread();
++	// The streaming pool CVar belongs to Engine; offscreen programs have no streaming pool.
++	int32 StreamingPoolSizeValue = CVarStreamingTexturePoolSize ? CVarStreamingTexturePoolSize->GetValueOnAnyThread() : 0;
+ 			
+ 	if (GPoolSizeVRAMPercentage > 0)
+ 	{
+@@ -601,7 +608,9 @@ void FVulkanDynamicRHI::Shutdown()
+ 	Device = nullptr;
+ 
+ 	// Release the early HMD interface used to query extra extensions - if any was used
++	#if WITH_ENGINE
+ 	HMDVulkanExtensions = nullptr;
++	#endif
+ 
+ #if VULKAN_HAS_DEBUGGING_ENABLED
+ 	RemoveDebugCallbacks();
+@@ -1138,7 +1147,9 @@ void FVulkanDynamicRHI::InitInstance()
+ 			UE_LOGF(LogVulkanRHI, Display, "Wave Operations have been DISABLED (missing stages=0x%x operations=0x%x).", MissingStageFlags, MissingOperationFlags);
+ 		}
+ 
++		#if WITH_ENGINE
+ 		FHardwareInfo::RegisterHardwareInfo(NAME_RHI, TEXT("Vulkan"));
++		#endif
+ 
+ 		SavePipelineCacheCmd = IConsoleManager::Get().RegisterConsoleCommand(
+ 			TEXT("r.Vulkan.SavePipelineCache"),
+diff --git a/Engine/Source/Runtime/VulkanRHI/Private/VulkanRenderTarget.cpp b/Engine/Source/Runtime/VulkanRHI/Private/VulkanRenderTarget.cpp
+index 807af0d4969e..48a8d7d9d810 100644
+--- a/Engine/Source/Runtime/VulkanRHI/Private/VulkanRenderTarget.cpp
++++ b/Engine/Source/Runtime/VulkanRHI/Private/VulkanRenderTarget.cpp
+@@ -5,11 +5,15 @@
+ =============================================================================*/
+ 
+ #include "VulkanRHIPrivate.h"
++#if WITH_ENGINE
+ #include "ScreenRendering.h"
++#endif
+ #include "VulkanPendingState.h"
+ #include "VulkanContext.h"
+ #include "VulkanSwapChain.h"
++#if WITH_ENGINE
+ #include "SceneUtils.h"
++#endif
+ #include "RHISurfaceDataConversion.h"
+ #include "VulkanRenderpass.h"
+ 
+diff --git a/Engine/Source/Runtime/VulkanRHI/Private/VulkanSwapChain.cpp b/Engine/Source/Runtime/VulkanRHI/Private/VulkanSwapChain.cpp
+index 527de216bd70..1102afdd95f8 100644
+--- a/Engine/Source/Runtime/VulkanRHI/Private/VulkanSwapChain.cpp
++++ b/Engine/Source/Runtime/VulkanRHI/Private/VulkanSwapChain.cpp
+@@ -10,10 +10,14 @@
+ #include "VulkanPlatform.h"
+ #include "VulkanRHIPrivate.h"
+ #include "VulkanSubmission.h"
++#if WITH_ENGINE
+ #include "Engine/RendererSettings.h"
++#endif
+ #include "HAL/PlatformFramePacer.h"
++#if WITH_ENGINE
+ #include "IHeadMountedDisplayModule.h"
+ #include "IHeadMountedDisplayVulkanExtensions.h"
++#endif
+ #include "Misc/CommandLine.h"
+ #include "RHIUtilities.h"
+ 
+@@ -494,7 +498,11 @@ FVulkanSwapChain* FVulkanSwapChain::Create(
+ 		if (RequestedPresentMode == -1)
+ 		{
+ 			// Until FVulkanViewport::Present honors SyncInterval, we need to disable vsync for the spectator window if using an HMD.
++			#if WITH_ENGINE
+ 			const bool bDisableVsyncForHMD = (FVulkanDynamicRHI::HMDVulkanExtensions.IsValid()) ? FVulkanDynamicRHI::HMDVulkanExtensions->ShouldDisableVulkanVSync() : false;
++			#else
++			const bool bDisableVsyncForHMD = false;
++			#endif
+ 
+ 			if (bFoundPresentModeImmediate && (bDisableVsyncForHMD || !LockToVsync))
+ 			{
+diff --git a/Engine/Source/Runtime/VulkanRHI/Private/VulkanUtil.cpp b/Engine/Source/Runtime/VulkanRHI/Private/VulkanUtil.cpp
+index 3f1c957247e4..875849711e78 100644
+--- a/Engine/Source/Runtime/VulkanRHI/Private/VulkanUtil.cpp
++++ b/Engine/Source/Runtime/VulkanRHI/Private/VulkanUtil.cpp
+@@ -9,7 +9,9 @@
+ #include "VulkanPendingState.h"
+ #include "VulkanContext.h"
+ #include "VulkanMemory.h"
++#if WITH_ENGINE
+ #include "Engine/GameEngine.h"
++#endif
+ #include "Misc/App.h"
+ #include "Misc/OutputDeviceRedirector.h"
+ #include "RHIValidationContext.h"
+@@ -690,11 +692,13 @@ void FVulkanDynamicRHI::TerminateOnGPUCrash(const TCHAR* Message)
+ 	UE::RHICore::Nvidia::Aftermath::OnGPUCrash(AftermathResults);
+ #endif
+ 
++	#if WITH_ENGINE
+ 	UGameEngine* GameEngine = Cast<UGameEngine>(GEngine);
+ 	if (GameEngine)
+ 	{
+ 		GameEngine->OnGPUCrash();
+ 	}
++	#endif
+ 
+ 	// hard break here when the debugger is attached
+ 	if (FPlatformMisc::IsDebuggerPresent())
+diff --git a/Engine/Source/Runtime/VulkanRHI/Private/VulkanViewport.cpp b/Engine/Source/Runtime/VulkanRHI/Private/VulkanViewport.cpp
+index 7f7f2402437b..8ae1d70bdb94 100644
+--- a/Engine/Source/Runtime/VulkanRHI/Private/VulkanViewport.cpp
++++ b/Engine/Source/Runtime/VulkanRHI/Private/VulkanViewport.cpp
+@@ -12,10 +12,14 @@
+ #include "VulkanRenderpass.h"
+ #include "GlobalShader.h"
+ #include "HAL/PlatformAtomics.h"
++#if WITH_ENGINE
+ #include "Engine/RendererSettings.h"
+ #include "StereoRenderUtils.h"
++#endif
+ #include "CommonRenderResources.h"
++#if WITH_ENGINE
+ #include "ScreenRendering.h"
++#endif
+ #include "RHIStaticStates.h"
+ 
+ FVulkanBackBuffer::FVulkanBackBuffer(FVulkanDevice& Device, FVulkanViewport* InViewport, EPixelFormat Format, uint32 SizeX, uint32 SizeY, ETextureCreateFlags UEFlags)
+@@ -109,7 +113,7 @@ FVulkanViewport::FVulkanViewport(FVulkanDevice& InDevice, void* InWindowHandle,
+ 	check(IsInGameThread());
+ 
+ 	static IConsoleVariable* CVarVsync = IConsoleManager::Get().FindConsoleVariable(TEXT("r.VSync"));
+-	LockToVsync = CVarVsync->GetInt() != 0;
++	LockToVsync = CVarVsync && CVarVsync->GetInt() != 0;
+ 
+ 	FVulkanDynamicRHI::Get().Viewports.Add(this);
+ 
+@@ -529,10 +533,15 @@ void FVulkanViewport::CreateSwapchain(FVulkanCommandListContext& Context, FVulka
+ 		const uint32 BackBufferSizeX = RequiresRenderingBackBuffer() ? SizeX : 1;
+ 		const uint32 BackBufferSizeY = RequiresRenderingBackBuffer() ? SizeY : 1;
+ 
++		#if WITH_ENGINE
+ 		const UE::StereoRenderUtils::FStereoShaderAspects Aspects(GMaxRHIShaderPlatform);
++		const bool bMobileMultiViewEnabled = Aspects.IsMobileMultiViewEnabled();
++		#else
++		const bool bMobileMultiViewEnabled = false;
++		#endif
+ 
+ 		const int kMultiViewCount = 2; // TODO: number of subresources may change in the future
+-		const FRHITextureCreateDesc CreateDesc = (Aspects.IsMobileMultiViewEnabled() ?			
++		const FRHITextureCreateDesc CreateDesc = (bMobileMultiViewEnabled ?
+ 			FRHITextureCreateDesc::Create2DArray(TEXT("RenderingBackBufferArr"), BackBufferSizeX, BackBufferSizeY, kMultiViewCount, PixelFormat) :
+ 			FRHITextureCreateDesc::Create2D(TEXT("RenderingBackBuffer"), BackBufferSizeX, BackBufferSizeY, PixelFormat))
+ 			.SetClearValue(FClearValueBinding::None)
+@@ -619,6 +628,7 @@ inline static void CopyImageToBackBuffer(FVulkanCommandListContext& Context, FVu
+ 	// Copy and rotate the intermediate image to the BackBuffer with a pixel shader
+ 	if (bNeedsVulkanPreTransform)
+ 	{
++		#if WITH_ENGINE
+ 		FGraphicsPipelineStateInitializer GraphicsPSOInit;
+ 		// No alpha blending, no depth tests or writes, no stencil tests or writes, no backface culling.
+ 		GraphicsPSOInit.BlendState = TStaticBlendState<>::GetRHI();
+@@ -653,6 +663,10 @@ inline static void CopyImageToBackBuffer(FVulkanCommandListContext& Context, FVu
+ 		RHICmdList.DrawPrimitive(0, 2, 1);
+ 
+ 		RHICmdList.EndRenderPass();
++		#else
++		// The standalone host renders to textures and does not own rotated display surfaces.
++		UE_LOGF(LogVulkanRHI, Fatal, "Display surface pretransform requires the Engine module. Use offscreen textures for standalone rendering.");
++		#endif
+ 	}
+ 	else
+ 	{
+diff --git a/Engine/Source/Runtime/VulkanRHI/VulkanRHI.Build.cs b/Engine/Source/Runtime/VulkanRHI/VulkanRHI.Build.cs
+index e7e446405d3e..f36af003f9fd 100644
+--- a/Engine/Source/Runtime/VulkanRHI/VulkanRHI.Build.cs
++++ b/Engine/Source/Runtime/VulkanRHI/VulkanRHI.Build.cs
+@@ -12,6 +12,9 @@ public class VulkanRHI : ModuleRules
+ 		IWYUSupport = IWYUSupport.None;
+ 		bLegalToDistributeObjectCode = true;
+ 		bBuildLocallyWithSNDBS = false; // VulkanPlatform.h
++		// Vulkan shares ABI declarations with HLSL (for example hit-group root constants).
++		// Engine previously exposed these headers transitively; keep this dependency explicit.
++		PrivateIncludePathModuleNames.Add("Shaders");
+ 
+ 		if (Target.Platform.IsInGroup(UnrealPlatformGroup.Windows))
+ 		{
+@@ -35,17 +38,25 @@ public class VulkanRHI : ModuleRules
+ 				"Core", 
+ 				"CoreUObject",
+ 				"ApplicationCore",
+-				"Engine", 
+ 				"RHI",
+ 				"RHICore",
+ 				"RenderCore", 
+-				"HeadMountedDisplay",
+-				"PreLoadScreen",
+ 				"BuildSettings",
+ 				"TraceLog",
+ 			}
+ 		);
+ 
++		// Offscreen Program targets can use RHI/RDG without the game engine.
++		if (Target.bCompileAgainstEngine)
++		{
++			PrivateDependencyModuleNames.AddRange(new string[]
++			{
++				"Engine",
++				"HeadMountedDisplay",
++				"PreLoadScreen",
++			});
++		}
++
+ 		if (Target.Platform == UnrealTargetPlatform.Android)
+ 		{
+ 			PrivateIncludePathModuleNames.AddRange(

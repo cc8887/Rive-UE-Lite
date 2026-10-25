@@ -1,0 +1,696 @@
+// Copyright 2024-2026 Rive, Inc. All rights reserved.
+
+#include "RiveShaderTypes.h"
+
+#include <filesystem>
+
+#include <CoreMinimal.h>
+#include "HAL/IConsoleManager.h"
+#include "GlobalShader.h"
+
+#include "DataDrivenShaderPlatformInfo.h"
+#include "Misc/ConfigCacheIni.h"
+#include "ShaderPlatformCachedIniValue.h"
+#include "ShaderCompilerCore.h"
+
+THIRD_PARTY_INCLUDES_START
+#include "rive/generated/shaders/rhi.glsl.exports.h"
+THIRD_PARTY_INCLUDES_END
+
+DEFINE_LOG_CATEGORY(LogRiveShaderCompiler);
+
+// Declared here rather than in RiveRenderer: the global shader map compiles
+// during engine PreInit, while RiveShaders is loaded, and reads this through
+// FShaderPlatformCachedIniValue, which requires a registered cvar.
+static TAutoConsoleVariable<int32> CVarReadAttachmentInPlace(
+    TEXT("r.rive.ReadAttachmentInPlace"),
+    0,
+    TEXT("Read the msaa color attachment while it is still bound, in one "
+         "render pass with in-pass barriers. Set by platforms whose RHI "
+         "allows reading a bound render target."),
+    ECVF_RenderThreadSafe);
+
+int32 RiveGetReadAttachmentInPlace()
+{
+  return CVarReadAttachmentInPlace.GetValueOnAnyThread();
+}
+
+// The ini value the msaa shaders were compiled against. Read from config
+// rather than the cvar: for the running platform the cached ini value returns
+// the live cvar, which a -dpcvars override has already changed.
+bool RiveCookedReadAttachmentInPlace()
+{
+  static const bool bCooked = [] {
+    bool bValue = false;
+    GConfig->GetBool(
+        TEXT("SystemSettings"),
+        TEXT("r.rive.ReadAttachmentInPlace"),
+        bValue,
+        GEngineIni);
+    return bValue;
+  }();
+  return bCooked;
+}
+
+// Declared here because both the cook-time lookup below and the renderer's
+// draw path read it; platforms that carry the draw's first instance into
+// SV_InstanceID set it to 1 in their own config.
+static TAutoConsoleVariable<int32> CVarInstanceIdIncludesBase(
+    TEXT("r.rive.InstanceIdIncludesBase"),
+    0,
+    TEXT("1 when SV_InstanceID already includes the draw's first instance, so "
+         "the base instance travels as a draw argument instead of a uniform."),
+    ECVF_ReadOnly);
+
+// Apollo's driver mishandles the non-atomic buffer path, so that platform
+// compiles only the atomic buffer permutations.
+static TAutoConsoleVariable<int32> CVarForceAtomicBuffer(
+    TEXT("r.rive.ForceAtomicBuffer"),
+    0,
+    TEXT("1 to compile only the atomic buffer shader permutations."),
+    ECVF_ReadOnly);
+
+// Some drivers lose precision on the path id, which the shaders correct by
+// clamping it.
+static TAutoConsoleVariable<int32> CVarNeedsPathIdClampWorkaround(
+    TEXT("r.rive.NeedsPathIdClampWorkaround"),
+    0,
+    TEXT("1 to clamp the path id in the shaders."),
+    ECVF_ReadOnly);
+
+static TAutoConsoleVariable<int32> CVarBindless(
+    TEXT("r.rive.Bindless"),
+    0,
+    TEXT("1 to let the rhi bind rive's resources through its descriptor heap, "
+         "where the shader platform supports it."),
+    ECVF_ReadOnly);
+
+// Defaults on: platforms whose shader compiler already knows ushort turn it
+// off.
+static TAutoConsoleVariable<int32> CVarNeedsUshortDefine(
+    TEXT("r.rive.NeedsUshortDefine"),
+    1,
+    TEXT("1 when the shaders must define ushort themselves."),
+    ECVF_ReadOnly);
+
+bool RivePlatformForcesAtomicBuffer(const FShaderPermutationParameters& Params)
+{
+  static FShaderPlatformCachedIniValue<bool> Value(
+      TEXT("r.rive.ForceAtomicBuffer"));
+  return Value.Get(Params.Platform);
+}
+
+bool RivePlatformNeedsPathIdClampWorkaround(
+    const FShaderPermutationParameters& Params)
+{
+  static FShaderPlatformCachedIniValue<bool> Value(
+      TEXT("r.rive.NeedsPathIdClampWorkaround"));
+  return Value.Get(Params.Platform);
+}
+
+bool RivePlatformWantsBindless(EShaderPlatform Platform)
+{
+#if UE_VERSION_OLDER_THAN(5, 4, 0)
+  return false;
+#else
+  if (!FDataDrivenShaderPlatformInfo::GetIsLanguageD3D(Platform) ||
+      !FDataDrivenShaderPlatformInfo::GetSupportsBindless(Platform))
+  {
+    return false;
+  }
+
+  static FShaderPlatformCachedIniValue<bool> Value(TEXT("r.rive.Bindless"));
+  return Value.Get(Platform);
+#endif
+}
+
+bool RivePlatformNeedsUshortDefine(const FShaderPermutationParameters& Params)
+{
+  static FShaderPlatformCachedIniValue<bool> Value(
+      TEXT("r.rive.NeedsUshortDefine"));
+  return Value.Get(Params.Platform);
+}
+
+// Reads r.rive.ReadAttachmentInPlace as configured for the platform being
+// cooked for. Those platforms fetch the live 4x target per sample.
+static bool RivePlatformReadsAttachmentInPlace(
+    const FShaderPermutationParameters& Params)
+{
+  static FShaderPlatformCachedIniValue<bool> ReadInPlaceIniValue(
+      TEXT("r.rive.ReadAttachmentInPlace"));
+  return ReadInPlaceIniValue.Get(Params.Platform);
+}
+
+bool RivePlatformSupportsSubpassLoad(const FShaderPermutationParameters& Params)
+{
+  bool bSupported = IsTargetMetal(Params);
+#if defined(UE_RHI_HAS_FRAMEBUFFER_FETCH_SUBPASS)
+  bSupported = bSupported || IsTargetVulkan(Params);
+#endif
+  return bSupported;
+}
+
+void ModifyShaderEnvironment(
+    const FShaderPermutationParameters& Params,
+    FShaderCompilerEnvironment& Environment,
+    const bool IsVertexShader,
+    const bool bWantsSubpassLoad,
+    const bool bWantsUavColor = false)
+{
+#if UE_VERSION_OLDER_THAN(5, 5, 0) || RIVE_FORCE_USE_GENERATED_UNIFORMS
+  Environment.SetDefine(TEXT("UNIFORM_DEFINITIONS_AUTO_GENERATED"), TEXT("1"));
+#endif
+
+  Environment.SetDefine(
+      TEXT("FORCE_ATOMIC_BUFFER"),
+      RivePlatformForcesAtomicBuffer(Params));
+
+  if (RivePlatformNeedsPathIdClampWorkaround(Params))
+  {
+    Environment.SetDefine(TEXT("NEEDS_PATH_ID_CLAMP_WORKAROUND"), 1);
+  }
+
+  // Making this a permutation causes us to exceed the permutation limit in
+  // unreal. For now, since no platforms we target need to be packed. We can
+  // just leave it on. If we need to revisit this later we can.
+  Environment.SetDefine(TEXT("ENABLE_TYPED_UAV_LOAD_STORE"), TEXT("1"));
+
+  if (RivePlatformNeedsUshortDefine(Params))
+  {
+    Environment.SetDefine(TEXT("NEEDS_USHORT_DEFINE"), TEXT("1"));
+  }
+
+  if (IsVertexShader)
+  {
+    Environment.SetDefine(TEXT("VERTEX"), TEXT("1"));
+  }
+  else
+  {
+    Environment.SetDefine(TEXT("FRAGMENT"), TEXT("1"));
+    Environment.CompilerFlags.Add(CFLAG_AllowTypedUAVLoads);
+    if (bWantsUavColor)
+    {
+      Environment.SetDefine(TEXT("RENDER_TO_UAV"), TEXT("1"));
+    }
+    // Only set when engine patch is present.
+    else if (bWantsSubpassLoad && RivePlatformSupportsSubpassLoad(Params))
+    {
+      Environment.SetDefine(TEXT("SUPPORTS_SUBPASS_LOAD"), TEXT("1"));
+    }
+    else if (RivePlatformReadsAttachmentInPlace(Params))
+    {
+      Environment.SetDefine(TEXT("SUPPORTS_MSAA_DST_TEXEL_FETCH"), TEXT("1"));
+    }
+  }
+// 5.4 and up
+#if ENGINE_MAJOR_VERSION >= 5 && ENGINE_MINOR_VERSION >= 4 && !PLATFORM_APPLE
+  if (!RivePlatformWantsBindless(Params.Platform))
+  {
+    Environment.CompilerFlags.Add(CFLAG_ForceBindful);
+  }
+#endif
+}
+
+void FRiveBasePixelShader::ModifyCompilationEnvironment(
+    const FShaderPermutationParameters& Params,
+    FShaderCompilerEnvironment& Environment)
+{
+  ModifyShaderEnvironment(Params, Environment, false, false);
+}
+
+void FRiveBaseVertexShader::ModifyCompilationEnvironment(
+    const FShaderPermutationParameters& Params,
+    FShaderCompilerEnvironment& Environment)
+{
+  ModifyShaderEnvironment(Params, Environment, true, false);
+}
+
+void FRiveRDGTessPixelShader::ModifyCompilationEnvironment(
+    const FShaderPermutationParameters& Params,
+    FShaderCompilerEnvironment& Environment)
+{
+  FRiveBasePixelShader::ModifyCompilationEnvironment(Params, Environment);
+  auto& Value = Environment.RenderTargetOutputFormatsMap.FindOrAdd(0);
+  Value = static_cast<uint8>(EPixelFormat::PF_R32G32B32A32_UINT);
+}
+
+void FRiveRDGDrawAtlasFillPixelShader::ModifyCompilationEnvironment(
+    const FShaderPermutationParameters& Params,
+    FShaderCompilerEnvironment& Environment)
+{
+  FRiveBasePixelShader::ModifyCompilationEnvironment(Params, Environment);
+  auto& Value = Environment.RenderTargetOutputFormatsMap.FindOrAdd(0);
+  Value = static_cast<uint8>(EPixelFormat::PF_R16F);
+}
+
+void FRiveRDGDrawAtlasStrokePixelShader::ModifyCompilationEnvironment(
+    const FShaderPermutationParameters& Params,
+    FShaderCompilerEnvironment& Environment)
+{
+  FRiveBasePixelShader::ModifyCompilationEnvironment(Params, Environment);
+  auto& Value = Environment.RenderTargetOutputFormatsMap.FindOrAdd(0);
+  Value = static_cast<uint8>(EPixelFormat::PF_R16F);
+}
+
+void FRiveBltTextureAsDrawVertexShader::ModifyCompilationEnvironment(
+    const FShaderPermutationParameters& Params,
+    FShaderCompilerEnvironment& Environment)
+{
+  ModifyShaderEnvironment(Params, Environment, true, false);
+}
+
+void ModifyMSAASubpassShaderEnvironment(
+    const FShaderPermutationParameters& Params,
+    FShaderCompilerEnvironment& Environment)
+{
+  ModifyShaderEnvironment(Params, Environment, false, true);
+}
+
+bool RivePlatformSupportsPixelShaderUAVs(
+    const FShaderPermutationParameters& Params)
+{
+  return IsFeatureLevelSupported(Params.Platform, ERHIFeatureLevel::SM5);
+}
+
+void ModifyMSAAUavShaderEnvironment(
+    const FShaderPermutationParameters& Params,
+    FShaderCompilerEnvironment& Environment)
+{
+  ModifyShaderEnvironment(Params, Environment, false, false, true);
+}
+
+void ModifyMSAAPathVertexShaderEnvironment(
+    const FShaderPermutationParameters& Params,
+    FShaderCompilerEnvironment& Environment)
+{
+  ModifyShaderEnvironment(Params, Environment, true, false);
+
+  // Vulkan's SV_InstanceID already includes the draw's first instance, so
+  // the baseInstance uniform is compiled out.
+  static FShaderPlatformCachedIniValue<bool> InstanceIdIncludesBaseIniValue(
+      TEXT("r.rive.InstanceIdIncludesBase"));
+  const bool bIniSaysIncludesBase = InstanceIdIncludesBaseIniValue.Get(
+      Params.Platform);
+
+  if (IsTargetVulkan(Params) || bIniSaysIncludesBase)
+  {
+    Environment.SetDefine(TEXT("SV_INSTANCE_ID_INCLUDES_BASE"), TEXT("1"));
+  }
+
+  if (RHISupportsAbsoluteVertexID(Params.Platform))
+  {
+    Environment.SetDefine(TEXT("SV_VERTEX_ID_INCLUDES_BASE"), TEXT("1"));
+  }
+}
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGGradientPixelShader,
+    "/Plugin/Rive/Private/Rive/color_ramp.usf",
+    GLSL_colorRampFragmentMain,
+    SF_Pixel);
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGGradientVertexShader,
+    "/Plugin/Rive/Private/Rive/color_ramp.usf",
+    GLSL_colorRampVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGTessPixelShader,
+    "/Plugin/Rive/Private/Rive/tessellate.usf",
+    GLSL_tessellateFragmentMain,
+    SF_Pixel);
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGTessVertexShader,
+    "/Plugin/Rive/Private/Rive/tessellate.usf",
+    GLSL_tessellateVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGPathPixelShader,
+    "/Plugin/Rive/Private/Rive/atomic_draw_path.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveABRDGPathPixelShader,
+    "/Plugin/Rive/Private/Rive/atomic_draw_path.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGPathVertexShader,
+    "/Plugin/Rive/Private/Rive/atomic_draw_path.usf",
+    GLSL_drawVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGInteriorTrianglesPixelShader,
+    "/Plugin/Rive/Private/Rive/atomic_draw_interior_triangles.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveABRDGInteriorTrianglesPixelShader,
+    "/Plugin/Rive/Private/Rive/atomic_draw_interior_triangles.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGInteriorTrianglesVertexShader,
+    "/Plugin/Rive/Private/Rive/atomic_draw_interior_triangles.usf",
+    GLSL_drawVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGAtlasBlitPixelShader,
+    "/Plugin/Rive/Private/Rive/atomic_draw_atlas_blit.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveABRDGAtlasBlitPixelShader,
+    "/Plugin/Rive/Private/Rive/atomic_draw_atlas_blit.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGAtlasBlitVertexShader,
+    "/Plugin/Rive/Private/Rive/atomic_draw_atlas_blit.usf",
+    GLSL_drawVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGImageRectPixelShader,
+    "/Plugin/Rive/Private/Rive/atomic_draw_image_rect.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveABRDGImageRectPixelShader,
+    "/Plugin/Rive/Private/Rive/atomic_draw_image_rect.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGImageRectVertexShader,
+    "/Plugin/Rive/Private/Rive/atomic_draw_image_rect.usf",
+    GLSL_drawVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGImageMeshPixelShader,
+    "/Plugin/Rive/Private/Rive/atomic_draw_image_mesh.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveABRDGImageMeshPixelShader,
+    "/Plugin/Rive/Private/Rive/atomic_draw_image_mesh.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGImageMeshVertexShader,
+    "/Plugin/Rive/Private/Rive/atomic_draw_image_mesh.usf",
+    GLSL_drawVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGAtomicResolvePixelShader,
+    "/Plugin/Rive/Private/Rive/atomic_resolve_pls.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveABRDGAtomicResolvePixelShader,
+    "/Plugin/Rive/Private/Rive/atomic_resolve_pls.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGAtomicResolveVertexShader,
+    "/Plugin/Rive/Private/Rive/atomic_resolve_pls.usf",
+    GLSL_drawVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGRasterOrderPathPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_path.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGRasterOrderPathVertexShader,
+    "/Plugin/Rive/Private/Rive/draw_path.usf",
+    GLSL_drawVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGRasterOrderInteriorTrianglesPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_interior_triangles.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGRasterOrderInteriorTrianglesVertexShader,
+    "/Plugin/Rive/Private/Rive/draw_interior_triangles.usf",
+    GLSL_drawVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGRasterOrderImageMeshPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_image_mesh.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGRasterOrderImageMeshVertexShader,
+    "/Plugin/Rive/Private/Rive/draw_image_mesh.usf",
+    GLSL_drawVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGRasterOrderAtlasBlitPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_atlas_blit.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGRasterOrderAtlasBlitVertexShader,
+    "/Plugin/Rive/Private/Rive/draw_atlas_blit.usf",
+    GLSL_drawVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGAtlasBlitMSAAPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_atlas_blit.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGAtlasBlitMSAAVertexShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_atlas_blit.usf",
+    GLSL_drawVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGImageMeshMSAAPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_image_mesh.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGImageMeshMSAAVertexShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_image_mesh.usf",
+    GLSL_drawVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGPathMSAAPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_path.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGPathMSAAVertexShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_path.usf",
+    GLSL_drawVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGFillMSAAVertexShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_path.usf",
+    GLSL_drawVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGStencilMSAAPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_triangles_nocolor.usf",
+    GLSL_blitFragmentMain,
+    SF_Pixel);
+
+// Same entry points as the shaders above, compiled with SUPPORTS_SUBPASS_LOAD.
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGPathMSAASubpassPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_path.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGAtlasBlitMSAASubpassPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_atlas_blit.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGImageMeshMSAASubpassPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_image_mesh.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+// Same entry points again, compiled to read dst color from the framebuffer uav.
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGPathMSAAUavPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_path.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGPolarStrokeMSAAVertexShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_polar_stroke.usf",
+    GLSL_drawVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGHairlineStrokeMSAAVertexShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_hairline_stroke.usf",
+    GLSL_drawVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGPolarStrokeMSAAPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_polar_stroke.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGPolarStrokeMSAASubpassPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_polar_stroke.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGPolarStrokeMSAAUavPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_polar_stroke.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGHairlineStrokeMSAAPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_hairline_stroke.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGHairlineStrokeMSAASubpassPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_hairline_stroke.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGHairlineStrokeMSAAUavPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_hairline_stroke.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGAtlasBlitMSAAUavPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_atlas_blit.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGImageMeshMSAAUavPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_image_mesh.usf",
+    GLSL_drawFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGStencilMSAAVertexShader,
+    "/Plugin/Rive/Private/Rive/draw_depthstencil_triangles_nocolor.usf",
+    GLSL_stencilVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGDrawAtlasFillPixelShader,
+    "/Plugin/Rive/Private/Rive/draw_atlas_fill.usf",
+    GLSL_atlasFillFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGDrawAtlasStrokePixelShader,
+    "/Plugin/Rive/Private/Rive/draw_atlas_stroke.usf",
+    GLSL_atlasStrokeFragmentMain,
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveBltTextureAsDrawVertexShader,
+    "/Plugin/Rive/Private/Rive/blend_texture.usf",
+    GLSL_blitVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveBltTextureAsDrawPixelShader,
+    "/Plugin/Rive/Private/Rive/blend_texture.usf",
+    GLSL_blitFragmentMain,
+    SF_Pixel);
+
+// this could be either draw_atlas usf file,
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGDrawAtlasVertexShader,
+    "/Plugin/Rive/Private/Rive/draw_atlas_fill.usf",
+    GLSL_atlasVertexMain,
+    SF_Vertex);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGBltU32AsF4PixelShader,
+    "/Plugin/Rive/Private/Rive/blt_u32_as_f4.usf",
+    "FragmentMain",
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGBltR16FAsF4PixelShader,
+    "/Plugin/Rive/Private/Rive/blt_f16_as_f4.usf",
+    "FragmentMain",
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGBltU324AsF4PixelShader,
+    "/Plugin/Rive/Private/Rive/blt_u324_to_f4.usf",
+    "FragmentMain",
+    SF_Pixel);
+
+IMPLEMENT_GLOBAL_SHADER(
+    FRiveRDGVisualizeBufferPixelShader,
+    "/Plugin/Rive/Private/Rive/visualize_buffer.usf",
+    "FragmentMain",
+    SF_Pixel);
+
+#if UE_VERSION_OLDER_THAN(5, 5, 0) || RIVE_FORCE_USE_GENERATED_UNIFORMS
+IMPLEMENT_STATIC_UNIFORM_BUFFER_SLOT(FlushUniformSlot);
+IMPLEMENT_STATIC_UNIFORM_BUFFER_STRUCT(
+    FFlushUniforms,
+    "uniforms",
+    FlushUniformSlot);
+#else
+IMPLEMENT_UNIFORM_BUFFER_STRUCT(FFlushUniforms, GLSL_FlushUniforms);
+#endif
+
+void BindStaticFlushUniforms(
+    FRHICommandList& RHICmdList,
+    FUniformBufferRHIRef FlushUniforms)
+{
+  FUniformBufferStaticBindings Bindings;
+  Bindings.AddUniformBuffer(FlushUniforms);
+  RHICmdList.SetStaticUniformBuffers(Bindings);
+}

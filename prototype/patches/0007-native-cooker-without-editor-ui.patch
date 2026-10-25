@@ -1,0 +1,655 @@
+diff --git a/Engine/Source/Developer/SourceControl/SourceControl.Build.cs b/Engine/Source/Developer/SourceControl/SourceControl.Build.cs
+index 335d61d76aee..504cd78d2650 100644
+--- a/Engine/Source/Developer/SourceControl/SourceControl.Build.cs
++++ b/Engine/Source/Developer/SourceControl/SourceControl.Build.cs
+@@ -1,6 +1,7 @@
+ // Copyright Epic Games, Inc. All Rights Reserved.
+ 
+ using UnrealBuildTool;
++using System.Linq;
+ 
+ public class SourceControl : ModuleRules
+ {
+@@ -74,5 +75,10 @@ public class SourceControl : ModuleRules
+ 		}
+ 
+ 		CppCompileWarningSettings.UnsafeTypeCastWarningLevel = WarningLevel.Error;
++		if (Target.GlobalDefinitions.Contains("UE_RIVE_STANDALONE_SHADER_COOKER=1"))
++		{
++			DynamicallyLoadedModuleNames.Remove("AssetTools");
++			PrivateDependencyModuleNames.Remove("EditorFramework");
++		}
+ 	}
+ }
+diff --git a/Engine/Source/Developer/TargetPlatform/TargetPlatform.Build.cs b/Engine/Source/Developer/TargetPlatform/TargetPlatform.Build.cs
+index ece3d4a051f9..207123233e91 100644
+--- a/Engine/Source/Developer/TargetPlatform/TargetPlatform.Build.cs
++++ b/Engine/Source/Developer/TargetPlatform/TargetPlatform.Build.cs
+@@ -2,6 +2,7 @@
+ 
+ using UnrealBuildTool;
+ using System.IO;
++using System.Linq;
+ 
+ public class TargetPlatform : ModuleRules
+ {
+@@ -35,7 +36,7 @@ public class TargetPlatform : ModuleRules
+ 
+ 		// Offline shader tools need target-platform layouts, but no editor deployment UI.
+ 		// Keep the normal Engine target graph unchanged.
+-		if (Target.bCompileAgainstEngine)
++		if (Target.bCompileAgainstEngine && !Target.GlobalDefinitions.Contains("UE_RIVE_STANDALONE_SHADER_COOKER=1"))
+ 		{
+ 			DynamicallyLoadedModuleNames.Add("TurnkeySupport");
+ 		}
+diff --git a/Engine/Source/Runtime/AppFramework/AppFramework.Build.cs b/Engine/Source/Runtime/AppFramework/AppFramework.Build.cs
+index b5ee0950e78b..ba201273db95 100644
+--- a/Engine/Source/Runtime/AppFramework/AppFramework.Build.cs
++++ b/Engine/Source/Runtime/AppFramework/AppFramework.Build.cs
+@@ -1,6 +1,7 @@
+ // Copyright Epic Games, Inc. All Rights Reserved.
+ 
+ using UnrealBuildTool;
++using System.Linq;
+ 
+ public class AppFramework : ModuleRules
+ {
+@@ -40,5 +41,9 @@ public class AppFramework : ModuleRules
+ 		}
+ 
+ 		AutoRTFM.DefaultMode = AutoRTFMMode.Uninstrumented;
++		if (Target.GlobalDefinitions.Contains("UE_RIVE_STANDALONE_SHADER_COOKER=1"))
++		{
++			DynamicallyLoadedModuleNames.Remove("SlateReflector");
++		}
+ 	}
+ }
+diff --git a/Engine/Source/Runtime/Engine/Engine.Build.cs b/Engine/Source/Runtime/Engine/Engine.Build.cs
+index fb34505283a0..5c1a3eca7ce2 100644
+--- a/Engine/Source/Runtime/Engine/Engine.Build.cs
++++ b/Engine/Source/Runtime/Engine/Engine.Build.cs
+@@ -2,6 +2,7 @@
+ 
+ using UnrealBuildTool;
+ using System.IO;
++using System.Linq;
+ 
+ [FileSetWatch("ShaderCacheCode", "Private/Materials/**/*.h", "Private/Materials/**/*.cpp")]
+ [FileSetWatch("ShaderCacheCode", "Private/ShaderCompiler/**/*.h", "Private/ShaderCompiler/**/*.cpp")]
+@@ -443,5 +444,14 @@ public class Engine : ModuleRules
+ 		PrivateDefinitions.Add("UE_DEPRECATE_LEGACY_MATH_CONSTANT_MACRO_NAMES=1");
+ 
+ 		bAllowUETypesInNamespaces = true;
++
++		// This offline Program keeps Engine's native shader compiler, not editor UI
++		// and authoring tools reached only via by-name module loading.
++		if (Target.GlobalDefinitions.Contains("UE_RIVE_STANDALONE_SHADER_COOKER=1"))
++		{
++			// Shader formats and the Rive adapter are explicit cooker dependencies.
++			// Gameplay/asset-authoring plugins are optional by-name modules here.
++			DynamicallyLoadedModuleNames.Clear();
++		}
+ 	}
+ }
+diff --git a/Engine/Source/Runtime/Engine/Private/AnimBlueprint.cpp b/Engine/Source/Runtime/Engine/Private/AnimBlueprint.cpp
+index dcd6852acdbc..93ee7f9b16bf 100644
+--- a/Engine/Source/Runtime/Engine/Private/AnimBlueprint.cpp
++++ b/Engine/Source/Runtime/Engine/Private/AnimBlueprint.cpp
+@@ -11,8 +11,10 @@
+ #include "Editor/IEditorConfigProvider.h"
+ #include "Editor/IEditorAnimationEditorUtilsProvider.h"
+ #include "Engine/SkeletalMesh.h"
++#if !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ #include "IAnimationBlueprintEditorModule.h"
+ #endif
++#endif
+ 
+ //////////////////////////////////////////////////////////////////////////
+ // UAnimBlueprint
+@@ -25,7 +27,7 @@ UAnimBlueprint::UAnimBlueprint(const FObjectInitializer& ObjectInitializer)
+ 	bRefreshExtensions = true;
+ #endif
+ 	
+-#if WITH_EDITOR
++#if WITH_EDITOR && !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ 	if(!HasAnyFlags(RF_ClassDefaultObject))
+ 	{
+ 		// Ensure that we are able to compile this anim BP by loading the compiler's module
+@@ -294,18 +296,26 @@ void UAnimBlueprint::PostEditChangeProperty(struct FPropertyChangedEvent& Proper
+ 
+ void UAnimBlueprint::GetTypeActions(FBlueprintActionDatabaseRegistrar& ActionRegistrar) const
+ {
++#if defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER
++	ensureMsgf(false, TEXT("Animation Blueprint editor actions are unavailable in the standalone shader cooker."));
++#else
+ 	Super::GetTypeActions(ActionRegistrar);
+ 
+ 	const IAnimationBlueprintEditorModule& AnimationBlueprintEditorModule = FModuleManager::LoadModuleChecked<IAnimationBlueprintEditorModule>(TEXT("AnimationBlueprintEditor"));
+ 	AnimationBlueprintEditorModule.GetTypeActions(ActionRegistrar);
++#endif
+ }
+ 
+ void UAnimBlueprint::GetInstanceActions(FBlueprintActionDatabaseRegistrar& ActionRegistrar) const
+ {
++#if defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER
++	ensureMsgf(false, TEXT("Animation Blueprint editor actions are unavailable in the standalone shader cooker."));
++#else
+ 	Super::GetInstanceActions(ActionRegistrar);
+ 
+ 	const IAnimationBlueprintEditorModule& AnimationBlueprintEditorModule = FModuleManager::LoadModuleChecked<IAnimationBlueprintEditorModule>(TEXT("AnimationBlueprintEditor"));
+ 	AnimationBlueprintEditorModule.GetInstanceActions(this, ActionRegistrar);
++#endif
+ }
+ 
+ #endif
+diff --git a/Engine/Source/Runtime/Engine/Private/AudioDevice.cpp b/Engine/Source/Runtime/Engine/Private/AudioDevice.cpp
+index 1f37895979f0..a34d105c010d 100644
+--- a/Engine/Source/Runtime/Engine/Private/AudioDevice.cpp
++++ b/Engine/Source/Runtime/Engine/Private/AudioDevice.cpp
+@@ -34,8 +34,10 @@
+ 
+ #if WITH_EDITOR
+ #include "AssetRegistry/AssetRegistryModule.h"
++#if !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ #include "AssetToolsModule.h"
+ #include "IAssetTools.h"
++#endif
+ #include "Editor/IEditorEngineProvider.h"
+ #else
+ #include "UObject/Package.h"
+@@ -1767,7 +1769,7 @@ bool FAudioDevice::HandleAudioDebugSound(const TCHAR* Cmd, FOutputDevice& Ar)
+ 
+ bool FAudioDevice::HandleSoundClassFixup(const TCHAR* Cmd, FOutputDevice& Ar)
+ {
+-#if WITH_EDITOR
++#if WITH_EDITOR && !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ 	// Get asset registry module
+ 	FAssetRegistryModule& AssetRegistryModule = FModuleManager::LoadModuleChecked<FAssetRegistryModule>(TEXT("AssetRegistry"));
+ 
+diff --git a/Engine/Source/Runtime/Engine/Private/EngineGlobals.cpp b/Engine/Source/Runtime/Engine/Private/EngineGlobals.cpp
+index ce0a2ebd9bef..08b00326aec7 100644
+--- a/Engine/Source/Runtime/Engine/Private/EngineGlobals.cpp
++++ b/Engine/Source/Runtime/Engine/Private/EngineGlobals.cpp
+@@ -13,7 +13,7 @@
+ #include "Materials/MaterialInstanceConstant.h"
+ #include "RendererInterface.h"
+ 
+-#if !UE_BUILD_SHIPPING && PLATFORM_DESKTOP 
++#if !UE_BUILD_SHIPPING && PLATFORM_DESKTOP && !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ #include "ISlateReflectorModule.h"
+ #include "TranslationEditorModule.h"
+ #endif
+@@ -178,7 +178,7 @@ FAutoConsoleCommand ReattachComponentsCmd(
+ #endif // !(UE_BUILD_SHIPPING || UE_BUILD_TEST)
+ 
+ 
+-#if !UE_BUILD_SHIPPING && PLATFORM_DESKTOP
++#if !UE_BUILD_SHIPPING && PLATFORM_DESKTOP && !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ 
+ static void ShowWidgetReflector()
+ {
+diff --git a/Engine/Source/Runtime/Engine/Private/GameEngine.cpp b/Engine/Source/Runtime/Engine/Private/GameEngine.cpp
+index 4e4781790cff..a30ca11ab8fc 100644
+--- a/Engine/Source/Runtime/Engine/Private/GameEngine.cpp
++++ b/Engine/Source/Runtime/Engine/Private/GameEngine.cpp
+@@ -41,8 +41,10 @@
+ 
+ #include "Slate/SceneViewport.h"
+ 
++#if !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ #include "IMovieSceneCapture.h"
+ #include "MovieSceneCaptureModule.h"
++#endif
+ 
+ #include "SynthBenchmark.h"
+ 
+@@ -214,7 +216,11 @@ UGameEngine::UGameEngine(const FObjectInitializer& ObjectInitializer)
+ 
+ TSharedRef<SViewport> UGameEngine::CreateGameViewportWidget()
+ {
++#if defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER
++	bool bRenderDirectlyToWindow = GIsDumpingMovie == 0;
++#else
+ 	bool bRenderDirectlyToWindow = (!StartupMovieCaptureHandle.IsValid() || IMovieSceneCaptureModule::Get().IsStereoAllowed()) && GIsDumpingMovie == 0;
++#endif
+ 
+ 	const bool bStereoAllowed = bRenderDirectlyToWindow;
+ 
+@@ -1272,6 +1278,7 @@ void UGameEngine::Init(IEngineLoop* InEngineLoop)
+ //  	// Creates the initial world context. For GameEngine, this should be the only WorldContext that ever gets created.
+ //  	FWorldContext& InitialWorldContext = CreateNewWorldContext(EWorldType::Game);
+ 
++#if !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ 	IMovieSceneCaptureInterface* MovieSceneCaptureImpl = nullptr;
+ #if WITH_EDITOR
+ 	if (!IsRunningDedicatedServer() && !IsRunningCommandlet())
+@@ -1282,6 +1289,7 @@ void UGameEngine::Init(IEngineLoop* InEngineLoop)
+ 			StartupMovieCaptureHandle = MovieSceneCaptureImpl->GetHandle();
+ 		}
+ 	}
++#endif
+ #endif
+ 
+ 	// Initialize the viewport client.
+@@ -1622,7 +1630,7 @@ bool UGameEngine::Exec( UWorld* InWorld, const TCHAR* Cmd, FOutputDevice& Ar )
+ 		return HandleApplyUserSettingsCommand( Cmd, Ar );
+ 	}
+ #endif // !UE_BUILD_SHIPPING
+-#if WITH_EDITOR
++#if WITH_EDITOR && !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ 	else if( FParse::Command(&Cmd,TEXT("STARTMOVIECAPTURE")) && GIsEditor )
+ 	{
+ 		IMovieSceneCaptureInterface* CaptureInterface = IMovieSceneCaptureModule::Get().GetFirstActiveMovieSceneCapture();
+diff --git a/Engine/Source/Runtime/Engine/Private/GameInstance.cpp b/Engine/Source/Runtime/Engine/Private/GameInstance.cpp
+index 843662f45136..3b56a9a63d68 100644
+--- a/Engine/Source/Runtime/Engine/Private/GameInstance.cpp
++++ b/Engine/Source/Runtime/Engine/Private/GameInstance.cpp
+@@ -33,7 +33,9 @@
+ #include "Editor/IEditorConfigProvider.h"
+ #include "Editor/IEditorWorldProvider.h"
+ #include "Editor/IEditorEngineProvider.h"
++#if !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ #include "Settings/LevelEditorPlaySettings.h"
++#endif
+ #else
+ #include "UObject/Package.h"
+ #endif
+@@ -47,7 +49,11 @@ FGameInstancePIEParameters::FGameInstancePIEParameters()
+ 	, bIsPrimaryPIEClient(false)
+ 	, WorldFeatureLevel(ERHIFeatureLevel::Num)
+ 	, EditorPlaySettings(nullptr)
++#if defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER
++	, NetMode(static_cast<EPlayNetMode>(0)) // PIE_Standalone; no editor settings class is linked.
++#else
+ 	, NetMode(EPlayNetMode::PIE_Standalone)
++#endif
+ {}
+ #endif
+ 
+@@ -246,7 +252,7 @@ void UGameInstance::CreateMinimalNetRPCWorld(const FName InPackageName, UPackage
+ 		);
+ }
+ 
+-#if WITH_EDITOR
++#if WITH_EDITOR && !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ static ENetMode GetNetModeFromPlayNetMode(const EPlayNetMode InPlayNetMode, const bool bInDedicatedServer)
+ {
+ 	switch (InPlayNetMode)
+@@ -581,6 +587,21 @@ FGameInstancePIEResult UGameInstance::PostCreateGameModeForPIE(const FGameInstan
+ {
+ 	return FGameInstancePIEResult::Success();
+ }
++#elif WITH_EDITOR
++// This compiler-only Program never creates a game instance or enters PIE.
++FGameInstancePIEResult UGameInstance::InitializeForPlayInEditor(int32, const FGameInstancePIEParameters&)
++{
++	return FGameInstancePIEResult::Failure(FText::FromString(TEXT("PIE is unavailable in the standalone shader cooker.")));
++}
++void UGameInstance::ReportPIEStartupTime() {}
++FGameInstancePIEResult UGameInstance::StartPlayInEditorGameInstance(ULocalPlayer*, const FGameInstancePIEParameters&)
++{
++	return FGameInstancePIEResult::Failure(FText::FromString(TEXT("PIE is unavailable in the standalone shader cooker.")));
++}
++FGameInstancePIEResult UGameInstance::PostCreateGameModeForPIE(const FGameInstancePIEParameters&, AGameModeBase*)
++{
++	return FGameInstancePIEResult::Failure(FText::FromString(TEXT("PIE is unavailable in the standalone shader cooker.")));
++}
+ #endif
+ 
+ 
+@@ -1630,4 +1651,4 @@ void UGameInstance::RegisterReferencedObject(UObject* ObjectToReference)
+ void UGameInstance::UnregisterReferencedObject(UObject* ObjectToReference)
+ {
+ 	ReferencedObjects.RemoveSingleSwap(ObjectToReference);
+-}
+\ No newline at end of file
++}
+diff --git a/Engine/Source/Runtime/Engine/Private/GameModeBase.cpp b/Engine/Source/Runtime/Engine/Private/GameModeBase.cpp
+index 6d8bf4588a35..6a62dec68b82 100644
+--- a/Engine/Source/Runtime/Engine/Private/GameModeBase.cpp
++++ b/Engine/Source/Runtime/Engine/Private/GameModeBase.cpp
+@@ -27,7 +27,7 @@
+ 
+ #include UE_INLINE_GENERATED_CPP_BY_NAME(GameModeBase)
+ 
+-#if WITH_EDITOR
++#if WITH_EDITOR && !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ 	#include "IMovieSceneCapture.h"
+ 	#include "MovieSceneCaptureModule.h"
+ 	#include "MovieSceneCaptureSettings.h"
+@@ -862,7 +862,7 @@ bool AGameModeBase::ShouldStartInCinematicMode(APlayerController* Player, bool&
+ 		return false;
+ 	}
+ 
+-#if WITH_EDITOR
++#if WITH_EDITOR && !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ 	// If we have an active movie scene capture, we can take the settings from that
+ 	if (LocPlayer->ViewportClient && LocPlayer->ViewportClient->Viewport)
+ 	{
+diff --git a/Engine/Source/Runtime/Engine/Private/KismetRenderingLibrary.cpp b/Engine/Source/Runtime/Engine/Private/KismetRenderingLibrary.cpp
+index b2db1a3e5b05..39e7545c99ae 100644
+--- a/Engine/Source/Runtime/Engine/Private/KismetRenderingLibrary.cpp
++++ b/Engine/Source/Runtime/Engine/Private/KismetRenderingLibrary.cpp
+@@ -35,7 +35,7 @@
+ 
+ #include UE_INLINE_GENERATED_CPP_BY_NAME(KismetRenderingLibrary)
+ 
+-#if WITH_EDITOR
++#if WITH_EDITOR && !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ #include "AssetRegistry/AssetRegistryModule.h"
+ #include "AssetToolsModule.h"
+ #include "IAssetTools.h"
+@@ -548,7 +548,7 @@ namespace UE::Kismet::RenderingLibrary
+ {
+ void ConvertRenderTargetToTextureEditorOnly(UObject* WorldContextObject, UTextureRenderTarget* InRenderTarget, UTexture* InTexture)
+ {
+-#if WITH_EDITOR
++#if WITH_EDITOR && !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ 	if (InRenderTarget == nullptr)
+ 	{
+ 		FMessageLog("Blueprint").Warning(FText::Format(LOCTEXT("ConvertRenderTargetToTexture_InvalidRenderTarget", "ConvertRenderTargetToTextureEditorOnly[{0}]: RenderTarget must be non-null."), FText::FromString(GetPathNameSafe(WorldContextObject))));
+@@ -594,7 +594,7 @@ void ConvertRenderTargetToTextureEditorOnly(UObject* WorldContextObject, UTextur
+ 
+ UTexture* RenderTargetCreateStaticTextureEditorOnly(UTextureRenderTarget* InRenderTarget, FString InName, TextureCompressionSettings InCompressionSettings, TextureMipGenSettings InMipSettings)
+ {
+-#if WITH_EDITOR
++#if WITH_EDITOR && !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ 	if (InRenderTarget == nullptr)
+ 	{
+ 		FMessageLog("Blueprint").Warning(LOCTEXT("RenderTargetCreateStaticTexture_InvalidRenderTarget", "RenderTargetCreateStaticTextureEditorOnly: RenderTarget must be non-null."));
+diff --git a/Engine/Source/Runtime/Engine/Private/LevelInstance/LevelInstanceEditorPropertyOverrideLevelStreaming.cpp b/Engine/Source/Runtime/Engine/Private/LevelInstance/LevelInstanceEditorPropertyOverrideLevelStreaming.cpp
+index a62d8c4b0d38..1b5fc6a048be 100644
+--- a/Engine/Source/Runtime/Engine/Private/LevelInstance/LevelInstanceEditorPropertyOverrideLevelStreaming.cpp
++++ b/Engine/Source/Runtime/Engine/Private/LevelInstance/LevelInstanceEditorPropertyOverrideLevelStreaming.cpp
+@@ -22,7 +22,9 @@
+ #include "UObject/Package.h"
+ #include "WorldPartition/WorldPartition.h"
+ #include "WorldPartition/LevelInstance/LevelInstanceContainerInstance.h"
++#if !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ #include "PackageTools.h"
++#endif
+ #include "LevelUtils.h"
+ #include "ActorFolder.h"
+ #include "Misc/LazySingleton.h"
+diff --git a/Engine/Source/Runtime/Engine/Private/LevelInstance/LevelInstanceSubsystem.cpp b/Engine/Source/Runtime/Engine/Private/LevelInstance/LevelInstanceSubsystem.cpp
+index 0323bd8a9682..017a61d156ad 100644
+--- a/Engine/Source/Runtime/Engine/Private/LevelInstance/LevelInstanceSubsystem.cpp
++++ b/Engine/Source/Runtime/Engine/Private/LevelInstance/LevelInstanceSubsystem.cpp
+@@ -16,8 +16,10 @@
+ #include "GameFramework/ActorPrimitiveColorHandler.h"
+ 
+ #if WITH_EDITOR
++#if !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ #include "AssetToolsModule.h"
+ #include "IAssetTools.h"
++#endif
+ #include "Editor/IEditorConfigProvider.h"
+ #include "Engine/Engine.h"
+ #include "LevelInstance/LevelInstanceEditorLevelStreaming.h"
+@@ -358,7 +360,7 @@ void ULevelInstanceSubsystem::UpdateStreamingStateInternal()
+ #endif
+ 		for (const TPair<ILevelInstanceInterface*, bool>& Pair : LevelInstancesToLoadOrUpdateCopy)
+ 		{
+-#if WITH_EDITOR
++#if WITH_EDITOR && !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ 			SlowTask.EnterProgressFrame(1.f, FText::Format(
+ 				LOCTEXT("LoadingLevelInstance", "Loading Level Instance {0}"),
+ 				FText::FromString(FAssetToolsModule::GetModule().Get().GetUserFacingObjectPath(Pair.Key->GetWorldAsset().ToSoftObjectPath()))));
+diff --git a/Engine/Source/Runtime/Engine/Private/PackedLevelActor/PackedLevelActorBuilder.cpp b/Engine/Source/Runtime/Engine/Private/PackedLevelActor/PackedLevelActorBuilder.cpp
+index b71382ba126b..1f65311cc432 100644
+--- a/Engine/Source/Runtime/Engine/Private/PackedLevelActor/PackedLevelActorBuilder.cpp
++++ b/Engine/Source/Runtime/Engine/Private/PackedLevelActor/PackedLevelActorBuilder.cpp
+@@ -7,7 +7,10 @@
+ 
+ #include "Engine/Level.h"
+ #include "PackedLevelActor/PackedLevelActor.h"
++#include "Engine/Blueprint.h"
++#if !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ #include "IAssetTools.h"
++#endif
+ #include "PackedLevelActor/PackedLevelActorISMBuilder.h"
+ #include "PackedLevelActor/PackedLevelActorRecursiveBuilder.h"
+ 
+@@ -25,11 +28,15 @@
+ #include "Engine/LevelStreaming.h"
+ #include "Editor/IEditorSaveProvider.h"
+ #include "Editor/IEditorTransactionProvider.h"
++#if !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ #include "AssetToolsModule.h"
++#endif
+ #include "Editor/IEditorAssetFactoryProvider.h"
+ 
++#if !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ #include "IContentBrowserSingleton.h"
+ #include "ContentBrowserModule.h"
++#endif
+ #include "WorldPartition/Filter/WorldPartitionActorFilter.h"
+ #include "Serialization/ArchiveCrc32.h"
+ 
+@@ -66,6 +73,10 @@ const FString& FPackedLevelActorBuilder::GetPackedBPPrefix()
+ 
+ UBlueprint* FPackedLevelActorBuilder::CreatePackedLevelActorBlueprintWithDialog(TSoftObjectPtr<UBlueprint> InBlueprintAsset, TSoftObjectPtr<UWorld> InWorldAsset, bool bInCompile)
+ {
++#if defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER
++	ensureMsgf(false, TEXT("Packed Level Blueprint asset creation is unavailable in the standalone shader cooker."));
++	return nullptr; // This offline compiler cannot author Blueprint assets.
++#else
+ 	FSaveAssetDialogConfig SaveAssetDialogConfig;
+ 	SaveAssetDialogConfig.DialogTitleOverride = LOCTEXT("SaveAssetDialogTitle", "Save Asset As");
+ 	SaveAssetDialogConfig.DefaultPath = FPaths::GetPath(InBlueprintAsset.GetLongPackageName());
+@@ -88,10 +99,15 @@ UBlueprint* FPackedLevelActorBuilder::CreatePackedLevelActorBlueprintWithDialog(
+ 	}
+ 
+ 	return nullptr;
++#endif
+ }
+ 
+ UBlueprint* FPackedLevelActorBuilder::CreatePackedLevelActorBlueprint(TSoftObjectPtr<UBlueprint> InBlueprintAsset, TSoftObjectPtr<UWorld> InWorldAsset, bool bInCompile)
+ {
++#if defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER
++	ensureMsgf(false, TEXT("Packed Level Blueprint asset creation is unavailable in the standalone shader cooker."));
++	return nullptr;
++#else
+ 	IAssetTools& AssetTools = FAssetToolsModule::GetModule().Get();
+ 
+ 	IEditorAssetFactoryProvider* AssetFactoryProvider = GEditorAssetFactoryProvider;
+@@ -116,6 +132,7 @@ UBlueprint* FPackedLevelActorBuilder::CreatePackedLevelActorBlueprint(TSoftObjec
+ 	}
+ 
+ 	return nullptr;
++#endif
+ }
+ 
+ TSharedPtr<FPackedLevelActorBuilder> FPackedLevelActorBuilder::CreateDefaultBuilder()
+diff --git a/Engine/Source/Runtime/Engine/Private/Tests/EngineAutomationTests.cpp b/Engine/Source/Runtime/Engine/Private/Tests/EngineAutomationTests.cpp
+index de2958fe6e8f..6ba3f8596abc 100644
+--- a/Engine/Source/Runtime/Engine/Private/Tests/EngineAutomationTests.cpp
++++ b/Engine/Source/Runtime/Engine/Private/Tests/EngineAutomationTests.cpp
+@@ -10,7 +10,7 @@
+ #include "Serialization/MemoryReader.h"
+ #include "Tests/AutomationTestSettings.h"
+ 
+-#if WITH_EDITOR
++#if WITH_EDITOR && !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ #include "FileHelpers.h"
+ #endif
+ 
+diff --git a/Engine/Source/Runtime/Engine/Private/Tests/NetTestHelpers.cpp b/Engine/Source/Runtime/Engine/Private/Tests/NetTestHelpers.cpp
+index 22c01f2fa977..168fe958e629 100644
+--- a/Engine/Source/Runtime/Engine/Private/Tests/NetTestHelpers.cpp
++++ b/Engine/Source/Runtime/Engine/Private/Tests/NetTestHelpers.cpp
+@@ -23,7 +23,7 @@
+ 
+ #include "Tickable.h"
+ 
+-#if WITH_EDITOR
++#if WITH_EDITOR && !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ #include "Settings/LevelEditorPlaySettings.h"
+ #endif
+ 
+@@ -62,7 +62,7 @@ FScopedNetEmulationOverride::~FScopedNetEmulationOverride()
+ #endif
+ }
+ 
+-#if WITH_EDITOR
++#if WITH_EDITOR && !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ 
+ bool IsClientConnected(FTestWorldInstance& Instance)
+ {
+diff --git a/Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionEditorSoftObjectPathTests.cpp b/Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionEditorSoftObjectPathTests.cpp
+index f1a28f69a22f..272db8b4a561 100644
+--- a/Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionEditorSoftObjectPathTests.cpp
++++ b/Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionEditorSoftObjectPathTests.cpp
+@@ -2,7 +2,7 @@
+ 
+ #include "Misc/AutomationTest.h"
+ 
+-#if WITH_EDITOR
++#if WITH_EDITOR && !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ #include "WorldPartition/WorldPartition.h"
+ #include "WorldPartition/WorldPartitionHelpers.h"
+ #include "Editor/IEditorMiscProvider.h"
+@@ -222,4 +222,4 @@ namespace WorldPartitionTests
+ 
+ #undef TEST_NAME_ROOT
+ 
+-#endif
+\ No newline at end of file
++#endif
+diff --git a/Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionHandleTests.cpp b/Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionHandleTests.cpp
+index 37dbcd389dc8..76c77a141dbb 100644
+--- a/Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionHandleTests.cpp
++++ b/Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionHandleTests.cpp
+@@ -2,7 +2,7 @@
+ 
+ #include "Misc/AutomationTest.h"
+ 
+-#if WITH_EDITOR
++#if WITH_EDITOR && !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ #include "Engine/World.h"
+ #include "WorldPartition/WorldPartition.h"
+ #include "WorldPartition/WorldPartitionHelpers.h"
+diff --git a/Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionStreamingGenerationTests.cpp b/Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionStreamingGenerationTests.cpp
+index 819387d3e8c0..11afc1c956d9 100644
+--- a/Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionStreamingGenerationTests.cpp
++++ b/Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionStreamingGenerationTests.cpp
+@@ -2,7 +2,7 @@
+ 
+ #include "Misc/AutomationTest.h"
+ 
+-#if WITH_EDITOR
++#if WITH_EDITOR && !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ #include "WorldPartition/WorldPartition.h"
+ #include "WorldPartition/WorldPartitionHelpers.h"
+ #include "Editor/IEditorMiscProvider.h"
+@@ -102,4 +102,4 @@ namespace WorldPartitionTests
+ 
+ #undef TEST_NAME_ROOT
+ 
+-#endif
+\ No newline at end of file
++#endif
+diff --git a/Engine/Source/Runtime/Engine/Private/UnrealEngine.cpp b/Engine/Source/Runtime/Engine/Private/UnrealEngine.cpp
+index 4bbaeb563d96..544b85cbe7ee 100644
+--- a/Engine/Source/Runtime/Engine/Private/UnrealEngine.cpp
++++ b/Engine/Source/Runtime/Engine/Private/UnrealEngine.cpp
+@@ -206,8 +206,10 @@ UnrealEngine.cpp: Implements the UEngine class and helpers.
+ #include "IPortalServiceLocator.h"
+ #include "Misc/TypeContainer.h"
+ 
++#if !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ #include "IMovieSceneCapture.h"
+ #include "MovieSceneCaptureModule.h"
++#endif
+ #include "GameFramework/OnlineSession.h"
+ #include "ProfilingDebugging/ABTesting.h"
+ #include "Performance/EnginePerformanceTargets.h"
+@@ -2875,10 +2877,12 @@ void UEngine::PreExit()
+ 	FNetTrace::SetTraceVerbosity(0);
+ #endif
+ 
++#if !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ 	if (IMovieSceneCaptureModule* Module = FModuleManager::GetModulePtr<IMovieSceneCaptureModule>( "MovieSceneCapture" ))
+ 	{
+ 		Module->DestroyAllActiveCaptures();
+ 	}
++#endif
+ 
+ 	UTextRenderComponent::ShutdownMIDCache();
+ 
+@@ -6341,11 +6345,13 @@ bool UEngine::HandleStatCommand( UWorld* World, FCommonViewportClient* ViewportC
+ 
+ bool UEngine::HandleStopMovieCaptureCommand( const TCHAR* Cmd, FOutputDevice& Ar )
+ {
++#if !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ 	if (IMovieSceneCaptureInterface* CaptureInterface = IMovieSceneCaptureModule::Get().GetFirstActiveMovieSceneCapture())
+ 	{
+ 		CaptureInterface->Close();
+ 		return true;
+ 	}
++#endif
+ 	return false;
+ }
+ 
+diff --git a/Engine/Source/Runtime/Engine/Private/World.cpp b/Engine/Source/Runtime/Engine/Private/World.cpp
+index 40a3d4473955..26f002111ef5 100644
+--- a/Engine/Source/Runtime/Engine/Private/World.cpp
++++ b/Engine/Source/Runtime/Engine/Private/World.cpp
+@@ -97,7 +97,9 @@
+ 
+ #if WITH_EDITOR
+ 	#include "DerivedDataCacheInterface.h"
++	#if !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ 	#include "Editor/UnrealEdTypes.h"
++	#endif
+ 	#include "Editor/IEditorMiscProvider.h"
+ 	#include "IHierarchicalLODUtilities.h"
+ 	#include "HierarchicalLODUtilitiesModule.h"
+@@ -943,7 +945,9 @@ UWorld::UWorld( const FObjectInitializer& ObjectInitializer )
+ #if WITH_EDITOR
+ 	SetPlayInEditorInitialNetMode(ENetMode::NM_Standalone);
+ 	bBroadcastSelectionChange = true; //Ed Only
++	#if !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ 	EditorViews.SetNum(ELevelViewportType::LVT_MAX);
++	#endif
+ #endif // WITH_EDITOR
+ 
+ 	FWorldDelegates::OnPostWorldCreation.Broadcast(this);
+@@ -1007,7 +1011,9 @@ void UWorld::Serialize( FArchive& Ar )
+ 				ViewportInfo.CamOrthoZoom = DEFAULT_ORTHOZOOM;
+ 			}
+ 		}
++		#if !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ 		EditorViews.SetNum(ELevelViewportType::LVT_MAX);
++		#endif
+ 	}
+ #endif
+ 
+diff --git a/Engine/Source/Runtime/Engine/Private/WorldPartition/DataLayer/ExternalDataLayerManager.cpp b/Engine/Source/Runtime/Engine/Private/WorldPartition/DataLayer/ExternalDataLayerManager.cpp
+index 557e716f200b..7e6799dea776 100644
+--- a/Engine/Source/Runtime/Engine/Private/WorldPartition/DataLayer/ExternalDataLayerManager.cpp
++++ b/Engine/Source/Runtime/Engine/Private/WorldPartition/DataLayer/ExternalDataLayerManager.cpp
+@@ -25,7 +25,9 @@
+ #include "Editor/IEditorSelectionProvider.h"
+ #include "EngineUtils.h"
+ #include "Editor/IEditorObjectToolsProvider.h"
++#if !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ #include "PackageTools.h"
++#endif
+ #include "WorldPartition/WorldPartitionRuntimeCell.h"
+ #endif
+ 
+diff --git a/Engine/Source/Runtime/Renderer/Private/RayTracing/RayTracing.cpp b/Engine/Source/Runtime/Renderer/Private/RayTracing/RayTracing.cpp
+index 23ea4cb3c459..e3d20355ccb2 100644
+--- a/Engine/Source/Runtime/Renderer/Private/RayTracing/RayTracing.cpp
++++ b/Engine/Source/Runtime/Renderer/Private/RayTracing/RayTracing.cpp
+@@ -261,7 +261,9 @@ static void RefreshRayTracingInstancesSinkFunction()
+ 	}
+ }
+ 
++#if !(defined(UE_RIVE_STANDALONE_SHADER_COOKER) && UE_RIVE_STANDALONE_SHADER_COOKER)
+ static FAutoConsoleVariableSink CVarRefreshRayTracingInstancesSink(FConsoleCommandDelegate::CreateStatic(&RefreshRayTracingInstancesSinkFunction));
++#endif
+ 
+ extern bool IsRayTracingVisualizeOpaqueOnly();
+ 

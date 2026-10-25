@@ -1,0 +1,75 @@
+{
+  "status": "passed",
+  "summary_sha256": "bec326600a7f1d04c0825c02d82d4a20b2b33b85f785b68a24ffc9be6c082327",
+  "normal_exit_with_png": 60,
+  "capture_count": 60,
+  "pair_count": 30,
+  "exact_rgba_alpha_passed_pairs": 30,
+  "failed_pairs": [],
+  "all_host_draw_playback_cpu_gates_passed": true,
+  "required_image_changes": {
+    "passed": 16,
+    "total": 16
+  },
+  "same_time_input_effect_checks": {
+    "passed": 12,
+    "total": 12
+  },
+  "all_inputs_unchanged": "passed",
+  "source_pins": {
+    "engine_commit": "62d7c1a7125b52b10ee1b714838f515f3563f795",
+    "rive_unreal_commit": "8461a2dc90924aeadc1f7eed99e6ae2de1b490f0",
+    "rive_runtime_commit": "47d1cd54ccefd468db7cb26ecc4699ae1723dd85"
+  },
+  "host_executables": {
+    "lite": {
+      "path": "/mnt/f/Github/Rive-UE-Lite/Binaries/Linux/RiveRhiLite",
+      "bytes": 31296864,
+      "sha256": "3337a45eda7d6701dfdf37cd108b7fe99dc76941f1396ab7cab93e7c98414ea6"
+    },
+    "reference": {
+      "path": "/mnt/f/Github/Rive-UE-Lite/Binaries/Linux/RiveUeReference",
+      "bytes": 169180336,
+      "sha256": "8065f6f083b81194ffa23b961681e0f4a2158a0b4645668e5681ef2d4ae04e5f"
+    }
+  },
+  "independent_cooks": {
+    "lite": {
+      "status": "passed",
+      "archive": {
+        "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/shaders-independent-lite-02/global.bin",
+        "bytes": 17147055,
+        "sha256": "6764c197931e00d62f51c95cf1e9a7c545c85eaff8f983719d80968633fe9176"
+      },
+      "execution_id": "9ccd7e40-7690-4db4-a7eb-7ce2c2ed1360",
+      "total_permutations": 11468,
+      "rive_permutations": 11360
+    },
+    "reference": {
+      "status": "passed",
+      "archive": {
+        "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/shaders-canonical/full-01/global.bin",
+        "bytes": 7082186,
+        "sha256": "64e87e74218e9dfe1e23ed0c268ec47d2bbb6fc7a71b0cbcd710d26c4138aa0e"
+      },
+      "execution_id": "7465ea0b-86fe-49dd-a788-e90565fd076d",
+      "total_permutations": 11469,
+      "rive_permutations": 11360
+    }
+  },
+  "driver_cache_policy": {
+    "directories": {
+      "lite": "/mnt/f/Github/Rive-UE-Lite/artifacts/playback-independent-02/lite-driver-cache",
+      "reference": "/mnt/f/Github/Rive-UE-Lite/artifacts/playback-independent-02/reference-driver-cache"
+    },
+    "directories_absent_before_captures": true,
+    "reuse_policy": "each host starts with a distinct fresh Mesa directory; subsequent frames of that host reuse it",
+    "MESA_SHADER_CACHE_DISABLE": null,
+    "MESA_DISK_CACHE_SINGLE_FILE": null,
+    "timing_scope": "correctness diagnostic process times only; not cold-start performance or an OS page-cache cold claim"
+  },
+  "gallery": "/mnt/f/Github/Rive-UE-Lite/artifacts/playback-independent-02/gallery.html",
+  "gallery_audit_status": "passed",
+  "measurement_scope": "correctness only; prior package/performance reports remain separate",
+  "failure_policy": "exact RGBA8 and alpha without tolerance or mask; failed evidence retained unchanged"
+}

@@ -1,0 +1,11 @@
+{
+  "FileVersion": 3,
+  "EngineAssociation": "",
+  "Category": "Rendering experiment",
+  "Description": "Isolated no-Engine Rive RHI/RDG Linux prototype",
+  "DisableEnginePluginsByDefault": true,
+  "Modules": [
+    { "Name": "RiveRhiLite", "Type": "Program", "LoadingPhase": "Default" },
+    { "Name": "RiveLiteRenderer", "Type": "Program", "LoadingPhase": "None" }
+  ]
+}

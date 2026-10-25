@@ -1,0 +1,38 @@
+{
+	"schema_version": 1,
+	"api_calls":
+	{
+		"animation_advance": 46,
+		"animation_apply": 46,
+		"artboard_advance": 46,
+		"state_machine_advance_and_apply": 0,
+		"pointer_down": 0,
+		"pointer_up": 0,
+		"pointer_move": 0,
+		"pointer_exit": 0,
+		"bool_set": 0,
+		"number_set": 0,
+		"trigger_fire": 0
+	},
+	"animation": "Bounce",
+	"animation_duration_seconds": 1,
+	"animation_time": 0.74999994039535522,
+	"animation_total_time": 0.74999994039535522,
+	"animation_fps": 60,
+	"animation_did_loop": false,
+	"status": "completed",
+	"mode": "animation",
+	"artboard": "Nested Artboard 2",
+	"artboard_index": 1,
+	"selected_index": 0,
+	"fixed_delta": 0.016666666666666666,
+	"target_time": 0.75,
+	"advanced_time": 0.75,
+	"advance_count": 45,
+	"initialization_advance_count": 1,
+	"event_settle_advance_count": 0,
+	"events_applied": [],
+	"state_changes": [],
+	"final_inputs": [],
+	"current_animations": []
+}

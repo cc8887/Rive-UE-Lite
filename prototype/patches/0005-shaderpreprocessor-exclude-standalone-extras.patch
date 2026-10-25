@@ -1,0 +1,6 @@
+diff --git a/Engine/Source/Developer/ShaderPreprocessor/Private/stb_preprocess/extras/.ubtignore b/Engine/Source/Developer/ShaderPreprocessor/Private/stb_preprocess/extras/.ubtignore
+new file mode 100644
+--- /dev/null
++++ b/Engine/Source/Developer/ShaderPreprocessor/Private/stb_preprocess/extras/.ubtignore
+@@ -0,0 +1 @@
++Standalone stb_preprocess benchmarks, demonstrations and tests are not module sources.

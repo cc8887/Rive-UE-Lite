@@ -1,0 +1,127 @@
+{
+  "status": "passed",
+  "scope": "Controlled bankcard feather regression plus two Bounce frames; not the full 60-capture acceptance",
+  "checks": {
+    "old_bankcard_failed": true,
+    "new_probe_passed": true,
+    "new_bankcard_exact_rgba_alpha": true,
+    "reference_png_unchanged": true,
+    "new_lite_png_equals_reference": true,
+    "runtime_binaries_unchanged": true,
+    "canonical_archive_and_compiler_unchanged": true,
+    "canonical_bound_files_unchanged": true,
+    "only_executable_source_delta_is_dxc_define": true,
+    "comparison_policy_unchanged": true
+  },
+  "before_pixels": {
+    "status": "failed",
+    "comparison_space": "encoded RGBA8 values; no color transform",
+    "alpha_policy": "compare alpha as a fourth channel; do not premultiply",
+    "channel_tolerance": 0,
+    "max_different_fraction": 0.0,
+    "mask": {
+      "policy": "include all pixels",
+      "included_pixels": 262144,
+      "excluded_pixels": 0
+    },
+    "reference": {
+      "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/playback-independent-01/static_bankcard/reference/output.png",
+      "sha256": "a3cdfb22b42140e5b680f5d680f6c0ca0b2680ce2dda5522901244b7fa6fd503",
+      "width": 512,
+      "height": 512,
+      "bit_depth": 8,
+      "color_type": 6,
+      "interlaced": false,
+      "color_metadata": {},
+      "color_transform_applied": false,
+      "decoder": "stdlib PNG RGBA8"
+    },
+    "actual": {
+      "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/playback-independent-01/static_bankcard/lite/output.png",
+      "sha256": "0e12a0d972fabf61ee47a05cbda0ce31bedc781704e3eef8804065f9dd45059d",
+      "width": 512,
+      "height": 512,
+      "bit_depth": 8,
+      "color_type": 6,
+      "interlaced": false,
+      "color_metadata": {},
+      "color_transform_applied": false,
+      "decoder": "stdlib PNG RGBA8"
+    },
+    "different_pixels": 72399,
+    "different_pixel_fraction": 0.2761802673339844,
+    "alpha_different_pixels": 9804,
+    "max_channel_error": 19,
+    "mean_absolute_channel_error": 0.6470670700073242,
+    "rms_channel_error": 1.9765434414996432,
+    "color_metadata_equal": true,
+    "color_space_description": "both untagged; transfer function unspecified"
+  },
+  "after_pixels": {
+    "status": "passed",
+    "comparison_space": "encoded RGBA8 values; no color transform",
+    "alpha_policy": "compare alpha as a fourth channel; do not premultiply",
+    "channel_tolerance": 0,
+    "max_different_fraction": 0.0,
+    "mask": {
+      "policy": "include all pixels",
+      "included_pixels": 262144,
+      "excluded_pixels": 0
+    },
+    "reference": {
+      "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/playback/diagnostics/bankcard-dxc-03/static_bankcard/reference/output.png",
+      "sha256": "a3cdfb22b42140e5b680f5d680f6c0ca0b2680ce2dda5522901244b7fa6fd503",
+      "width": 512,
+      "height": 512,
+      "bit_depth": 8,
+      "color_type": 6,
+      "interlaced": false,
+      "color_metadata": {},
+      "color_transform_applied": false,
+      "decoder": "stdlib PNG RGBA8"
+    },
+    "actual": {
+      "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/playback/diagnostics/bankcard-dxc-03/static_bankcard/lite/output.png",
+      "sha256": "a3cdfb22b42140e5b680f5d680f6c0ca0b2680ce2dda5522901244b7fa6fd503",
+      "width": 512,
+      "height": 512,
+      "bit_depth": 8,
+      "color_type": 6,
+      "interlaced": false,
+      "color_metadata": {},
+      "color_transform_applied": false,
+      "decoder": "stdlib PNG RGBA8"
+    },
+    "different_pixels": 0,
+    "different_pixel_fraction": 0.0,
+    "alpha_different_pixels": 0,
+    "max_channel_error": 0,
+    "mean_absolute_channel_error": 0.0,
+    "rms_channel_error": 0.0,
+    "color_metadata_equal": true,
+    "color_space_description": "both untagged; transfer function unspecified"
+  },
+  "runtime_binary_hashes": {
+    "/mnt/f/Github/Rive-UE-Lite/Binaries/Linux/RiveRhiLite": "3337a45eda7d6701dfdf37cd108b7fe99dc76941f1396ab7cab93e7c98414ea6",
+    "/mnt/f/Github/Rive-UE-Lite/Binaries/Linux/RiveUeReference": "8065f6f083b81194ffa23b961681e0f4a2158a0b4645668e5681ef2d4ae04e5f"
+  },
+  "inputs": [
+    {
+      "path": "F:\\Github\\Rive-UE-Lite\\artifacts\\playback-independent-01\\summary.json",
+      "sha256": "ce73567ac87ff14442a2516e5aca6c30c3b0de8280ee0928076f1f7db13236f3"
+    },
+    {
+      "path": "F:\\Github\\Rive-UE-Lite\\artifacts\\playback\\diagnostics\\bankcard-dxc-03\\summary.json",
+      "sha256": "a41169b619d4f7adbcc1881c50186fa9c6fbc1b981221e2156967d221c524241"
+    },
+    {
+      "path": "F:\\Github\\Rive-UE-Lite\\artifacts\\playback\\diagnostics\\lite-dxc-identity-02.json",
+      "sha256": "6adfa18fe0a3172b45c8777832230749b752956e76c93e20c318a046cdc84374"
+    },
+    {
+      "path": "F:\\Github\\Rive-UE-Lite\\artifacts\\playback\\diagnostics\\bankcard-feather-cause-01.json",
+      "sha256": "2c0a165ef4452d1945b47c8d6d2c27208ddf933cf417bdadfc6fdda30c83c85c"
+    }
+  ],
+  "native_bound_file_checks": 1514
+}

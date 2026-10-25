@@ -1,0 +1,140 @@
+{
+  "scope": "Engine/Renderer-linked Program with original Rive FRenderTarget wrapper; same shader archive as lite",
+  "editor_viewport": false,
+  "umg_composite": false,
+  "independent_canonical_cook_verified": false,
+  "binary_sha256": "e1b017d9adfa48d4165f6dc4ad6cf32c33a7f97c79c5be5304c244ca733d3e1b",
+  "rive_unreal_commit": "8461a2dc90924aeadc1f7eed99e6ae2de1b490f0",
+  "rive_runtime_commit": "47d1cd54ccefd468db7cb26ecc4699ae1723dd85",
+  "shader_archive_sha256": "a252df0dd066ebbb06f754617dceaa38a4f75bb95c184d8dacb45a45e96d3d2d",
+  "captures": [
+    {
+      "fixture": "fix_rectangle",
+      "linux_exit_code": 0,
+      "fixture_sha256": "7914a6b7233e48f1b51e69d94f642aed56da216bbb8b77f28c57de0a7715ef1a",
+      "capture_markers": [
+        "LogRiveUeReference: Display: RIVE_UE_REFERENCE_CAPTURE path=\"/mnt/f/Github/Rive-UE-Lite/artifacts/captures/integration-02/RiveUeReference-fix_rectangle.png\" width=512 height=512 seconds=0.000 first_image_ms=2789.495 adapter=\"llvmpipe (LLVM 20.1.2, 256 bits)\" render_path=UE_RHI_RDG engine_linked=1 renderer_linked=1 engine_frender_target=1 utexture_target=0 editor_viewport=0 umg_composite=0"
+      ],
+      "gpu_free_namespace_evidence": true,
+      "cpu_device_selected": true,
+      "png": "/mnt/f/Github/Rive-UE-Lite/artifacts/captures/integration-02/RiveUeReference-fix_rectangle.png",
+      "png_sha256": "0682a63408c011ca73faf9be88b204569acd80bca980401a1e9a0e7d8ef3ee94",
+      "png_info": {
+        "width": 512,
+        "height": 512,
+        "bit_depth": 8,
+        "color_type": 6,
+        "interlaced": false,
+        "color_metadata": {},
+        "color_transform_applied": false,
+        "decoder": "stdlib PNG RGBA8"
+      },
+      "nonzero_alpha_pixels": 252928,
+      "unique_rgba": 258,
+      "passed": true
+    },
+    {
+      "fixture": "blend_test",
+      "linux_exit_code": 0,
+      "fixture_sha256": "39af1c742857d32a55cf3a140ebfb78924972681216b8f77ad1ec556e20ac2d5",
+      "capture_markers": [
+        "LogRiveUeReference: Display: RIVE_UE_REFERENCE_CAPTURE path=\"/mnt/f/Github/Rive-UE-Lite/artifacts/captures/integration-02/RiveUeReference-blend_test.png\" width=512 height=512 seconds=0.000 first_image_ms=2809.320 adapter=\"llvmpipe (LLVM 20.1.2, 256 bits)\" render_path=UE_RHI_RDG engine_linked=1 renderer_linked=1 engine_frender_target=1 utexture_target=0 editor_viewport=0 umg_composite=0"
+      ],
+      "gpu_free_namespace_evidence": true,
+      "cpu_device_selected": true,
+      "png": "/mnt/f/Github/Rive-UE-Lite/artifacts/captures/integration-02/RiveUeReference-blend_test.png",
+      "png_sha256": "85564aff757fcc6b605dcecf78d32ee6cb3768bbb3e7c3dbb4b7745b617ebbae",
+      "png_info": {
+        "width": 512,
+        "height": 512,
+        "bit_depth": 8,
+        "color_type": 6,
+        "interlaced": false,
+        "color_metadata": {},
+        "color_transform_applied": false,
+        "decoder": "stdlib PNG RGBA8"
+      },
+      "nonzero_alpha_pixels": 152576,
+      "unique_rgba": 9,
+      "passed": true
+    },
+    {
+      "fixture": "clip_tests",
+      "linux_exit_code": 0,
+      "fixture_sha256": "9caf73434bf75797837e18d73cb46b7994676dd49f96a81d8e1d4e06fe6598e9",
+      "capture_markers": [
+        "LogRiveUeReference: Display: RIVE_UE_REFERENCE_CAPTURE path=\"/mnt/f/Github/Rive-UE-Lite/artifacts/captures/integration-02/RiveUeReference-clip_tests.png\" width=512 height=512 seconds=0.000 first_image_ms=2893.544 adapter=\"llvmpipe (LLVM 20.1.2, 256 bits)\" render_path=UE_RHI_RDG engine_linked=1 renderer_linked=1 engine_frender_target=1 utexture_target=0 editor_viewport=0 umg_composite=0"
+      ],
+      "gpu_free_namespace_evidence": true,
+      "cpu_device_selected": true,
+      "png": "/mnt/f/Github/Rive-UE-Lite/artifacts/captures/integration-02/RiveUeReference-clip_tests.png",
+      "png_sha256": "86e472e16b9a84146c5994f0bd1931bb4fa7f43c504198f998c2971d8d79c9ac",
+      "png_info": {
+        "width": 512,
+        "height": 512,
+        "bit_depth": 8,
+        "color_type": 6,
+        "interlaced": false,
+        "color_metadata": {},
+        "color_transform_applied": false,
+        "decoder": "stdlib PNG RGBA8"
+      },
+      "nonzero_alpha_pixels": 0,
+      "unique_rgba": 1,
+      "coverage_note": "transparent initial artboard state; does not establish visible clipping coverage",
+      "passed": true
+    },
+    {
+      "fixture": "bankcard",
+      "linux_exit_code": 0,
+      "fixture_sha256": "1d7f8000b315c5c0fe1e8f756057be6313ca18b72ae2c7d313a64672c233bc5a",
+      "capture_markers": [
+        "LogRiveUeReference: Display: RIVE_UE_REFERENCE_CAPTURE path=\"/mnt/f/Github/Rive-UE-Lite/artifacts/captures/integration-02/RiveUeReference-bankcard.png\" width=512 height=512 seconds=0.000 first_image_ms=2966.965 adapter=\"llvmpipe (LLVM 20.1.2, 256 bits)\" render_path=UE_RHI_RDG engine_linked=1 renderer_linked=1 engine_frender_target=1 utexture_target=0 editor_viewport=0 umg_composite=0"
+      ],
+      "gpu_free_namespace_evidence": true,
+      "cpu_device_selected": true,
+      "png": "/mnt/f/Github/Rive-UE-Lite/artifacts/captures/integration-02/RiveUeReference-bankcard.png",
+      "png_sha256": "0e12a0d972fabf61ee47a05cbda0ce31bedc781704e3eef8804065f9dd45059d",
+      "png_info": {
+        "width": 512,
+        "height": 512,
+        "bit_depth": 8,
+        "color_type": 6,
+        "interlaced": false,
+        "color_metadata": {},
+        "color_transform_applied": false,
+        "decoder": "stdlib PNG RGBA8"
+      },
+      "nonzero_alpha_pixels": 186368,
+      "unique_rgba": 2881,
+      "passed": true
+    },
+    {
+      "fixture": "circle_clips",
+      "linux_exit_code": 0,
+      "fixture_sha256": "a5adb2a0b2115822239a8dc54a47b8aeae936e43f15a7bb24f92a540890f6866",
+      "capture_markers": [
+        "LogRiveUeReference: Display: RIVE_UE_REFERENCE_CAPTURE path=\"/mnt/f/Github/Rive-UE-Lite/artifacts/captures/integration-02/RiveUeReference-circle_clips.png\" width=512 height=512 seconds=0.000 first_image_ms=2872.443 adapter=\"llvmpipe (LLVM 20.1.2, 256 bits)\" render_path=UE_RHI_RDG engine_linked=1 renderer_linked=1 engine_frender_target=1 utexture_target=0 editor_viewport=0 umg_composite=0"
+      ],
+      "gpu_free_namespace_evidence": true,
+      "cpu_device_selected": true,
+      "png": "/mnt/f/Github/Rive-UE-Lite/artifacts/captures/integration-02/RiveUeReference-circle_clips.png",
+      "png_sha256": "26ccd84af0d06f47061004964d46ed9ea2b6f258087bfc6cc533af8f93f5102c",
+      "png_info": {
+        "width": 512,
+        "height": 512,
+        "bit_depth": 8,
+        "color_type": 6,
+        "interlaced": false,
+        "color_metadata": {},
+        "color_transform_applied": false,
+        "decoder": "stdlib PNG RGBA8"
+      },
+      "nonzero_alpha_pixels": 222208,
+      "unique_rgba": 126,
+      "passed": true
+    }
+  ],
+  "shader_archive_unchanged": true,
+  "complete": true
+}

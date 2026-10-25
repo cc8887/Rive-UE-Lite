@@ -1,0 +1,41 @@
+{
+  "engine_commit": "62d7c1a7125b52b10ee1b714838f515f3563f795",
+  "scope": "Offline shader declarations/generator only; no Engine/Renderer object code",
+  "constants": {
+    "MAX_PHYSICS_FIELD_TARGETS": 32,
+    "NUM_ATMOSPHERE_LIGHTS": 2,
+    "SKY_IRRADIANCE_ENVIRONMENT_MAP_VEC4_COUNT": 8,
+    "GlobalDistanceField::MaxClipmaps": 6
+  },
+  "source_files": [
+    {
+      "path": "Engine/Source/Runtime/Engine/Public/SceneView.h",
+      "sha256": "11e1d7f8293e81abcaf070fac1b55487bd1575021bd700372354eabc78846557"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/ShaderCompiler/ShaderCompiler.cpp",
+      "sha256": "58d13a50d0142ef577059cd9cae5008b77ba45e3c623913121d42278abe015a4"
+    },
+    {
+      "path": "Engine/Source/Runtime/Renderer/Private/PostProcess/SceneFilterRendering.h",
+      "sha256": "395ce739c652bf0644cdf054fa496f557bb887032099e7a779fc657d863ef889"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "LiteDrawRectangleUniforms.generated.h",
+      "bytes": 354,
+      "sha256": "52c5c050e257bd992057c98e4688599f966e1fa1fd26c6a97671afccb06dd5a1"
+    },
+    {
+      "path": "LiteInstancedStereo.generated.inl",
+      "bytes": 7431,
+      "sha256": "d84e7cd2094ccb8c948d8a5e7e376b7573d325887717df5ee4244cf81ada8afe"
+    },
+    {
+      "path": "LiteViewUniforms.generated.h",
+      "bytes": 31759,
+      "sha256": "34606dd76ff572742b029e1eed4ecb575a5fe377e58de68bf8187e4880c528e0"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "patches": [
+    {
+      "path": "vendor/rive-unreal/submodules/rive-runtime/build/build_rive.sh",
+      "old": "NUM_CORES=$(grep -c processor /proc/cpuinfo)",
+      "new": "NUM_CORES=${RIVE_NATIVE_BUILD_JOBS:-8}",
+      "scope": "build parallelism only"
+    }
+  ],
+  "normalized_shell_line_endings": [
+    "Scripts/build-rive/bootstrap_premake.sh"
+  ]
+}

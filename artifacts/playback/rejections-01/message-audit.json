@@ -1,0 +1,90 @@
+{
+  "scope": "bind expected invalid-playback rejection to actual stdout errors",
+  "status": "passed",
+  "checks": [
+    {
+      "case": "missing-artboard",
+      "host": "lite",
+      "log": "artifacts\\playback\\rejections-01\\missing-artboard\\lite\\stdout.log",
+      "expected_error": "Artboard does not exist:",
+      "status": "passed"
+    },
+    {
+      "case": "missing-artboard",
+      "host": "reference",
+      "log": "artifacts\\playback\\rejections-01\\missing-artboard\\reference\\stdout.log",
+      "expected_error": "Artboard does not exist:",
+      "status": "passed"
+    },
+    {
+      "case": "missing-animation",
+      "host": "lite",
+      "log": "artifacts\\playback\\rejections-01\\missing-animation\\lite\\stdout.log",
+      "expected_error": "Animation does not exist:",
+      "status": "passed"
+    },
+    {
+      "case": "missing-animation",
+      "host": "reference",
+      "log": "artifacts\\playback\\rejections-01\\missing-animation\\reference\\stdout.log",
+      "expected_error": "Animation does not exist:",
+      "status": "passed"
+    },
+    {
+      "case": "missing-state-machine",
+      "host": "lite",
+      "log": "artifacts\\playback\\rejections-01\\missing-state-machine\\lite\\stdout.log",
+      "expected_error": "State machine does not exist:",
+      "status": "passed"
+    },
+    {
+      "case": "missing-state-machine",
+      "host": "reference",
+      "log": "artifacts\\playback\\rejections-01\\missing-state-machine\\reference\\stdout.log",
+      "expected_error": "State machine does not exist:",
+      "status": "passed"
+    },
+    {
+      "case": "missing-future-input",
+      "host": "lite",
+      "log": "artifacts\\playback\\rejections-01\\missing-future-input\\lite\\stdout.log",
+      "expected_error": "Input does not exist:",
+      "status": "passed"
+    },
+    {
+      "case": "missing-future-input",
+      "host": "reference",
+      "log": "artifacts\\playback\\rejections-01\\missing-future-input\\reference\\stdout.log",
+      "expected_error": "Input does not exist:",
+      "status": "passed"
+    },
+    {
+      "case": "wrong-input-type",
+      "host": "lite",
+      "log": "artifacts\\playback\\rejections-01\\wrong-input-type\\lite\\stdout.log",
+      "expected_error": "Input type mismatch:",
+      "status": "passed"
+    },
+    {
+      "case": "wrong-input-type",
+      "host": "reference",
+      "log": "artifacts\\playback\\rejections-01\\wrong-input-type\\reference\\stdout.log",
+      "expected_error": "Input type mismatch:",
+      "status": "passed"
+    },
+    {
+      "case": "negative-time",
+      "host": "lite",
+      "log": "artifacts\\playback\\rejections-01\\negative-time\\lite\\stdout.log",
+      "expected_error": "Time must be nonnegative",
+      "status": "passed"
+    },
+    {
+      "case": "negative-time",
+      "host": "reference",
+      "log": "artifacts\\playback\\rejections-01\\negative-time\\reference\\stdout.log",
+      "expected_error": "Time must be nonnegative",
+      "status": "passed"
+    }
+  ]
+}

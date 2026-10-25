@@ -1,0 +1,383 @@
+{
+  "source_commit": "8461a2dc90924aeadc1f7eed99e6ae2de1b490f0",
+  "runtime_commit": "47d1cd54ccefd468db7cb26ecc4699ae1723dd85",
+  "ore_enabled": false,
+  "files": [
+    {
+      "upstream": "Source/RiveRenderer/Private/Platform/RenderContextRHIImpl.hpp",
+      "output": "Source/RiveLiteRenderer/Public/Platform/RenderContextRHIImpl.hpp",
+      "source_sha256": "55c66bed36cd0466034ff13769f22fa4b8c6ce9815563affa30a996922fd80ef",
+      "output_sha256": "a97f978c7ede1aae849e1d8a168d912e67088556adee3caa15a9bd7cd46cc3c5"
+    },
+    {
+      "upstream": "Source/RiveRenderer/Private/Platform/RenderContextRHIImpl.cpp",
+      "output": "Source/RiveLiteRenderer/Private/Platform/RenderContextRHIImpl.cpp",
+      "source_sha256": "e4efe5ad921c9d47bcd4fb9d55680d8a25eadeb9f10bca5593ec0608e533fcaf",
+      "output_sha256": "e32388f980cc9d019f9118698e690ed74cc46b38bd103338e22e89a48977ab07"
+    },
+    {
+      "upstream": "Source/RiveRenderer/Public/TextureRHIImpl.hpp",
+      "output": "Source/RiveLiteRenderer/Public/TextureRHIImpl.hpp",
+      "source_sha256": "eabb698e2649fb4322a646cae72dd1e698fb64b39fb103f81152cd850f49c7ad",
+      "output_sha256": "f95ea95e2172896a0c4cb53b2a0b43c38e1fd3b1ce63e18fc66ce3f24369ca8c"
+    },
+    {
+      "upstream": "Source/RiveRenderer/Private/TextureRHIImpl.cpp",
+      "output": "Source/RiveLiteRenderer/Private/TextureRHIImpl.cpp",
+      "source_sha256": "e03577b8f02d805d7e090b9db8cce19a7e0a66e77b2b753f35c70cbdadd35a4d",
+      "output_sha256": "49ee8ae53fb673fae8222484eec363d35768491b54d980c4b44ad3f23b934f44"
+    },
+    {
+      "upstream": "Source/RiveRenderer/Private/RenderGraphHelpers/RivePassFunctions.h",
+      "output": "Source/RiveLiteRenderer/Private/RenderGraphHelpers/RivePassFunctions.h",
+      "source_sha256": "7c75a5d53ec29784ba3255b1876fa37c29f4e5df81515fbbb49aee6dd83c5dda",
+      "output_sha256": "33cbc06de47ef884781c2393bb811aa4781967c993569f6db3f2760f4188836b"
+    },
+    {
+      "upstream": "Source/RiveRenderer/Private/RenderGraphHelpers/RivePassFunctions.cpp",
+      "output": "Source/RiveLiteRenderer/Private/RenderGraphHelpers/RivePassFunctions.cpp",
+      "source_sha256": "35be7a2502f9aae367b299215e03c7238cdfaa4fdbd55ba98304a5799eeba381",
+      "output_sha256": "8ae3f1984761cdb63017ee355e8e6a825152b78025018d082807e0118dcacffe"
+    },
+    {
+      "upstream": "Source/RiveRenderer/Public/PlatformRHI.h",
+      "output": "Source/RiveLiteRenderer/Public/PlatformRHI.h",
+      "source_sha256": "e92879ab9f022b3583edbc6ae17fe000f7704032978b99caba8f857577cd0929",
+      "output_sha256": "8090e005e19b7ee0c53b6739379a660af784edb75745b2aa4eae3c72de4df31a"
+    },
+    {
+      "upstream": "Source/RiveRenderer/Private/PlatformRHI.cpp",
+      "output": "Source/RiveLiteRenderer/Private/PlatformRHI.cpp",
+      "source_sha256": "03f4e8fdabf345316642b5e4ecca3dad3e3e21c7b25b57c39a2a0f7be29c7ee3",
+      "output_sha256": "953cd3bb5a8a4b73445dfdc3a4fd94cc1ee75e8612d57dad72470ed0d5f58e8b"
+    },
+    {
+      "upstream": "Source/RiveRenderer/Public/Logs/RiveRendererLog.h",
+      "output": "Source/RiveLiteRenderer/Public/Logs/RiveRendererLog.h",
+      "source_sha256": "fd8badf7bdcf0f06d4453fa3f4c71efbef9470c0eada88fd1e2c1592d7506659",
+      "output_sha256": "c4348357dffeed25dbb15b0d1b6b9de25d599a68d82074c20fc81540f987bce0"
+    },
+    {
+      "upstream": "Source/RiveRenderer/Private/Logs/RiveRendererLog.cpp",
+      "output": "Source/RiveLiteRenderer/Private/Logs/RiveRendererLog.cpp",
+      "source_sha256": "f784279d552f639d116a0e03ad7bba8ad1dace48acdad8f6ef3b765414e777e9",
+      "output_sha256": "f22b9a4411df3ab6597380e4dd6357e9ba4653986411bad7499852edef279821"
+    },
+    {
+      "upstream": "Source/RiveShaders/Public/RiveShaderTypes.h",
+      "output": "Source/RiveLiteRenderer/Public/RiveShaderTypes.h",
+      "source_sha256": "fce69c372aa328e79bf6a845a1e8f1980da431bc00071329b5b05186005509fb",
+      "output_sha256": "e132ca9786313dfdc57ecac9fdca77bb589f92e2a8377f034906778cbcb779b1"
+    },
+    {
+      "upstream": "Source/RiveShaders/Private/RiveShaderTypes.cpp",
+      "output": "Source/RiveLiteRenderer/Private/RiveShaderTypes.cpp",
+      "source_sha256": "bf93b507ed3d2567c0ff52e2b6c1997498dfd6ced15eb0586694611df05fd611",
+      "output_sha256": "8ea30f39575d7a4d435a1c5bbaa6f2424fce02dfde1d53d02371d83d3e7cdc92"
+    },
+    {
+      "upstream": "Source/RiveStats/Public/RiveStats.h",
+      "output": "Source/RiveLiteRenderer/Public/RiveStats.h",
+      "source_sha256": "af76acb652af9e5c9f8b9f7526bbebf5328b2f2eeb9261424637a066f4feb351",
+      "output_sha256": "450787e025de972060336ecf34e2f0c1b83ee33daf7b1379e0fec3cd70b4d64f"
+    }
+  ],
+  "invariants": {
+    "flush_implementation_sha256": "b4b3928c96034bca7609aaf4fe6d36a8a7127c9d9f3bc059f0023e6616fcb923",
+    "pass_functions_sha256": "8ae3f1984761cdb63017ee355e8e6a825152b78025018d082807e0118dcacffe"
+  },
+  "shaders": [
+    {
+      "path": "Shaders/Private/Ore/OreMSAAResolve.usf",
+      "sha256": "617faa4274775a556dfaa784525f14336ccb0bf2fa6d851128b64eef8d09ac70"
+    },
+    {
+      "path": "Shaders/Private/Ore/dummyShader.usf",
+      "sha256": "3b128e69c2b4c0c9430edda16442eac4879d9f466da38b2dd0bcf23bcc2f5bf8"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/advanced_blend.minified.ush",
+      "sha256": "7f6ccc837bc0b7dadb61c01b0a71da305dbb4b0a94310e7cc34b002b0cf1ce9e"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/atomic_draw.minified.ush",
+      "sha256": "f3aa7e5510c44368d8a2cf958cf4d8e0871dff63332fdffe4624457481617d7f"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/bezier_utils.minified.ush",
+      "sha256": "1775d16bce0a2f27892de74a25eb572be8965007686e1fc2a7b067f4ed71669a"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/blit_texture_as_draw.minified.ush",
+      "sha256": "f0002f1a46164de3fc4536a60c9e4d41ad119667b494026fc8935c27d44764ec"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/clear_clockwise_atomic_clip.minified.ush",
+      "sha256": "1ff41d47c63288bfc53e7fe832d02bb2effb8c4bf227310a4127003cf5391175"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/color_ramp.minified.ush",
+      "sha256": "120239c1ef106b7e21295f8fcc54c82889896c1a0f3952ce22f09cb2c8095c59"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/common.minified.ush",
+      "sha256": "7261ad0a494e7ff69ee0f4c24f2cbc7816da7aa3f5de018d7444dfcebcaead68"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/constants.minified.ush",
+      "sha256": "77b0934ffd6b4e5bb35bc6382a8b2a6e43f25cc2e385e523c8d3791d21afda73"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/draw_clockwise_atomic_borrowed_coverage.minified.frag.ush",
+      "sha256": "1fec3759bcc2f13d7f75279e814cce3b7443a98bc85c116f63f648c0acce1c73"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/draw_clockwise_atomic_clip.minified.frag.ush",
+      "sha256": "97baac4a48aa1e138b96b95aa5a39e998fe493f4f32a0a7d86e3b31beaed419d"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/draw_clockwise_atomic_path.minified.frag.ush",
+      "sha256": "b074e2e41cc7041e1271324c1bac8db776293dc692ce57c05b093985a4cde819"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/draw_clockwise_clip.minified.frag.ush",
+      "sha256": "4582772e945a9298c71563c18bdab17ad0a06a576ecbaef5b733b83ad23343a8"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/draw_clockwise_path.minified.frag.ush",
+      "sha256": "8d71f880b0d8b166ec36d55690271355aee46d1a231cb64edebefa3538ab35de"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/draw_depthstencil_mesh.minified.frag.ush",
+      "sha256": "ea6bfeabafabfb75b693c1342900aa10afe71c50d985a4cf58a2058e424d5498"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/draw_depthstencil_path.minified.ush",
+      "sha256": "64bb632d3013f6076439426031cd133dd0fc82aa57e5c8ed8c7437c2982fb72e"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/draw_fullscreen_quad.minified.vert.ush",
+      "sha256": "3471e077c667d5b64e479c7a2c6b2cc317cf9343144260f7ac34287c937f05ef"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/draw_image_mesh.minified.ush",
+      "sha256": "64c7ac6b351a1ab2d98a943623434e23a1c9b10879bfc802a5ae6a0c36b6509e"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/draw_image_mesh.minified.vert.ush",
+      "sha256": "b9c31f7420d8f7666299722c56d65db890f9f7d3f2821e85a6ee28fb7d25f182"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/draw_input_attachment.minified.frag.ush",
+      "sha256": "160e6e06eb42219a5b7ee2113868aa99f228be314ddb347ca2580d1a209fc349"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/draw_mesh.minified.frag.ush",
+      "sha256": "a5da9650a7ef4503a676adf1ae236fb16921430b7df65b689dd1b6dd1543e31a"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/draw_msaa_resolve.minified.frag.ush",
+      "sha256": "f0a62fe34e00183a1a3c8fd94a6b175064c366ec7ef76ea85c46a71d7ebd69bb"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/draw_path.minified.ush",
+      "sha256": "9d99c1b5c7f10bb4c2284007ae57246f58b8ecd39e8dea18ba54f37b31bae1ac"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/draw_path.minified.vert.ush",
+      "sha256": "aa285c48f23c36fb893e8d748b0e524df093921ca0565f35230455e5912df217"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/draw_path_common.minified.ush",
+      "sha256": "5aeb56f40b3bcacc84d66ef85945981a0fc8a40cb26ea8c9f649005f70ddedeb"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/draw_raster_order_path.minified.frag.ush",
+      "sha256": "8a2089c55c43b01fd743667f2ca8e122fdf0833602fad6bc605176afef6593b4"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/flush_uniforms.minified.ush",
+      "sha256": "67e2320d6fe26091e5cc94f15663be6813271f01212de71708130bd15cc3b717"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/glsl.minified.ush",
+      "sha256": "83bbb84878f4f51ec9879127faf9707ee0439fd13712f6a78d50e8f554fa2045"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/gradient_packing_common.minified.ush",
+      "sha256": "6b78609efac3a7fa344e22415fd4fd1cb8b1d144e591ede131e5c010bc62ab6b"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/hlsl.minified.ush",
+      "sha256": "ee5293275243565a6490225871630bc75a332949de0b678ae2f8675958542224"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/init_clockwise_atomic_workaround.minified.frag.ush",
+      "sha256": "23e2f03f212b1616eed48504e2a1ae55b57876d3d916203e988e9fe03dfaa491"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/metal.minified.ush",
+      "sha256": "03ddf377a9082b238eea2d3fae2a682b88c5be5773b7db23d956430774f16792"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/pls_load_store_ext.minified.ush",
+      "sha256": "021a808e16f35a477c665bb13582793fd50a9211525aec35cfadcfee187bb465"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/render_atlas.minified.ush",
+      "sha256": "2b5157cd8cb1d9faf986257f7c8163f9c59360bf95cdcee3b8a3f45028b2f177"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/resolve_atlas.minified.ush",
+      "sha256": "2c8e1295d1d3d2e79f7ad7c73cd90c4becf6465fde178c94c914777b5abd85e6"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/rhi.minified.ush",
+      "sha256": "1d7639f8e0584b9bb7db4f9b97bb351f1d7b8fba060f2fc797f0524e4cbb7e84"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/specialization.minified.ush",
+      "sha256": "75df1efbfd39212b81b444e24a61bc4387e27067661d2d80536c1d184ffa30ed"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/stencil_draw.minified.ush",
+      "sha256": "cdfb6c4d055083eaa565c65b0af7f580ac9870c9eb7218df49c3eae1a6be77be"
+    },
+    {
+      "path": "Shaders/Private/Rive/Generated/tessellate.minified.ush",
+      "sha256": "e02ce3087f85c51ae472bc985cab7577d1c0e2827ae2f0a1fc9ad1f625607c2d"
+    },
+    {
+      "path": "Shaders/Private/Rive/atomic_base.ush",
+      "sha256": "578048d2e057d4f27ae1d87030c0c7f12d07283eb7c593883bc39567b8970809"
+    },
+    {
+      "path": "Shaders/Private/Rive/atomic_draw_atlas_blit.usf",
+      "sha256": "736ce248e70484248ab83911ff3660c5dee811c852adeba8c85b903f50e00c69"
+    },
+    {
+      "path": "Shaders/Private/Rive/atomic_draw_image_mesh.usf",
+      "sha256": "cdba0957e0ea8442672032ec9ce022a87689c64507fa10c27fadbb2ad523a782"
+    },
+    {
+      "path": "Shaders/Private/Rive/atomic_draw_image_rect.usf",
+      "sha256": "4bd2f7c275b6096366ba744d76915540d081a1b20d5cedbac44e0a81a06ef076"
+    },
+    {
+      "path": "Shaders/Private/Rive/atomic_draw_interior_triangles.usf",
+      "sha256": "74dd89aac37186e024e3b189d5f415c4d2cc1df0d490328372767d2e3e1fbd05"
+    },
+    {
+      "path": "Shaders/Private/Rive/atomic_draw_path.usf",
+      "sha256": "1cf8f3add3b37105448832f2bf327368aced98658b22bcec354041525464b95d"
+    },
+    {
+      "path": "Shaders/Private/Rive/atomic_resolve_pls.usf",
+      "sha256": "012e66f80b42ee6c8af084423294e4b501e4ec40a27cd1233c981d8b914ae3fc"
+    },
+    {
+      "path": "Shaders/Private/Rive/blend_texture.usf",
+      "sha256": "e50efe77c9c9f8a4de5825c7a2a14ea679d55dfc78075451936523ab920fa29a"
+    },
+    {
+      "path": "Shaders/Private/Rive/blt_f16_as_f4.usf",
+      "sha256": "d6ebb97b9a937820ce30b1ac34fa20ecda8d8d57c636d2b070973ec8e8fa3eaf"
+    },
+    {
+      "path": "Shaders/Private/Rive/blt_u324_to_f4.usf",
+      "sha256": "4448aaeebd9e78c4066b4df444bb4f6a05f46a407e85af84dbc298966be014cd"
+    },
+    {
+      "path": "Shaders/Private/Rive/blt_u32_as_f4.usf",
+      "sha256": "4fabb444ab1a54d764dc12621cfd90de81d9cdbc56708ba747c7c642557387c3"
+    },
+    {
+      "path": "Shaders/Private/Rive/color_ramp.usf",
+      "sha256": "4548543b089d9d37d1fb8d8b5afb39385500f348c6c7fa98aa9f93109b30caaf"
+    },
+    {
+      "path": "Shaders/Private/Rive/draw_atlas_blit.usf",
+      "sha256": "5ebcab8db4b13f18096a6de3aed852811f436b9280ab7143cc318d010cfc647f"
+    },
+    {
+      "path": "Shaders/Private/Rive/draw_atlas_fill.usf",
+      "sha256": "fdaf41cd60532edabef1ab95142cc8ab96ddd941b4830aea38fad5f91284ab49"
+    },
+    {
+      "path": "Shaders/Private/Rive/draw_atlas_stroke.usf",
+      "sha256": "876332f675bf34e7ab9f6545939756a831df833778c2ac262a2bd4daa9d9c807"
+    },
+    {
+      "path": "Shaders/Private/Rive/draw_clockwise_atlas_blit.usf",
+      "sha256": "1331a67708bc2c9d121a4dfde6c58a3cb3944d59e31ded03dce5d64de4bee50e"
+    },
+    {
+      "path": "Shaders/Private/Rive/draw_clockwise_image_mesh.usf",
+      "sha256": "6fefb353c1814269799f62bf6f6d80d4b96af7f26f2f5985e2ca9d5bfa590b44"
+    },
+    {
+      "path": "Shaders/Private/Rive/draw_clockwise_interior_triangles.usf",
+      "sha256": "57d6be0e30bebffc64997c6bcdee98d3ecc8115d87f8f5ec73306a606762c891"
+    },
+    {
+      "path": "Shaders/Private/Rive/draw_clockwise_path.usf",
+      "sha256": "50b3ca8986dc5bbfee45cb1b7fdabd56551d7f73b9eed16452587520fbafe3b0"
+    },
+    {
+      "path": "Shaders/Private/Rive/draw_depthstencil_atlas_blit.usf",
+      "sha256": "a8c454941fdf13b39288b6f34f0589e24110b03489668475f6426594d1e58328"
+    },
+    {
+      "path": "Shaders/Private/Rive/draw_depthstencil_hairline_stroke.usf",
+      "sha256": "1724c1ed782fd5fc4b88633ec4cb9678cc22f144b2bd1d977c350cd61985548a"
+    },
+    {
+      "path": "Shaders/Private/Rive/draw_depthstencil_image_mesh.usf",
+      "sha256": "3410658f306179226a53c56e7f85ec24a4f4ca28c21fcb7ab4368d1b9554ba57"
+    },
+    {
+      "path": "Shaders/Private/Rive/draw_depthstencil_path.usf",
+      "sha256": "5f725fa02438040139465d967b5a43f1c92ffebce44ad5f5d225fdb679241d34"
+    },
+    {
+      "path": "Shaders/Private/Rive/draw_depthstencil_polar_stroke.usf",
+      "sha256": "eb95740c2f25b1d91097ac3edee0146e3f42535fe83547363dcfec6075c8a1cf"
+    },
+    {
+      "path": "Shaders/Private/Rive/draw_depthstencil_triangles_nocolor.usf",
+      "sha256": "ba2606299d0e757deda13d370afe389a04b0cf32f413a0c19dc00256c7de69b1"
+    },
+    {
+      "path": "Shaders/Private/Rive/draw_image_mesh.usf",
+      "sha256": "47870b755e55e114401678675a7055168ea46298ce521463067d2a83953111b3"
+    },
+    {
+      "path": "Shaders/Private/Rive/draw_interior_triangles.usf",
+      "sha256": "6e0de2f68bf001d44992c38b663fbc51ade2e1626970b9543014916cfc31bf85"
+    },
+    {
+      "path": "Shaders/Private/Rive/draw_path.usf",
+      "sha256": "56ff75677c61231c3669c23e70611cba2c294c8b192cfc9a825b5dcf36468fd1"
+    },
+    {
+      "path": "Shaders/Private/Rive/flush_uniforms.minified.ush",
+      "sha256": "67e2320d6fe26091e5cc94f15663be6813271f01212de71708130bd15cc3b717"
+    },
+    {
+      "path": "Shaders/Private/Rive/parse_environment.ush",
+      "sha256": "0f8073501cb00681edd6960d683cbf97396f001dcbe7b123302bd54262b01a20"
+    },
+    {
+      "path": "Shaders/Private/Rive/tessellate.usf",
+      "sha256": "918f737805bd9d642a584ebd8c234d50db6792439d5d4cf38c8253bf88a8d841"
+    },
+    {
+      "path": "Shaders/Private/Rive/test.usf",
+      "sha256": "331cbaf48908a2c8d76b71f301c760722c46d0766688435c9de47f2cc1761fc6"
+    },
+    {
+      "path": "Shaders/Private/Rive/visualize_buffer.usf",
+      "sha256": "512f3f812eea1bc144323d84142f48a409377f7a323a8722b8b8fbceb0f3e383"
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "engine_commit": "62d7c1a7125b52b10ee1b714838f515f3563f795",
+  "patch": "0007-native-cooker-without-editor-ui.patch",
+  "patch_sha256": "9d9e95f6a82679598b671b517cad3e21e366e6fb5ea5ac2591c33c4c422daf43",
+  "requires_preceding_patches": "0001 through 0006 in numeric order; TargetPlatform delta follows 0003",
+  "target_definition": "UE_RIVE_STANDALONE_SHADER_COOKER=1",
+  "scope": "Offline Engine Program only: omit optional authoring modules and guard unused editor UI, asset creation, movie capture, disabled test includes and world ray-tracing instance sink registration; preserve normal-target branches and reflected field layouts",
+  "native_shader_pipeline": "Original Engine BeginCompileShader, GlobalBeginCompileShader, manager, View metadata and native archive serializer are not changed by this patch",
+  "shared_preprocessor_exception": "0006 repairs upstream multiline token paste for both independently executed compilers",
+  "modified_source_files": [
+    {
+      "path": "Engine/Source/Runtime/Engine/Engine.Build.cs",
+      "sha256": "fb2d7bd8421b26e76bb4957e8c50f83db248a7a7e60a071b9e72a7fb9191630c"
+    },
+    {
+      "path": "Engine/Source/Runtime/AppFramework/AppFramework.Build.cs",
+      "sha256": "1bc465fa59f7dc60b59a6f233fce29eb1aeddaed52f24bf1fa39d0f5969a8b4c"
+    },
+    {
+      "path": "Engine/Source/Developer/SourceControl/SourceControl.Build.cs",
+      "sha256": "f3c76beb601a828452da25b5369c699bb8eebffced62a7caeb01d3ae11199aa6"
+    },
+    {
+      "path": "Engine/Source/Developer/TargetPlatform/TargetPlatform.Build.cs",
+      "sha256": "992c648e101ae63a841425e4e9fa5c3c1186116c6eff73fc55210a07f184f25f"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/Tests/NetTestHelpers.cpp",
+      "sha256": "23c60104ce14218b9c6abba274a96938fefd958b00b9ed42151bf5b5d061343d"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/World.cpp",
+      "sha256": "8d941c13f6c781556692104d8e99934c607be03b0b3a6ec0c6c128dd3f4d4255"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/GameInstance.cpp",
+      "sha256": "850f0fce713191356ceae254268718b79612937ad4016cd634b5f76a340e153e"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/AudioDevice.cpp",
+      "sha256": "2ba0ea02fc7f188018133f2c596597034e218e6a8deaabfdbff593981d9f0af7"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/PackedLevelActor/PackedLevelActorBuilder.cpp",
+      "sha256": "f92e83c50f3a8d6536625e1581a4f33b3542258ba6ef9420fda00f55310fd2ea"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/KismetRenderingLibrary.cpp",
+      "sha256": "ddc162ff029d76d0614f85ae82acf5c53c2f85b4197437b020258a157f4fe47c"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/AnimBlueprint.cpp",
+      "sha256": "971a53e5250e1289aac9973cef6de9c0d4b37871fa5c47c9e9a3d3c43467ddff"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/Tests/EngineAutomationTests.cpp",
+      "sha256": "d132df9506f4689d772cf268568b3421a86ff42119cb0441e4898f0d0904e62e"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/LevelInstance/LevelInstanceSubsystem.cpp",
+      "sha256": "ffe7c93080ee03f18f0c13bd8a2879a7afabb79cbbfe2d7b64a26e2da413351e"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/EngineGlobals.cpp",
+      "sha256": "ce7e265963fbd305a96a9d72486cc8ebf22406e31bda8e83bdd156ae77c43002"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/WorldPartition/DataLayer/ExternalDataLayerManager.cpp",
+      "sha256": "2644ebd971b6adbb52f550d30e403b99ef93b54308ce4f2ac258e9b6a1fa8136"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/GameModeBase.cpp",
+      "sha256": "686a96804e023f829e0db7d359786f2aa95b6588080e8683196f72e58cda96d9"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/LevelInstance/LevelInstanceEditorPropertyOverrideLevelStreaming.cpp",
+      "sha256": "1d4b34d872d3f1caf702d173d1bf1ddf3c716625aef8dbf2407c147ee897ee83"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/UnrealEngine.cpp",
+      "sha256": "d5d5483c68bfa3fa2275a02ad70aadf94e297c7ab072671e04ad05ca1d8e3c0d"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/GameEngine.cpp",
+      "sha256": "0edfed94636e52f8d215fc872be08934954c2007e301a24b928765de5a5b9196"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionStreamingGenerationTests.cpp",
+      "sha256": "a5babbe8f28046f5c7f524da69c344e08d8c30b3f2af05d625ca4cde34640280"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionEditorSoftObjectPathTests.cpp",
+      "sha256": "b9e9831be09da0aef38a59f166bab45c28fb95fd243bace175c0be0dfde82e24"
+    },
+    {
+      "path": "Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionHandleTests.cpp",
+      "sha256": "201e5b6c642667ab1158009fc6c8fe7a5a75fc3df59d0f0f90082aa1491bce7b"
+    },
+    {
+      "path": "Engine/Source/Runtime/Renderer/Private/RayTracing/RayTracing.cpp",
+      "sha256": "873132f8b31586367a861af6a2b4069179b77c03617b9a4ac710c69060d7e903"
+    }
+  ]
+}

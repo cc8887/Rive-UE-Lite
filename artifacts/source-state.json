@@ -1,0 +1,80 @@
+{
+  "engine_commit": "62d7c1a7125b52b10ee1b714838f515f3563f795",
+  "rive_unreal_commit": "8461a2dc90924aeadc1f7eed99e6ae2de1b490f0",
+  "rive_runtime_gitlink": "47d1cd54ccefd468db7cb26ecc4699ae1723dd85",
+  "fixtures": [
+    {
+      "path": "fixtures/animation_reset_cases.riv",
+      "upstream_path": "tests/unit_tests/assets/animation_reset_cases.riv",
+      "bytes": 2105,
+      "sha256": "722af52220a33a635810b1ee3dff28a90b42929cb39fb68586f629c440ea1f5c"
+    },
+    {
+      "path": "fixtures/ball_test.riv",
+      "upstream_path": "tests/unit_tests/assets/ball_test.riv",
+      "bytes": 995,
+      "sha256": "7754e2d48ed666e09324cd4744cd6e27d1d65573feb077e71be1e8b3a3381a69"
+    },
+    {
+      "path": "fixtures/bankcard.riv",
+      "upstream_path": "tests/unit_tests/assets/bankcard.riv",
+      "bytes": 174403,
+      "sha256": "1d7f8000b315c5c0fe1e8f756057be6313ca18b72ae2c7d313a64672c233bc5a"
+    },
+    {
+      "path": "fixtures/blend_test.riv",
+      "upstream_path": "tests/unit_tests/assets/blend_test.riv",
+      "bytes": 503,
+      "sha256": "39af1c742857d32a55cf3a140ebfb78924972681216b8f77ad1ec556e20ac2d5"
+    },
+    {
+      "path": "fixtures/circle_clips.riv",
+      "upstream_path": "tests/unit_tests/assets/circle_clips.riv",
+      "bytes": 595,
+      "sha256": "a5adb2a0b2115822239a8dc54a47b8aeae936e43f15a7bb24f92a540890f6866"
+    },
+    {
+      "path": "fixtures/clip_tests.riv",
+      "upstream_path": "tests/unit_tests/assets/clip_tests.riv",
+      "bytes": 814,
+      "sha256": "9caf73434bf75797837e18d73cb46b7994676dd49f96a81d8e1d4e06fe6598e9"
+    },
+    {
+      "path": "fixtures/fix_rectangle.riv",
+      "upstream_path": "tests/unit_tests/assets/fix_rectangle.riv",
+      "bytes": 727,
+      "sha256": "7914a6b7233e48f1b51e69d94f642aed56da216bbb8b77f28c57de0a7715ef1a"
+    },
+    {
+      "path": "fixtures/light_switch.riv",
+      "upstream_path": "tests/unit_tests/assets/light_switch.riv",
+      "bytes": 319,
+      "sha256": "d1e4227b1c9817d07466bf52255d4aec22cf73654d0d875e48a7e2a0826a62c2"
+    },
+    {
+      "path": "fixtures/rocket.riv",
+      "upstream_path": "tests/unit_tests/assets/rocket.riv",
+      "bytes": 4598,
+      "sha256": "bda563e691213632a98c4cf11ac9833b11841af2c51240cb9a2403928821ce0e"
+    },
+    {
+      "path": "fixtures/state_machine_triggers.riv",
+      "upstream_path": "tests/unit_tests/assets/state_machine_triggers.riv",
+      "bytes": 292,
+      "sha256": "116b7ba0a27ac13d70a6f3e9771a3b9f3b611edc7ba60bb564b8a10698ec509e"
+    }
+  ],
+  "existing_repositories": [
+    {
+      "path": "G:\\Github\\UnrealEngine",
+      "head": "912a84ee25e6c2b31312ac8e0a99f08d3d7e23a2",
+      "tracked_status": "M Samples/Games/Lyra/Config/DefaultEditor.ini\n M Samples/Games/Lyra/Config/DefaultEditorPerProjectUserSettings.ini\n M Samples/Games/Lyra/Source/LyraGame/UI/LyraHUD.cpp\n M Samples/Games/Lyra/Source/LyraGame/UI/LyraHUD.h"
+    },
+    {
+      "path": "F:\\Github\\rive-unreal",
+      "head": "8461a2dc90924aeadc1f7eed99e6ae2de1b490f0",
+      "tracked_status": ""
+    }
+  ],
+  "isolation_scope": "Existing repository status is checked read-only; no reset, checkout, build or patch is issued there. The four pre-existing Lyra modifications are preserved."
+}

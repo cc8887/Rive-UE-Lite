@@ -1,0 +1,18 @@
+diff --git a/Engine/Source/Developer/TargetPlatform/TargetPlatform.Build.cs b/Engine/Source/Developer/TargetPlatform/TargetPlatform.Build.cs
+index 3dda2e015652..ece3d4a051f9 100644
+--- a/Engine/Source/Developer/TargetPlatform/TargetPlatform.Build.cs
++++ b/Engine/Source/Developer/TargetPlatform/TargetPlatform.Build.cs
+@@ -33,7 +33,12 @@ public class TargetPlatform : ModuleRules
+ 			PrivateDependencyModuleNames.Add("Engine");
+ 		}
+ 
+-		DynamicallyLoadedModuleNames.Add("TurnkeySupport");
++		// Offline shader tools need target-platform layouts, but no editor deployment UI.
++		// Keep the normal Engine target graph unchanged.
++		if (Target.bCompileAgainstEngine)
++		{
++			DynamicallyLoadedModuleNames.Add("TurnkeySupport");
++		}
+ 		PrivateIncludePathModuleNames.Add("TurnkeySupport");
+ 
+ 		// The platforms add their shader format modules to ShaderBuild, so loading it brings in the shader formats.

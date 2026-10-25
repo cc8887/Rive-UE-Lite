@@ -1,0 +1,298 @@
+{
+  "status": "passed",
+  "package_dir": "/mnt/f/Github/Rive-UE-Lite/package/playback-02",
+  "file_count": 50,
+  "logical_file_bytes": 53561592,
+  "allocated_file_bytes": 53624832,
+  "executable_bytes": 31296864,
+  "executable_sha256": "3337a45eda7d6701dfdf37cd108b7fe99dc76941f1396ab7cab93e7c98414ea6",
+  "executable_is_elf": true,
+  "executable_inside_package": true,
+  "archive": {
+    "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/playback/package-02/deploy-package.tar.gz",
+    "bytes": 17547658,
+    "sha256": "ae6fc93ca0fd6c37ace80bbb0ebb52703d9972dece2d783054fe17a50c1b0f3e",
+    "format": "tar.gz; observed compression output, not a deterministic archive"
+  },
+  "files": [
+    {
+      "path": "Config/DefaultGame.ini",
+      "bytes": 151
+    },
+    {
+      "path": "Engine/Binaries/Linux/RiveRhiLite",
+      "bytes": 31296864
+    },
+    {
+      "path": "Engine/Binaries/ThirdParty/Vulkan/Linux/libvulkan.so",
+      "bytes": 4210872
+    },
+    {
+      "path": "Engine/Config/Base.ini",
+      "bytes": 368
+    },
+    {
+      "path": "Engine/Config/BaseCompat.ini",
+      "bytes": 16732
+    },
+    {
+      "path": "Engine/Config/BaseDeviceProfiles.ini",
+      "bytes": 64070
+    },
+    {
+      "path": "Engine/Config/BaseEditor.ini",
+      "bytes": 80525
+    },
+    {
+      "path": "Engine/Config/BaseEditorKeyBindings.ini",
+      "bytes": 1208
+    },
+    {
+      "path": "Engine/Config/BaseEditorPerProjectUserSettings.ini",
+      "bytes": 49862
+    },
+    {
+      "path": "Engine/Config/BaseEditorSettings.ini",
+      "bytes": 4476
+    },
+    {
+      "path": "Engine/Config/BaseEngine.ini",
+      "bytes": 272494
+    },
+    {
+      "path": "Engine/Config/BaseGame.ini",
+      "bytes": 14985
+    },
+    {
+      "path": "Engine/Config/BaseGameUserSettings.ini",
+      "bytes": 61
+    },
+    {
+      "path": "Engine/Config/BaseHardware.ini",
+      "bytes": 12060
+    },
+    {
+      "path": "Engine/Config/BaseInput.ini",
+      "bytes": 24892
+    },
+    {
+      "path": "Engine/Config/BaseInstallBundle.ini",
+      "bytes": 661
+    },
+    {
+      "path": "Engine/Config/BaseLightmass.ini",
+      "bytes": 11059
+    },
+    {
+      "path": "Engine/Config/BaseMaterialExpressions.ini",
+      "bytes": 67414
+    },
+    {
+      "path": "Engine/Config/BasePakFileRules.ini",
+      "bytes": 1779
+    },
+    {
+      "path": "Engine/Config/BaseRuntimeOptions.ini",
+      "bytes": 99
+    },
+    {
+      "path": "Engine/Config/BaseScalability.ini",
+      "bytes": 42776
+    },
+    {
+      "path": "Engine/Config/BaseSourceControlSettings.ini",
+      "bytes": 46
+    },
+    {
+      "path": "Engine/Config/BaseUnrealInsightsSettings.ini",
+      "bytes": 7831
+    },
+    {
+      "path": "Engine/Config/ConfigRedirects.ini",
+      "bytes": 3289
+    },
+    {
+      "path": "Engine/Config/ConsoleVariables.ini",
+      "bytes": 11504
+    },
+    {
+      "path": "Engine/Config/Linux/BaseLinuxEngine.ini",
+      "bytes": 1047
+    },
+    {
+      "path": "Engine/Config/Linux/DataDrivenPlatformInfo.ini",
+      "bytes": 7558
+    },
+    {
+      "path": "Engine/Config/Linux/LinuxEditorGameAgnostic.ini",
+      "bytes": 5
+    },
+    {
+      "path": "Engine/Config/Linux/LinuxEditorPerProjectUserSettings.ini",
+      "bytes": 1389
+    },
+    {
+      "path": "Engine/Config/Linux/LinuxEngine.ini",
+      "bytes": 978
+    },
+    {
+      "path": "Engine/Config/Linux/LinuxGame.ini",
+      "bytes": 11
+    },
+    {
+      "path": "Engine/Config/PluginBase.ini",
+      "bytes": 356
+    },
+    {
+      "path": "Engine/Config/Unix/DataDrivenPlatformInfo.ini",
+      "bytes": 122
+    },
+    {
+      "path": "Engine/Config/Unix/UnixEngine.ini",
+      "bytes": 118
+    },
+    {
+      "path": "RiveRhiLite.uproject",
+      "bytes": 372
+    },
+    {
+      "path": "fixtures/animation_reset_cases.riv",
+      "bytes": 2105
+    },
+    {
+      "path": "fixtures/ball_test.riv",
+      "bytes": 995
+    },
+    {
+      "path": "fixtures/input.riv",
+      "bytes": 174403
+    },
+    {
+      "path": "fixtures/light_switch.riv",
+      "bytes": 319
+    },
+    {
+      "path": "fixtures/playback/bounce_animation.json",
+      "bytes": 172
+    },
+    {
+      "path": "fixtures/playback/number_transitions.json",
+      "bytes": 405
+    },
+    {
+      "path": "fixtures/playback/pointer_toggle.json",
+      "bytes": 670
+    },
+    {
+      "path": "fixtures/playback/rocket_bool.json",
+      "bytes": 595
+    },
+    {
+      "path": "fixtures/playback/scenarios.json",
+      "bytes": 6899
+    },
+    {
+      "path": "fixtures/playback/trigger_transitions.json",
+      "bytes": 356
+    },
+    {
+      "path": "fixtures/rocket.riv",
+      "bytes": 4598
+    },
+    {
+      "path": "fixtures/state_machine_triggers.riv",
+      "bytes": 292
+    },
+    {
+      "path": "package-manifest.json",
+      "bytes": 13481
+    },
+    {
+      "path": "render.sh",
+      "bytes": 1213
+    },
+    {
+      "path": "shaders/global.bin",
+      "bytes": 17147055
+    }
+  ],
+  "symlinks": [],
+  "elf_inspection": {
+    "command": [
+      "readelf",
+      "-h",
+      "-d",
+      "/mnt/f/Github/Rive-UE-Lite/package/playback-02/Engine/Binaries/Linux/RiveRhiLite"
+    ],
+    "exit_code": 0,
+    "output": "ELF Header:\n  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 \n  Class:                             ELF64\n  Data:                              2's complement, little endian\n  Version:                           1 (current)\n  OS/ABI:                            UNIX - System V\n  ABI Version:                       0\n  Type:                              EXEC (Executable file)\n  Machine:                           Advanced Micro Devices X86-64\n  Version:                           0x1\n  Entry point address:               0xb80480\n  Start of program headers:          64 (bytes into file)\n  Start of section headers:          31294496 (bytes into file)\n  Flags:                             0x0\n  Size of this header:               64 (bytes)\n  Size of program headers:           56 (bytes)\n  Number of program headers:         12\n  Size of section headers:           64 (bytes)\n  Number of section headers:         37\n  Section header string table index: 35\n\nDynamic section at offset 0x1dadfb8 contains 31 entries:\n  Tag        Type                         Name/Value\n 0x000000000000000f (RPATH)              Library rpath: [${ORIGIN}:${ORIGIN}/..:${ORIGIN}/NotForLicensees:${ORIGIN}/../../../Engine/Binaries/ThirdParty/Qualcomm/Linux:${ORIGIN}/../../../Engine/Binaries/ThirdParty/PhysX3/Unix/x86_64-unknown-linux-gnu]\n 0x0000000000000001 (NEEDED)             Shared library: [libpthread.so.0]\n 0x0000000000000001 (NEEDED)             Shared library: [libdl.so.2]\n 0x0000000000000001 (NEEDED)             Shared library: [librt.so.1]\n 0x0000000000000001 (NEEDED)             Shared library: [libm.so.6]\n 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]\n 0x0000000000000001 (NEEDED)             Shared library: [ld-linux-x86-64.so.2]\n 0x0000000000000001 (NEEDED)             Shared library: [libgcc_s.so.1]\n 0x0000000000000015 (DEBUG)              0x0\n 0x0000000000000007 (RELA)               0x3fa7b0\n 0x0000000000000008 (RELASZ)             480 (bytes)\n 0x0000000000000009 (RELAENT)            24 (bytes)\n 0x0000000000000017 (JMPREL)             0x3fa990\n 0x0000000000000002 (PLTRELSZ)           10104 (bytes)\n 0x0000000000000003 (PLTGOT)             0x1fda560\n 0x0000000000000014 (PLTREL)             RELA\n 0x0000000000000006 (SYMTAB)             0x2011c0\n 0x000000000000000b (SYMENT)             24 (bytes)\n 0x0000000000000005 (STRTAB)             0x2d8a0c\n 0x000000000000000a (STRSZ)              1187233 (bytes)\n 0x000000006ffffef5 (GNU_HASH)           0x2a8e78\n 0x0000000000000019 (INIT_ARRAY)         0x1f694a0\n 0x000000000000001b (INIT_ARRAYSZ)       1104 (bytes)\n 0x000000000000001a (FINI_ARRAY)         0x1f698f0\n 0x000000000000001c (FINI_ARRAYSZ)       8 (bytes)\n 0x000000000000000c (INIT)               0x1f573a0\n 0x000000000000000d (FINI)               0x1f573c4\n 0x000000006ffffff0 (VERSYM)             0x29bdf8\n 0x000000006ffffffe (VERNEED)            0x2a8c54\n 0x000000006fffffff (VERNEEDNUM)         7\n 0x0000000000000000 (NULL)               0x0\n"
+  },
+  "ldd_inspection": {
+    "command": [
+      "ldd",
+      "/mnt/f/Github/Rive-UE-Lite/package/playback-02/Engine/Binaries/Linux/RiveRhiLite"
+    ],
+    "exit_code": 0,
+    "output": "\tlinux-vdso.so.1 (0x00007ffca79a5000)\n\tlibpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x00007a4e4b29d000)\n\tlibdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x00007a4e4b298000)\n\tlibrt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x00007a4e4b293000)\n\tlibm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007a4e4b1aa000)\n\tlibc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x00007a4e4ae00000)\n\t/lib64/ld-linux-x86-64.so.2 (0x00007a4e4b2a9000)\n\tlibgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007a4e4b17a000)\n"
+  },
+  "dynamic_dependencies": [
+    {
+      "name": "libpthread.so.0",
+      "resolved": "/lib/x86_64-linux-gnu/libpthread.so.0",
+      "packaged": false,
+      "resolved_bytes": 14408
+    },
+    {
+      "name": "libdl.so.2",
+      "resolved": "/lib/x86_64-linux-gnu/libdl.so.2",
+      "packaged": false,
+      "resolved_bytes": 14408
+    },
+    {
+      "name": "librt.so.1",
+      "resolved": "/lib/x86_64-linux-gnu/librt.so.1",
+      "packaged": false,
+      "resolved_bytes": 14624
+    },
+    {
+      "name": "libm.so.6",
+      "resolved": "/lib/x86_64-linux-gnu/libm.so.6",
+      "packaged": false,
+      "resolved_bytes": 952616
+    },
+    {
+      "name": "libc.so.6",
+      "resolved": "/lib/x86_64-linux-gnu/libc.so.6",
+      "packaged": false,
+      "resolved_bytes": 2129424
+    },
+    {
+      "name": "ld-linux-x86-64.so.2",
+      "resolved": "/lib64/ld-linux-x86-64.so.2",
+      "packaged": false,
+      "resolved_bytes": 236616
+    },
+    {
+      "name": "libgcc_s.so.1",
+      "resolved": "/lib/x86_64-linux-gnu/libgcc_s.so.1",
+      "packaged": false,
+      "resolved_bytes": 183024
+    }
+  ],
+  "missing_dependencies": [],
+  "system_dependencies": [
+    "libpthread.so.0",
+    "libdl.so.2",
+    "librt.so.1",
+    "libm.so.6",
+    "libc.so.6",
+    "ld-linux-x86-64.so.2",
+    "libgcc_s.so.1"
+  ],
+  "external_symlinks": [],
+  "closure_limit": "ldd covers ELF DT_NEEDED only; Vulkan ICD, dlopen plugins, fonts and shader data must be separately inventoried",
+  "scope": "updated playback application package and ELF DT_NEEDED only; no new performance timings or independent-cooker pixel acceptance",
+  "package_manifest_sha256": "daefbfe4b8fa7f9e3141be486526de748e5103e8a07b09b0f88a6acf6fe54009",
+  "manifest_errors": [],
+  "playback_scenario_manifest_sha256": "d603b444f03f6a3662e58fb178b653ca658b1e285cfa319324943643af715502"
+}

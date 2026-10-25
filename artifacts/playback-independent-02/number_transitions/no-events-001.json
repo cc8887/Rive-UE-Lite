@@ -1,0 +1,8 @@
+{
+  "mode": "state_machine",
+  "artboard": "transitions",
+  "state_machine": "transitions-state-machine",
+  "events": [],
+  "fixed_delta": 0.016666666666666666,
+  "target_time": 3
+}

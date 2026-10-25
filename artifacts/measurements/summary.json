@@ -1,0 +1,606 @@
+{
+  "schema_version": 1,
+  "timestamp_utc": "2026-10-24T11:35:42.739071+00:00",
+  "scope": "retained Linux CPU Vulkan Rive UE RHI/RDG fresh-process captures; no performance rerun",
+  "reference_scope": "UE Engine Program / Engine FRenderTarget with same Rive/RHI/RDG; editor_viewport=0, umg_composite=0",
+  "timing_scope": "external spawn-to-complete-PNG including startup/render/readback/encoding/write; 10ms polling",
+  "cache_scope": "first lite process uses new Mesa disk cache; later processes reuse it; no OS page-cache flush or cold claim",
+  "machine_scope": "WSL2 on shared host; process CPU affinity limit is not a dedicated small VM",
+  "build_exclusion": {
+    "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/environment/rive-host-build-exclusion-current.json",
+    "sha256": "a5e6a0c5d3f13d1c24e1d26d60a64db4fc30126093492a98cae09d8a3c8ebaf1",
+    "status": "passed",
+    "executable": {
+      "path": "/mnt/f/Github/Rive-UE-Lite/Binaries/Linux/RiveRhiLite",
+      "bytes": 31249728,
+      "sha256": "ccdaa74759bee4d9eb203860b1e5935bb20c2bf850fd10606e4ce4c9b759276f"
+    },
+    "recognized_modules": [
+      "ApplicationCore",
+      "AutoRTFM",
+      "BuildSettings",
+      "Cbor",
+      "Core",
+      "CorePreciseFP",
+      "CoreUObject",
+      "GPUReshapeUE",
+      "ImageCore",
+      "ImageWrapper",
+      "Json",
+      "Projects",
+      "RHI",
+      "RHICore",
+      "RenderCore",
+      "RiveLiteRenderer",
+      "RiveRhiLite",
+      "ShaderRuntime",
+      "StateStream",
+      "TraceLog",
+      "VulkanRHI"
+    ],
+    "forbidden_modules": []
+  },
+  "profiles": [
+    {
+      "name": "default-02",
+      "report": "/mnt/f/Github/Rive-UE-Lite/artifacts/measurements/default-02/lite/report.json",
+      "report_sha256": "f2d760950f8145a4407dfc8aa2262c3c7da762a0277edcfe60ea10e15f702b28",
+      "status": "passed",
+      "gate_statuses": {
+        "linux_host": "passed",
+        "cpu_vulkan_enumeration": "passed",
+        "software_icd_isolation": "passed",
+        "engine_renderer_excluded": "passed",
+        "package_measurement": "passed",
+        "real_rendering_requested": "passed",
+        "render_runs": "passed",
+        "cpu_vulkan_runtime": "passed",
+        "rive_actual_draw": "passed",
+        "ue_reference_pixels": "passed",
+        "ue_reference_provenance": "passed",
+        "ue_reference_linkage": "passed",
+        "ue_reference_draw": "passed",
+        "ue_reference_process": "passed",
+        "ue_reference_cpu_vulkan": "passed",
+        "gpu_device_nodes_hidden": "passed",
+        "source_revision_provenance": "passed",
+        "shared_render_inputs_unchanged": "passed",
+        "runtime_dependency_inventory": "passed",
+        "all_repeated_capture_pixels": "passed",
+        "final_elf_matches_build_exclusion": "passed",
+        "measured_archive_unchanged": "passed"
+      },
+      "cpu_profile": {
+        "host_logical_cpu_count": 32,
+        "affinity_before": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        "affinity_effective": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        "requested_cpu_limit": null,
+        "LP_NUM_THREADS": null,
+        "scope": "process affinity and Mesa thread setting; WSL shares its host, not an actual dedicated VM with this CPU count"
+      },
+      "first_process_png_wall_seconds": 1.0795762729999865,
+      "repeat_process_png_wall_seconds": [
+        1.1326480500000002,
+        1.2147292420000042
+      ],
+      "repeat_process_png_wall_median_seconds": 1.1736886460000022,
+      "peak_rss_kib_per_run": [
+        313868,
+        316816,
+        314092
+      ],
+      "png_wall_seconds_per_run": [
+        1.0795762729999865,
+        1.1326480500000002,
+        1.2147292420000042
+      ],
+      "process_wall_seconds_per_run": [
+        1.2312558810000098,
+        1.2743519670000012,
+        1.3159885020000104
+      ],
+      "mesa_cache_after_each_run": [
+        {
+          "file_count": 1,
+          "file_bytes": 1310728
+        },
+        {
+          "file_count": 1,
+          "file_bytes": 1310728
+        },
+        {
+          "file_count": 1,
+          "file_bytes": 1310728
+        }
+      ],
+      "package": {
+        "file_count": 39,
+        "raw_file_bytes": 53494161,
+        "tar_gzip_bytes": 17523309,
+        "tar_gzip_sha256": "e84f3c8884fc15114bf09d0988fcfd1378d937f3bb91dea73aba2040ffd75006",
+        "executable_bytes": 31249728,
+        "executable_sha256": "ccdaa74759bee4d9eb203860b1e5935bb20c2bf850fd10606e4ce4c9b759276f"
+      },
+      "runtime_dependency_inventory": {
+        "status": "passed",
+        "unresolved": [],
+        "library_count": 36,
+        "external_library_bytes_deduplicated": 199481112,
+        "package_plus_external_library_bytes": 252975273,
+        "standalone_bundle": false
+      },
+      "cpu_device_names": [
+        "llvmpipe (LLVM 20.1.2, 256 bits)"
+      ],
+      "device_exposure": {
+        "wsl_dxg": {
+          "path": "/dev/dxg",
+          "exists": false,
+          "reason": "[Errno 2] No such file or directory: '/dev/dxg'"
+        },
+        "dri_nodes": []
+      },
+      "package_execution_mutations": {
+        "archive_captured_before_application_execution": true,
+        "created_files": [],
+        "changed_files": [],
+        "removed_files": [],
+        "scope": "generated Saved/log/cache files are reported separately from the pre-execution deployment archive"
+      },
+      "pixel_comparisons_all_runs": [
+        {
+          "status": "passed",
+          "comparison_space": "encoded RGBA8 values; no color transform",
+          "alpha_policy": "compare alpha as a fourth channel; do not premultiply",
+          "channel_tolerance": 0,
+          "max_different_fraction": 0.0,
+          "mask": {
+            "policy": "include all pixels",
+            "included_pixels": 262144,
+            "excluded_pixels": 0
+          },
+          "reference": {
+            "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/measurements/default-02/reference/run-000.png",
+            "sha256": "0e12a0d972fabf61ee47a05cbda0ce31bedc781704e3eef8804065f9dd45059d",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "actual": {
+            "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/measurements/default-02/lite/run-000.png",
+            "sha256": "0e12a0d972fabf61ee47a05cbda0ce31bedc781704e3eef8804065f9dd45059d",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "different_pixels": 0,
+          "different_pixel_fraction": 0.0,
+          "alpha_different_pixels": 0,
+          "max_channel_error": 0,
+          "mean_absolute_channel_error": 0.0,
+          "rms_channel_error": 0.0,
+          "color_metadata_equal": true,
+          "color_space_description": "both untagged; transfer function unspecified",
+          "recorded_png_sha256_matches": true
+        },
+        {
+          "status": "passed",
+          "comparison_space": "encoded RGBA8 values; no color transform",
+          "alpha_policy": "compare alpha as a fourth channel; do not premultiply",
+          "channel_tolerance": 0,
+          "max_different_fraction": 0.0,
+          "mask": {
+            "policy": "include all pixels",
+            "included_pixels": 262144,
+            "excluded_pixels": 0
+          },
+          "reference": {
+            "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/measurements/default-02/reference/run-000.png",
+            "sha256": "0e12a0d972fabf61ee47a05cbda0ce31bedc781704e3eef8804065f9dd45059d",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "actual": {
+            "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/measurements/default-02/lite/run-001.png",
+            "sha256": "0e12a0d972fabf61ee47a05cbda0ce31bedc781704e3eef8804065f9dd45059d",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "different_pixels": 0,
+          "different_pixel_fraction": 0.0,
+          "alpha_different_pixels": 0,
+          "max_channel_error": 0,
+          "mean_absolute_channel_error": 0.0,
+          "rms_channel_error": 0.0,
+          "color_metadata_equal": true,
+          "color_space_description": "both untagged; transfer function unspecified",
+          "recorded_png_sha256_matches": true
+        },
+        {
+          "status": "passed",
+          "comparison_space": "encoded RGBA8 values; no color transform",
+          "alpha_policy": "compare alpha as a fourth channel; do not premultiply",
+          "channel_tolerance": 0,
+          "max_different_fraction": 0.0,
+          "mask": {
+            "policy": "include all pixels",
+            "included_pixels": 262144,
+            "excluded_pixels": 0
+          },
+          "reference": {
+            "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/measurements/default-02/reference/run-000.png",
+            "sha256": "0e12a0d972fabf61ee47a05cbda0ce31bedc781704e3eef8804065f9dd45059d",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "actual": {
+            "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/measurements/default-02/lite/run-002.png",
+            "sha256": "0e12a0d972fabf61ee47a05cbda0ce31bedc781704e3eef8804065f9dd45059d",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "different_pixels": 0,
+          "different_pixel_fraction": 0.0,
+          "alpha_different_pixels": 0,
+          "max_channel_error": 0,
+          "mean_absolute_channel_error": 0.0,
+          "rms_channel_error": 0.0,
+          "color_metadata_equal": true,
+          "color_space_description": "both untagged; transfer function unspecified",
+          "recorded_png_sha256_matches": true
+        }
+      ]
+    },
+    {
+      "name": "cpu2-01",
+      "report": "/mnt/f/Github/Rive-UE-Lite/artifacts/measurements/cpu2-01/lite/report.json",
+      "report_sha256": "7f7b2a297a68eebb77bd20cde58334b17f04018ad21a2ba7deeee7b68e1af840",
+      "status": "passed",
+      "gate_statuses": {
+        "linux_host": "passed",
+        "cpu_vulkan_enumeration": "passed",
+        "software_icd_isolation": "passed",
+        "engine_renderer_excluded": "passed",
+        "package_measurement": "passed",
+        "real_rendering_requested": "passed",
+        "render_runs": "passed",
+        "cpu_vulkan_runtime": "passed",
+        "rive_actual_draw": "passed",
+        "ue_reference_pixels": "passed",
+        "ue_reference_provenance": "passed",
+        "ue_reference_linkage": "passed",
+        "ue_reference_draw": "passed",
+        "ue_reference_process": "passed",
+        "ue_reference_cpu_vulkan": "passed",
+        "gpu_device_nodes_hidden": "passed",
+        "source_revision_provenance": "passed",
+        "shared_render_inputs_unchanged": "passed",
+        "runtime_dependency_inventory": "passed",
+        "all_repeated_capture_pixels": "passed",
+        "final_elf_matches_build_exclusion": "passed",
+        "measured_archive_unchanged": "passed"
+      },
+      "cpu_profile": {
+        "host_logical_cpu_count": 32,
+        "affinity_before": [
+          0,
+          1
+        ],
+        "affinity_effective": [
+          0,
+          1
+        ],
+        "requested_cpu_limit": 2,
+        "LP_NUM_THREADS": "2",
+        "scope": "process affinity and Mesa thread setting; WSL shares its host, not an actual dedicated VM with this CPU count"
+      },
+      "first_process_png_wall_seconds": 1.1610554659999934,
+      "repeat_process_png_wall_seconds": [
+        0.9407342260000178,
+        0.8727149139999995
+      ],
+      "repeat_process_png_wall_median_seconds": 0.9067245700000086,
+      "peak_rss_kib_per_run": [
+        275616,
+        275644,
+        275716
+      ],
+      "png_wall_seconds_per_run": [
+        1.1610554659999934,
+        0.9407342260000178,
+        0.8727149139999995
+      ],
+      "process_wall_seconds_per_run": [
+        1.2826033290000112,
+        1.0114898829999959,
+        0.9334047840000039
+      ],
+      "mesa_cache_after_each_run": [
+        {
+          "file_count": 1,
+          "file_bytes": 1310728
+        },
+        {
+          "file_count": 1,
+          "file_bytes": 1310728
+        },
+        {
+          "file_count": 1,
+          "file_bytes": 1310728
+        }
+      ],
+      "package": {
+        "file_count": 39,
+        "raw_file_bytes": 53494161,
+        "tar_gzip_bytes": 17523309,
+        "tar_gzip_sha256": "5c59d0fdade509346ed88f13650a1f0e4e6286ed2ff4753168447636713e54f4",
+        "executable_bytes": 31249728,
+        "executable_sha256": "ccdaa74759bee4d9eb203860b1e5935bb20c2bf850fd10606e4ce4c9b759276f"
+      },
+      "runtime_dependency_inventory": {
+        "status": "passed",
+        "unresolved": [],
+        "library_count": 36,
+        "external_library_bytes_deduplicated": 199481112,
+        "package_plus_external_library_bytes": 252975273,
+        "standalone_bundle": false
+      },
+      "cpu_device_names": [
+        "llvmpipe (LLVM 20.1.2, 256 bits)"
+      ],
+      "device_exposure": {
+        "wsl_dxg": {
+          "path": "/dev/dxg",
+          "exists": false,
+          "reason": "[Errno 2] No such file or directory: '/dev/dxg'"
+        },
+        "dri_nodes": []
+      },
+      "package_execution_mutations": {
+        "archive_captured_before_application_execution": true,
+        "created_files": [],
+        "changed_files": [],
+        "removed_files": [],
+        "scope": "generated Saved/log/cache files are reported separately from the pre-execution deployment archive"
+      },
+      "pixel_comparisons_all_runs": [
+        {
+          "status": "passed",
+          "comparison_space": "encoded RGBA8 values; no color transform",
+          "alpha_policy": "compare alpha as a fourth channel; do not premultiply",
+          "channel_tolerance": 0,
+          "max_different_fraction": 0.0,
+          "mask": {
+            "policy": "include all pixels",
+            "included_pixels": 262144,
+            "excluded_pixels": 0
+          },
+          "reference": {
+            "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/measurements/cpu2-01/reference/run-000.png",
+            "sha256": "0e12a0d972fabf61ee47a05cbda0ce31bedc781704e3eef8804065f9dd45059d",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "actual": {
+            "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/measurements/cpu2-01/lite/run-000.png",
+            "sha256": "0e12a0d972fabf61ee47a05cbda0ce31bedc781704e3eef8804065f9dd45059d",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "different_pixels": 0,
+          "different_pixel_fraction": 0.0,
+          "alpha_different_pixels": 0,
+          "max_channel_error": 0,
+          "mean_absolute_channel_error": 0.0,
+          "rms_channel_error": 0.0,
+          "color_metadata_equal": true,
+          "color_space_description": "both untagged; transfer function unspecified",
+          "recorded_png_sha256_matches": true
+        },
+        {
+          "status": "passed",
+          "comparison_space": "encoded RGBA8 values; no color transform",
+          "alpha_policy": "compare alpha as a fourth channel; do not premultiply",
+          "channel_tolerance": 0,
+          "max_different_fraction": 0.0,
+          "mask": {
+            "policy": "include all pixels",
+            "included_pixels": 262144,
+            "excluded_pixels": 0
+          },
+          "reference": {
+            "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/measurements/cpu2-01/reference/run-000.png",
+            "sha256": "0e12a0d972fabf61ee47a05cbda0ce31bedc781704e3eef8804065f9dd45059d",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "actual": {
+            "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/measurements/cpu2-01/lite/run-001.png",
+            "sha256": "0e12a0d972fabf61ee47a05cbda0ce31bedc781704e3eef8804065f9dd45059d",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "different_pixels": 0,
+          "different_pixel_fraction": 0.0,
+          "alpha_different_pixels": 0,
+          "max_channel_error": 0,
+          "mean_absolute_channel_error": 0.0,
+          "rms_channel_error": 0.0,
+          "color_metadata_equal": true,
+          "color_space_description": "both untagged; transfer function unspecified",
+          "recorded_png_sha256_matches": true
+        },
+        {
+          "status": "passed",
+          "comparison_space": "encoded RGBA8 values; no color transform",
+          "alpha_policy": "compare alpha as a fourth channel; do not premultiply",
+          "channel_tolerance": 0,
+          "max_different_fraction": 0.0,
+          "mask": {
+            "policy": "include all pixels",
+            "included_pixels": 262144,
+            "excluded_pixels": 0
+          },
+          "reference": {
+            "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/measurements/cpu2-01/reference/run-000.png",
+            "sha256": "0e12a0d972fabf61ee47a05cbda0ce31bedc781704e3eef8804065f9dd45059d",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "actual": {
+            "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/measurements/cpu2-01/lite/run-002.png",
+            "sha256": "0e12a0d972fabf61ee47a05cbda0ce31bedc781704e3eef8804065f9dd45059d",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "different_pixels": 0,
+          "different_pixel_fraction": 0.0,
+          "alpha_different_pixels": 0,
+          "max_channel_error": 0,
+          "mean_absolute_channel_error": 0.0,
+          "rms_channel_error": 0.0,
+          "color_metadata_equal": true,
+          "color_space_description": "both untagged; transfer function unspecified",
+          "recorded_png_sha256_matches": true
+        }
+      ]
+    }
+  ],
+  "status": "passed"
+}

@@ -1,0 +1,44 @@
+{
+  "status": "passed",
+  "comparison_space": "encoded RGBA8 values; no color transform",
+  "alpha_policy": "compare alpha as a fourth channel; do not premultiply",
+  "channel_tolerance": 0,
+  "max_different_fraction": 0.0,
+  "mask": {
+    "policy": "include all pixels",
+    "included_pixels": 262144,
+    "excluded_pixels": 0
+  },
+  "reference": {
+    "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/playback-independent-02/static_bankcard/reference/output.png",
+    "sha256": "a3cdfb22b42140e5b680f5d680f6c0ca0b2680ce2dda5522901244b7fa6fd503",
+    "width": 512,
+    "height": 512,
+    "bit_depth": 8,
+    "color_type": 6,
+    "interlaced": false,
+    "color_metadata": {},
+    "color_transform_applied": false,
+    "decoder": "stdlib PNG RGBA8"
+  },
+  "actual": {
+    "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/portable/playback-03/bankcard/output.png",
+    "sha256": "a3cdfb22b42140e5b680f5d680f6c0ca0b2680ce2dda5522901244b7fa6fd503",
+    "width": 512,
+    "height": 512,
+    "bit_depth": 8,
+    "color_type": 6,
+    "interlaced": false,
+    "color_metadata": {},
+    "color_transform_applied": false,
+    "decoder": "stdlib PNG RGBA8"
+  },
+  "different_pixels": 0,
+  "different_pixel_fraction": 0.0,
+  "alpha_different_pixels": 0,
+  "max_channel_error": 0,
+  "mean_absolute_channel_error": 0.0,
+  "rms_channel_error": 0.0,
+  "color_metadata_equal": true,
+  "color_space_description": "both untagged; transfer function unspecified"
+}

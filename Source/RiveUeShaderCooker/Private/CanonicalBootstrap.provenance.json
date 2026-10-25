@@ -1,0 +1,15 @@
+{
+  "source": "Source/RiveUeReference/Private/Main.cpp",
+  "source_sha256": "53cf81ef095a4fc788ed9aebe7c64474a20c4cb09857190ca24d718e799489f0",
+  "output_sha256": "5cd48740fae6cdd0d10c80a8036cdc20a7bd9951bcc0446121e20f7c5af4900d",
+  "scope": "Core initialization only; no lite SetupInput or copied shader compilation algorithm",
+  "native_editor_bootstrap_reference": "engine/Engine/Source/Runtime/Launch/Private/LaunchEngineLoop.cpp",
+  "native_editor_bootstrap_reference_sha256": "c73a96cd2553887cc22d62c9351aa5d938ae2cf9e80edab413e68ad0adb8666e",
+  "native_editor_steps": [
+    "CoreUObject before CVar sinks",
+    "InitializeRenderingCVarsCaching",
+    "project settings / scalability / constinit objects / device-profile CVars",
+    "GLargeThreadPool and real queued wrapper",
+    "1 MiB worker stack"
+  ]
+}

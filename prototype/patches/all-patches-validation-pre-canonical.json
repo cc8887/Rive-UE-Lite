@@ -1,0 +1,115 @@
+{
+  "base_commit": "62d7c1a7125b52b10ee1b714838f515f3563f795",
+  "patches": [
+    {
+      "patch": "0001-vulkanrhi-offscreen-without-engine.patch",
+      "sha256": "a9bd8d7415aafb1e455b32f6f4e9b1e8ae5f563c87d497dfdd14404ee03b5ff8",
+      "bytes": 15253,
+      "baseline_apply": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "patched_reverse": {
+        "exit_code": 0,
+        "diagnostic": ""
+      }
+    },
+    {
+      "patch": "0002-null-application-optional-resolution.patch",
+      "sha256": "b0c574ade1c3e796bd9e684050de2255a46140b9715bec47cc03073f2b475179",
+      "bytes": 1309,
+      "baseline_apply": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "patched_reverse": {
+        "exit_code": 0,
+        "diagnostic": ""
+      }
+    },
+    {
+      "patch": "0003-targetplatform-offline-without-turnkey.patch",
+      "sha256": "f5c3250eb26f371b9fe26c9ee80332f00744ee889a8f464ecb0580550b899190",
+      "bytes": 902,
+      "baseline_apply": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "patched_reverse": {
+        "exit_code": 0,
+        "diagnostic": ""
+      }
+    },
+    {
+      "patch": "0004-fileutilities-offline-editor-zip.patch",
+      "sha256": "b069225f793f52de10389999516a9a7cf5908079c092673a2689cfdbffe80aee",
+      "bytes": 1607,
+      "baseline_apply": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "patched_reverse": {
+        "exit_code": 0,
+        "diagnostic": ""
+      }
+    },
+    {
+      "patch": "0005-shaderpreprocessor-exclude-standalone-extras.patch",
+      "sha256": "7ba43a2087e5e76cd1d3da21c68f8f122fd7beef3030cb1ac7d1c048dff9befb",
+      "bytes": 410,
+      "baseline_apply": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "patched_reverse": {
+        "exit_code": 0,
+        "diagnostic": ""
+      }
+    },
+    {
+      "patch": "0006-shaderpreprocessor-multiline-token-paste.patch",
+      "sha256": "e87d11c6f388049cd1eea9c8e2b434748a4cb7f43bf14638a9ac3c3d80b1d3f4",
+      "bytes": 1409,
+      "baseline_apply": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "patched_reverse": {
+        "exit_code": 0,
+        "diagnostic": ""
+      }
+    }
+  ],
+  "bundle_baseline_apply": {
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  "bundle_patched_reverse": {
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  "worktree_diff_check": {
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  "modified_tracked_files": [
+    "Engine/Source/Developer/FileUtilities/Private/ZipArchivePrivate.h",
+    "Engine/Source/Developer/FileUtilities/Private/ZipArchiveWriter.cpp",
+    "Engine/Source/Developer/FileUtilities/Public/FileUtilities/ZipArchiveWriter.h",
+    "Engine/Source/Developer/ShaderPreprocessor/Private/stb_preprocess/preprocessor.c",
+    "Engine/Source/Developer/TargetPlatform/TargetPlatform.Build.cs",
+    "Engine/Source/Runtime/ApplicationCore/Private/Null/NullApplication.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanCommands.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanDynamicRHI.h",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanExtensions.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanLayers.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanQuery.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanRHI.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanRenderTarget.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanSwapChain.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanUtil.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanViewport.cpp",
+    "Engine/Source/Runtime/VulkanRHI/VulkanRHI.Build.cs"
+  ],
+  "all_passed": true
+}

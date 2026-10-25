@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "scope": "Portable staged application captures and exact PNG comparison; no new RSS or startup-performance benchmark",
+  "acceptance_report": {
+    "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/playback-independent-02/summary.json",
+    "bytes": 1262467,
+    "sha256": "bec326600a7f1d04c0825c02d82d4a20b2b33b85f785b68a24ffc9be6c082327"
+  },
+  "package_manifest": {
+    "path": "/mnt/f/Github/Rive-UE-Lite/package/playback-02/package-manifest.json",
+    "bytes": 13481,
+    "sha256": "daefbfe4b8fa7f9e3141be486526de748e5103e8a07b09b0f88a6acf6fe54009"
+  },
+  "runtime_launcher": {
+    "path": "/mnt/f/Github/Rive-UE-Lite/package/playback-02/render.sh",
+    "bytes": 1213,
+    "sha256": "0b7cc8cfcad73d37f82f802fe473dbe66cc4a5c9441d4090d9d1a463e9524c39"
+  },
+  "shader_archive": {
+    "path": "/mnt/f/Github/Rive-UE-Lite/package/playback-02/shaders/global.bin",
+    "bytes": 17147055,
+    "sha256": "6764c197931e00d62f51c95cf1e9a7c545c85eaff8f983719d80968633fe9176"
+  },
+  "executable": {
+    "path": "/mnt/f/Github/Rive-UE-Lite/package/playback-02/Engine/Binaries/Linux/RiveRhiLite",
+    "bytes": 31296864,
+    "sha256": "3337a45eda7d6701dfdf37cd108b7fe99dc76941f1396ab7cab93e7c98414ea6"
+  },
+  "cases": [
+    {
+      "name": "bankcard",
+      "command": [
+        "bash",
+        "/mnt/f/Github/Rive-UE-Lite/scripts/check_portable_linux.sh",
+        "/mnt/f/Github/Rive-UE-Lite/package/playback-02",
+        "/mnt/f/Github/Rive-UE-Lite/artifacts/portable/playback-03/bankcard/output.png",
+        "-PlaybackMetadata=/mnt/f/Github/Rive-UE-Lite/artifacts/portable/playback-03/bankcard/playback.json"
+      ],
+      "shell_command": "bash /mnt/f/Github/Rive-UE-Lite/scripts/check_portable_linux.sh /mnt/f/Github/Rive-UE-Lite/package/playback-02 /mnt/f/Github/Rive-UE-Lite/artifacts/portable/playback-03/bankcard/output.png -PlaybackMetadata=/mnt/f/Github/Rive-UE-Lite/artifacts/portable/playback-03/bankcard/playback.json",
+      "exit_code": 0,
+      "log": {
+        "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/portable/playback-03/bankcard/capture.log",
+        "bytes": 26892,
+        "sha256": "062b7f611bd6e6a0a4f8619c7a795325cb878d9de279545d0c8b6bb83172d58c"
+      },
+      "png": {
+        "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/portable/playback-03/bankcard/output.png",
+        "bytes": 48350,
+        "sha256": "a3cdfb22b42140e5b680f5d680f6c0ca0b2680ce2dda5522901244b7fa6fd503"
+      },
+      "playback_metadata": {
+        "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/portable/playback-03/bankcard/playback.json",
+        "bytes": 381,
+        "sha256": "04fc912022963acbf5406d538d395431e23c3240322ebbd8fcb76e38b42daf89"
+      },
+      "comparison": {
+        "status": "passed",
+        "comparison_space": "encoded RGBA8 values; no color transform",
+        "alpha_policy": "compare alpha as a fourth channel; do not premultiply",
+        "channel_tolerance": 0,
+        "max_different_fraction": 0.0,
+        "mask": {
+          "policy": "include all pixels",
+          "included_pixels": 262144,
+          "excluded_pixels": 0
+        },
+        "reference": {
+          "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/playback-independent-02/static_bankcard/reference/output.png",
+          "sha256": "a3cdfb22b42140e5b680f5d680f6c0ca0b2680ce2dda5522901244b7fa6fd503",
+          "width": 512,
+          "height": 512,
+          "bit_depth": 8,
+          "color_type": 6,
+          "interlaced": false,
+          "color_metadata": {},
+          "color_transform_applied": false,
+          "decoder": "stdlib PNG RGBA8"
+        },
+        "actual": {
+          "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/portable/playback-03/bankcard/output.png",
+          "sha256": "a3cdfb22b42140e5b680f5d680f6c0ca0b2680ce2dda5522901244b7fa6fd503",
+          "width": 512,
+          "height": 512,
+          "bit_depth": 8,
+          "color_type": 6,
+          "interlaced": false,
+          "color_metadata": {},
+          "color_transform_applied": false,
+          "decoder": "stdlib PNG RGBA8"
+        },
+        "different_pixels": 0,
+        "different_pixel_fraction": 0.0,
+        "alpha_different_pixels": 0,
+        "max_channel_error": 0,
+        "mean_absolute_channel_error": 0.0,
+        "rms_channel_error": 0.0,
+        "color_metadata_equal": true,
+        "color_space_description": "both untagged; transfer function unspecified"
+      },
+      "gates": {
+        "normal_exit": true,
+        "development_trees_hidden": true,
+        "gpu_device_nodes_hidden": true,
+        "actual_cpu_vulkan_device": true,
+        "actual_rive_rhi_rdg_draw": true,
+        "exact_rgba_and_alpha": true
+      },
+      "status": "passed"
+    },
+    {
+      "name": "bounce",
+      "command": [
+        "bash",
+        "/mnt/f/Github/Rive-UE-Lite/scripts/check_portable_playback.sh",
+        "/mnt/f/Github/Rive-UE-Lite/package/playback-02",
+        "/mnt/f/Github/Rive-UE-Lite/artifacts/portable/playback-03/bounce"
+      ],
+      "shell_command": "bash /mnt/f/Github/Rive-UE-Lite/scripts/check_portable_playback.sh /mnt/f/Github/Rive-UE-Lite/package/playback-02 /mnt/f/Github/Rive-UE-Lite/artifacts/portable/playback-03/bounce",
+      "exit_code": 0,
+      "log": {
+        "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/portable/playback-03/bounce/capture.log",
+        "bytes": 26888,
+        "sha256": "1ac9a84db1c728874dda88fedb2d9a78b70a485b2c484698fb469d37d3ec795e"
+      },
+      "png": {
+        "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/portable/playback-03/bounce/bounce.png",
+        "bytes": 12282,
+        "sha256": "3102a19989ea63a11dfe21a669d0d76b8273c00e9e29c9df1e7caee6409f09b1"
+      },
+      "playback_metadata": {
+        "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/portable/playback-03/bounce/playback.json",
+        "bytes": 890,
+        "sha256": "80e9da60de065b6cdd235dd08aa739f6216273af770ddeeff8d8c9ef22bfd809"
+      },
+      "comparison": {
+        "status": "passed",
+        "comparison_space": "encoded RGBA8 values; no color transform",
+        "alpha_policy": "compare alpha as a fourth channel; do not premultiply",
+        "channel_tolerance": 0,
+        "max_different_fraction": 0.0,
+        "mask": {
+          "policy": "include all pixels",
+          "included_pixels": 262144,
+          "excluded_pixels": 0
+        },
+        "reference": {
+          "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/portable/playback-02/bounce.png",
+          "sha256": "3102a19989ea63a11dfe21a669d0d76b8273c00e9e29c9df1e7caee6409f09b1",
+          "width": 512,
+          "height": 512,
+          "bit_depth": 8,
+          "color_type": 6,
+          "interlaced": false,
+          "color_metadata": {},
+          "color_transform_applied": false,
+          "decoder": "stdlib PNG RGBA8"
+        },
+        "actual": {
+          "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/portable/playback-03/bounce/bounce.png",
+          "sha256": "3102a19989ea63a11dfe21a669d0d76b8273c00e9e29c9df1e7caee6409f09b1",
+          "width": 512,
+          "height": 512,
+          "bit_depth": 8,
+          "color_type": 6,
+          "interlaced": false,
+          "color_metadata": {},
+          "color_transform_applied": false,
+          "decoder": "stdlib PNG RGBA8"
+        },
+        "different_pixels": 0,
+        "different_pixel_fraction": 0.0,
+        "alpha_different_pixels": 0,
+        "max_channel_error": 0,
+        "mean_absolute_channel_error": 0.0,
+        "rms_channel_error": 0.0,
+        "color_metadata_equal": true,
+        "color_space_description": "both untagged; transfer function unspecified"
+      },
+      "gates": {
+        "normal_exit": true,
+        "development_trees_hidden": true,
+        "gpu_device_nodes_hidden": true,
+        "actual_cpu_vulkan_device": true,
+        "actual_rive_rhi_rdg_draw": true,
+        "exact_rgba_and_alpha": true,
+        "actual_bounce_at_point75": true
+      },
+      "status": "passed"
+    }
+  ],
+  "package_unchanged": true,
+  "previous_package_unchanged": true
+}

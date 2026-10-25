@@ -1,0 +1,22 @@
+diff --git a/Engine/Source/Runtime/ApplicationCore/Private/Null/NullApplication.cpp b/Engine/Source/Runtime/ApplicationCore/Private/Null/NullApplication.cpp
+index 4a71276eed26..40c3392199ce 100644
+--- a/Engine/Source/Runtime/ApplicationCore/Private/Null/NullApplication.cpp
++++ b/Engine/Source/Runtime/ApplicationCore/Private/Null/NullApplication.cpp
+@@ -101,7 +101,9 @@ FNullApplication::FNullApplication()
+ 
+     // Default work area to the config res
+     static const IConsoleVariable* CVarSystemResolution = IConsoleManager::Get().FindConsoleVariable(TEXT("r.SetRes"));
+-    FString ResolutionStr = CVarSystemResolution->GetString();
++    // Engine-free offscreen programs do not register Engine's r.SetRes CVar.
++    // Retain the default virtual work area when no resolution override exists.
++    FString ResolutionStr = CVarSystemResolution ? CVarSystemResolution->GetString() : FString();
+ 
+     uint32 ResolutionX, ResolutionY = 0;
+     if(ParseResolution(*ResolutionStr, ResolutionX, ResolutionY))
+@@ -425,4 +427,4 @@ void FNullPlatformDisplayMetrics::RebuildDisplayMetrics(struct FDisplayMetrics&
+ 	OutDisplayMetrics.VirtualDisplayRect.Top = Y;
+ 	OutDisplayMetrics.VirtualDisplayRect.Right = X + Width;
+ 	OutDisplayMetrics.VirtualDisplayRect.Bottom = Y + Height;
+-}
+\ No newline at end of file
++}

@@ -1,0 +1,21 @@
+{
+  "mode": "state_machine",
+  "artboard": "transitions",
+  "state_machine": "transitions-state-machine",
+  "events": [
+    {
+      "time": 0.25,
+      "type": "number",
+      "name": "Number 1",
+      "value": 1
+    },
+    {
+      "time": 1.75,
+      "type": "number",
+      "name": "Number 1",
+      "value": 2
+    }
+  ],
+  "fixed_delta": 0.016666666666666666,
+  "target_time": 0.75
+}

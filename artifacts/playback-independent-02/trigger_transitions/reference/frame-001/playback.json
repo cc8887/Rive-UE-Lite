@@ -1,0 +1,62 @@
+{
+	"schema_version": 1,
+	"api_calls":
+	{
+		"animation_advance": 0,
+		"animation_apply": 0,
+		"artboard_advance": 0,
+		"state_machine_advance_and_apply": 32,
+		"pointer_down": 0,
+		"pointer_up": 0,
+		"pointer_move": 0,
+		"pointer_exit": 0,
+		"bool_set": 0,
+		"number_set": 0,
+		"trigger_fire": 1
+	},
+	"state_machine": "State Machine 1",
+	"status": "completed",
+	"mode": "state_machine",
+	"artboard": "main",
+	"artboard_index": 0,
+	"selected_index": 0,
+	"fixed_delta": 0.016666666666666666,
+	"target_time": 0.5,
+	"advanced_time": 0.5,
+	"advance_count": 30,
+	"initialization_advance_count": 1,
+	"event_settle_advance_count": 1,
+	"events_applied": [
+		{
+			"time": 0.25,
+			"tick": 15,
+			"type": "trigger",
+			"name": "Trigger 1"
+		}
+	],
+	"state_changes": [
+		{
+			"time": 0.25,
+			"tick": 15,
+			"layer_index": 0,
+			"state_index": 2,
+			"core_type": 61,
+			"animation": "Timeline 1",
+			"kind": "animation"
+		}
+	],
+	"final_inputs": [
+		{
+			"name": "Trigger 1",
+			"type": "trigger",
+			"fire_count": 1
+		}
+	],
+	"current_animations": [
+		{
+			"name": "Timeline 1",
+			"time": 0.25,
+			"duration_seconds": 1
+		}
+	]
+}

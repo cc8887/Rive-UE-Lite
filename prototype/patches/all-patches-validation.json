@@ -1,0 +1,305 @@
+{
+  "base_commit": "62d7c1a7125b52b10ee1b714838f515f3563f795",
+  "patches": [
+    {
+      "patch": "0001-vulkanrhi-offscreen-without-engine.patch",
+      "sha256": "a9bd8d7415aafb1e455b32f6f4e9b1e8ae5f563c87d497dfdd14404ee03b5ff8",
+      "bytes": 15253,
+      "prefix_apply_check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "prefix_apply": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "prefix_reverse_check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      }
+    },
+    {
+      "patch": "0002-null-application-optional-resolution.patch",
+      "sha256": "b0c574ade1c3e796bd9e684050de2255a46140b9715bec47cc03073f2b475179",
+      "bytes": 1309,
+      "prefix_apply_check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "prefix_apply": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "prefix_reverse_check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      }
+    },
+    {
+      "patch": "0003-targetplatform-offline-without-turnkey.patch",
+      "sha256": "f5c3250eb26f371b9fe26c9ee80332f00744ee889a8f464ecb0580550b899190",
+      "bytes": 902,
+      "prefix_apply_check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "prefix_apply": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "prefix_reverse_check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      }
+    },
+    {
+      "patch": "0004-fileutilities-offline-editor-zip.patch",
+      "sha256": "b069225f793f52de10389999516a9a7cf5908079c092673a2689cfdbffe80aee",
+      "bytes": 1607,
+      "prefix_apply_check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "prefix_apply": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "prefix_reverse_check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      }
+    },
+    {
+      "patch": "0005-shaderpreprocessor-exclude-standalone-extras.patch",
+      "sha256": "7ba43a2087e5e76cd1d3da21c68f8f122fd7beef3030cb1ac7d1c048dff9befb",
+      "bytes": 410,
+      "prefix_apply_check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "prefix_apply": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "prefix_reverse_check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      }
+    },
+    {
+      "patch": "0006-shaderpreprocessor-multiline-token-paste.patch",
+      "sha256": "e87d11c6f388049cd1eea9c8e2b434748a4cb7f43bf14638a9ac3c3d80b1d3f4",
+      "bytes": 1409,
+      "prefix_apply_check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "prefix_apply": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "prefix_reverse_check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      }
+    },
+    {
+      "patch": "0007-native-cooker-without-editor-ui.patch",
+      "sha256": "9d9e95f6a82679598b671b517cad3e21e366e6fb5ea5ac2591c33c4c422daf43",
+      "bytes": 29370,
+      "prefix_apply_check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "prefix_apply": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "prefix_reverse_check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      }
+    }
+  ],
+  "bundle_forward_tree": {
+    "exit_code": 0,
+    "diagnostic": "cb945ac82da7bec65936d17501d5bde53a1603ed"
+  },
+  "patch_paths": [
+    "Engine/Source/Developer/FileUtilities/Private/ZipArchivePrivate.h",
+    "Engine/Source/Developer/FileUtilities/Private/ZipArchiveWriter.cpp",
+    "Engine/Source/Developer/FileUtilities/Public/FileUtilities/ZipArchiveWriter.h",
+    "Engine/Source/Developer/ShaderPreprocessor/Private/stb_preprocess/extras/.ubtignore",
+    "Engine/Source/Developer/ShaderPreprocessor/Private/stb_preprocess/preprocessor.c",
+    "Engine/Source/Developer/SourceControl/SourceControl.Build.cs",
+    "Engine/Source/Developer/TargetPlatform/TargetPlatform.Build.cs",
+    "Engine/Source/Runtime/AppFramework/AppFramework.Build.cs",
+    "Engine/Source/Runtime/ApplicationCore/Private/Null/NullApplication.cpp",
+    "Engine/Source/Runtime/Engine/Engine.Build.cs",
+    "Engine/Source/Runtime/Engine/Private/AnimBlueprint.cpp",
+    "Engine/Source/Runtime/Engine/Private/AudioDevice.cpp",
+    "Engine/Source/Runtime/Engine/Private/EngineGlobals.cpp",
+    "Engine/Source/Runtime/Engine/Private/GameEngine.cpp",
+    "Engine/Source/Runtime/Engine/Private/GameInstance.cpp",
+    "Engine/Source/Runtime/Engine/Private/GameModeBase.cpp",
+    "Engine/Source/Runtime/Engine/Private/KismetRenderingLibrary.cpp",
+    "Engine/Source/Runtime/Engine/Private/LevelInstance/LevelInstanceEditorPropertyOverrideLevelStreaming.cpp",
+    "Engine/Source/Runtime/Engine/Private/LevelInstance/LevelInstanceSubsystem.cpp",
+    "Engine/Source/Runtime/Engine/Private/PackedLevelActor/PackedLevelActorBuilder.cpp",
+    "Engine/Source/Runtime/Engine/Private/Tests/EngineAutomationTests.cpp",
+    "Engine/Source/Runtime/Engine/Private/Tests/NetTestHelpers.cpp",
+    "Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionEditorSoftObjectPathTests.cpp",
+    "Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionHandleTests.cpp",
+    "Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionStreamingGenerationTests.cpp",
+    "Engine/Source/Runtime/Engine/Private/UnrealEngine.cpp",
+    "Engine/Source/Runtime/Engine/Private/World.cpp",
+    "Engine/Source/Runtime/Engine/Private/WorldPartition/DataLayer/ExternalDataLayerManager.cpp",
+    "Engine/Source/Runtime/Renderer/Private/RayTracing/RayTracing.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanCommands.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanDynamicRHI.h",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanExtensions.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanLayers.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanQuery.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanRHI.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanRenderTarget.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanSwapChain.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanUtil.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanViewport.cpp",
+    "Engine/Source/Runtime/VulkanRHI/VulkanRHI.Build.cs"
+  ],
+  "worktree_snapshot": {
+    "exit_code": 0,
+    "diagnostic": "warning: in the working copy of 'Engine/Source/Developer/ShaderPreprocessor/Private/stb_preprocess/extras/.ubtignore', LF will be replaced by CRLF the next time Git touches it"
+  },
+  "bundle_reverse": [
+    {
+      "patch": "0007-native-cooker-without-editor-ui.patch",
+      "check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "apply": {
+        "exit_code": 0,
+        "diagnostic": "F:/Github/Rive-UE-Lite/prototype/patches/0007-native-cooker-without-editor-ui.patch:177: trailing whitespace.\n#if !UE_BUILD_SHIPPING && PLATFORM_DESKTOP \nwarning: 1 line adds whitespace errors."
+      }
+    },
+    {
+      "patch": "0006-shaderpreprocessor-multiline-token-paste.patch",
+      "check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "apply": {
+        "exit_code": 0,
+        "diagnostic": ""
+      }
+    },
+    {
+      "patch": "0005-shaderpreprocessor-exclude-standalone-extras.patch",
+      "check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "apply": {
+        "exit_code": 0,
+        "diagnostic": ""
+      }
+    },
+    {
+      "patch": "0004-fileutilities-offline-editor-zip.patch",
+      "check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "apply": {
+        "exit_code": 0,
+        "diagnostic": ""
+      }
+    },
+    {
+      "patch": "0003-targetplatform-offline-without-turnkey.patch",
+      "check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "apply": {
+        "exit_code": 0,
+        "diagnostic": ""
+      }
+    },
+    {
+      "patch": "0002-null-application-optional-resolution.patch",
+      "check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "apply": {
+        "exit_code": 0,
+        "diagnostic": ""
+      }
+    },
+    {
+      "patch": "0001-vulkanrhi-offscreen-without-engine.patch",
+      "check": {
+        "exit_code": 0,
+        "diagnostic": ""
+      },
+      "apply": {
+        "exit_code": 0,
+        "diagnostic": "F:/Github/Rive-UE-Lite/prototype/patches/0001-vulkanrhi-offscreen-without-engine.patch:331: trailing whitespace.\n\t\tconst FRHITextureCreateDesc CreateDesc = (Aspects.IsMobileMultiViewEnabled() ?\t\t\t\nF:/Github/Rive-UE-Lite/prototype/patches/0001-vulkanrhi-offscreen-without-engine.patch:373: trailing whitespace.\n\t\t\t\t\"Engine\", \nwarning: 2 lines add whitespace errors."
+      }
+    }
+  ],
+  "reversed_equals_base": {
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  "worktree_diff_check": {
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  "modified_tracked_files": [
+    "Engine/Source/Developer/FileUtilities/Private/ZipArchivePrivate.h",
+    "Engine/Source/Developer/FileUtilities/Private/ZipArchiveWriter.cpp",
+    "Engine/Source/Developer/FileUtilities/Public/FileUtilities/ZipArchiveWriter.h",
+    "Engine/Source/Developer/ShaderPreprocessor/Private/stb_preprocess/preprocessor.c",
+    "Engine/Source/Developer/SourceControl/SourceControl.Build.cs",
+    "Engine/Source/Developer/TargetPlatform/TargetPlatform.Build.cs",
+    "Engine/Source/Runtime/AppFramework/AppFramework.Build.cs",
+    "Engine/Source/Runtime/ApplicationCore/Private/Null/NullApplication.cpp",
+    "Engine/Source/Runtime/Engine/Engine.Build.cs",
+    "Engine/Source/Runtime/Engine/Private/AnimBlueprint.cpp",
+    "Engine/Source/Runtime/Engine/Private/AudioDevice.cpp",
+    "Engine/Source/Runtime/Engine/Private/EngineGlobals.cpp",
+    "Engine/Source/Runtime/Engine/Private/GameEngine.cpp",
+    "Engine/Source/Runtime/Engine/Private/GameInstance.cpp",
+    "Engine/Source/Runtime/Engine/Private/GameModeBase.cpp",
+    "Engine/Source/Runtime/Engine/Private/KismetRenderingLibrary.cpp",
+    "Engine/Source/Runtime/Engine/Private/LevelInstance/LevelInstanceEditorPropertyOverrideLevelStreaming.cpp",
+    "Engine/Source/Runtime/Engine/Private/LevelInstance/LevelInstanceSubsystem.cpp",
+    "Engine/Source/Runtime/Engine/Private/PackedLevelActor/PackedLevelActorBuilder.cpp",
+    "Engine/Source/Runtime/Engine/Private/Tests/EngineAutomationTests.cpp",
+    "Engine/Source/Runtime/Engine/Private/Tests/NetTestHelpers.cpp",
+    "Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionEditorSoftObjectPathTests.cpp",
+    "Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionHandleTests.cpp",
+    "Engine/Source/Runtime/Engine/Private/Tests/WorldPartition/WorldPartitionStreamingGenerationTests.cpp",
+    "Engine/Source/Runtime/Engine/Private/UnrealEngine.cpp",
+    "Engine/Source/Runtime/Engine/Private/World.cpp",
+    "Engine/Source/Runtime/Engine/Private/WorldPartition/DataLayer/ExternalDataLayerManager.cpp",
+    "Engine/Source/Runtime/Renderer/Private/RayTracing/RayTracing.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanCommands.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanDynamicRHI.h",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanExtensions.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanLayers.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanQuery.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanRHI.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanRenderTarget.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanSwapChain.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanUtil.cpp",
+    "Engine/Source/Runtime/VulkanRHI/Private/VulkanViewport.cpp",
+    "Engine/Source/Runtime/VulkanRHI/VulkanRHI.Build.cs"
+  ],
+  "uncovered_tracked_changes": [],
+  "all_passed": true,
+  "validation_mode": "ordered stack from HEAD; reverse current tracked worktree to HEAD using an isolated index"
+}

@@ -1,0 +1,33 @@
+{
+  "mode": "state_machine",
+  "artboard": "New Artboard",
+  "state_machine": "Button",
+  "events": [
+    {
+      "time": 0.25,
+      "type": "bool",
+      "name": "Hover",
+      "value": true
+    },
+    {
+      "time": 0.75,
+      "type": "bool",
+      "name": "Press",
+      "value": true
+    },
+    {
+      "time": 1.25,
+      "type": "bool",
+      "name": "Press",
+      "value": false
+    },
+    {
+      "time": 1.5,
+      "type": "bool",
+      "name": "Hover",
+      "value": false
+    }
+  ],
+  "fixed_delta": 0.016666666666666666,
+  "target_time": 1
+}

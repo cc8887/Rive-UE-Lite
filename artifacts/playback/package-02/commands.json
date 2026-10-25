@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "scope": "Actual completed package staging, inventory/compression and portable captures; no new RSS or startup benchmark",
+  "prerequisite": "artifacts/playback-independent-02/summary.json executed=true, status=passed, independent-60-v1, 60 captures",
+  "steps": [
+    {
+      "shell": "Windows PowerShell",
+      "cwd": "F:/Github/Rive-UE-Lite",
+      "argv": ["python", "scripts/package_linux.py", "--receipt", "Binaries/Linux/RiveRhiLite.target", "--shader-archive", "artifacts/shaders-independent-lite-02/global.bin", "--fixture", "fixtures/bankcard.riv", "--playback-manifest", "fixtures/playback/scenarios.json", "--output", "package/playback-02"],
+      "exit_code": 0,
+      "result": "package/playback-02/package-manifest.json",
+      "note": "Use a new package directory on repeat; existing output is never removed. Manifest source paths depend on the staging host."
+    },
+    {
+      "shell": "WSL Ubuntu bash, ordinary user",
+      "cwd": "/mnt/f/Github/Rive-UE-Lite",
+      "argv": ["python3", "scripts/measure_playback_package.py", "--package", "/mnt/f/Github/Rive-UE-Lite/package/playback-02", "--output-dir", "/mnt/f/Github/Rive-UE-Lite/artifacts/playback/package-02"],
+      "exit_code": 0,
+      "log": "artifacts/setup/playback-package-02.log",
+      "result": "artifacts/playback/package-02/report.json",
+      "note": "The tar.gz records observed compression output. Timestamps and archive metadata are not normalized. Use a fresh evidence directory on repeat."
+    },
+    {
+      "shell": "WSL Ubuntu bash as root; namespace wrapper drops each renderer to uid 1000",
+      "cwd": "/mnt/f/Github/Rive-UE-Lite",
+      "argv": ["python3", "scripts/check_portable_package.py", "--package", "/mnt/f/Github/Rive-UE-Lite/package/playback-02", "--output-dir", "/mnt/f/Github/Rive-UE-Lite/artifacts/portable/playback-03", "--acceptance-report", "/mnt/f/Github/Rive-UE-Lite/artifacts/playback-independent-02/summary.json", "--native-bankcard-reference", "/mnt/f/Github/Rive-UE-Lite/artifacts/playback-independent-02/static_bankcard/reference/output.png", "--previous-bounce-reference", "/mnt/f/Github/Rive-UE-Lite/artifacts/portable/playback-02/bounce.png"],
+      "exit_code": 0,
+      "log": "artifacts/setup/portable-package-02.log",
+      "result": "artifacts/portable/playback-03/summary.json",
+      "note": "Per-render commands, normal exits, hidden-source/vendor/GPU evidence and exact RGBA reports are preserved in the result. Use a fresh evidence directory on repeat."
+    }
+  ]
+}

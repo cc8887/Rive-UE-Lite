@@ -1,0 +1,81 @@
+{
+  "status": "passed",
+  "reason": "supplied link input/map contains rendering core and no Engine/Renderer module",
+  "forbidden_modules": [],
+  "recognized_modules": [
+    "ApplicationCore",
+    "AutoRTFM",
+    "BuildSettings",
+    "Cbor",
+    "Core",
+    "CorePreciseFP",
+    "CoreUObject",
+    "GPUReshapeUE",
+    "ImageCore",
+    "ImageWrapper",
+    "Json",
+    "Projects",
+    "RHI",
+    "RHICore",
+    "RenderCore",
+    "RiveLiteRenderer",
+    "RiveRhiLite",
+    "ShaderRuntime",
+    "StateStream",
+    "TraceLog",
+    "VulkanRHI"
+  ],
+  "receipt_product_name_matches": true,
+  "evidence": [
+    {
+      "kind": "UBT receipt",
+      "path": "/mnt/f/Github/Rive-UE-Lite/Binaries/Linux/RiveRhiLite.target",
+      "sha256": "c84c734dbbc2ec1e10717c6dc801e900d8c9bbb1d3787cea01c06bb1cbd1f06e"
+    },
+    {
+      "kind": "link input/map",
+      "path": "/mnt/f/Github/Rive-UE-Lite/Intermediate/Build/Linux/x64/RiveRhiLite/Development/RiveRhiLite.link.rsp",
+      "sha256": "0ceff997996dce1d612bfec5c64029458c28f2a322ea894cc2cfee415410cb9a",
+      "referenced_by": null,
+      "recognized_modules": []
+    },
+    {
+      "kind": "link input/map",
+      "path": "/mnt/f/Github/Rive-UE-Lite/Intermediate/Build/Linux/x64/RiveRhiLite/Development/RiveRhiLite.rsp",
+      "sha256": "25e171a1e26a1469056948640b9dae2f0d9f0c22bec9a8709aee5e0f93b3b882",
+      "referenced_by": "/mnt/f/Github/Rive-UE-Lite/Intermediate/Build/Linux/x64/RiveRhiLite/Development/RiveRhiLite.link.rsp",
+      "recognized_modules": [
+        "ApplicationCore",
+        "AutoRTFM",
+        "BuildSettings",
+        "Cbor",
+        "Core",
+        "CorePreciseFP",
+        "CoreUObject",
+        "GPUReshapeUE",
+        "ImageCore",
+        "ImageWrapper",
+        "Json",
+        "Projects",
+        "RHI",
+        "RHICore",
+        "RenderCore",
+        "RiveLiteRenderer",
+        "RiveRhiLite",
+        "ShaderRuntime",
+        "StateStream",
+        "TraceLog",
+        "VulkanRHI"
+      ]
+    }
+  ],
+  "errors": [],
+  "limitation": "receipt product-name match is not cryptographic build provenance; retain original build log and link command with this report",
+  "scope": "Engine/Renderer module linkage exclusion only; no pixel rendering or Rive completion acceptance",
+  "is_rive_rendering_evidence": false,
+  "executable": {
+    "path": "/mnt/f/Github/Rive-UE-Lite/Binaries/Linux/RiveRhiLite",
+    "bytes": 31296864,
+    "sha256": "3337a45eda7d6701dfdf37cd108b7fe99dc76941f1396ab7cab93e7c98414ea6"
+  }
+}
