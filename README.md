@@ -41,6 +41,33 @@ bash package/playback-02/render.sh package/playback-02/fixtures/ball_test.riv /t
   -PlaybackMetadata=/tmp/bounce-playback.json
 ```
 
+## 同项目按需启用 UMG 的构建方案
+
+源码评估支持“默认只编译 Rive，显式开启后才编译 UMG 及其依赖”。建议保留同一个 `.uproject` 和共享源码，用一个外部构建开关选择两个独立缓存的 Target；增强产物再在运行时选择 Rive 或 UMG。当前单体 Lite 程序无法在运行中临时加载未编入的 UMG，`WITH_ENGINE` 也改变 UObject 接口，不能混用不同构建底座的插件。
+
+[可选 UMG 方案与源码依据](prototype/optional-umg-design.md) 记录了模块边界、默认工具与资源排除、shader 初始化、缓存和按需 worker 方案。本次只完成设计评估，尚未实现构建开关或新增 UMG 宿主；现有源码构建配置、二进制和截图结论不变。
+
+## 接入原生 UMG 的容量与编译成本评估
+
+这是现有二进制、构建日志、原生源码和容量样本的评估，尚未新增 UMG 截图验收。现有 Reference 已实际链接 UMG、SlateRHIRenderer、MovieScene 等 156 个模块，并在最终符号表保留 `UWidget::TakeWidget`、`UUserWidget::Initialize` 和 `FWidgetRenderer::DrawWindow`；它提供了接入所需重依赖的实测容量锚点。普通非 Server UMG 依赖 Engine/Renderer，不能继续套用轻量目标的模块排除结论。
+
+| 相同资源基础的容量样本 | 轻量程序 | Engine/UMG 依赖参考程序 |
+| --- | ---: | ---: |
+| 已剥离调试信息的 ELF | 29.85 MiB | 161.34 MiB |
+| 原始文件 | 51.07 MiB | 182.81 MiB |
+| 实际 gzip，level 9 | 16.69 MiB | 65.73 MiB |
+
+容量样本排除旧启动器/包清单，以明确不把它当可运行 UMG 包；它保留同一组 Rive 资源，并在参考侧加入实际 receipt 中已存在的 Renderer 数据。参考 receipt 尚有一个未落盘的 libsndfile 文件。原生 Slate 默认字体/图片等另有 799 文件、7.66 MiB 的 pinned GitDependencies 真实 payload 元数据，尚未下载；因此原始容量锚点约为 190.47 MiB，再加 Slate shaders、实际 UI 材质及项目资产。对于少量资源、无 Designer 的极简原生 UMG Runtime，先按 **190–220 MiB 原始、70–90 MiB 压缩**规划；这是预算范围，不是新 UMG 程序实测值，系统依赖另计。
+
+同轮历史的单个 Main.cpp 增量构建，轻量程序为 52.41 秒，参考程序为 229.27 秒，均为编译、Link 和 metadata 三个动作。参考侧约 30 秒 C++ 编译、178 秒完整 Link 动作；后者包括 ld、dump_syms、Breakpad 编码和 objcopy，不能全算纯链接。另一次参考增量为 162.81 秒。当前可将此类单文件 C++ 修改按约 3–4 分钟理解，而非每次重编全部引擎；头文件/UHT/全局宏变化成本另算，完整成功的冷全编尚无单独计时。
+
+云端布局迭代宜固定预编译宿主，以 `.riv` 或宿主支持的布局数据创建原生 widget，避免每次布局调整触发 C++ 重链。Widget Blueprint 内容修改走蓝图编译/烘焙；运行已烘焙 Blueprint 不要求 UMGEditor，服务端直接编译源 Blueprint/运行 Designer 则需要另一组 Editor 依赖。源码已确认 `-NoDumpSyms` 可跳过 Breakpad 符号生成并保留 strip，但优化后的耗时尚未实测。无 World/Play 的基础 UWidget/Slate/FWidgetRenderer 路径有源码依据；UI 材质和 DPI/指针等访问 GEngine 的路径仍需分项验证。
+
+- [评估汇总与预算边界](artifacts/umg-assessment/summary.json)
+- [容量样本实测](artifacts/umg-assessment/capacity-02/report.json)、[实际 ELF/符号/构建计时审计](artifacts/umg-assessment/cost-audit.json)
+- [UMG 依赖与能力分层](artifacts/umg-assessment/dependency-audit.md)、[默认 Slate 内容元数据](artifacts/umg-assessment/slate-content-metadata.json)
+- 容量复现：`python scripts/assess_umg_capacity.py --output-dir artifacts/umg-assessment/capacity-03`，每次用新目录；不触发 C++ 构建。
+
 ## 第一轮静态包的历史性能基线
 
 最小原型已在 Ubuntu 24.04 / WSL2、Mesa 25.2.8 llvmpipe CPU Vulkan 上跑通。运行进程所在的私有 namespace 内 `/dev/dxg`、`/dev/dri` 均不可见；独立部署测试还隐藏开发用的 engine/vendor，从 `/tmp` 调用包内 `render.sh`，成功输出真实 Rive PNG 并正常退出。

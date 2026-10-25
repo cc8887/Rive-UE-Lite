@@ -1,0 +1,56 @@
+{
+  "status": "measured_capacity_only",
+  "scope": "existing ELF and controlled matched resources; not a built/rendered UMG prototype",
+  "source_package_manifest_sha256": "daefbfe4b8fa7f9e3141be486526de748e5103e8a07b09b0f88a6acf6fe54009",
+  "samples": {
+    "lite": {
+      "deployable": false,
+      "umg_rendered": false,
+      "logical_bytes": 53547042,
+      "executable_bytes": 31296864,
+      "executable_sha256": "3337a45eda7d6701dfdf37cd108b7fe99dc76941f1396ab7cab93e7c98414ea6",
+      "gzip_bytes": 17500867,
+      "gzip_sha256": "fa4834b753113a677e3085a89a6f1bb2c7d4c404ca3ef1bb7f40ebbd674574e0",
+      "archive": "F:\\Github\\Rive-UE-Lite\\artifacts\\umg-assessment\\capacity-02\\lite.capacity-only.tar.gz",
+      "file_count": 49,
+      "compression_wall_seconds": 2.042752500041388,
+      "extra_receipt_files": []
+    },
+    "engine_umg_linked_reference": {
+      "deployable": false,
+      "umg_rendered": false,
+      "logical_bytes": 191690082,
+      "executable_bytes": 169180336,
+      "executable_sha256": "8065f6f083b81194ffa23b961681e0f4a2158a0b4645668e5681ef2d4ae04e5f",
+      "gzip_bytes": 68920570,
+      "gzip_sha256": "55b7ba384c21a246b6d43401a72f20d376a1a737d311d766abb897e7f3bb1b4d",
+      "archive": "F:\\Github\\Rive-UE-Lite\\artifacts\\umg-assessment\\capacity-02\\engine_umg_linked_reference.capacity-only.tar.gz",
+      "file_count": 50,
+      "compression_wall_seconds": 6.137312999984715,
+      "extra_receipt_files": [
+        {
+          "path": "F:\\Github\\Rive-UE-Lite\\engine\\Engine\\Content\\Renderer\\TessellationTable.bin",
+          "archive_path": "Engine/Content/Renderer/TessellationTable.bin",
+          "bytes": 259568,
+          "sha256": "edc4f3b628a139c5e185bbaeca661c95c1f427368d3b92892c5cff36c56dd941"
+        }
+      ]
+    }
+  },
+  "reference_receipt_missing_files": [
+    "F:\\Github\\Rive-UE-Lite\\engine\\Engine\\Binaries\\ThirdParty\\libsndfile\\Linux\\libsndfile.so.1"
+  ],
+  "not_included": [
+    "normal Slate global shaders",
+    "UI material shaders",
+    "Slate fonts/styles not staged in the reference target",
+    "Widget Blueprint assets",
+    "UMGEditor/UnrealEd/Designer",
+    "external system library/CPU Vulkan driver closure"
+  ],
+  "actual_cpp_build_executed": false,
+  "actual_umg_capture_executed": false,
+  "gzip_level": 9,
+  "elf_growth_bytes": 137883472,
+  "elf_growth_ratio": 5.4056641585559495
+}

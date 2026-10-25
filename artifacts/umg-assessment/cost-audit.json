@@ -1,0 +1,2953 @@
+{
+  "generated_utc": "2026-10-24T14:30:44.072647+00:00",
+  "scope": "Read-only existing binary and historical build log audit. No new UMG runtime, package or compile benchmark.",
+  "targets": {
+    "RiveRhiLite": {
+      "elf_bytes": 31296864,
+      "elf_sha256": "3337a45eda7d6701dfdf37cd108b7fe99dc76941f1396ab7cab93e7c98414ea6",
+      "sections": {
+        ".interp": {
+          "bytes": 28,
+          "type": 1,
+          "flags": 2
+        },
+        ".note.ABI-tag": {
+          "bytes": 32,
+          "type": 7,
+          "flags": 2
+        },
+        ".note.dlopen": {
+          "bytes": 3712,
+          "type": 7,
+          "flags": 2
+        },
+        ".note.gnu.build-id": {
+          "bytes": 36,
+          "type": 7,
+          "flags": 2
+        },
+        ".dynsym": {
+          "bytes": 633912,
+          "type": 11,
+          "flags": 2
+        },
+        ".gnu.version": {
+          "bytes": 52826,
+          "type": 1879048191,
+          "flags": 2
+        },
+        ".gnu.version_r": {
+          "bytes": 544,
+          "type": 1879048190,
+          "flags": 2
+        },
+        ".gnu.hash": {
+          "bytes": 195476,
+          "type": 1879048182,
+          "flags": 2
+        },
+        ".dynstr": {
+          "bytes": 1187233,
+          "type": 3,
+          "flags": 2
+        },
+        ".rela.dyn": {
+          "bytes": 480,
+          "type": 4,
+          "flags": 2
+        },
+        ".rela.plt": {
+          "bytes": 10104,
+          "type": 4,
+          "flags": 66
+        },
+        ".rodata": {
+          "bytes": 4456744,
+          "type": 1,
+          "flags": 50
+        },
+        ".gcc_except_table": {
+          "bytes": 103884,
+          "type": 1,
+          "flags": 130
+        },
+        ".eh_frame_hdr": {
+          "bytes": 515588,
+          "type": 1,
+          "flags": 2
+        },
+        ".eh_frame": {
+          "bytes": 2796932,
+          "type": 1,
+          "flags": 2
+        },
+        ".text": {
+          "bytes": 20803358,
+          "type": 1,
+          "flags": 6
+        },
+        ".init": {
+          "bytes": 33,
+          "type": 1,
+          "flags": 6
+        },
+        ".fini": {
+          "bytes": 14,
+          "type": 1,
+          "flags": 6
+        },
+        ".uedbg": {
+          "bytes": 62328,
+          "type": 1,
+          "flags": 6
+        },
+        ".plt": {
+          "bytes": 6752,
+          "type": 1,
+          "flags": 6
+        },
+        ".tdata": {
+          "bytes": 712,
+          "type": 1,
+          "flags": 1027
+        },
+        ".tbss": {
+          "bytes": 3608,
+          "type": 8,
+          "flags": 1027
+        },
+        ".ctors": {
+          "bytes": 24,
+          "type": 1,
+          "flags": 3
+        },
+        ".dtors": {
+          "bytes": 16,
+          "type": 1,
+          "flags": 3
+        },
+        ".init_array": {
+          "bytes": 1104,
+          "type": 14,
+          "flags": 3
+        },
+        ".fini_array": {
+          "bytes": 8,
+          "type": 15,
+          "flags": 3
+        },
+        ".data.rel.ro": {
+          "bytes": 288440,
+          "type": 1,
+          "flags": 3
+        },
+        ".dynamic": {
+          "bytes": 496,
+          "type": 6,
+          "flags": 3
+        },
+        ".got": {
+          "bytes": 2152,
+          "type": 1,
+          "flags": 3
+        },
+        ".relro_padding": {
+          "bytes": 1520,
+          "type": 8,
+          "flags": 3
+        },
+        ".data": {
+          "bytes": 166688,
+          "type": 1,
+          "flags": 2097155
+        },
+        ".tm_clone_table": {
+          "bytes": 0,
+          "type": 1,
+          "flags": 3
+        },
+        ".got.plt": {
+          "bytes": 3392,
+          "type": 1,
+          "flags": 3
+        },
+        ".bss": {
+          "bytes": 2200648,
+          "type": 8,
+          "flags": 2097155
+        },
+        ".shstrtab": {
+          "bytes": 358,
+          "type": 3,
+          "flags": 0
+        },
+        ".gnu_debuglink": {
+          "bytes": 24,
+          "type": 1,
+          "flags": 0
+        }
+      },
+      "actual_link_module_count": 21,
+      "actual_link_object_count": 79,
+      "module_object_counts": {
+        "ApplicationCore": 1,
+        "AutoRTFM": 1,
+        "BuildSettings": 1,
+        "Cbor": 1,
+        "Core": 19,
+        "CorePreciseFP": 1,
+        "CoreUObject": 20,
+        "GPUReshapeUE": 3,
+        "ImageCore": 1,
+        "ImageWrapper": 1,
+        "Json": 1,
+        "Projects": 1,
+        "RHI": 4,
+        "RHICore": 1,
+        "RenderCore": 7,
+        "RiveLiteRenderer": 7,
+        "RiveRhiLite": 1,
+        "ShaderRuntime": 1,
+        "StateStream": 1,
+        "TraceLog": 1,
+        "VulkanRHI": 5
+      },
+      "link_rsp_path": "/mnt/f/Github/Rive-UE-Lite/Intermediate/Build/Linux/x64/RiveRhiLite/Development/RiveRhiLite.rsp",
+      "link_rsp_sha256": "25e171a1e26a1469056948640b9dae2f0d9f0c22bec9a8709aee5e0f93b3b882",
+      "debug_bytes": 118163536,
+      "breakpad_sym_bytes": 31816656
+    },
+    "RiveUeReference": {
+      "elf_bytes": 169180336,
+      "elf_sha256": "8065f6f083b81194ffa23b961681e0f4a2158a0b4645668e5681ef2d4ae04e5f",
+      "sections": {
+        ".interp": {
+          "bytes": 28,
+          "type": 1,
+          "flags": 2
+        },
+        ".note.ABI-tag": {
+          "bytes": 32,
+          "type": 7,
+          "flags": 2
+        },
+        ".note.dlopen": {
+          "bytes": 3712,
+          "type": 7,
+          "flags": 2
+        },
+        ".note.gnu.build-id": {
+          "bytes": 36,
+          "type": 7,
+          "flags": 2
+        },
+        ".dynsym": {
+          "bytes": 849552,
+          "type": 11,
+          "flags": 2
+        },
+        ".gnu.version": {
+          "bytes": 70796,
+          "type": 1879048191,
+          "flags": 2
+        },
+        ".gnu.version_r": {
+          "bytes": 592,
+          "type": 1879048190,
+          "flags": 2
+        },
+        ".gnu.hash": {
+          "bytes": 240072,
+          "type": 1879048182,
+          "flags": 2
+        },
+        ".dynstr": {
+          "bytes": 1542079,
+          "type": 3,
+          "flags": 2
+        },
+        ".rela.dyn": {
+          "bytes": 936,
+          "type": 4,
+          "flags": 2
+        },
+        ".rela.plt": {
+          "bytes": 11688,
+          "type": 4,
+          "flags": 66
+        },
+        ".rodata": {
+          "bytes": 25795624,
+          "type": 1,
+          "flags": 50
+        },
+        ".gcc_except_table": {
+          "bytes": 103896,
+          "type": 1,
+          "flags": 130
+        },
+        ".eh_frame_hdr": {
+          "bytes": 2927228,
+          "type": 1,
+          "flags": 2
+        },
+        ".eh_frame": {
+          "bytes": 15371540,
+          "type": 1,
+          "flags": 2
+        },
+        ".text": {
+          "bytes": 120499262,
+          "type": 1,
+          "flags": 6
+        },
+        ".init": {
+          "bytes": 38,
+          "type": 1,
+          "flags": 6
+        },
+        ".fini": {
+          "bytes": 14,
+          "type": 1,
+          "flags": 6
+        },
+        ".uedbg": {
+          "bytes": 475620,
+          "type": 1,
+          "flags": 6
+        },
+        ".plt": {
+          "bytes": 7808,
+          "type": 1,
+          "flags": 6
+        },
+        ".tdata": {
+          "bytes": 712,
+          "type": 1,
+          "flags": 1027
+        },
+        ".tbss": {
+          "bytes": 4264,
+          "type": 8,
+          "flags": 1027
+        },
+        ".ctors": {
+          "bytes": 24,
+          "type": 1,
+          "flags": 3
+        },
+        ".dtors": {
+          "bytes": 16,
+          "type": 1,
+          "flags": 3
+        },
+        ".init_array": {
+          "bytes": 9872,
+          "type": 14,
+          "flags": 3
+        },
+        ".fini_array": {
+          "bytes": 8,
+          "type": 15,
+          "flags": 3
+        },
+        ".data.rel.ro": {
+          "bytes": 620184,
+          "type": 1,
+          "flags": 3
+        },
+        ".dynamic": {
+          "bytes": 496,
+          "type": 6,
+          "flags": 3
+        },
+        ".got": {
+          "bytes": 5296,
+          "type": 1,
+          "flags": 3
+        },
+        ".bss.rel.ro": {
+          "bytes": 32,
+          "type": 8,
+          "flags": 3
+        },
+        ".relro_padding": {
+          "bytes": 3104,
+          "type": 8,
+          "flags": 3
+        },
+        ".data": {
+          "bytes": 634448,
+          "type": 1,
+          "flags": 2097155
+        },
+        ".tm_clone_table": {
+          "bytes": 0,
+          "type": 1,
+          "flags": 3
+        },
+        ".got.plt": {
+          "bytes": 3920,
+          "type": 1,
+          "flags": 3
+        },
+        ".bss": {
+          "bytes": 4283464,
+          "type": 8,
+          "flags": 2097155
+        },
+        ".shstrtab": {
+          "bytes": 370,
+          "type": 3,
+          "flags": 0
+        },
+        ".gnu_debuglink": {
+          "bytes": 28,
+          "type": 1,
+          "flags": 0
+        }
+      },
+      "actual_link_module_count": 156,
+      "actual_link_object_count": 612,
+      "module_object_counts": {
+        "AVIWriter": 1,
+        "AdpcmAudioDecoder": 1,
+        "Advertising": 1,
+        "Analytics": 1,
+        "AnalyticsET": 1,
+        "AnimGraphRuntime": 2,
+        "AnimationCore": 1,
+        "AppFramework": 3,
+        "ApplicationCore": 1,
+        "AssetRegistry": 4,
+        "AudioExtensions": 1,
+        "AudioLinkCore": 1,
+        "AudioLinkEngine": 1,
+        "AudioMixer": 3,
+        "AudioMixerCore": 1,
+        "AudioPlatformConfiguration": 1,
+        "AutoRTFM": 1,
+        "BinkAudioDecoder": 1,
+        "BuildPatchServices": 4,
+        "BuildSettings": 1,
+        "Cbor": 1,
+        "Chaos": 159,
+        "ChaosCore": 6,
+        "ChaosSolverEngine": 1,
+        "ChaosVDRuntime": 1,
+        "CinematicCamera": 1,
+        "ClothSysRuntimeIntrfc": 1,
+        "Constraints": 1,
+        "CookOnTheFly": 1,
+        "Core": 19,
+        "CoreOnline": 1,
+        "CorePreciseFP": 1,
+        "CoreUObject": 20,
+        "DataflowCore": 1,
+        "DataflowEngine": 1,
+        "DataflowSimulation": 1,
+        "DesktopPlatform": 1,
+        "DeveloperSettings": 1,
+        "DeveloperToolSettings": 1,
+        "EditorAnalyticsSession": 1,
+        "Engine": 107,
+        "EngineMessages": 1,
+        "EngineSettings": 1,
+        "EventLoop": 1,
+        "EyeTracker": 1,
+        "FieldNotification": 1,
+        "FieldSystemEngine": 1,
+        "Foliage": 1,
+        "GPUReshapeUE": 3,
+        "GameplayTags": 1,
+        "GeometryCollectionEngine": 12,
+        "GeometryCore": 5,
+        "HTTP": 1,
+        "HeadMountedDisplay": 1,
+        "HttpReplayStreaming": 1,
+        "ISMPool": 1,
+        "Icmp": 1,
+        "ImageCore": 1,
+        "ImageWrapper": 1,
+        "ImageWriteQueue": 1,
+        "IndexedCacheStorage": 1,
+        "InputCore": 1,
+        "IoStoreHttpClient": 1,
+        "IoStoreOnDemand": 3,
+        "IoStoreOnDemandCore": 1,
+        "IrisCore": 7,
+        "Json": 1,
+        "JsonUtilities": 1,
+        "LFNRS": 1,
+        "Landscape": 7,
+        "LevelSequence": 1,
+        "Localization": 1,
+        "LocalizationService": 1,
+        "MRMesh": 1,
+        "MSQS": 1,
+        "MassCore": 3,
+        "MassEntity": 1,
+        "MassSignals": 1,
+        "MathCore": 1,
+        "Media": 1,
+        "MediaAssets": 1,
+        "MediaUtils": 1,
+        "MeshConversion": 1,
+        "MeshDescription": 1,
+        "MeshUtilitiesCommon": 1,
+        "MessageLog": 1,
+        "Messaging": 1,
+        "MessagingCommon": 1,
+        "MoviePlayer": 1,
+        "MoviePlayerProxy": 1,
+        "MovieScene": 6,
+        "MovieSceneCapture": 1,
+        "MovieSceneTracks": 5,
+        "NNE": 1,
+        "Nanosvg": 1,
+        "NetCommon": 1,
+        "NetCore": 1,
+        "NetworkReplayStreaming": 1,
+        "Networking": 1,
+        "NonRealtimeAudioRenderer": 1,
+        "NullDrv": 1,
+        "NullReplayStreaming": 1,
+        "OpenGLDrv": 1,
+        "OpusAudioDecoder": 1,
+        "PacketHandler": 1,
+        "PakFile": 1,
+        "PhysicsCore": 1,
+        "PlatformWriteMonitor": 1,
+        "PreLoadScreen": 1,
+        "Projects": 1,
+        "PropertyPath": 1,
+        "RHI": 4,
+        "RHICore": 1,
+        "RSA": 1,
+        "RadAudioDecoder": 1,
+        "RawMesh": 1,
+        "RenderCore": 7,
+        "Renderer": 42,
+        "RewindDebuggerRuntimeInterface": 1,
+        "RigidPhysics": 1,
+        "RiveUeReference": 1,
+        "RiveUeReferenceRenderer": 7,
+        "S3Client": 1,
+        "SSL": 1,
+        "ShaderRuntime": 1,
+        "SignalProcessing": 14,
+        "SkeletalMeshDescription": 1,
+        "Slate": 8,
+        "SlateBaseRenderer": 1,
+        "SlateCore": 6,
+        "SlateNullRenderer": 1,
+        "SlateRHIRenderer": 1,
+        "SlateReflector": 1,
+        "Sockets": 1,
+        "SoundFieldRendering": 1,
+        "SourceControl": 1,
+        "StateStream": 1,
+        "StaticMeshDescription": 1,
+        "StreamingPauseRendering": 1,
+        "SynthBenchmark": 1,
+        "TelemetryUtils": 1,
+        "TimeManagement": 1,
+        "ToolMenus": 1,
+        "ToolWidgets": 1,
+        "TraceBasedDebuggers": 1,
+        "TraceLog": 1,
+        "TranslationEditor": 1,
+        "TypedElementFramework": 2,
+        "TypedElementRuntime": 1,
+        "UELibSampleRate": 1,
+        "UMG": 4,
+        "UniversalObjectLocator": 1,
+        "VorbisAudioDecoder": 1,
+        "Voronoi": 9,
+        "VulkanRHI": 5,
+        "XmlParser": 1
+      },
+      "link_rsp_path": "/mnt/f/Github/Rive-UE-Lite/Intermediate/Build/Linux/x64/RiveUeReference/Development/RiveUeReference.rsp",
+      "link_rsp_sha256": "7a62650c7ff1ffee9c25c2cec26842eefc5c0d12665c84975b0edc778a92170d",
+      "debug_bytes": 766167936,
+      "breakpad_sym_bytes": 210335762
+    }
+  },
+  "lite_to_reference": {
+    "elf_delta_bytes": 137883472,
+    "elf_ratio": 5.4056641585559495,
+    "section_delta_bytes": {
+      ".bss": 2082816,
+      ".bss.rel.ro": 32,
+      ".ctors": 0,
+      ".data": 467760,
+      ".data.rel.ro": 331744,
+      ".dtors": 0,
+      ".dynamic": 0,
+      ".dynstr": 354846,
+      ".dynsym": 215640,
+      ".eh_frame": 12574608,
+      ".eh_frame_hdr": 2411640,
+      ".fini": 0,
+      ".fini_array": 0,
+      ".gcc_except_table": 12,
+      ".gnu.hash": 44596,
+      ".gnu.version": 17970,
+      ".gnu.version_r": 48,
+      ".gnu_debuglink": 4,
+      ".got": 3144,
+      ".got.plt": 528,
+      ".init": 5,
+      ".init_array": 8768,
+      ".interp": 0,
+      ".note.ABI-tag": 0,
+      ".note.dlopen": 0,
+      ".note.gnu.build-id": 0,
+      ".plt": 1056,
+      ".rela.dyn": 456,
+      ".rela.plt": 1584,
+      ".relro_padding": 1584,
+      ".rodata": 21338880,
+      ".shstrtab": 12,
+      ".tbss": 656,
+      ".tdata": 0,
+      ".text": 99695904,
+      ".tm_clone_table": 0,
+      ".uedbg": 413292
+    }
+  },
+  "retained_key_class_function_count": 449,
+  "retained_key_functions": [
+    {
+      "mangled": "_ZN11UUserWidget25InitializeNativeClassDataEv",
+      "address_hex": "0x90df860",
+      "bytes": 1,
+      "binding": 0,
+      "demangled": "UUserWidget::InitializeNativeClassData()"
+    },
+    {
+      "mangled": "_ZN7UWidget10TakeWidgetEv",
+      "address_hex": "0x91a7990",
+      "bytes": 801,
+      "binding": 0,
+      "demangled": "UWidget::TakeWidget()"
+    },
+    {
+      "mangled": "_ZN7UWidget13RebuildWidgetEv",
+      "address_hex": "0x91fc140",
+      "bytes": 208,
+      "binding": 0,
+      "demangled": "UWidget::RebuildWidget()"
+    },
+    {
+      "mangled": "_ZN7UWidget18TakeWidget_PrivateE12TFunctionRefIF10TSharedPtrI13SObjectWidgetL7ESPMode1EEP11UUserWidget10TSharedRefI7SWidgetLS3_1EEEE",
+      "address_hex": "0x91fb460",
+      "bytes": 2273,
+      "binding": 0,
+      "demangled": "UWidget::TakeWidget_Private(TFunctionRef<TSharedPtr<SObjectWidget, (ESPMode)1> (UUserWidget*, TSharedRef<SWidget, (ESPMode)1>)>)"
+    },
+    {
+      "mangled": "_ZN11UUserWidget20CreateWidgetInstanceER6UWorld11TSubclassOfIS_E5FName",
+      "address_hex": "0x9257960",
+      "bytes": 98,
+      "binding": 0,
+      "demangled": "UUserWidget::CreateWidgetInstance(UWorld&, TSubclassOf<UUserWidget>, FName)"
+    },
+    {
+      "mangled": "_ZN11UUserWidget13RebuildWidgetEv",
+      "address_hex": "0x9252f30",
+      "bytes": 395,
+      "binding": 0,
+      "demangled": "UUserWidget::RebuildWidget()"
+    },
+    {
+      "mangled": "_ZN11UUserWidget10InitializeEv",
+      "address_hex": "0x92501e0",
+      "bytes": 574,
+      "binding": 0,
+      "demangled": "UUserWidget::Initialize()"
+    },
+    {
+      "mangled": "_ZN11UUserWidget24InitializeInputComponentEv",
+      "address_hex": "0x9254720",
+      "bytes": 578,
+      "binding": 0,
+      "demangled": "UUserWidget::InitializeInputComponent()"
+    },
+    {
+      "mangled": "_ZN11UUserWidget20CreateInputComponentEv",
+      "address_hex": "0x92540f0",
+      "bytes": 595,
+      "binding": 0,
+      "demangled": "UUserWidget::CreateInputComponent()"
+    },
+    {
+      "mangled": "_ZN11UUserWidget23TickActionsAndAnimationEf",
+      "address_hex": "0x9254650",
+      "bytes": 205,
+      "binding": 0,
+      "demangled": "UUserWidget::TickActionsAndAnimation(float)"
+    },
+    {
+      "mangled": "_ZN11UUserWidget20CreateWidgetInstanceER7UWidget11TSubclassOfIS_E5FName",
+      "address_hex": "0x9256920",
+      "bytes": 451,
+      "binding": 0,
+      "demangled": "UUserWidget::CreateWidgetInstance(UWidget&, TSubclassOf<UUserWidget>, FName)"
+    },
+    {
+      "mangled": "_ZN11UUserWidget20CreateWidgetInstanceER17APlayerController11TSubclassOfIS_E5FName",
+      "address_hex": "0x92574d0",
+      "bytes": 1163,
+      "binding": 0,
+      "demangled": "UUserWidget::CreateWidgetInstance(APlayerController&, TSubclassOf<UUserWidget>, FName)"
+    },
+    {
+      "mangled": "_ZN15FWidgetRendererC2Ebb",
+      "address_hex": "0x9240690",
+      "bytes": 349,
+      "binding": 0,
+      "demangled": "FWidgetRenderer::FWidgetRenderer(bool, bool)"
+    },
+    {
+      "mangled": "_ZN15FWidgetRenderer10DrawWindowEP22UTextureRenderTarget2DR12FHittestGrid10TSharedRefI7SWindowL7ESPMode1EEfN2UE4Math8TVector2IdEEfb",
+      "address_hex": "0x9229010",
+      "bytes": 157,
+      "binding": 0,
+      "demangled": "FWidgetRenderer::DrawWindow(UTextureRenderTarget2D*, FHittestGrid&, TSharedRef<SWindow, (ESPMode)1>, float, UE::Math::TVector2<double>, float, bool)"
+    },
+    {
+      "mangled": "_ZN15FWidgetRenderer10DrawWindowEP13FRenderTargetR12FHittestGrid10TSharedRefI7SWindowL7ESPMode1EEfN2UE4Math8TVector2IdEEfb",
+      "address_hex": "0x9240870",
+      "bytes": 501,
+      "binding": 0,
+      "demangled": "FWidgetRenderer::DrawWindow(FRenderTarget*, FHittestGrid&, TSharedRef<SWindow, (ESPMode)1>, float, UE::Math::TVector2<double>, float, bool)"
+    },
+    {
+      "mangled": "_ZN11UUserWidget22CreateInstanceInternalEP7UObject11TSubclassOfIS_E5FNameP6UWorldP12ULocalPlayer",
+      "address_hex": "0x9256af0",
+      "bytes": 2515,
+      "binding": 0,
+      "demangled": "UUserWidget::CreateInstanceInternal(UObject*, TSubclassOf<UUserWidget>, FName, UWorld*, ULocalPlayer*)"
+    },
+    {
+      "mangled": "_ZN15FWidgetRenderer10DrawWindowERK10FPaintArgsP13FRenderTarget10TSharedRefI7SWindowL7ESPMode1EE9FGeometry10FSlateRectfb",
+      "address_hex": "0x9240a70",
+      "bytes": 1082,
+      "binding": 0,
+      "demangled": "FWidgetRenderer::DrawWindow(FPaintArgs const&, FRenderTarget*, TSharedRef<SWindow, (ESPMode)1>, FGeometry, FSlateRect, float, bool)"
+    },
+    {
+      "mangled": "_ZN11UUserWidget20InitializeNamedSlotsEv",
+      "address_hex": "0x9250540",
+      "bytes": 331,
+      "binding": 0,
+      "demangled": "UUserWidget::InitializeNamedSlots()"
+    },
+    {
+      "mangled": "_ZN15FWidgetRendererC1Ebb",
+      "address_hex": "0x9240690",
+      "bytes": 349,
+      "binding": 0,
+      "demangled": "FWidgetRenderer::FWidgetRenderer(bool, bool)"
+    }
+  ],
+  "module_retained_size_limit": "No linker .map exists; rsp confirms input modules, and final debug symtab confirms retained selected classes/functions. Exact final bytes per module unavailable without relink map. Input .o sizes and debug file sizes must not be used as final module retained contributions.",
+  "timing_logs": {
+    "playback-hosts-01-RiveRhiLite.ubt": {
+      "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/setup/playback-hosts-01-RiveRhiLite.ubt.json",
+      "events": [
+        {
+          "time": "2026-10-24T11:55:26",
+          "message": "Executing up to 6 actions based on MaxProcessorCount override"
+        },
+        {
+          "time": "2026-10-24T11:55:32",
+          "message": "Building RiveRhiLite - RiveRhiLite - Linux - Development"
+        },
+        {
+          "time": "2026-10-24T11:55:34",
+          "message": "Building RiveRhiLite..."
+        },
+        {
+          "time": "2026-10-24T11:55:52",
+          "message": "[1/3] Compile Main.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:56:13",
+          "message": "[2/3] Link RiveRhiLite [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:56:14",
+          "message": "[3/3] WriteMetadata RiveRhiLite.target [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:56:14",
+          "message": "Total time in Unreal Build Accelerator local executor: 39.61 seconds"
+        },
+        {
+          "time": "2026-10-24T11:56:14",
+          "message": "Result: Succeeded"
+        },
+        {
+          "time": "2026-10-24T11:56:14",
+          "message": "Total execution time: 52.41 seconds"
+        },
+        {
+          "time": "2026-10-24T11:56:14",
+          "message": "   0.858          [ 12.593] +39.624 ActionGraph.ExecuteActions()"
+        }
+      ]
+    },
+    "playback-hosts-01-RiveUeReference.ubt": {
+      "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/setup/playback-hosts-01-RiveUeReference.ubt.json",
+      "events": [
+        {
+          "time": "2026-10-24T11:56:21",
+          "message": "Executing up to 6 actions based on MaxProcessorCount override"
+        },
+        {
+          "time": "2026-10-24T11:56:26",
+          "message": "Building RiveUeReference - RiveUeReference - Linux - Development"
+        },
+        {
+          "time": "2026-10-24T11:56:37",
+          "message": "Building RiveUeReference..."
+        },
+        {
+          "time": "2026-10-24T11:57:07",
+          "message": "[1/3] Compile Main.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T12:00:05",
+          "message": "[2/3] Link RiveUeReference [NoUba]"
+        },
+        {
+          "time": "2026-10-24T12:00:06",
+          "message": "[3/3] WriteMetadata RiveUeReference.target [NoUba]"
+        },
+        {
+          "time": "2026-10-24T12:00:06",
+          "message": "Total time in Unreal Build Accelerator local executor: 209.39 seconds"
+        },
+        {
+          "time": "2026-10-24T12:00:06",
+          "message": "Result: Succeeded"
+        },
+        {
+          "time": "2026-10-24T12:00:06",
+          "message": "Total execution time: 229.27 seconds"
+        },
+        {
+          "time": "2026-10-24T12:00:06",
+          "message": "   0.827          [ 19.625]+209.403 ActionGraph.ExecuteActions()"
+        }
+      ]
+    },
+    "reference-ubt": {
+      "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/setup/reference-ubt.json",
+      "events": [
+        {
+          "time": "2026-10-24T11:16:57",
+          "message": "Executing up to 6 actions based on MaxProcessorCount override"
+        },
+        {
+          "time": "2026-10-24T11:12:25",
+          "message": "Building RiveUeReference - RiveUeReference - Linux - Development"
+        },
+        {
+          "time": "2026-10-24T11:17:05",
+          "message": "Building RiveUeReference..."
+        },
+        {
+          "time": "2026-10-24T11:17:31",
+          "message": "[1/3] Compile Main.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:19:36",
+          "message": "[2/3] Link RiveUeReference [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:19:37",
+          "message": "[3/3] WriteMetadata RiveUeReference.target [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:19:37",
+          "message": "Total time in Unreal Build Accelerator local executor: 151.75 seconds"
+        },
+        {
+          "time": "2026-10-24T11:19:38",
+          "message": "Result: Succeeded"
+        },
+        {
+          "time": "2026-10-24T11:19:38",
+          "message": "Total execution time: 162.81 seconds"
+        },
+        {
+          "time": "2026-10-24T11:19:38",
+          "message": "   0.326          [ 10.561]+151.755 ActionGraph.ExecuteActions()"
+        }
+      ]
+    },
+    "playback-reference-time-02.ubt": {
+      "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/setup/playback-reference-time-02.ubt.json",
+      "events": [
+        {
+          "time": "2026-10-24T12:14:50",
+          "message": "Executing up to 6 actions based on MaxProcessorCount override"
+        },
+        {
+          "time": "2026-10-24T12:14:56",
+          "message": "Building RiveUeReference - RiveUeReference - Linux - Development"
+        },
+        {
+          "time": "2026-10-24T12:15:07",
+          "message": "Building RiveUeReference..."
+        },
+        {
+          "time": "2026-10-24T12:15:36",
+          "message": "[1/9] Compile Module.Engine.11.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T12:15:36",
+          "message": "[2/9] Compile Module.Engine.37.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T12:15:36",
+          "message": "[3/9] Compile Main.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T12:15:44",
+          "message": "[4/9] Compile Module.Engine.60.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T12:15:48",
+          "message": "[5/9] Compile Module.Engine.55.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T12:15:49",
+          "message": "[6/9] Compile Module.Engine.23.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T12:18:31",
+          "message": "[7/9] Compile Module.Engine.26.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T12:18:31",
+          "message": "[8/9] Link RiveUeReference [NoUba]"
+        },
+        {
+          "time": "2026-10-24T12:18:33",
+          "message": "[9/9] WriteMetadata RiveUeReference.target [NoUba]"
+        },
+        {
+          "time": "2026-10-24T12:18:33",
+          "message": "Total time in Unreal Build Accelerator local executor: 206.47 seconds"
+        },
+        {
+          "time": "2026-10-24T12:18:34",
+          "message": "Result: Succeeded"
+        },
+        {
+          "time": "2026-10-24T12:18:34",
+          "message": "Total execution time: 226.29 seconds"
+        },
+        {
+          "time": "2026-10-24T12:18:34",
+          "message": "   0.474          [ 19.588]+206.486 ActionGraph.ExecuteActions()"
+        }
+      ]
+    },
+    "reference-ubt-backup-2026.10.24-11.12.10": {
+      "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/setup/reference-ubt-backup-2026.10.24-11.12.10.json",
+      "events": [
+        {
+          "time": "2026-10-24T10:59:18",
+          "message": "Executing up to 12 actions based on MaxProcessorCount override"
+        },
+        {
+          "time": "2026-10-24T10:57:34",
+          "message": "Building RiveUeReference - RiveUeReference - Linux - Development"
+        },
+        {
+          "time": "2026-10-24T10:59:24",
+          "message": "Building RiveUeReference..."
+        },
+        {
+          "time": "2026-10-24T10:59:41",
+          "message": "[27/546] Compile SharedPCH.Core.Cpp23.h [NoUba]"
+        },
+        {
+          "time": "2026-10-24T10:59:41",
+          "message": "[28/546] Compile SharedPCH.CoreUObject.Cpp23.h [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:01",
+          "message": "[55/546] Compile SharedPCH.Slate.Cpp23.h [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:15",
+          "message": "[74/546] Compile PCH.CoreUObject.h [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:16",
+          "message": "[79/546] Compile Module.EditorAnalyticsSession.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:16",
+          "message": "[80/546] Compile PCH.Core.h [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:17",
+          "message": "[81/546] Compile Module.MessagingCommon.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:18",
+          "message": "[82/546] Compile Module.S3Client.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:19",
+          "message": "[83/546] Compile Module.MathCore.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:23",
+          "message": "[84/546] Compile SharedPCH.Core.Exceptions.Cpp23.h [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:28",
+          "message": "[87/546] Compile [x86-64] PBDSoftBodyCollisionConstraint_Complex.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:28",
+          "message": "[88/546] Compile Module.MeshUtilitiesCommon.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:29",
+          "message": "[89/546] Compile [x86-64] PBDJointSolverGaussSeidel.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:36",
+          "message": "[92/546] Compile Module.SlateCore.6.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:38",
+          "message": "[93/546] Compile Module.Core.8.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:39",
+          "message": "[94/546] Compile Module.Core.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:39",
+          "message": "[95/546] Compile Module.BuildPatchServices.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:41",
+          "message": "[96/546] Compile Module.Core.18.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:44",
+          "message": "[97/546] Compile PCH.Renderer.h [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:47",
+          "message": "[98/546] Compile Module.AudioExtensions.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:47",
+          "message": "[99/546] Compile Module.MessageLog.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:51",
+          "message": "[100/546] Compile SharedPCH.Engine.Cpp23.h [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:51",
+          "message": "[101/546] Compile Module.IrisCore.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:55",
+          "message": "[102/546] Compile Module.AppFramework.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:00:56",
+          "message": "[103/546] Compile Module.Chaos.23.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:00",
+          "message": "[104/546] Compile Module.Slate.6.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:02",
+          "message": "[105/546] Compile Module.Renderer.12.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:04",
+          "message": "[106/546] Compile Module.ISMPool.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:04",
+          "message": "[107/546] Compile Module.GeometryCore.5.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:05",
+          "message": "[108/546] Compile Module.Chaos.10.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:06",
+          "message": "[109/546] Compile Module.MassEntity.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:06",
+          "message": "[110/546] Compile PCH.Engine.h [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:07",
+          "message": "[111/546] Compile Module.Chaos.8.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:08",
+          "message": "[112/546] Compile Module.GameplayTags.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:08",
+          "message": "[113/546] Compile SharedPCH.Engine.Project.ValApi.ValExpApi.Cpp23.h [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:08",
+          "message": "[114/546] Compile Module.Renderer.22.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:12",
+          "message": "[115/546] Compile Module.Chaos.29.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:21",
+          "message": "[116/546] Compile Module.AudioMixer.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:24",
+          "message": "[117/546] Compile Module.ChaosSolverEngine.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:28",
+          "message": "[118/546] Compile Module.Engine.66.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:30",
+          "message": "[119/546] Compile Module.CoreUObject.18.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:31",
+          "message": "[120/546] Compile Module.Renderer.4.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:32",
+          "message": "[121/546] Compile Module.Sockets.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:32",
+          "message": "[122/546] Compile Main.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:33",
+          "message": "[123/546] Compile Module.Engine.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:34",
+          "message": "[124/546] Compile Module.HeadMountedDisplay.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:34",
+          "message": "[125/546] Compile Module.TraceBasedDebuggers.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:34",
+          "message": "[126/546] Compile pre_container.cc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:38",
+          "message": "[127/546] Compile Module.StreamingPauseRendering.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:40",
+          "message": "[128/546] Compile [x86-64] PBDAxialSpringConstraints.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:41",
+          "message": "[129/546] Compile Module.Engine.43.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:43",
+          "message": "[130/546] Compile Module.Landscape.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:44",
+          "message": "[131/546] Compile Module.Engine.60.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:47",
+          "message": "[132/546] Compile Module.Engine.58.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:48",
+          "message": "[133/546] Compile Module.SlateNullRenderer.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:49",
+          "message": "[134/546] Compile Module.Core.11.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:50",
+          "message": "[135/546] Compile Module.EventLoop.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:50",
+          "message": "[136/546] Compile Module.Engine.23.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:50",
+          "message": "[137/546] Compile v_compute.cc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:52",
+          "message": "[138/546] Compile Module.RSA.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:55",
+          "message": "[139/546] Compile Module.PhysicsCore.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:01:59",
+          "message": "[140/546] Compile Module.EyeTracker.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:00",
+          "message": "[141/546] Compile Module.Analytics.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:00",
+          "message": "[142/546] Compile Module.Renderer.40.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:01",
+          "message": "[143/546] Compile Module.MovieSceneTracks.4.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:02",
+          "message": "[144/546] Compile Module.Networking.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:02",
+          "message": "[145/546] Compile RiveUeReferenceRendererModule.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:04",
+          "message": "[146/546] Compile Module.Slate.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:04",
+          "message": "[147/546] Compile Module.Engine.7.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:06",
+          "message": "[148/546] Compile Module.Renderer.39.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:06",
+          "message": "[149/546] Compile DXILPhysicalBlockScan.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:06",
+          "message": "[150/546] Compile [x86-64] GeometryCollectionSceneProxy.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:06",
+          "message": "[151/546] Compile Module.MoviePlayerProxy.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:07",
+          "message": "[152/546] Compile Module.SlateCore.5.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:08",
+          "message": "[153/546] Compile Module.Renderer.14.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:09",
+          "message": "[154/546] Compile Module.UELibSampleRate.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:10",
+          "message": "[155/546] Compile Module.SignalProcessing.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:11",
+          "message": "[156/546] Compile Module.AutoRTFM.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:12",
+          "message": "[157/546] Compile Module.Chaos.7.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:16",
+          "message": "[158/546] Compile MiMalloc.c [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:18",
+          "message": "[159/546] Compile Module.Core.6.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:21",
+          "message": "[160/546] Compile Module.AssetRegistry.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:22",
+          "message": "[161/546] Compile Module.InputCore.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:24",
+          "message": "[162/546] Compile Module.SlateCore.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:25",
+          "message": "[163/546] Compile Module.CoreUObject.8.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:26",
+          "message": "[164/546] Compile Module.Chaos.19.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:27",
+          "message": "[165/546] Compile Module.TraceLog.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:29",
+          "message": "[166/546] Compile [x86-64] ConvertDeinterleave.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:31",
+          "message": "[167/546] Compile Module.BuildPatchServices.4.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:34",
+          "message": "[168/546] Compile Module.Localization.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:35",
+          "message": "[169/546] Compile [x86-64] PBDCollisionSolver.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:36",
+          "message": "[170/546] Compile Module.Cbor.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:37",
+          "message": "[171/546] Compile Module.RHI.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:38",
+          "message": "[172/546] Compile Module.ChaosCore.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:39",
+          "message": "[173/546] Compile Module.MovieSceneTracks.5.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:40",
+          "message": "[174/546] Compile Module.Renderer.35.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:41",
+          "message": "[175/546] Compile Module.Engine.44.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:44",
+          "message": "[176/546] Compile Module.CoreUObject.19.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:44",
+          "message": "[177/546] Compile Module.UMG.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:46",
+          "message": "[178/546] Compile Module.Engine.42.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:49",
+          "message": "[179/546] Compile Module.Chaos.5.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:51",
+          "message": "[180/546] Compile Module.OpusAudioDecoder.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:52",
+          "message": "[181/546] Compile Module.Renderer.5.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:53",
+          "message": "[182/546] Compile Module.IoStoreOnDemand.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:55",
+          "message": "[183/546] Compile Module.MovieScene.5.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:55",
+          "message": "[184/546] Compile Module.CoreUObject.14.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:02:57",
+          "message": "[185/546] Compile [x86-64] PerParticleDampVelocity.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:03",
+          "message": "[186/546] Compile Module.Renderer.10.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:06",
+          "message": "[187/546] Compile Module.Chaos.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:07",
+          "message": "[188/546] Compile Module.Renderer.28.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:07",
+          "message": "[189/546] Compile Module.VulkanRHI.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:08",
+          "message": "[190/546] Compile ArenaAllocator.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:08",
+          "message": "[191/546] Compile Module.ClothSysRuntimeIntrfc.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:10",
+          "message": "[192/546] Compile Module.Engine.62.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:10",
+          "message": "[193/546] Compile Module.Engine.52.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:13",
+          "message": "[194/546] Compile [x86-64] XPBDBendingConstraints.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:14",
+          "message": "[195/546] Compile Module.Engine.50.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:16",
+          "message": "[196/546] Compile Module.CoreUObject.6.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:18",
+          "message": "[197/546] Compile Module.TranslationEditor.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:18",
+          "message": "[198/546] Compile Module.Engine.19.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:25",
+          "message": "[199/546] Compile Module.Core.17.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:25",
+          "message": "[200/546] Compile Module.Chaos.15.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:27",
+          "message": "[201/546] Compile Module.IoStoreOnDemand.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:28",
+          "message": "[202/546] Compile Module.Engine.11.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:29",
+          "message": "[203/546] Compile Module.SlateCore.4.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:31",
+          "message": "[204/546] Compile Module.Engine.33.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:35",
+          "message": "[205/546] Compile Module.Engine.30.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:37",
+          "message": "[206/546] Compile Module.AudioMixer.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:38",
+          "message": "[207/546] Compile Module.Engine.24.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:38",
+          "message": "[208/546] Compile Module.Chaos.25.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:39",
+          "message": "[209/546] Compile Module.EngineMessages.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:40",
+          "message": "[210/546] Compile Module.RawMesh.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:42",
+          "message": "[211/546] Compile Module.Engine.51.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:43",
+          "message": "[212/546] Compile Module.IrisCore.5.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:45",
+          "message": "[213/546] Compile Module.ImageCore.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:45",
+          "message": "[214/546] Compile Module.LFNRS.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:48",
+          "message": "[215/546] Compile Module.PacketHandler.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:51",
+          "message": "[216/546] Compile Module.GeometryCore.4.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:56",
+          "message": "[217/546] Compile [x86-64] AnimEncoding_ConstantKeyLerp.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:56",
+          "message": "[218/546] Compile Module.Engine.25.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:59",
+          "message": "[219/546] Compile Module.CoreUObject.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:03:59",
+          "message": "[220/546] Compile Module.RenderCore.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:00",
+          "message": "[221/546] Compile Module.Renderer.19.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:03",
+          "message": "[222/546] Compile Module.Renderer.41.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:03",
+          "message": "[223/546] Compile Module.Engine.38.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:08",
+          "message": "[224/546] Compile Module.SlateBaseRenderer.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:10",
+          "message": "[225/546] Compile [x86-64] XPBDEmbeddedSpringConstraints.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:14",
+          "message": "[226/546] Compile Module.DataflowCore.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:16",
+          "message": "[227/546] Compile Module.Engine.4.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:19",
+          "message": "[228/546] Compile Module.MovieSceneCapture.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:20",
+          "message": "[229/546] Compile Module.SkeletalMeshDescription.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:21",
+          "message": "[230/546] Compile Module.CorePreciseFP.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:21",
+          "message": "[231/546] Compile Module.RenderCore.5.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:22",
+          "message": "[232/546] Compile Module.Renderer.25.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:22",
+          "message": "[233/546] Compile Module.Engine.9.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:23",
+          "message": "[234/546] Compile Module.Chaos.26.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:23",
+          "message": "[235/546] Compile Module.UMG.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:25",
+          "message": "[236/546] Compile Module.Engine.61.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:26",
+          "message": "[237/546] Compile Module.Constraints.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:27",
+          "message": "[238/546] Compile Module.IoStoreOnDemandCore.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:29",
+          "message": "[239/546] Compile Module.Chaos.27.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:31",
+          "message": "[240/546] Compile [x86-64] AnimationRuntime.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:31",
+          "message": "[241/546] Compile Module.CoreUObject.12.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:32",
+          "message": "[242/546] Compile Module.LocalizationService.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:35",
+          "message": "[243/546] Compile Module.IndexedCacheStorage.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:36",
+          "message": "[244/546] Compile Module.CoreUObject.11.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:38",
+          "message": "[245/546] Compile Module.RenderCore.7.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:39",
+          "message": "[246/546] Compile Module.MeshDescription.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:40",
+          "message": "[247/546] Compile Module.GeometryCore.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:40",
+          "message": "[248/546] Compile Module.MovieSceneTracks.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:43",
+          "message": "[249/546] Compile Module.Renderer.34.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:45",
+          "message": "[250/546] Compile Module.PakFile.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:45",
+          "message": "[251/546] Compile Module.Engine.65.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:47",
+          "message": "[252/546] Compile Module.Renderer.23.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:04:47",
+          "message": "[253/546] Compile RivePassFunctions.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:01",
+          "message": "[254/546] Compile Module.IrisCore.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:01",
+          "message": "[255/546] Compile Module.Engine.53.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:01",
+          "message": "[256/546] Compile Module.Core.5.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:02",
+          "message": "[257/546] Compile Module.CoreUObject.15.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:04",
+          "message": "[258/546] Compile Module.Renderer.27.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:05",
+          "message": "[259/546] Compile Module.SignalProcessing.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:05",
+          "message": "[260/546] Compile Module.AudioPlatformConfiguration.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:06",
+          "message": "[261/546] Compile Module.Engine.54.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:07",
+          "message": "[262/546] Compile Module.NullReplayStreaming.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:07",
+          "message": "[263/546] Compile Module.FieldNotification.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:09",
+          "message": "[264/546] Compile Module.MSQS.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:12",
+          "message": "[265/546] Compile cell.cc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:13",
+          "message": "[266/546] Compile [x86-64] BonePose.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:13",
+          "message": "[267/546] Compile Module.Slate.5.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:14",
+          "message": "[268/546] Compile Module.PlatformWriteMonitor.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:19",
+          "message": "[269/546] Compile Module.Chaos.9.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:19",
+          "message": "[270/546] Compile Module.ShaderRuntime.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:23",
+          "message": "[271/546] Compile Module.CoreUObject.4.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:28",
+          "message": "[272/546] Compile Module.Renderer.21.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:30",
+          "message": "[273/546] Compile Module.Slate.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:30",
+          "message": "[274/546] Compile Module.IrisCore.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:35",
+          "message": "[275/546] Compile Module.Engine.41.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:37",
+          "message": "[276/546] Compile Module.Engine.67.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:40",
+          "message": "[277/546] Compile Module.Chaos.14.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:42",
+          "message": "[278/546] Compile Module.Engine.56.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:42",
+          "message": "[279/546] Compile Module.DeveloperSettings.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:44",
+          "message": "[280/546] Compile Module.Chaos.17.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:45",
+          "message": "[281/546] Compile Module.ToolWidgets.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:45",
+          "message": "[282/546] Compile [x86-64] GPUSkinVertexFactory.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:46",
+          "message": "[283/546] Compile Module.OpenGLDrv.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:47",
+          "message": "[284/546] Compile Module.IrisCore.7.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:51",
+          "message": "[285/546] Compile Module.PropertyPath.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:53",
+          "message": "[286/546] Compile Module.UMG.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:54",
+          "message": "[287/546] Compile Module.Chaos.16.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:55",
+          "message": "[288/546] Compile Module.MoviePlayer.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:05:58",
+          "message": "[289/546] Compile Module.Core.15.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:00",
+          "message": "[290/546] Compile Module.ImageWrapper.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:03",
+          "message": "[291/546] Compile Module.Messaging.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:03",
+          "message": "[292/546] Compile Module.MovieSceneTracks.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:04",
+          "message": "[293/546] Compile Module.IoStoreHttpClient.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:07",
+          "message": "[294/546] Compile Module.Engine.14.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:08",
+          "message": "[295/546] Compile Module.ChaosVDRuntime.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:09",
+          "message": "[296/546] Compile Module.Engine.63.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:10",
+          "message": "[297/546] Compile [x86-64] PBDLongRangeConstraints.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:11",
+          "message": "[298/546] Compile Module.AppFramework.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:14",
+          "message": "[299/546] Compile [x86-64] AABB.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:14",
+          "message": "[300/546] Compile Module.SynthBenchmark.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:14",
+          "message": "[301/546] Compile Module.Engine.57.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:16",
+          "message": "[302/546] Compile Module.VulkanRHI.5.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:17",
+          "message": "[303/546] Compile Module.Landscape.7.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:22",
+          "message": "[304/546] Compile Module.RHI.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:23",
+          "message": "[305/546] Compile Module.Renderer.33.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:23",
+          "message": "[306/546] Compile Module.MovieSceneTracks.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:24",
+          "message": "[307/546] Compile Module.SourceControl.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:24",
+          "message": "[308/546] Compile Module.Engine.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:27",
+          "message": "[309/546] Compile Module.Engine.28.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:27",
+          "message": "[310/546] Compile Module.GeometryCollectionEngine.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:30",
+          "message": "[311/546] Compile Module.Chaos.21.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:31",
+          "message": "[312/546] Compile [x86-64] PBDSphericalConstraint.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:32",
+          "message": "[313/546] Compile Module.AssetRegistry.4.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:32",
+          "message": "[314/546] Compile Module.JsonUtilities.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:34",
+          "message": "[315/546] Compile Module.AVIWriter.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:34",
+          "message": "[316/546] Compile Module.Slate.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:42",
+          "message": "[317/546] Compile Module.RigidPhysics.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:42",
+          "message": "[318/546] Compile Module.LevelSequence.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:43",
+          "message": "[319/546] Compile Module.SlateReflector.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:45",
+          "message": "[320/546] Compile Module.Engine.31.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:46",
+          "message": "[321/546] Compile Module.Renderer.7.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:47",
+          "message": "[322/546] Compile [x86-64] XPBDStretchBiasElementConstraints.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:48",
+          "message": "[323/546] Compile Module.Renderer.9.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:49",
+          "message": "[324/546] Compile Module.AdpcmAudioDecoder.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:51",
+          "message": "[325/546] Compile Module.Slate.4.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:53",
+          "message": "[326/546] Compile Module.DesktopPlatform.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:56",
+          "message": "[327/546] Compile [x86-64] PerParticlePBDCollisionConstraintISPCDataVerification.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:56",
+          "message": "[328/546] Compile Module.VulkanRHI.4.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:06:56",
+          "message": "[329/546] Compile RiveRendererLog.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:00",
+          "message": "[330/546] Compile Module.Renderer.24.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:02",
+          "message": "[331/546] Compile Module.Renderer.13.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:07",
+          "message": "[332/546] Compile Module.AnimationCore.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:07",
+          "message": "[333/546] Compile Module.AudioMixer.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:07",
+          "message": "[334/546] Compile Module.MovieScene.6.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:08",
+          "message": "[335/546] Compile Module.MediaAssets.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:08",
+          "message": "[336/546] Compile Module.Gen.RHI.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:11",
+          "message": "[337/546] Compile PlatformRHI.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:17",
+          "message": "[338/546] Compile Module.AnimGraphRuntime.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:19",
+          "message": "[339/546] Compile [x86-64] AnimEncoding_VariableKeyLerp.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:19",
+          "message": "[340/546] Compile Module.TelemetryUtils.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:19",
+          "message": "[341/546] Compile Module.Chaos.22.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:21",
+          "message": "[342/546] Compile Module.Engine.16.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:21",
+          "message": "[343/546] Compile Module.Core.12.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:25",
+          "message": "[344/546] Compile Module.Renderer.15.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:27",
+          "message": "[345/546] Compile Module.Renderer.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:30",
+          "message": "[346/546] Compile Module.UMG.4.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:32",
+          "message": "[347/546] Compile Module.Renderer.16.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:33",
+          "message": "[348/546] Compile Module.GeometryCore.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:34",
+          "message": "[349/546] Compile Module.Core.7.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:35",
+          "message": "[350/546] Compile [x86-64] TriangleMesh.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:35",
+          "message": "[351/546] Compile Module.SlateCore.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:37",
+          "message": "[352/546] Compile Module.MovieScene.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:37",
+          "message": "[353/546] Compile Module.Landscape.4.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:37",
+          "message": "[354/546] Compile container.cc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:38",
+          "message": "[355/546] Compile Module.Media.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:39",
+          "message": "[356/546] Compile Module.CoreUObject.16.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:41",
+          "message": "[357/546] Compile Module.Engine.29.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:42",
+          "message": "[358/546] Compile Module.StaticMeshDescription.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:42",
+          "message": "[359/546] Compile Module.HTTP.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:42",
+          "message": "[360/546] Compile Module.Engine.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:43",
+          "message": "[361/546] Compile [x86-64] KAggregateGeom.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:44",
+          "message": "[362/546] Compile Module.TypedElementRuntime.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:45",
+          "message": "[363/546] Compile [x86-64] XPBDSpringConstraints.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:46",
+          "message": "[364/546] Compile Module.Json.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:46",
+          "message": "[365/546] Compile Module.Engine.48.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:48",
+          "message": "[366/546] Compile [x86-64] PBDMinEvolution.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:48",
+          "message": "[367/546] Compile Module.ImageWriteQueue.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:51",
+          "message": "[368/546] Compile Module.NullDrv.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:53",
+          "message": "[369/546] Compile Module.PreLoadScreen.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:54",
+          "message": "[370/546] Compile Module.Chaos.13.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:57",
+          "message": "[371/546] Compile Module.Engine.10.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:07:58",
+          "message": "[372/546] Compile [x86-64] PBDPlanarConstraints.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:00",
+          "message": "[373/546] Compile Module.CoreUObject.10.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:01",
+          "message": "[374/546] Compile Module.CoreUObject.7.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:03",
+          "message": "[375/546] Compile Module.IrisCore.4.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:05",
+          "message": "[376/546] Compile Module.DataflowSimulation.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:09",
+          "message": "[377/546] Compile Module.VulkanRHI.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:09",
+          "message": "[378/546] Compile Module.MassCore.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:10",
+          "message": "[379/546] Compile Module.Core.10.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:10",
+          "message": "[380/546] Compile Module.CoreUObject.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:11",
+          "message": "[381/546] Compile Module.NetworkReplayStreaming.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:13",
+          "message": "[382/546] Compile Module.Tests.TypedElementFramework.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:14",
+          "message": "[383/546] Compile Module.CookOnTheFly.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:16",
+          "message": "[384/546] Compile Module.Renderer.42.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:18",
+          "message": "[385/546] Compile Module.BinkAudioDecoder.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:18",
+          "message": "[386/546] Compile Module.Chaos.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:19",
+          "message": "[387/546] Compile Module.Slate.7.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:21",
+          "message": "[388/546] Compile [x86-64] PBDBendingConstraints.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:25",
+          "message": "[389/546] Compile Module.Icmp.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:29",
+          "message": "[390/546] Compile Module.Engine.32.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:29",
+          "message": "[391/546] Compile Module.Core.9.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:30",
+          "message": "[392/546] Compile Module.Engine.6.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:31",
+          "message": "[393/546] Compile Module.Renderer.32.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:31",
+          "message": "[394/546] Compile [x86-64] GeometryCollectionComponent.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:32",
+          "message": "[395/546] Compile Module.MovieScene.4.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:34",
+          "message": "[396/546] Compile Module.Tests.SignalProcessing.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:35",
+          "message": "[397/546] Compile Module.BuildPatchServices.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:36",
+          "message": "[398/546] Compile Module.Core.14.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:38",
+          "message": "[399/546] Compile DXBCPhysicalBlockScan.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:40",
+          "message": "[400/546] Compile Module.AssetRegistry.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:40",
+          "message": "[401/546] Compile Module.ApplicationCore.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:43",
+          "message": "[402/546] Compile [x86-64] PBDKinematicTriangleMeshCollisions.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:53",
+          "message": "[403/546] Compile Module.Landscape.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:55",
+          "message": "[404/546] Compile Module.CoreUObject.20.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:55",
+          "message": "[405/546] Compile Module.Chaos.18.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:57",
+          "message": "[406/546] Compile Module.Core.4.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:57",
+          "message": "[407/546] Compile Module.Engine.47.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:57",
+          "message": "[408/546] Compile Module.GeometryCore.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:08:59",
+          "message": "[409/546] Compile Module.RenderCore.6.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:00",
+          "message": "[410/546] Compile Module.MovieScene.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:04",
+          "message": "[411/546] Compile Module.Engine.37.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:06",
+          "message": "[412/546] Compile Module.Renderer.30.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:11",
+          "message": "[413/546] Compile [x86-64] PBDCollisionConstraints.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:13",
+          "message": "[414/546] Compile Module.Projects.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:14",
+          "message": "[415/546] Compile Module.Engine.39.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:14",
+          "message": "[416/546] Compile Module.BuildPatchServices.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:15",
+          "message": "[417/546] Compile Module.Engine.26.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:16",
+          "message": "[418/546] Compile [x86-64] XPBDAnisotropicBendingConstraints.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:16",
+          "message": "[419/546] Compile [x86-64] PBDEvolution.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:17",
+          "message": "[420/546] Compile Module.Core.13.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:18",
+          "message": "[421/546] Compile Module.FieldSystemEngine.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:23",
+          "message": "[422/546] Compile Module.Voronoi.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:23",
+          "message": "[423/546] Compile Module.XmlParser.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:25",
+          "message": "[424/546] Compile Module.Engine.22.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:25",
+          "message": "[425/546] Compile Module.SSL.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:26",
+          "message": "[426/546] Compile [x86-64] XPBDAnisotropicSpringConstraints.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:27",
+          "message": "[427/546] Compile v_base.cc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:29",
+          "message": "[428/546] Compile Module.Renderer.20.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:32",
+          "message": "[429/546] Compile [x86-64] PBDSpringConstraints.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:32",
+          "message": "[430/546] Compile RiveShaderTypes.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:34",
+          "message": "[431/546] Compile Module.Engine.46.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:35",
+          "message": "[432/546] Compile Module.Renderer.11.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:37",
+          "message": "[433/546] Compile Module.Engine.40.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:40",
+          "message": "[434/546] Compile Module.RadAudioDecoder.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:41",
+          "message": "[435/546] Compile Module.MassSignals.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:41",
+          "message": "[436/546] Compile Module.Chaos.12.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:41",
+          "message": "[437/546] Compile Module.Engine.5.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:45",
+          "message": "[438/546] Compile c_loops.cc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:47",
+          "message": "[439/546] Compile Module.Chaos.4.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:49",
+          "message": "[440/546] Compile Module.Engine.55.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:49",
+          "message": "[441/546] Compile Module.DataflowEngine.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:50",
+          "message": "[442/546] Compile Module.Landscape.6.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:09:51",
+          "message": "[443/546] Compile Module.MovieScene.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:00",
+          "message": "[444/546] Compile Module.NNE.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:00",
+          "message": "[445/546] Compile Module.RenderCore.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:00",
+          "message": "[446/546] Compile Module.CoreUObject.5.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:00",
+          "message": "[447/546] Compile Module.CoreUObject.9.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:02",
+          "message": "[448/546] Compile Module.Renderer.17.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:02",
+          "message": "[449/546] Compile Module.Engine.18.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:03",
+          "message": "[450/546] Compile Module.Engine.35.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:03",
+          "message": "[451/546] Compile Module.MeshConversion.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:04",
+          "message": "[452/546] Compile Module.DeveloperToolSettings.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:05",
+          "message": "[453/546] Compile Module.CoreUObject.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:05",
+          "message": "[454/546] Compile Module.CoreUObject.17.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:05",
+          "message": "[455/546] Compile RenderContextRHIImpl.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:09",
+          "message": "[456/546] Compile Module.AnimGraphRuntime.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:10",
+          "message": "[457/546] Compile Module.NonRealtimeAudioRenderer.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:11",
+          "message": "[458/546] Compile Module.SoundFieldRendering.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:12",
+          "message": "[459/546] Compile Module.Advertising.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:12",
+          "message": "[460/546] Compile Module.Renderer.8.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:15",
+          "message": "[461/546] Compile Module.HttpReplayStreaming.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:16",
+          "message": "[462/546] Compile [x86-64] SkinnedAsset.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:19",
+          "message": "[463/546] Compile Module.Engine.59.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:20",
+          "message": "[464/546] Compile Module.Renderer.6.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:22",
+          "message": "[465/546] Compile wall.cc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:26",
+          "message": "[466/546] Compile Module.VulkanRHI.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:26",
+          "message": "[467/546] Compile Module.Chaos.6.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:27",
+          "message": "[468/546] Compile Module.VorbisAudioDecoder.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:27",
+          "message": "[469/546] Compile Module.Chaos.24.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:28",
+          "message": "[470/546] Compile Module.RewindDebuggerRuntimeInterface.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:28",
+          "message": "[471/546] Compile Module.RHICore.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:29",
+          "message": "[472/546] Compile Module.Renderer.26.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:31",
+          "message": "[473/546] Compile Module.AudioMixerCore.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:33",
+          "message": "[474/546] Compile Module.Chaos.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:34",
+          "message": "[475/546] Compile Module.TimeManagement.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:34",
+          "message": "[476/546] Compile Module.AssetRegistry.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:36",
+          "message": "[477/546] Compile Module.RenderCore.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:36",
+          "message": "[478/546] Compile Module.Landscape.5.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:36",
+          "message": "[479/546] Compile Module.AnalyticsET.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:36",
+          "message": "[480/546] Compile Module.UniversalObjectLocator.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:38",
+          "message": "[481/546] Compile Module.Core.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:39",
+          "message": "[482/546] Compile Module.StateStream.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:40",
+          "message": "[483/546] Compile Module.Engine.27.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:43",
+          "message": "[484/546] Compile Module.RenderCore.4.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:43",
+          "message": "[485/546] Compile [x86-64] FloatArrayMath.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:44",
+          "message": "[486/546] Compile Module.IrisCore.6.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:44",
+          "message": "[487/546] Compile Module.Engine.64.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:48",
+          "message": "[488/546] Compile Module.Engine.17.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:52",
+          "message": "[489/546] Compile Module.AppFramework.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:53",
+          "message": "[490/546] Compile Module.NetCore.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:53",
+          "message": "[491/546] Compile [x86-64] SoftsMultiResConstraints.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:53",
+          "message": "[492/546] Compile [x86-64] PerParticlePBDCollisionConstraint.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:54",
+          "message": "[493/546] Compile Module.Engine.45.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:57",
+          "message": "[494/546] Compile Module.BuildSettings.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:57",
+          "message": "[495/546] Compile Module.Foliage.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:58",
+          "message": "[496/546] Compile Module.RHI.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:10:58",
+          "message": "[497/546] Compile Module.AudioLinkCore.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:00",
+          "message": "[498/546] Compile Module.Engine.21.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:02",
+          "message": "[499/546] Compile Module.Engine.20.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:04",
+          "message": "[500/546] Compile Module.MediaUtils.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:06",
+          "message": "[501/546] Compile Module.Engine.12.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:09",
+          "message": "[502/546] Compile Module.Chaos.11.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:09",
+          "message": "[503/546] Compile Module.SlateRHIRenderer.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:10",
+          "message": "[504/546] Compile Module.Slate.8.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:11",
+          "message": "[505/546] Compile Module.CoreUObject.13.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:12",
+          "message": "[506/546] Compile Module.Renderer.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:12",
+          "message": "[507/546] Compile Module.SlateCore.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:13",
+          "message": "[508/546] Compile [x86-64] PBDSoftBodyCollisionConstraint_Simple.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:14",
+          "message": "[509/546] Compile Module.Chaos.20.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:19",
+          "message": "[510/546] Compile Module.Renderer.38.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:20",
+          "message": "[511/546] Compile Module.IoStoreOnDemand.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:20",
+          "message": "[512/546] Compile Module.Core.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:21",
+          "message": "[513/546] Compile Module.Core.16.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:21",
+          "message": "[514/546] Compile [x86-64] VelocityField.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:21",
+          "message": "[515/546] Compile Module.Renderer.29.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:23",
+          "message": "[516/546] Compile Module.EngineSettings.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:25",
+          "message": "[517/546] Compile Module.Landscape.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:25",
+          "message": "[518/546] Compile Module.Chaos.28.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:26",
+          "message": "[519/546] Compile Module.SignalProcessing.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:26",
+          "message": "[520/546] Compile Module.TypedElementFramework.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:26",
+          "message": "[521/546] Compile Module.MassCore.3.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:27",
+          "message": "[522/546] Compile Module.CinematicCamera.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:29",
+          "message": "[523/546] Compile unitcell.cc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:35",
+          "message": "[524/546] Compile Module.Nanosvg.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:37",
+          "message": "[525/546] Compile Module.AudioLinkEngine.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:39",
+          "message": "[526/546] Compile Module.ToolMenus.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:41",
+          "message": "[527/546] Compile Module.MassCore.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:41",
+          "message": "[528/546] Compile Module.Renderer.31.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:41",
+          "message": "[529/546] Compile Module.MRMesh.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:42",
+          "message": "[530/546] Compile Module.Engine.34.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:44",
+          "message": "[531/546] Compile Module.NetCommon.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:45",
+          "message": "[532/546] Compile Module.Renderer.18.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:46",
+          "message": "[533/546] Compile Module.Renderer.2.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:48",
+          "message": "[534/546] Compile Module.CoreOnline.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:49",
+          "message": "[535/546] Compile Module.Renderer.36.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:49",
+          "message": "[536/546] Compile Module.Engine.36.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:50",
+          "message": "[537/546] Compile Module.Engine.8.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:51",
+          "message": "[538/546] Compile Module.GeometryCollectionEngine.1.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:53",
+          "message": "[539/546] Compile Module.Renderer.37.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:11:53",
+          "message": "[540/546] Compile TextureRHIImpl.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:12:01",
+          "message": "[541/546] Compile [x86-64] AnimEncoding_PerTrackCompression.ispc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:12:07",
+          "message": "[542/546] Compile Module.Engine.15.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:12:10",
+          "message": "[543/546] Compile Module.Engine.49.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:12:10",
+          "message": "[544/546] Compile Module.Engine.13.cpp [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:12:10",
+          "message": "Total time in Unreal Build Accelerator local executor: 765.92 seconds"
+        },
+        {
+          "time": "2026-10-24T11:12:10",
+          "message": "Result: Failed (OtherCompilationError)"
+        },
+        {
+          "time": "2026-10-24T11:12:10",
+          "message": "Total execution time: 775.46 seconds"
+        },
+        {
+          "time": "2026-10-24T11:12:10",
+          "message": "   0.695          [  9.333]+765.924 ActionGraph.ExecuteActions()"
+        }
+      ]
+    },
+    "reference-ubt-backup-2026.10.24-11.14.30": {
+      "path": "/mnt/f/Github/Rive-UE-Lite/artifacts/setup/reference-ubt-backup-2026.10.24-11.14.30.json",
+      "events": [
+        {
+          "time": "2026-10-24T11:12:21",
+          "message": "Executing up to 6 actions based on MaxProcessorCount override"
+        },
+        {
+          "time": "2026-10-24T11:12:25",
+          "message": "Building RiveUeReference - RiveUeReference - Linux - Development"
+        },
+        {
+          "time": "2026-10-24T11:12:31",
+          "message": "Building RiveUeReference..."
+        },
+        {
+          "time": "2026-10-24T11:12:33",
+          "message": "[1/4] Compile pre_container.cc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:14:28",
+          "message": "[2/4] Compile v_compute.cc [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:14:28",
+          "message": "[3/4] Link RiveUeReference [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:14:29",
+          "message": "[4/4] WriteMetadata RiveUeReference.target [NoUba]"
+        },
+        {
+          "time": "2026-10-24T11:14:29",
+          "message": "Total time in Unreal Build Accelerator local executor: 118.42 seconds"
+        },
+        {
+          "time": "2026-10-24T11:14:30",
+          "message": "Result: Succeeded"
+        },
+        {
+          "time": "2026-10-24T11:14:30",
+          "message": "Total execution time: 132.44 seconds"
+        },
+        {
+          "time": "2026-10-24T11:14:30",
+          "message": "   0.701          [ 13.636]+118.426 ActionGraph.ExecuteActions()"
+        }
+      ]
+    }
+  },
+  "sequential_incremental_timing_observations": [
+    {
+      "target": "RiveRhiLite",
+      "log_stem": "playback-hosts-01-RiveRhiLite.ubt",
+      "total_seconds": 52.4122463,
+      "executor_seconds": 39.6122518,
+      "compile_then_link_only": true,
+      "compile_seconds_approx": 18,
+      "full_link_action_seconds_approx": 21,
+      "metadata_seconds_approx": 1,
+      "derived_from": "Executor starts approximately11:55:34-35; Compile completion11:55:52 and Link completion11:56:13. Completion times only have1-second precision; compilation estimate rounded."
+    },
+    {
+      "target": "RiveUeReference",
+      "log_stem": "playback-hosts-01-RiveUeReference.ubt",
+      "total_seconds": 229.2730237,
+      "executor_seconds": 209.3902967,
+      "compile_then_link_only": true,
+      "compile_seconds_approx": 30.4,
+      "full_link_action_seconds_approx": 178,
+      "metadata_seconds_approx": 1,
+      "derived_from": "executor start timeline at11:56:37 approximately, compile completed11:57:07, Link action completed12:00:05; 1-second timestamp precision"
+    },
+    {
+      "target": "RiveUeReference",
+      "log_stem": "reference-ubt",
+      "total_seconds": 162.8138026,
+      "executor_seconds": 151.7462703,
+      "compile_then_link_only": true,
+      "compile_seconds_approx": 25.7,
+      "full_link_action_seconds_approx": 125,
+      "metadata_seconds_approx": 1,
+      "derived_from": "executor duration minus125-second link and1-second metadata gives compile ~25.7s; other run/source snapshot, not paired controlled benchmark"
+    }
+  ],
+  "timing_limit": "Historical UBT completion timestamps have 1-second precision. Full Link action includes ld, dump_syms, BreakpadSymbolEncoder, strip/only-keep-debug/debuglink objcopy. Initial cold reference attempt546 actions failed at775.46s before final link, then corrective incrementals: not a clean successful cold-build benchmark. Playback runs had6 MaxParallelActions on Ryzen9950X WSL2, source staged ext4 and outputs NTFS; not a small cloud host.",
+  "native_linux_fast_iteration_switches": {
+    "cli": "-NoDumpSyms",
+    "target_rule": "LinuxPlatform.bDisableDumpSyms = true;",
+    "xml_config": "BuildConfiguration/bDisableDumpSyms=true",
+    "source_declaration": "engine/Engine/Source/Programs/UnrealBuildTool/Platform/Linux/UEBuildLinux.cs:129-133",
+    "source_use": "engine/Engine/Source/Programs/UnrealBuildTool/Platform/Linux/LinuxToolChain.cs:236-262",
+    "behavior": "Skips both dump_syms and BreakpadSymbolEncoder, writes dummy .sym; bPreservePSYM must remain false, otherwise preserved-symbol path overrides DisableDumpSyms. Does not skip ld or objcopy strip/debug extraction. No timing improvement measured.",
+    "avoid_for_size_estimates": "-NoStripSymbols preserves full debug info in the deployed ELF and therefore is unsuitable for comparing minimal deployment bytes."
+  }
+}

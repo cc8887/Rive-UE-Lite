@@ -1,0 +1,144 @@
+{
+  "status": "assessment_complete_not_umg_runtime_validated",
+  "scope": "Native UMG Runtime, small UI, no UMGEditor/UnrealEd Designer; pinned UE6 Linux Development, Ryzen 9950X/WSL2",
+  "actual_umg_build_executed": false,
+  "actual_umg_capture_executed": false,
+  "existing_binaries": {
+    "RiveRhiLite": {
+      "elf_bytes": 31296864,
+      "elf_sha256": "3337a45eda7d6701dfdf37cd108b7fe99dc76941f1396ab7cab93e7c98414ea6"
+    },
+    "RiveUeReference": {
+      "elf_bytes": 169180336,
+      "elf_sha256": "8065f6f083b81194ffa23b961681e0f4a2158a0b4645668e5681ef2d4ae04e5f"
+    }
+  },
+  "matched_content_capacity_samples": {
+    "lite": {
+      "deployable": false,
+      "umg_rendered": false,
+      "logical_bytes": 53547042,
+      "executable_bytes": 31296864,
+      "executable_sha256": "3337a45eda7d6701dfdf37cd108b7fe99dc76941f1396ab7cab93e7c98414ea6",
+      "gzip_bytes": 17500867,
+      "gzip_sha256": "fa4834b753113a677e3085a89a6f1bb2c7d4c404ca3ef1bb7f40ebbd674574e0",
+      "archive": "F:\\Github\\Rive-UE-Lite\\artifacts\\umg-assessment\\capacity-02\\lite.capacity-only.tar.gz",
+      "file_count": 49,
+      "compression_wall_seconds": 2.042752500041388,
+      "extra_receipt_files": []
+    },
+    "engine_umg_linked_reference": {
+      "deployable": false,
+      "umg_rendered": false,
+      "logical_bytes": 191690082,
+      "executable_bytes": 169180336,
+      "executable_sha256": "8065f6f083b81194ffa23b961681e0f4a2158a0b4645668e5681ef2d4ae04e5f",
+      "gzip_bytes": 68920570,
+      "gzip_sha256": "55b7ba384c21a246b6d43401a72f20d376a1a737d311d766abb897e7f3bb1b4d",
+      "archive": "F:\\Github\\Rive-UE-Lite\\artifacts\\umg-assessment\\capacity-02\\engine_umg_linked_reference.capacity-only.tar.gz",
+      "file_count": 50,
+      "compression_wall_seconds": 6.137312999984715,
+      "extra_receipt_files": [
+        {
+          "path": "F:\\Github\\Rive-UE-Lite\\engine\\Engine\\Content\\Renderer\\TessellationTable.bin",
+          "archive_path": "Engine/Content/Renderer/TessellationTable.bin",
+          "bytes": 259568,
+          "sha256": "edc4f3b628a139c5e185bbaeca661c95c1f427368d3b92892c5cff36c56dd941"
+        }
+      ]
+    }
+  },
+  "stock_slate_content_bytes_from_pinned_metadata": 8036801,
+  "reference_proxy_plus_stock_slate_raw_bytes_before_new_shaders_assets": 199726883,
+  "planning_estimate_not_measurement": {
+    "raw_mib": [
+      190,
+      220
+    ],
+    "gzip_mib": [
+      70,
+      90
+    ],
+    "assumptions": [
+      "small native UMG runtime sample with a few UI resources",
+      "Engine/Renderer retained at current reference scope",
+      "exclude editor/designer, SDK and debug products",
+      "Slate shader/UI asset/material cook still required",
+      "system libraries and CPU Vulkan driver closure extra"
+    ],
+    "not_a_bound_for_arbitrary_projects": true
+  },
+  "single_cpp_incremental_historical_observations": [
+    {
+      "target": "RiveRhiLite",
+      "log_stem": "playback-hosts-01-RiveRhiLite.ubt",
+      "total_seconds": 52.4122463,
+      "executor_seconds": 39.6122518,
+      "compile_then_link_only": true,
+      "compile_seconds_approx": 18,
+      "full_link_action_seconds_approx": 21,
+      "metadata_seconds_approx": 1,
+      "derived_from": "Executor starts approximately11:55:34-35; Compile completion11:55:52 and Link completion11:56:13. Completion times only have1-second precision; compilation estimate rounded."
+    },
+    {
+      "target": "RiveUeReference",
+      "log_stem": "playback-hosts-01-RiveUeReference.ubt",
+      "total_seconds": 229.2730237,
+      "executor_seconds": 209.3902967,
+      "compile_then_link_only": true,
+      "compile_seconds_approx": 30.4,
+      "full_link_action_seconds_approx": 178,
+      "metadata_seconds_approx": 1,
+      "derived_from": "executor start timeline at11:56:37 approximately, compile completed11:57:07, Link action completed12:00:05; 1-second timestamp precision"
+    },
+    {
+      "target": "RiveUeReference",
+      "log_stem": "reference-ubt",
+      "total_seconds": 162.8138026,
+      "executor_seconds": 151.7462703,
+      "compile_then_link_only": true,
+      "compile_seconds_approx": 25.7,
+      "full_link_action_seconds_approx": 125,
+      "metadata_seconds_approx": 1,
+      "derived_from": "executor duration minus125-second link and1-second metadata gives compile ~25.7s; other run/source snapshot, not paired controlled benchmark"
+    }
+  ],
+  "incremental_limit": "existing monolithic hosts; not a newly measured UMG prototype; header/UHT/global-flag changes can rebuild more",
+  "cold_full_compile_successful_separate_timing": null,
+  "data_only_edits": {
+    "riv_or_runtime_layout_json": "no C++ compilation if the fixed host supports the requested feature",
+    "widget_blueprint_content": "Blueprint compile/cook required; runtime loading of already cooked class does not require UMGEditor",
+    "source_widget_blueprint_designer": "requires separate editor/compiler graph; runtime size budget does not apply"
+  },
+  "compile_optimization_candidate": {
+    "switch": "-NoDumpSyms",
+    "target_property": "LinuxPlatform.bDisableDumpSyms=true",
+    "source_verified": true,
+    "optimized_time_measured": false,
+    "keep_symbol_stripping": true
+  },
+  "remaining_runtime_gates": [
+    "Slate shader cooking and text/default style resources",
+    "real UWidget/TakeWidget/FWidgetRenderer capture on CPU Vulkan",
+    "GEngine-sensitive UI material/default texture and DPI/input paths"
+  ],
+  "preserved_existing_sources_and_runtime_binaries": true,
+  "evidence": [
+    {
+      "path": "F:\\Github\\Rive-UE-Lite\\artifacts\\umg-assessment\\capacity-02\\report.json",
+      "sha256": "f91afe47a1fc0db0f2718c7c0109cd564c9e05f66464240f39e849d0f4a8b8a5"
+    },
+    {
+      "path": "F:\\Github\\Rive-UE-Lite\\artifacts\\umg-assessment\\cost-audit.json",
+      "sha256": "80240167e49858779c08a6707f23b4be5f1bdb080bb2232663a75e1a494e905d"
+    },
+    {
+      "path": "F:\\Github\\Rive-UE-Lite\\artifacts\\umg-assessment\\dependency-audit.md",
+      "sha256": "295c8ed7dce8c1cac5a07bf92bbcf877d074655c86226e1cbe318c8d9775b4d9"
+    },
+    {
+      "path": "F:\\Github\\Rive-UE-Lite\\artifacts\\umg-assessment\\slate-content-metadata.json",
+      "sha256": "dec8f61311d829a7a045cab47e53846faa418f0e05c55ee6af08e82d29812188"
+    }
+  ]
+}

@@ -1,0 +1,5094 @@
+{
+  "scope": "Existing Commit.gitdeps.xml file->blob Size metadata only; no asset download, cook, compression or render execution",
+  "asset_sizes_are_not_lfs_pointer_sizes": true,
+  "git_provenance": {
+    "head": "62d7c1a7125b52b10ee1b714838f515f3563f795",
+    "manifest_head_blob": "02a5d3f93d5b595d8338d9eddb8c910e25d84e3b",
+    "manifest_worktree_blob": "02a5d3f93d5b595d8338d9eddb8c910e25d84e3b",
+    "slate_tree_entries": 0,
+    "lazy_fetch_disabled": true
+  },
+  "size_semantics": "GitDependencies Blob Size is expected extracted file length; Pack CompressedSize is not per-file package size",
+  "manifest": {
+    "path": "F:\\Github\\Rive-UE-Lite\\engine\\Engine\\Build\\Commit.gitdeps.xml",
+    "sha256": "5114af13b030ba7ec3ac024be2cdd6af935cfd41d1303adfa1862f1dfe9833cc"
+  },
+  "font_source": {
+    "path": "F:\\Github\\Rive-UE-Lite\\engine\\Engine\\Source\\Runtime\\SlateCore\\Private\\Fonts\\LegacySlateFontInfoCache.cpp",
+    "sha256": "8007e064609f5a67444f5d07ee3f4ef00b5ca01c7e54f6f5461b4cfc0d46d8d0"
+  },
+  "stock_bUsesSlate_linux_staged_extensions": {
+    "files": 799,
+    "expected_bytes": 8036801,
+    "expected_mib": 7.664491,
+    "missing_size_records": 0,
+    "materialized_files": 0,
+    "unique_hashes": 788
+  },
+  "stock_bUsesSlate_linux_by_extension": {
+    ".png": {
+      "files": 426,
+      "expected_bytes": 1722304,
+      "expected_mib": 1.642517,
+      "missing_size_records": 0,
+      "materialized_files": 0,
+      "unique_hashes": 422
+    },
+    ".svg": {
+      "files": 355,
+      "expected_bytes": 298609,
+      "expected_mib": 0.284776,
+      "missing_size_records": 0,
+      "materialized_files": 0,
+      "unique_hashes": 349
+    },
+    ".tps": {
+      "files": 3,
+      "expected_bytes": 1740,
+      "expected_mib": 0.001659,
+      "missing_size_records": 0,
+      "materialized_files": 0,
+      "unique_hashes": 3
+    },
+    ".ttf": {
+      "files": 15,
+      "expected_bytes": 6014148,
+      "expected_mib": 5.735538,
+      "missing_size_records": 0,
+      "materialized_files": 0,
+      "unique_hashes": 14
+    }
+  },
+  "slate_all_files": {
+    "files": 806,
+    "expected_bytes": 8833291,
+    "expected_mib": 8.424083,
+    "missing_size_records": 0,
+    "materialized_files": 0,
+    "unique_hashes": 795
+  },
+  "slate_fonts_all": {
+    "files": 17,
+    "expected_bytes": 5852440,
+    "expected_mib": 5.581322,
+    "missing_size_records": 0,
+    "materialized_files": 0,
+    "unique_hashes": 17
+  },
+  "native_default_font_unique_files": {
+    "files": 13,
+    "expected_bytes": 5811572,
+    "expected_mib": 5.542347,
+    "missing_size_records": 0,
+    "materialized_files": 0,
+    "unique_hashes": 13
+  },
+  "native_default_font_files": [
+    {
+      "Name": "Engine/Content/Slate/Fonts/DroidSansFallback.ttf",
+      "Hash": "c5e4f11e2f1d0b84e5f268a7ebfd28b54dc6bcdc",
+      "expected_bytes": 3939852,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/DroidSansMono.ttf",
+      "Hash": "4d3d8054231ec4e9bfc14a46ad4d60c575fbfeec",
+      "expected_bytes": 78296,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/NotoNaskhArabicUI-Regular.ttf",
+      "Hash": "02e530d7ec5b60be4ecbf3afa9c415359ee63f3f",
+      "expected_bytes": 146548,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-Black.ttf",
+      "Hash": "9eb4f9d1aaceb455483d15ce81fd6dcb1fbdb062",
+      "expected_bytes": 164936,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-BlackItalic.ttf",
+      "Hash": "67907afda4a0fc301e49f6befa402317840d413b",
+      "expected_bytes": 166320,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-Bold.ttf",
+      "Hash": "d313ab2c45756bf4e972647f5b2ad691ad250990",
+      "expected_bytes": 163448,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-BoldCondensed.ttf",
+      "Hash": "55c1735e4085089e2ea3b03e9809fb933c3b5db7",
+      "expected_bytes": 161308,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-BoldCondensedItalic.ttf",
+      "Hash": "4d713416816079267467f0abf05e9491a58b7544",
+      "expected_bytes": 163584,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-BoldItalic.ttf",
+      "Hash": "9cfd661f459c98f17d3c88191d9df87b960c2ae6",
+      "expected_bytes": 165864,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-Italic.ttf",
+      "Hash": "2a5ad885c7e58322832e6e651156ffc131e27f2e",
+      "expected_bytes": 160736,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-Light.ttf",
+      "Hash": "73a2bb2d6e591a90ffb4ed118a3989fb17b54c7b",
+      "expected_bytes": 170420,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-Medium.ttf",
+      "Hash": "f6783010d5def128c4a1539333324f75701d9bab",
+      "expected_bytes": 171656,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-Regular.ttf",
+      "Hash": "a18dcbf99c8d2325c2fbf22a64e8cc28a0cf4d3b",
+      "expected_bytes": 158604,
+      "materialized": false
+    }
+  ],
+  "custom_english_regular_font_only": {
+    "files": 1,
+    "expected_bytes": 158604,
+    "expected_mib": 0.151257,
+    "missing_size_records": 0,
+    "materialized_files": 0,
+    "unique_hashes": 1
+  },
+  "english_font_warning": "One regular font is a custom restricted style, not full default FCoreStyle or Unicode/font-style equivalence",
+  "slate_debug_nonufs_separate": {
+    "files": 2,
+    "expected_bytes": 5395968,
+    "expected_mib": 5.145996,
+    "missing_size_records": 0,
+    "materialized_files": 0,
+    "unique_hashes": 2
+  },
+  "engine_font_uncooked_uasset_separate": {
+    "files": 16,
+    "expected_bytes": 5169838,
+    "expected_mib": 4.930342,
+    "missing_size_records": 0,
+    "materialized_files": 0,
+    "unique_hashes": 16
+  },
+  "editor_fonts_not_runtime_default_separate": {
+    "files": 17,
+    "expected_bytes": 25214140,
+    "expected_mib": 24.046078,
+    "missing_size_records": 0,
+    "materialized_files": 0,
+    "unique_hashes": 17
+  },
+  "stock_stage_files": [
+    {
+      "Name": "Engine/Content/Slate/Automation/DeveloperDirectoryContent.png",
+      "Hash": "fa3625f95e9db44326aa488b26eeea93b542f880",
+      "expected_bytes": 5870,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/EditorGroupBorder.png",
+      "Hash": "4c7241c3ae54119b84c0f8ba4954ad3e047b4ab0",
+      "expected_bytes": 3222,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/ErrorFilter.png",
+      "Hash": "2d53d2cbec1952be0203047c4b239f027def7004",
+      "expected_bytes": 6763,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/ExcludedTestsFilter.png",
+      "Hash": "2429274d93b5a41406b349f6e49304664dae7302",
+      "expected_bytes": 19833,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/Fail.png",
+      "Hash": "eb1fcc0d4a1f3e169b25fcae2592b0aef67e3dee",
+      "expected_bytes": 18239,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/GameGroupBorder.png",
+      "Hash": "e025c680baad1ae53b37f99aa0c82319dbdee662",
+      "expected_bytes": 3259,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/Groups.png",
+      "Hash": "408ccd4e916270299a50a0a12591ae8e0bef6d92",
+      "expected_bytes": 40036,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/InProcess.png",
+      "Hash": "095ea64bfe47c7958d213fbdf54cd168a30f72d8",
+      "expected_bytes": 3513,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/NoSessionWarning.png",
+      "Hash": "51b1e44085b2fc06d2906ca17aa6b4093defd650",
+      "expected_bytes": 2964,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/NotEnoughParticipants.png",
+      "Hash": "08ebf0afddeec30c36b4740a68ac6cfa45e27807",
+      "expected_bytes": 3333,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/NotRun.png",
+      "Hash": "64f4e0b81e31217341d56bd0edd39e90ea0191a7",
+      "expected_bytes": 2846,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/Participant.png",
+      "Hash": "45326ea61a874b6dd1aaf88a192cb53ee81626e0",
+      "expected_bytes": 3436,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/ParticipantsWarning.png",
+      "Hash": "08ebf0afddeec30c36b4740a68ac6cfa45e27807",
+      "expected_bytes": 3333,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/RefreshTests.png",
+      "Hash": "e274661e79256c4bb44dc3e93e95d2d22956a341",
+      "expected_bytes": 5742,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/RefreshWorkers.png",
+      "Hash": "bca9abad19d8789695b5ff101804a42e69ee2904",
+      "expected_bytes": 6370,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/RunTests.png",
+      "Hash": "30c2651557d7708eb5ff65a45e7c44d06b08ce7f",
+      "expected_bytes": 4618,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/SmokeTest.png",
+      "Hash": "02e0fd13d7518ddef6f1c2ce8c95ad5b999ddc50",
+      "expected_bytes": 3188,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/SmokeTestFilter.png",
+      "Hash": "c4c937841bc00741a2bb3b8f21fd1a015ba2afc9",
+      "expected_bytes": 6464,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/SmokeTestParent.png",
+      "Hash": "de7fce70e0e91ffd1053c67c7c75355e72c12eac",
+      "expected_bytes": 2980,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/StopTests.png",
+      "Hash": "40e6fa81b073bbeb0be20afaa6ddbdb90b5a51b5",
+      "expected_bytes": 4531,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/Success.png",
+      "Hash": "3b14c5cbf0b9dec98ec849a89598b961e60a03cf",
+      "expected_bytes": 18200,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/TrackTestHistory.png",
+      "Hash": "529e6e9ea01875122c8d7220ef9aa48438f51265",
+      "expected_bytes": 9229,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/VisualCommandlet.png",
+      "Hash": "e9a63b215a37b78d137369e895105447e39bac28",
+      "expected_bytes": 5638,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/Warning.png",
+      "Hash": "0154ef8b0fa5803465501a8d86d76e6464b3f50c",
+      "expected_bytes": 18112,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Automation/WarningFilter.png",
+      "Hash": "02241efed2761a66214c3d328825e074e1ce21e8",
+      "expected_bytes": 6706,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Checkerboard.png",
+      "Hash": "54aa820a7706a590d188e1785da9e04610279f96",
+      "expected_bytes": 344,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/BoxShadow.png",
+      "Hash": "888e24b7d6470d6bbd7d1426721eb327d67a097d",
+      "expected_bytes": 1131,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Button.png",
+      "Hash": "ece9d93f5d0eedc49ecf1c03a89f45fcb3a40c60",
+      "expected_bytes": 483,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Button_Disabled.png",
+      "Hash": "13954963c48c2ac397818ed48cb79e6f657ff8ed",
+      "expected_bytes": 512,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Button_Hovered.png",
+      "Hash": "c19fc10b2fc5f24fb80572b97ec5675d89351faf",
+      "expected_bytes": 3352,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Button_Pressed.png",
+      "Hash": "38763d53bb5cdf5dd864661d1ffecc6c6985d6fc",
+      "expected_bytes": 2995,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Check.png",
+      "Hash": "6feb2a75a8626b78dd8e23baecbb56c757ae86e2",
+      "expected_bytes": 457,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/CheckBox.png",
+      "Hash": "dad76e6b63131abd0dd263eecb6b7f719f711a8b",
+      "expected_bytes": 401,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/CheckBox_Checked.png",
+      "Hash": "d7e1e50959e39088a9bb2f6002cfe503cce7f45b",
+      "expected_bytes": 500,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/CheckBox_Checked_Hovered.png",
+      "Hash": "5b4bd17dc89ce06becf90c234069a96e132f1e2e",
+      "expected_bytes": 510,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/CheckBox_Hovered.png",
+      "Hash": "377d89b8d163a79045eaf17a47b7295fcae8f7bd",
+      "expected_bytes": 390,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/CheckBox_Undetermined.png",
+      "Hash": "bc776af6c8a23f8602e75c700d851f4f9ff9777b",
+      "expected_bytes": 414,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/CheckBox_Undetermined_Hovered.png",
+      "Hash": "58921f1b840ae560c8610faef5198c66be1a680b",
+      "expected_bytes": 418,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Checker.png",
+      "Hash": "be60b115b1dbc04cdc00267e4ec83357975ccab1",
+      "expected_bytes": 360,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Circle.png",
+      "Hash": "fc76dad1435dfe42c1deab244fc06be9c60cdf40",
+      "expected_bytes": 373,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ColorGradingWheel.png",
+      "Hash": "26044a3a1dc853b2b4e57a0363b5f47946158d6f",
+      "expected_bytes": 35226,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ColorPicker_Mode_16x.png",
+      "Hash": "d5d7beaa674b7ac33a268ed4f3ed5084ccb3b1ca",
+      "expected_bytes": 943,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ColorPicker_Separator.png",
+      "Hash": "96db8d40d8ea04cc7bddbfcceccedac901a37b45",
+      "expected_bytes": 159,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ColorPicker_SliderHandle.png",
+      "Hash": "3a2bf3255ef5b09c07066fce680e51d46a69eee7",
+      "expected_bytes": 182,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ColorSpectrum.png",
+      "Hash": "2269089cd99bb6633b6e9202583ffedaa0889e4e",
+      "expected_bytes": 266833,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ColorSpectrum_20x.png",
+      "Hash": "dc0d8c1c0c2a7f1688a79c0d74bad6a9bb580dd7",
+      "expected_bytes": 532,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ColorWheel.png",
+      "Hash": "1606636939d83873f4e8a3b54ae68956a9d6d933",
+      "expected_bytes": 71817,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ColorWheel_20x.png",
+      "Hash": "0710b69ac9505cf7981e0ad8d7c66a274cd34479",
+      "expected_bytes": 964,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ColumnHeader.png",
+      "Hash": "bb00038ac4ed7fd3a8941d2da1363fed6cd82125",
+      "expected_bytes": 369,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ColumnHeaderMenuButton_Hovered.png",
+      "Hash": "b514f7d61ce3dc6984c54c0f9e2633b13f492c65",
+      "expected_bytes": 1799,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ColumnHeaderMenuButton_Normal.png",
+      "Hash": "83a8e2ed06294aa1ce7ac73df2933eade7932470",
+      "expected_bytes": 350,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ColumnHeader_Arrow.png",
+      "Hash": "48fea2ec1ef4ada497922ab0f5c117b378bf3d47",
+      "expected_bytes": 191,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ColumnHeader_Hovered.png",
+      "Hash": "1720f36c8e0c62febf2ca282c82364c930655d90",
+      "expected_bytes": 1725,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ComboArrow.png",
+      "Hash": "168f4ae4ac4fbdd81b384910a2cc0a204811e06d",
+      "expected_bytes": 361,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/CursorPing.png",
+      "Hash": "41f5752130c88d07bc75928c297648e5a2ef598c",
+      "expected_bytes": 3196,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/DarkGroupBorder.png",
+      "Hash": "9a4a8b012c4248ad60542fa6f0155642f2b3c0e7",
+      "expected_bytes": 410,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/DebugBorder.PNG",
+      "Hash": "1b248f401c932073e7d0fcaaa9c8c35e36f5246b",
+      "expected_bytes": 374,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Delimiter.png",
+      "Hash": "202a0d3af6741c820bc3483b2188744125f40827",
+      "expected_bytes": 403,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/DownArrow.png",
+      "Hash": "450ac12d21c0fa0bfd9e5d269b1577a9f48f935b",
+      "expected_bytes": 361,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/DropZoneIndicator_Above.png",
+      "Hash": "8e5a26b440f52108694f5eaf7e4b900395f3a47a",
+      "expected_bytes": 15666,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/DropZoneIndicator_Below.png",
+      "Hash": "a7def3f874023df7f0514d32a577eca235e8973e",
+      "expected_bytes": 15470,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/DropZoneIndicator_Onto.png",
+      "Hash": "f87b56edd6a46eca3d2b77859a073c892b074fda",
+      "expected_bytes": 15599,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/EditableTextSelectionBackground.png",
+      "Hash": "37041e3ca6b2862b1b5706b53409e7485c63d835",
+      "expected_bytes": 354,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/EventMessage_Default.png",
+      "Hash": "dbbd4545f5e319238def60333d0b556f750468da",
+      "expected_bytes": 653,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ExpansionButton_CloseOverlay.png",
+      "Hash": "0f5c013bb5f76d4ee57df167db8a911fb1b0ffc6",
+      "expected_bytes": 468,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/GroupBorder.png",
+      "Hash": "c821924e8a278ef3b0892c29f8dca8de9f3d9999",
+      "expected_bytes": 411,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/GroupBorder_Shape.png",
+      "Hash": "6c4b82480b0ff84a7665db1c3db53993de8caf23",
+      "expected_bytes": 170,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/HeaderSplitterGrip.PNG",
+      "Hash": "6777d640b2cd3a62d314013513f0405eeb3c466f",
+      "expected_bytes": 347,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/LastColumnHeader_Hovered.png",
+      "Hash": "ac843506cc11161c1b78a3250920331ecf4687eb",
+      "expected_bytes": 1695,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/LeftArrow.png",
+      "Hash": "22da9d6af31f49087a78b9dce7f69c74c7786754",
+      "expected_bytes": 2823,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/LightGroupBorder.png",
+      "Hash": "f4e0f32ee6ce09a6e3e8d29d5dd34454a960e036",
+      "expected_bytes": 445,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/NoiseBackground.png",
+      "Hash": "2507ba66f7132ec561870bedb5bb710bcaeac326",
+      "expected_bytes": 2236,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/PlainBorder.png",
+      "Hash": "b7a3d9c57ed6610717228e666428b4c850e898f6",
+      "expected_bytes": 162,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ProfileVisualizer_Mono.png",
+      "Hash": "03cad62e4a0c36615bc511f1b09c8e8f8970bd66",
+      "expected_bytes": 2871,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ProfileVisualizer_Normal.png",
+      "Hash": "37182fee938725a2a556e0ed48f4e84eb9a8aca3",
+      "expected_bytes": 2909,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ProfileVisualizer_Selected.png",
+      "Hash": "7937cc1f0d72f6695acda4b75bf9769ccfc09168",
+      "expected_bytes": 2903,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ProgressBar_Background.png",
+      "Hash": "dd40abd8b33e4c8c254805e0cd98a4f488c85b2a",
+      "expected_bytes": 472,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ProgressBar_Fill.png",
+      "Hash": "b86d0ed3989cec7b68292ebad8518e55caae49c5",
+      "expected_bytes": 421,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ProgressBar_Marquee.PNG",
+      "Hash": "8e8da05e57c2e2a3cfc1f2a656953796f44d7d6c",
+      "expected_bytes": 588,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/RadioButton_SelectedBack_16x.png",
+      "Hash": "4b51d1eb9c5349b5a96e3c955d7a6534df84b6d1",
+      "expected_bytes": 3031,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/RadioButton_Selected_16x.png",
+      "Hash": "eb68ed94b9a94c2ca55792eb104aa19b7956c881",
+      "expected_bytes": 633,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/RadioButton_Unselected_16x.png",
+      "Hash": "f97d7a5c7c0e1bccee1d1487d1bc5d7ac4136411",
+      "expected_bytes": 16867,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/RoundedSelection_16x.PNG",
+      "Hash": "ee05ec4ad3f4c8610cf2f8b69e120a16f2c5a42b",
+      "expected_bytes": 378,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ScrollBorderShadowBottom.png",
+      "Hash": "290d91998101c994c244900529355ff0e8cb1940",
+      "expected_bytes": 484,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ScrollBorderShadowTop.png",
+      "Hash": "9bc259fe9ed60cf22d696fe23cad4a48f0cb9acf",
+      "expected_bytes": 489,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ScrollBoxShadowBottom.png",
+      "Hash": "918be757c507fa8c337443854a081307cc7f9ac0",
+      "expected_bytes": 484,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ScrollBoxShadowLeft.png",
+      "Hash": "1f35dcc30cdbf6927e19ce108b1e7982e897cdbc",
+      "expected_bytes": 491,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ScrollBoxShadowRight.png",
+      "Hash": "a8254465799a53183059a5e790c7b22f32800b17",
+      "expected_bytes": 491,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ScrollBoxShadowTop.png",
+      "Hash": "23faac4dd382e93dce8af4b0ba39bb7602f0e73c",
+      "expected_bytes": 489,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Scrollbar_Background_Horizontal.png",
+      "Hash": "75e2865524f7f856d62d838c12a9c7b004227f26",
+      "expected_bytes": 350,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Scrollbar_Background_Vertical.png",
+      "Hash": "cb36598d1ecfef7964dc0f16be2b8672a88f5140",
+      "expected_bytes": 345,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Scrollbar_Thumb.png",
+      "Hash": "d31be3b85e62677f34794a3f7499629f826879a4",
+      "expected_bytes": 397,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/SearchGlass.PNG",
+      "Hash": "a69b2d65bfab8e1313813900688fe72171d548ba",
+      "expected_bytes": 540,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Selection.png",
+      "Hash": "a978b046bdbdda4fb17f004cb4e2059830f0713e",
+      "expected_bytes": 333,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Selector.png",
+      "Hash": "1e3305f4617a0789b443170628a57b1c02c4341e",
+      "expected_bytes": 361,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Separator.png",
+      "Hash": "9ceb165a37b3c1435b2f2d91b039f9ba37980b2c",
+      "expected_bytes": 354,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/SmallCheck.png",
+      "Hash": "6e9b1331c7d8dabfcfb65d324bc92085d8fc0794",
+      "expected_bytes": 457,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/SmallCheckBox.png",
+      "Hash": "5f895c85e4c63d54814b885574edbd9557abb173",
+      "expected_bytes": 369,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/SmallCheckBox_Checked.png",
+      "Hash": "aa75036a504c3d2af2947e3035722df48e7d6fc0",
+      "expected_bytes": 489,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/SmallCheckBox_Checked_Hovered.png",
+      "Hash": "74ef773a93e05ad6214eb7292a68ed44ed3b2454",
+      "expected_bytes": 465,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/SmallCheckBox_Hovered.png",
+      "Hash": "04befc338840155d2e3f5f2057ac716d5d63d3ef",
+      "expected_bytes": 370,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/SmallCheckBox_Undetermined.png",
+      "Hash": "61463ee1445f4158c1520200f371b08df6e2ed61",
+      "expected_bytes": 2858,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/SmallCheckBox_Undetermined_Hovered.png",
+      "Hash": "0b334ff34d670e7dfb1aabbfa216f15fde4b1863",
+      "expected_bytes": 2854,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/SortDownArrow.png",
+      "Hash": "383414bcac64fa2778b4f0e21023dff7de782d05",
+      "expected_bytes": 366,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/SortDownArrows.png",
+      "Hash": "b05d0d5c4cbfe78752beedcf084944a718681812",
+      "expected_bytes": 1217,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/SortUpArrow.png",
+      "Hash": "c5741b4f59bd5377d40f12cbb404ade1a80c87fb",
+      "expected_bytes": 366,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/SortUpArrows.png",
+      "Hash": "daf7e9c1800922ae2580ef3384e37be84a7e3a67",
+      "expected_bytes": 1220,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/SpinArrows.png",
+      "Hash": "42860a3a7f1f7b3b0791910dea43cf8088ebc2f6",
+      "expected_bytes": 420,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Spinbox.PNG",
+      "Hash": "29fc850968608cb89131ea14529dad0f2d6e4f49",
+      "expected_bytes": 404,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Spinbox_Fill.png",
+      "Hash": "2ab76c5e494a59477c6cefea0fe7a1ca3cfe1227",
+      "expected_bytes": 486,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Spinbox_Fill_Dark.png",
+      "Hash": "07a2d908014dc63b29c9834e146679eea6ffd866",
+      "expected_bytes": 532,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Spinbox_Fill_Hovered.png",
+      "Hash": "af50647091323bf50d0a7619ea5b6d305efb7ea6",
+      "expected_bytes": 513,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Spinbox_Fill_Hovered_Dark.png",
+      "Hash": "7e49902d25dc40cd6e50340a96eb066d18d1766f",
+      "expected_bytes": 549,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Spinbox_Hovered.png",
+      "Hash": "88ccdba22f455a0d1a2f4ba73dd5796a5c8f39fa",
+      "expected_bytes": 451,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/SplitterHandleHighlight.png",
+      "Hash": "b3b1c5bff8abd50e270ae44032f55e2ccd047dbc",
+      "expected_bytes": 340,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/SubmenuArrow.png",
+      "Hash": "e5c500c273b51d1c3df8587b9669b0de7a469f72",
+      "expected_bytes": 372,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/TableViewHeader.png",
+      "Hash": "f09d49dc9865161d9bbac690b08483a7839cb017",
+      "expected_bytes": 526,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/TableViewMajorColumn.png",
+      "Hash": "3f60b75477d49793b0b91746c519d28cba8d9ebd",
+      "expected_bytes": 320,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/TextBlockHighlightShape.png",
+      "Hash": "1b39caa9b23204946a4ebaa0744c0d22ed6a1a95",
+      "expected_bytes": 369,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/TextBlockHighlightShape_Empty.png",
+      "Hash": "ca7ef2054606727d746b677665b0ccd2a9bcc46a",
+      "expected_bytes": 379,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/TextBox.png",
+      "Hash": "3b725c203f0830e585ffe48b3f1c6debee21d3c3",
+      "expected_bytes": 405,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/TextBoxLabelBorder.PNG",
+      "Hash": "f74ca3e9e3d75cd2c44ce78208ffad9e0b4b3a90",
+      "expected_bytes": 399,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/TextBox_Dark.png",
+      "Hash": "656297d333ccaacf95dc2c295702650f3be95dab",
+      "expected_bytes": 445,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/TextBox_Hovered.png",
+      "Hash": "6ba585ad1428780a4e68ca15b38e5e29c7dd3d49",
+      "expected_bytes": 410,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/TextBox_Hovered_Dark.png",
+      "Hash": "aa71298fbd854183ef66b8e36599e2f116566ec7",
+      "expected_bytes": 462,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/TextBox_ReadOnly.png",
+      "Hash": "8a806477232168ac01c0c1c1e4aae8f4bec1190f",
+      "expected_bytes": 371,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/TextBox_Special.png",
+      "Hash": "2d08e132f4371c9de42d855df0b8b27e23f0b913",
+      "expected_bytes": 407,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/TextBox_Special_Hovered.png",
+      "Hash": "cf7db916b12b4937f3d1cbda40c9df58b3810bd0",
+      "expected_bytes": 474,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Throbber_Piece.png",
+      "Hash": "cc878124ce2e1b58167734be8ab09c504258a9fd",
+      "expected_bytes": 450,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/TreeArrow_Collapsed.png",
+      "Hash": "73c89e12404e95774125bfc601e308833cd41285",
+      "expected_bytes": 372,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/TreeArrow_Collapsed_Hovered.png",
+      "Hash": "50b43795724a0e52f7e1433d8742ae7354544a4d",
+      "expected_bytes": 369,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/TreeArrow_Expanded.png",
+      "Hash": "7b5074ffe14e29d564707f4942ce25c9ab9a2c89",
+      "expected_bytes": 367,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/TreeArrow_Expanded_Hovered.png",
+      "Hash": "c02862d1c2ba36c2a73d547ff42b59849970fc31",
+      "expected_bytes": 374,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/UpArrow.png",
+      "Hash": "13c69a114a31d98f62e9a6a9618b955c92784284",
+      "expected_bytes": 364,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/VerticalBoxDragIndicator.png",
+      "Hash": "83c5fb2e46afb48a6ebfafce8587cc80f72b27cc",
+      "expected_bytes": 237,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/VerticalBoxDragIndicatorShort.png",
+      "Hash": "cb36e97e3305ae9553edaf5e19fe289a7e820975",
+      "expected_bytes": 348,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/VolumeControl_High.png",
+      "Hash": "10d4b521b4f7480948d148a996d1946e8c50ba96",
+      "expected_bytes": 545,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/VolumeControl_Low.png",
+      "Hash": "8da0dfaa0590edebcc9eca67886ebcf26400630a",
+      "expected_bytes": 504,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/VolumeControl_Mid.png",
+      "Hash": "9491e9542109ebac47f5a1621128bbabfa2a5fab",
+      "expected_bytes": 527,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/VolumeControl_Muted.png",
+      "Hash": "977ffa1a45e20622673a7b64fe46ac990b9ff533",
+      "expected_bytes": 675,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/VolumeControl_Off.png",
+      "Hash": "73ed29f4a360fa3ec0feff41f6331986a4d7525f",
+      "expected_bytes": 462,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/WhiteGroupBorder.png",
+      "Hash": "ac17a927d81bc00bf77f13a8a59ece5af0af27d2",
+      "expected_bytes": 431,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowBackground.png",
+      "Hash": "b56eb97417b3e2e4eb233fd66a52dde8c0807b19",
+      "expected_bytes": 497,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowBorder.png",
+      "Hash": "b9661c474e60ef1fa7a6cdfec428507d25863aca",
+      "expected_bytes": 15445,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowButton_Close_Hovered.png",
+      "Hash": "43ff1e58af8e43ae5f0443d6fa95bbc14ae36baf",
+      "expected_bytes": 1179,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowButton_Close_Normal.png",
+      "Hash": "f601f1f326e4c561b8fd36b51cb0f5ab0ddb357b",
+      "expected_bytes": 786,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowButton_Close_Pressed.png",
+      "Hash": "701903ae3e2959bf31320dfa996a2a54b0e88645",
+      "expected_bytes": 765,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowButton_Maximize_Disabled.png",
+      "Hash": "5926e075840e923b693bd78fcb1c334a60925a13",
+      "expected_bytes": 3100,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowButton_Maximize_Hovered.png",
+      "Hash": "fdcad85d02501132a74a9e63a5dc12ac6d28e6a2",
+      "expected_bytes": 582,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowButton_Maximize_Normal.png",
+      "Hash": "67f6881c0542fa2bf316396984045f670cb36350",
+      "expected_bytes": 394,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowButton_Maximize_Pressed.png",
+      "Hash": "5e66c4c334e9fc2d515e43128ca8f7d248c78c4c",
+      "expected_bytes": 389,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowButton_Minimize_Disabled.png",
+      "Hash": "34433d0e95bf119f57ab9a4d655733f8b9979764",
+      "expected_bytes": 3076,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowButton_Minimize_Hovered.png",
+      "Hash": "c57ace972437419def7301f2fa4f2e32de89051a",
+      "expected_bytes": 565,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowButton_Minimize_Normal.png",
+      "Hash": "84738b3cec4c7b875def9213a3174a839f25d581",
+      "expected_bytes": 367,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowButton_Minimize_Pressed.png",
+      "Hash": "124d4b417c758186ef690fa749544c7910999955",
+      "expected_bytes": 355,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowButton_Restore_Hovered.png",
+      "Hash": "e80e51dbd6ce337a745fa492b3a0fc69d0534e1c",
+      "expected_bytes": 638,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowButton_Restore_Normal.png",
+      "Hash": "cdb19ce66b2c09bf3704dee19b76090f251578b4",
+      "expected_bytes": 480,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowButton_Restore_Pressed.png",
+      "Hash": "1f18502a0e6a033877eb4a4087864ee264b21e2d",
+      "expected_bytes": 470,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowOutline.png",
+      "Hash": "458a1bca061bd46359d652fc6de5b885102f3bd9",
+      "expected_bytes": 392,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowTitle.png",
+      "Hash": "5b34e8316e23a1809e2ff0ec9ba4b3f6700f1975",
+      "expected_bytes": 439,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowTitle_Flashing.png",
+      "Hash": "b128fb31622c5287c30c0406dd24e520f3068c4d",
+      "expected_bytes": 416,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/Window/WindowTitle_Inactive.png",
+      "Hash": "4b580fa091cc3da83c0680e9bc2db80b92ff2ee6",
+      "expected_bytes": 356,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/X.PNG",
+      "Hash": "f525d8c4b4cc965f8b66c18f67c2acd59c0e5b7d",
+      "expected_bytes": 465,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/menu.svg",
+      "Hash": "1c90ecf355cfbaa8afcafb149488eef7b83d8734",
+      "expected_bytes": 398,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/CrashTracker/MouseCursor.png",
+      "Hash": "a676400c1937045df9c42eaf8811d3a0bc583db3",
+      "expected_bytes": 318,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/CrashTracker/Record.png",
+      "Hash": "d730dad4ea39a5513ba52f67b3df5a45962ea4f4",
+      "expected_bytes": 2000,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/AppTabContentArea.png",
+      "Hash": "49226a30456ac2a1479e772c2785a8027a703520",
+      "expected_bytes": 369,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/AppTabWellSeparator.png",
+      "Hash": "cc81b607e5c302ea80dc233c62500d6ac299cb05",
+      "expected_bytes": 2799,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/AppTab_Active.png",
+      "Hash": "f39b972de4125d7149b5c826a6ced897c417394d",
+      "expected_bytes": 3549,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/AppTab_ColorOverlay.png",
+      "Hash": "81355754b2ba19303f0b0643b8634b9f1ec1afa0",
+      "expected_bytes": 696,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/AppTab_ColorOverlayIcon.png",
+      "Hash": "eb7471fff980fac48241993cbcd34ddc924f57ba",
+      "expected_bytes": 4030,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/AppTab_Foreground.png",
+      "Hash": "2b254058a5edbcba81dc2860e8fde33565bb37cc",
+      "expected_bytes": 829,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/AppTab_Hovered.png",
+      "Hash": "11d0b69ecb456616f3d7d9bf4d317a4b5eddbaac",
+      "expected_bytes": 764,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/AppTab_Inactive.png",
+      "Hash": "3de0653fa7cc94030e1351298ff4117a52e11e1c",
+      "expected_bytes": 765,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/CloseApp_Hovered.png",
+      "Hash": "3f30d9dd960dd5a85945d991d0bea364b9e34082",
+      "expected_bytes": 578,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/CloseApp_Normal.png",
+      "Hash": "52957a910bf00aa1f7c3967c77bc80236b84d1b9",
+      "expected_bytes": 429,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/CloseApp_Pressed.png",
+      "Hash": "f0e91aa09e3e07402b1af8dfc0cdbeafee977e6a",
+      "expected_bytes": 529,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/DockingIndicator_Center.png",
+      "Hash": "3e42b5a854da25b7d85a6ab61cb0da62579d6640",
+      "expected_bytes": 1082,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/OuterDockingIndicator.png",
+      "Hash": "6e5dcad5b12c27037be034b4b2a552b99d4379e6",
+      "expected_bytes": 15593,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/ShowTabwellButton_Hovered.png",
+      "Hash": "75ea607d2b7bea084cf7c3ff342a4905c62dd77c",
+      "expected_bytes": 388,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/ShowTabwellButton_Normal.png",
+      "Hash": "f114e8014485a36d31a55deca76ffd007847565b",
+      "expected_bytes": 389,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/ShowTabwellButton_Pressed.png",
+      "Hash": "8907a27134192c98dc50341355794668aefa679a",
+      "expected_bytes": 458,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/TabContentArea.png",
+      "Hash": "8ae05bc7d022803cd926db14407392e2427cbb8b",
+      "expected_bytes": 2826,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/TabWellSeparator.png",
+      "Hash": "f84f54a0df798482dfad70394ddaa577e82054fd",
+      "expected_bytes": 2802,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/Tab_Active.png",
+      "Hash": "8e3320389299efcb253b48baffc10234e5685778",
+      "expected_bytes": 2866,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/Tab_ColorOverlay.png",
+      "Hash": "f5807ee426cb4350d8321b8710ae42c1830e64c2",
+      "expected_bytes": 477,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/Tab_ColorOverlayIcon.png",
+      "Hash": "eb7471fff980fac48241993cbcd34ddc924f57ba",
+      "expected_bytes": 4030,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/Tab_Foreground.png",
+      "Hash": "ea44f304f3a9176a2866c16280cdf12d38690aa6",
+      "expected_bytes": 2832,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/Tab_Hovered.png",
+      "Hash": "ca9966557b2c22932a3b351fb7074c8780a4f017",
+      "expected_bytes": 2838,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/Tab_Inactive.png",
+      "Hash": "2067bdc3f01cf00d94d393b88f2c356ce04e95b0",
+      "expected_bytes": 2838,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Docking/Tab_Shape.png",
+      "Hash": "eda94d824f970eee6facd28621b7cfc127fa00f9",
+      "expected_bytes": 130,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/DroidSans.tps",
+      "Hash": "5c406bae2ddc4101ca6bfca4d01295fb7092606e",
+      "expected_bytes": 266,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/DroidSansFallback.ttf",
+      "Hash": "c5e4f11e2f1d0b84e5f268a7ebfd28b54dc6bcdc",
+      "expected_bytes": 3939852,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/DroidSansMono.ttf",
+      "Hash": "4d3d8054231ec4e9bfc14a46ad4d60c575fbfeec",
+      "expected_bytes": 78296,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Noto.tps",
+      "Hash": "f9321abda999bbc81efad92f64d059a21af286c5",
+      "expected_bytes": 797,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/NotoNaskhArabicUI-Regular.ttf",
+      "Hash": "02e530d7ec5b60be4ecbf3afa9c415359ee63f3f",
+      "expected_bytes": 146548,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/NotoSansThai-Regular.ttf",
+      "Hash": "359f8f8b3f7b70b2feb5ffed23e1c9678fd1b8cc",
+      "expected_bytes": 39128,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-Black.ttf",
+      "Hash": "9eb4f9d1aaceb455483d15ce81fd6dcb1fbdb062",
+      "expected_bytes": 164936,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-BlackItalic.ttf",
+      "Hash": "67907afda4a0fc301e49f6befa402317840d413b",
+      "expected_bytes": 166320,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-Bold.ttf",
+      "Hash": "d313ab2c45756bf4e972647f5b2ad691ad250990",
+      "expected_bytes": 163448,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-BoldCondensed.ttf",
+      "Hash": "55c1735e4085089e2ea3b03e9809fb933c3b5db7",
+      "expected_bytes": 161308,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-BoldCondensedItalic.ttf",
+      "Hash": "4d713416816079267467f0abf05e9491a58b7544",
+      "expected_bytes": 163584,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-BoldItalic.ttf",
+      "Hash": "9cfd661f459c98f17d3c88191d9df87b960c2ae6",
+      "expected_bytes": 165864,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-Italic.ttf",
+      "Hash": "2a5ad885c7e58322832e6e651156ffc131e27f2e",
+      "expected_bytes": 160736,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-Light.ttf",
+      "Hash": "73a2bb2d6e591a90ffb4ed118a3989fb17b54c7b",
+      "expected_bytes": 170420,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-Medium.ttf",
+      "Hash": "f6783010d5def128c4a1539333324f75701d9bab",
+      "expected_bytes": 171656,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-Regular.ttf",
+      "Hash": "a18dcbf99c8d2325c2fbf22a64e8cc28a0cf4d3b",
+      "expected_bytes": 158604,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto.tps",
+      "Hash": "9eedcd71ce2eb1e3570df4ab8397ffe95530b0f4",
+      "expected_bytes": 677,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/BackIcon.png",
+      "Hash": "add91572a2f2c821c4b73061e00589973ad29b8b",
+      "expected_bytes": 583,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Cross_12x.png",
+      "Hash": "be6c39625fe9e51698e34a800615f818ec60a0c0",
+      "expected_bytes": 422,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/DefaultAppIcon.png",
+      "Hash": "441efa7e9ca9c297244c2755039a89abc1461786",
+      "expected_bytes": 1489,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Edit/icon_Edit_Copy_16x.png",
+      "Hash": "8d0bd2bc79c3519ebaed5995c3a740a03701ea45",
+      "expected_bytes": 10356,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Edit/icon_Edit_Cut_16x.png",
+      "Hash": "91c1302dbaef2a06173168a5f58ab6cbb7cb56d1",
+      "expected_bytes": 10282,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Edit/icon_Edit_Delete_16x.png",
+      "Hash": "5bb67e7e8aa4ad76bff6eaa0e184e3d32bb36794",
+      "expected_bytes": 10406,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Edit/icon_Edit_Duplicate_16x.png",
+      "Hash": "a4dd57aba8064a839d9979640e37bea22c1cde94",
+      "expected_bytes": 1495,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Edit/icon_Edit_Paste_16x.png",
+      "Hash": "6bf58ffbe70ec4257f23cea524409c7f15b5e53b",
+      "expected_bytes": 9999,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Edit/icon_Edit_Rename_16x.png",
+      "Hash": "cb85e3d8a0a912e044de73eb95a1e5c148a0306f",
+      "expected_bytes": 11825,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Empty_14x.png",
+      "Hash": "6b20dba3f7e3cb9c9f1a0d887a7f8c94b231e15d",
+      "expected_bytes": 351,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Navigation/candidate-arrow-down.svg",
+      "Hash": "0b73d0fe23f4ccd598b8696d8ac5cffd67849865",
+      "expected_bytes": 756,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Navigation/candidate-arrow-left.svg",
+      "Hash": "4784ccbf640132aa66e1643dd4d41b0fb3940f46",
+      "expected_bytes": 759,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Navigation/candidate-arrow-right.svg",
+      "Hash": "51dff062e04dbbfe1eb28d28f451713b75260bae",
+      "expected_bytes": 738,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Navigation/candidate-arrow-up.svg",
+      "Hash": "643bd3e7793cd7b75f8e9cc38876da414d4235b9",
+      "expected_bytes": 700,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Navigation/focus-arrow-down.svg",
+      "Hash": "b53f87fcc1a4fc4e37e38cd7d65fd47694b35f29",
+      "expected_bytes": 677,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Navigation/focus-arrow-left.svg",
+      "Hash": "618babad7ae2bdebe4c2f2e11dd5ff0d6a33176a",
+      "expected_bytes": 682,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Navigation/focus-arrow-right.svg",
+      "Hash": "661307ff189069e5e6913728e5f214659226de69",
+      "expected_bytes": 662,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Navigation/focus-arrow-up.svg",
+      "Hash": "2afae84f0aa032fb006a4b745a8d332294838728",
+      "expected_bytes": 652,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Navigation/target-arrow-down.svg",
+      "Hash": "2ad1b0b35b23b48bf56b47c23a4a059b67a61f78",
+      "expected_bytes": 1256,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Navigation/target-arrow-left.svg",
+      "Hash": "50104ed7cce557a0ed16c6b485651186a2a84c37",
+      "expected_bytes": 1199,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Navigation/target-arrow-right.svg",
+      "Hash": "9b81588e55a9972c57caf609bd1d4656b0af0b67",
+      "expected_bytes": 1258,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Navigation/target-arrow-up.svg",
+      "Hash": "6c4be560db0920d1aeec1a44d8166e3dad775c31",
+      "expected_bytes": 1231,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/NextIcon.png",
+      "Hash": "2b854e7ee6b37e68d10ca4b1ac57e3b2df8ad6a5",
+      "expected_bytes": 581,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/PIEWindow/SmallRoundedButton.png",
+      "Hash": "a923378933a51c3d09ac81e7328ac50df0dead44",
+      "expected_bytes": 3108,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/PIEWindow/SmallRoundedButtonBottom.png",
+      "Hash": "03ef5b2f279e3e3623acf7ce79ac73bede23f277",
+      "expected_bytes": 2962,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/PIEWindow/SmallRoundedButtonCentre.png",
+      "Hash": "9e33a093a38363ead0528f1e4ea128388ba38fdb",
+      "expected_bytes": 287,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/PIEWindow/SmallRoundedButtonLeft.png",
+      "Hash": "d497bc98649b4b0b5e8272c05e72cce33870a30f",
+      "expected_bytes": 2991,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/PIEWindow/SmallRoundedButtonRight.png",
+      "Hash": "0a45ec95874761d6857083c43499f0ad731e8f2e",
+      "expected_bytes": 2988,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/PIEWindow/SmallRoundedButtonTop.png",
+      "Hash": "e79ac0da41fd967838c367dffab58de5b516aeb4",
+      "expected_bytes": 2961,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/PIEWindow/WindowButton_025x_Hovered.png",
+      "Hash": "4d33d151d9bcc75da28949790da465878853c97b",
+      "expected_bytes": 3850,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/PIEWindow/WindowButton_025x_Normal.png",
+      "Hash": "f756dde00e54d7171e19db02b29158f2d884c936",
+      "expected_bytes": 3580,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/PIEWindow/WindowButton_025x_Pressed.png",
+      "Hash": "516faa232d943e05dbe1829cb06674f009f598e4",
+      "expected_bytes": 3531,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/PIEWindow/WindowButton_05x_Hovered.png",
+      "Hash": "7fd3701748c58b8acb6501f6fe7703bbb86834c7",
+      "expected_bytes": 3884,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/PIEWindow/WindowButton_05x_Normal.png",
+      "Hash": "7552cfae9163c28094fb35798a6f7e2bec57d74e",
+      "expected_bytes": 3478,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/PIEWindow/WindowButton_05x_Pressed.png",
+      "Hash": "ab39d2ee7d2c82657256965ffdb099ed59fb9c62",
+      "expected_bytes": 3549,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/PIEWindow/WindowButton_1x_Hovered.png",
+      "Hash": "98aa4c7c4f2b1740fa673f993814fa282a342b46",
+      "expected_bytes": 3632,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/PIEWindow/WindowButton_1x_Normal.png",
+      "Hash": "d002cfed1efefd7a03ae0366a1900c9e7a1abb0c",
+      "expected_bytes": 3336,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/PIEWindow/WindowButton_1x_Pressed.png",
+      "Hash": "03edf4683a326a69f5c44d20ded5a48139ee3a48",
+      "expected_bytes": 3321,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/PIEWindow/WindowButton_Screen_Rotation_Hovered.png",
+      "Hash": "fdf62b95728d41b7028361cca8f7bd3f4f859861",
+      "expected_bytes": 4329,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/PIEWindow/WindowButton_Screen_Rotation_Normal.png",
+      "Hash": "3fd889b68d41ff6f822fb9fb3a8ff1b765bfd20f",
+      "expected_bytes": 4238,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/PIEWindow/WindowButton_Screen_Rotation_Pressed.png",
+      "Hash": "cdde4cfbb6fc4ad5f441fd10e5f580ffb96d3a17",
+      "expected_bytes": 4225,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/PlusSymbol_12x.png",
+      "Hash": "be968322f0c867720e530d3b761965ef025f3562",
+      "expected_bytes": 388,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/GroupBorder-16Gray.png",
+      "Hash": "6ebc7dafa208da589944ad0749647797dc8ab3df",
+      "expected_bytes": 2888,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Average_Event_Graph_16x.png",
+      "Hash": "6f9536cfd32d13fed54881ac53385c9aae428bc3",
+      "expected_bytes": 3829,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Border_L_16x.png",
+      "Hash": "7e3644b4fe8945b452e24165e1db885a035f4046",
+      "expected_bytes": 2849,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Border_R_16x.png",
+      "Hash": "0215ed76b016ef2f1075503227b14c3eecca376e",
+      "expected_bytes": 2851,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Border_TB_16x.png",
+      "Hash": "2d8e12abf83029e2baf47c4e958c3386187fe7a8",
+      "expected_bytes": 2843,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Cull_Events_16x.png",
+      "Hash": "9bb4df95e4c05d426b3ec068600d4fae66a0426f",
+      "expected_bytes": 3829,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Culled_12x.png",
+      "Hash": "eef3f6691d278419946affb50a6f246e967c58bd",
+      "expected_bytes": 3377,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Custom_Tooltip_12x.png",
+      "Hash": "00649c99d479a1618ae2d68cb42011af47efb45d",
+      "expected_bytes": 3377,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Data_Capture_40x.png",
+      "Hash": "c4652dafdc08d348baa9d3886e8e1488a7d7fa17",
+      "expected_bytes": 9229,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Events_Flat_16x.png",
+      "Hash": "031e3a4832529b03b56dbe10951929097b0a37be",
+      "expected_bytes": 3829,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Events_Flat_Coalesced_16x.png",
+      "Hash": "1daf04d78d88cc4eb0301575483a39a16f3a5e27",
+      "expected_bytes": 3829,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Events_Hierarchial_16x.png",
+      "Hash": "331ebd15da3a81dcc6edae6e203df382fdcbb491",
+      "expected_bytes": 3829,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_FPS_Chart_40x.png",
+      "Hash": "16ea153676cfc9090a78b5bca4f5f7833d83ac0f",
+      "expected_bytes": 9229,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Filter_Events_16x.png",
+      "Hash": "27595047c10fa02530258f2b64ea74bf68157295",
+      "expected_bytes": 3829,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Filter_Presets_Tab_16x.png",
+      "Hash": "df7d1b46a520ff7c96cacd84cb98d293f5fbcb6d",
+      "expected_bytes": 3829,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Filtered_12x.png",
+      "Hash": "2fc1f3d75857c04aff2e1ad2dbe665375289c903",
+      "expected_bytes": 3377,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Graph_View_Tab_16x.png",
+      "Hash": "e927605b0a6f9b7a76e4e92c69fe313be49b5b63",
+      "expected_bytes": 3829,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Has_Culled_Children_12x.png",
+      "Hash": "42e41af1e23b6ff3017780bec85e0d50ad5ef30a",
+      "expected_bytes": 3377,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_History_Back_16x.png",
+      "Hash": "f465ba4ae0a092db29c81f9d6f105077f8e89875",
+      "expected_bytes": 3829,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_History_Fwd_16x.png",
+      "Hash": "1caa473fe7105c4c243d92552a4e9a74ef90178c",
+      "expected_bytes": 3829,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_LoadMultiple_Profiler_40x.png",
+      "Hash": "964738dd7d4477fe5e9668cbc96ab5e7e4a324cc",
+      "expected_bytes": 5957,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Load_Profiler_40x.png",
+      "Hash": "b643fd4a67b838bfcb41d063165231f135b67146",
+      "expected_bytes": 9229,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Max_Event_Graph_16x.png",
+      "Hash": "e4f461ee38352d7a882ef4c39857d6442b570300",
+      "expected_bytes": 3829,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Settings_40x.png",
+      "Hash": "d1dcdee6d326fbdb661e3c7acbb0ae5254fa6f17",
+      "expected_bytes": 9229,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_Tab_16x.png",
+      "Hash": "9477a58636b03ba077d89e5546197d388560c51b",
+      "expected_bytes": 3829,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/Profiler_ThreadView_SampleBorder_16x.png",
+      "Hash": "7337e3ad7d168cdc54c76d17bf075788cadaabb0",
+      "expected_bytes": 161,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_Calls_32x.png",
+      "Hash": "adbff0e0736a0a6ad18a5a8a4ebebf44ca0cf480",
+      "expected_bytes": 4845,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_CollapseAll_32x.png",
+      "Hash": "ad97fe7d9355a0589173928a870c0d01bb83482e",
+      "expected_bytes": 3184,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_CollapseSelection_32x.png",
+      "Hash": "ff76d467bb840e674d06d77f90f2515b3829fb38",
+      "expected_bytes": 3228,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_CollapseThread_32x.png",
+      "Hash": "afd2eaaa4296a58d6bc200bf88209f85e48e1b2c",
+      "expected_bytes": 4262,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_CopyToClipboard_32x.png",
+      "Hash": "8b3cb0070084fe79f3313d7e99f43b771211433f",
+      "expected_bytes": 4752,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_CulledEvents_12x.png",
+      "Hash": "8c0d9a1a797ca6b59a43b0178b295d4ba766e2b0",
+      "expected_bytes": 2979,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_Disconnect_32x.png",
+      "Hash": "3124e365acf216b8b5759675498cd48ee97338c1",
+      "expected_bytes": 4822,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_Event_32x.png",
+      "Hash": "9bfdb00a23ebe3b999a45014c1ef3d8f601a8d74",
+      "expected_bytes": 4014,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_ExpandAll_32x.png",
+      "Hash": "ba6e5f05d67cd0d7792ed8e5224e865f0753ec57",
+      "expected_bytes": 3161,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_ExpandHotPath_32x.png",
+      "Hash": "4baf62b0d6f13566a94d182c571cc7c06164f07f",
+      "expected_bytes": 4086,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_ExpandSelection_32x.png",
+      "Hash": "235e0867dc4dcc05c9c80cca909b2c7c162eccb2",
+      "expected_bytes": 3193,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_ExpandThread_32x.png",
+      "Hash": "da7625ae10be29c4df1e9beb18067506cd041706",
+      "expected_bytes": 4355,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_GameThread_32x.png",
+      "Hash": "978c9c33216fd282de8bc8e12af36eb3b2138b79",
+      "expected_bytes": 4860,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_GenericFilter_32x.png",
+      "Hash": "66fc3ea3189a916f03f89dc040365409a2c9833b",
+      "expected_bytes": 4667,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_GenericGroup_32x.png",
+      "Hash": "dbeaf1ce446b5c736a9d431febb46c77313e45bd",
+      "expected_bytes": 4446,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_HotPath_32x.png",
+      "Hash": "8f545e890feffada43cc28551ffea294529e71a3",
+      "expected_bytes": 4064,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_Memory_32x.png",
+      "Hash": "c9f359ffec40e7cbac32b6981ebaa72a2de57a1f",
+      "expected_bytes": 4329,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_Number_32x.png",
+      "Hash": "08d0a5ba510dce5f96a8f7e04d732bbd00fcabe8",
+      "expected_bytes": 4188,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_OpenEventGraph_32x.png",
+      "Hash": "01a71d53495bc5e2e92d82a883c6050fff13e4a6",
+      "expected_bytes": 4864,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_RenderThread_32x.png",
+      "Hash": "cf54853e1bfdcd42e914edc39ff843d230b421f5",
+      "expected_bytes": 4644,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_ResetColumn_32x.png",
+      "Hash": "96b81212db02854c6b3165feb8d19db38c885e71",
+      "expected_bytes": 4637,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_ResetToDefault_32x.png",
+      "Hash": "9cf326a7cf48d957cdd411a1faee7b20180684f2",
+      "expected_bytes": 4167,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_SelectStack_32x.png",
+      "Hash": "6957ab6504de6570dcd5a63419e1ffd2b1b4f093",
+      "expected_bytes": 4918,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_SetRoot_32x.png",
+      "Hash": "9546b5dfbb7f3be7b0c2f2ebf57a9662efdd3d37",
+      "expected_bytes": 4609,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_ShowGraphData_32x.png",
+      "Hash": "cd82e5a9a3a3023efc6e59641dab2dd4a1594786",
+      "expected_bytes": 3914,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_SortAscending_32x.png",
+      "Hash": "4439af84e6cf62b9164788acca5942f09096b0e9",
+      "expected_bytes": 4426,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_SortBy_32x.png",
+      "Hash": "57a7ee42840875cc971d8d522d563ae27b505409",
+      "expected_bytes": 4828,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_SortDescending_32x.png",
+      "Hash": "f245231450836857ccd6e5cd1add1cdb3525a6b8",
+      "expected_bytes": 4307,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_ViewColumn_32x.png",
+      "Hash": "7e0f1185f5026c9197d85429399e115bd5d779a5",
+      "expected_bytes": 5206,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_mem_40x.png",
+      "Hash": "9e381563b149cb40840eba46f344fa576c034211",
+      "expected_bytes": 5767,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_stats_40x.png",
+      "Hash": "e17683dc5465d964d381bb3e6cbad2439174866c",
+      "expected_bytes": 5335,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/Profiler/profiler_sync_40x.png",
+      "Hash": "b58fcdbd201a768d92ab2ecd01eb732cb6007bd7",
+      "expected_bytes": 6290,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/TrashCan.png",
+      "Hash": "07c4678c3ba4a7ab3bda6ac5d28ae21fedbfef27",
+      "expected_bytes": 2092,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/TrashCan_Small.png",
+      "Hash": "b1cb7684521f217a9a45aa1a42a483f958a001e9",
+      "expected_bytes": 714,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/cursor_cardinal_cross.png",
+      "Hash": "a39d4dbff349b27c75f3c541d1f77b402873496f",
+      "expected_bytes": 400,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/cursor_grab.png",
+      "Hash": "fe32d320b6acb5afd19a7aad7bce101a6c2e7f2d",
+      "expected_bytes": 405,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/denied_16x.png",
+      "Hash": "4006e861a55dc938c76ca2b61f0e83d19e947f3d",
+      "expected_bytes": 525,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/ellipsis_12x.png",
+      "Hash": "b3449a9418cb4d99b40452d0f35d04744f7f9522",
+      "expected_bytes": 367,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/eyedropper_16px.png",
+      "Hash": "ed3a5569b7ee29ddae8c27481fc1d57a04e896e5",
+      "expected_bytes": 405,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/icon_Downloads_16x.png",
+      "Hash": "7adf372f3faaaea6373f14edd69fa5b2dc4fe1dd",
+      "expected_bytes": 522,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/icon_error_16x.png",
+      "Hash": "a6197ab9c0927c351303397e6d9e8883f7025af0",
+      "expected_bytes": 1368,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/icon_generic_toolbar.png",
+      "Hash": "a7d779643d10f52ba525be2e992317651024d10c",
+      "expected_bytes": 3711,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/icon_help_16x.png",
+      "Hash": "2cbd664e36e183c2b2482aefc756f49a33030737",
+      "expected_bytes": 435,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/icon_info_16x.png",
+      "Hash": "6bc74529627770e72aba2386dbcc9ec3a332a8a7",
+      "expected_bytes": 719,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/icon_redo_16px.png",
+      "Hash": "85d742b75223657fbd97248c01ab40197f2fc619",
+      "expected_bytes": 507,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/icon_tab_Tools_16x.png",
+      "Hash": "6fadfd9bebeb7612a39e899e5c75104062a0b633",
+      "expected_bytes": 1385,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/icon_tab_WidgetReflector_16x.png",
+      "Hash": "20c9c3c0a08e9956ab5148462101119532dbfb9a",
+      "expected_bytes": 1262,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/icon_tab_WidgetReflector_40x.png",
+      "Hash": "fb619bf41fc0479c0d6cab2faa976188a59df609",
+      "expected_bytes": 3192,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/icon_tab_toolbar_16px.png",
+      "Hash": "87431069e64d82edf71d67a071612b0446cce8ea",
+      "expected_bytes": 681,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/icon_undo_16px.png",
+      "Hash": "7f5210d5e7a41598cabb7fd82bf024abe19d5d5e",
+      "expected_bytes": 512,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/icon_warning_16x.png",
+      "Hash": "b0509176f849cef96073455596e65a72d25cac2c",
+      "expected_bytes": 733,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/notificationlist_fail.png",
+      "Hash": "0afd6475b3c545b33c117602852bc429c5bdf1df",
+      "expected_bytes": 274,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/notificationlist_success.png",
+      "Hash": "ad0ba754b5359389fb71499bd42ef27e4ef5cc7f",
+      "expected_bytes": 563,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Icons/toolbar_expand_16x.png",
+      "Hash": "b5b3d63fdbb6d06fc81cf99d747f856a79884964",
+      "expected_bytes": 445,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Launcher/All_Platforms_128x.png",
+      "Hash": "809dcc35ea96c0eb7f96e71720a5beb7a7f04fb9",
+      "expected_bytes": 68458,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Launcher/All_Platforms_24x.png",
+      "Hash": "9fceaea2a6a9afce61f48a617991d05872a591aa",
+      "expected_bytes": 5117,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Launcher/Instance_Commandlet.png",
+      "Hash": "1272b1611ad772dcb87293ed396387905cd4ac22",
+      "expected_bytes": 361,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Launcher/Instance_Editor.png",
+      "Hash": "dd9deb3a27739c9e0f2f909f9a12939ae9e24d6d",
+      "expected_bytes": 1488,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Launcher/Instance_Game.png",
+      "Hash": "cde2f07ffdf752ca219a42f7efd1e50a40b7ccc8",
+      "expected_bytes": 1063,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Launcher/Instance_Other.png",
+      "Hash": "da888a47149b0ae3a8237a723d7eebd569d2491f",
+      "expected_bytes": 778,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Launcher/Instance_Server.png",
+      "Hash": "e7a3672ead6884bebf07d33ff5f5d1154cced9d7",
+      "expected_bytes": 937,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Launcher/Instance_Unknown.png",
+      "Hash": "8a9935b71dc3c498ba6542effdec45bb543b6515",
+      "expected_bytes": 1556,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Launcher/Launcher_Advanced.png",
+      "Hash": "77d0ab9798b41f1456c5374a149e119105bff4b9",
+      "expected_bytes": 3406,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Launcher/Launcher_Back.png",
+      "Hash": "962db49832aaf499b659007333c9c76942c60437",
+      "expected_bytes": 1731,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Launcher/Launcher_Build.png",
+      "Hash": "3e1384fd69fd251a01d12b507749fbe077c92583",
+      "expected_bytes": 2820,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Launcher/Launcher_Delete.png",
+      "Hash": "b19510713ae1ad15daca6b64ebfeb5dbdd569e72",
+      "expected_bytes": 2946,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Launcher/Launcher_Deploy.png",
+      "Hash": "d3133db0a6b97570c2a8e0a224467120c8de7dac",
+      "expected_bytes": 3026,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Launcher/Launcher_EditSettings.png",
+      "Hash": "509d2ce483322503935ec49ca3783f6bb4258b19",
+      "expected_bytes": 3909,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Launcher/Launcher_Launch.png",
+      "Hash": "a6cd2a45f19fffaf8c36cd5d14b0a825338ceb51",
+      "expected_bytes": 4845,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Launcher/Launcher_Run.png",
+      "Hash": "4fe0d4fd858ed5935c33a534be7450acb8b4929e",
+      "expected_bytes": 4064,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/MessageLog/Log_Error.png",
+      "Hash": "8de355bb31cacfe0f78ab7bdf0e6f632fdee98e8",
+      "expected_bytes": 982,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/MessageLog/Log_Note.png",
+      "Hash": "025a954c6186780c022ec8dcd85a446098697f5b",
+      "expected_bytes": 477,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/MessageLog/Log_Warning.png",
+      "Hash": "7e6cdb520ca76d2042201602396b5e6c590900c9",
+      "expected_bytes": 591,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Border.PNG",
+      "Hash": "9d755e7c3dfd99d840e6d2a494067ffe907f949a",
+      "expected_bytes": 419,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Button.png",
+      "Hash": "570078db6380091c75b4c15c2de9e12424ca84a8",
+      "expected_bytes": 474,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/DashedBorder.png",
+      "Hash": "dc50fde1a7209cdd49502a2da5932daa2f95bc37",
+      "expected_bytes": 455,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/HyperlinkDotted.png",
+      "Hash": "f9ec3371820624e8f4f574d64ccfd6c8f03325dc",
+      "expected_bytes": 345,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/HyperlinkUnderline.png",
+      "Hash": "d1a22290d9e3ca40414c459f7ccc4f0072fedea1",
+      "expected_bytes": 345,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Menu_Background.png",
+      "Hash": "acd857164c955bc7bdb5623cd8474e5dc0a2af78",
+      "expected_bytes": 409,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Menu_Background_Inverted_Border_Bold.png",
+      "Hash": "c0c6c31575f4dab738369bf1d9c364dbff95b4bf",
+      "expected_bytes": 350,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Notification_Border_Flash.png",
+      "Hash": "3c90c3277ae74884e21b8c7f347aebf46efd3b52",
+      "expected_bytes": 15017,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/ActionMenuButtonBG.png",
+      "Hash": "999e6f6de3d12cd4cba79822a7efcaa435ac817a",
+      "expected_bytes": 1725,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/ArrowBox.png",
+      "Hash": "5d2af4e4cffa26678985862c546abe675e1fc0a3",
+      "expected_bytes": 6030,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/ArrowLeft.png",
+      "Hash": "5e541a4bb5d066d5c8266795b896260d976940cb",
+      "expected_bytes": 6307,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/Arrow_D.png",
+      "Hash": "db2c05f3e0b6b7c6e58a2b14bda7df607a4060f0",
+      "expected_bytes": 8867,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/Arrow_L.png",
+      "Hash": "4dd061e38a99cfce48fb5cb7ac1bee1b7cf13f95",
+      "expected_bytes": 8876,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/Arrow_R.png",
+      "Hash": "5fbd760301fef7521e3abd26419a7937cb50fa1d",
+      "expected_bytes": 8858,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/Arrow_U.png",
+      "Hash": "615820ae62c95d913e6c8b8a2da408f3f2ead597",
+      "expected_bytes": 8869,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/BoxEdgeHighlight.png",
+      "Hash": "ca3048ed3b6701a54aa6a768c34ca840eff29847",
+      "expected_bytes": 2938,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/CalloutBox.png",
+      "Hash": "51337214486cf1adbe44400feca38a55802d3f0c",
+      "expected_bytes": 5859,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/CalloutBox2.png",
+      "Hash": "e68ddb2f108e3e74eb582b103ef88b7ed12087e2",
+      "expected_bytes": 6079,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/CalloutBox3.png",
+      "Hash": "0881d8d8a5185245d1e27b2651498798b67b9202",
+      "expected_bytes": 6021,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/Callout_Background.png",
+      "Hash": "aeeae0f3aaabe640ad5b6b31e94297e29e471a0e",
+      "expected_bytes": 373,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/Callout_Glow.png",
+      "Hash": "6ec48d4ca7a61617a7cbebc91be44fdf7ece43bf",
+      "expected_bytes": 444,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/Callout_Outline.png",
+      "Hash": "c1adf3e1c11a37a89a4fc5d3483bf6c5f07e3632",
+      "expected_bytes": 1692,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/CircleBox.png",
+      "Hash": "9953294d80f9a8a25279ff9c82c25bfe7df37ff2",
+      "expected_bytes": 8768,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/CircleBox2.png",
+      "Hash": "2b026bfed47c3e7730b5c34a8188b611462d1e81",
+      "expected_bytes": 4211,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/CodeBlock_Background.png",
+      "Hash": "8053de4050a80ce6ce885ff2554fe0d50d483d32",
+      "expected_bytes": 151,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/CodeBlock_Glow.png",
+      "Hash": "afb835fbbe390cec9f0426c6e19aa89c5c711fcf",
+      "expected_bytes": 417,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/CodeBlock_Outline.png",
+      "Hash": "24b6fea4f9c044e8a5f3157ac9be39d1151a23ac",
+      "expected_bytes": 1451,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/DiamondBox.png",
+      "Hash": "1c9b9acfe6db61810414318b716bd46af2c843d2",
+      "expected_bytes": 6036,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/DiamondBox_B.png",
+      "Hash": "60aef62297f59e0a5269f7e5cd3b043f71e3a3b2",
+      "expected_bytes": 5900,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/DiamondBox_T.png",
+      "Hash": "68ac90aa455079c3ced59d52ad1ec4c67a7fca5a",
+      "expected_bytes": 6118,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/DottedCircleBox_L.png",
+      "Hash": "0aedacea5e30a35cc47dff086fe9e52aa22a3a76",
+      "expected_bytes": 8450,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/DottedCircleBox_LR.png",
+      "Hash": "78e29c0895488bbafc601a6667977f49dd4a9791",
+      "expected_bytes": 8607,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/DottedCircleBox_LR_E.png",
+      "Hash": "ac9709c390ca52eb0fadb8315da562054522158d",
+      "expected_bytes": 8444,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/DottedCircleBox_L_E.png",
+      "Hash": "cef2b0ca13db4ca1440431b9d5d0f09f411c5b3a",
+      "expected_bytes": 8154,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/DottedCircleBox_R.png",
+      "Hash": "6883893f9afa479069d0b9125bd170a17c48f8e2",
+      "expected_bytes": 8723,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/DottedCircleBox_R_E.png",
+      "Hash": "92602ebc4db21ea55e2b33e193c0aefd458b4e06",
+      "expected_bytes": 8455,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/DottedSquareBox_L.png",
+      "Hash": "7d00d8088b4858a916a267ecabdcd9740b5cd9f6",
+      "expected_bytes": 8081,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/DottedSquareBox_LR.png",
+      "Hash": "a085144d7446170097da7eb2d8497de5daf0f3f9",
+      "expected_bytes": 8139,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/DottedSquareBox_LR_E.png",
+      "Hash": "194eeaa0d164d9a37eb363e634ed194317640973",
+      "expected_bytes": 8267,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/DottedSquareBox_R.png",
+      "Hash": "69f0bdbfe20ef8c60a1634f6d92c11be85ef7c80",
+      "expected_bytes": 8088,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/DottedSquareBox_R_E.png",
+      "Hash": "8232b7359718945c8e7b921b0f09fb3e43741e0a",
+      "expected_bytes": 8165,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/Hat.png",
+      "Hash": "df815c58e4716c102e18ccb2ee1492454049290d",
+      "expected_bytes": 513,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/Outer/alertOutline.png",
+      "Hash": "483a0aaf7fe0982a5969b650c3da9048d31c26f7",
+      "expected_bytes": 323,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/Outer/alertSolid.png",
+      "Hash": "dfd7b2a63551d9930ea88b6d79a9083109d5a04c",
+      "expected_bytes": 254,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/PrePost_RoundedBox.png",
+      "Hash": "36039846fdfe6855b25ea21f1205a08f58677f6c",
+      "expected_bytes": 4245,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/PrePost_RoundedBox_B.png",
+      "Hash": "36039846fdfe6855b25ea21f1205a08f58677f6c",
+      "expected_bytes": 4245,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/PrePost_RoundedBox_T.png",
+      "Hash": "36039846fdfe6855b25ea21f1205a08f58677f6c",
+      "expected_bytes": 4245,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/QMark.png",
+      "Hash": "3fc36dae2527cfcd7c911c03d1848e8fb599c802",
+      "expected_bytes": 631,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/Roboto-Bold.ttf",
+      "Hash": "d313ab2c45756bf4e972647f5b2ad691ad250990",
+      "expected_bytes": 163448,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/RoundedBoxBorder.png",
+      "Hash": "b5920580ab0515de4e1dac35adea92903d6d416d",
+      "expected_bytes": 3888,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/RoundedTileFaded.png",
+      "Hash": "c493e604373b8a7eec577a775b45a56a92b06b50",
+      "expected_bytes": 4724,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/RoundedTile_Background.png",
+      "Hash": "64611e95533ae891eab3c0fa74cba7a8e5e4ee0f",
+      "expected_bytes": 410,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/RoundedTile_Glow.png",
+      "Hash": "a75b272b4cd4d60ab61aa6f2a64f228892d12908",
+      "expected_bytes": 2065,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/RoundedTile_Outline.png",
+      "Hash": "59ec7af6afae5fbe423afa81f2620f4a5fdde739",
+      "expected_bytes": 490,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/SolidWhite.png",
+      "Hash": "9b52d7b3417a51048cc4fc9cedab344192e33161",
+      "expected_bytes": 2300,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/SquareBox.png",
+      "Hash": "0d228976ebf1dd05a457388febf3ab8995148754",
+      "expected_bytes": 5726,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/SquareBox_Solid_L.png",
+      "Hash": "17766c4eafe083fef531e13472302ad5045d24dd",
+      "expected_bytes": 5805,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/SquigglyBox.png",
+      "Hash": "d57b7dc298d17fdfa71389440117c49c5361b70c",
+      "expected_bytes": 5823,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/Tile_Highlight.png",
+      "Hash": "f82d11db04085686f0c2f96f5e5874063581bf34",
+      "expected_bytes": 2156,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/Underline.png",
+      "Hash": "56f8eaa9c984af7a65ae222748e69aa7e8b2fa97",
+      "expected_bytes": 1601,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/bigdot.png",
+      "Hash": "b2432b555347c587bc7808a4fc2dd54ff0f24275",
+      "expected_bytes": 2113,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/blank.png",
+      "Hash": "28575d67773cb7a4db6c74e9e018ee527a6d909d",
+      "expected_bytes": 3073,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/pin/pin.png",
+      "Hash": "89438a75bae868ebdbf51b596f9f6993fe0f51a6",
+      "expected_bytes": 5852,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/pin/pin_glow.png",
+      "Hash": "43ead13d5c9c82f8c975ff570856e65561f6138b",
+      "expected_bytes": 4442,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/pin/pin_head.png",
+      "Hash": "f8eee7f61a0fcace07f77ad556af62bdb171ceaf",
+      "expected_bytes": 2737,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/pin/pin_head_glow.png",
+      "Hash": "95a60ae65e02c643b2eb73e2b7d958eb4f34bc68",
+      "expected_bytes": 3333,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/pin/pin_highlight.png",
+      "Hash": "7236577e4f40c10c6d2584fa1700762bdfdddb2a",
+      "expected_bytes": 2963,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/pin/pin_shadow.png",
+      "Hash": "961118341cff04ba92aa423ffd9d613c197254f7",
+      "expected_bytes": 3397,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/pin/pin_stick.png",
+      "Hash": "5960f72c06ee8b6cc5acb9cd2150f843158bca21",
+      "expected_bytes": 3096,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/pin/ping.png",
+      "Hash": "a193b05c114f1e43ecf034b47040c4b9dac004a4",
+      "expected_bytes": 8986,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/selectionbar/selectionbar_0.png",
+      "Hash": "470dd7da65371e17e2c6670e454194007eb95d67",
+      "expected_bytes": 3365,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/selectionbar/selectionbar_1.png",
+      "Hash": "9304c99668e18aa106f4e5c8993689a9fc62dc5f",
+      "expected_bytes": 3305,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/selectionbar/selectionbar_2.png",
+      "Hash": "fa23a544f2069862a1c9fa116d24944f27636f13",
+      "expected_bytes": 3251,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/smalldot.png",
+      "Hash": "459da82be9ebbbf9098b743f3b3575183fb9c14c",
+      "expected_bytes": 1903,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/ToolBar_Background.png",
+      "Hash": "173ce65d386959d5cd756ac9b01472ad7dc5c078",
+      "expected_bytes": 3017,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/ToolTip_Background.png",
+      "Hash": "a720c847199e6007eec1456cfb3faae5bf0c657c",
+      "expected_bytes": 622,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/ToolTip_BrightBackground.png",
+      "Hash": "b5720c91e358f3357ed719adc82b738b1ab0b0ad",
+      "expected_bytes": 1112,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/White.png",
+      "Hash": "b8807db0ce9821a2dcec9f0102180f6276f2ec49",
+      "expected_bytes": 331,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Advanced.svg",
+      "Hash": "938397e26fe919dfcd705abc9a20d805a19692a9",
+      "expected_bytes": 3955,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/AllSavedAssets.svg",
+      "Hash": "66301a7c19ffbe664e88f2eb769c597819927db6",
+      "expected_bytes": 1491,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/AutomationTools.svg",
+      "Hash": "b8238aeca388a52191e73f0b84d84c82c14512cc",
+      "expected_bytes": 2008,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/CPP.svg",
+      "Hash": "81cb06c7bae3373f5c36e114fa5b917267fa9df4",
+      "expected_bytes": 2003,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Calendar.svg",
+      "Hash": "3831dc03431fca4ce39a6b0c08508de2af2e50bf",
+      "expected_bytes": 1656,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/ColorThemesOff_20.svg",
+      "Hash": "010729cc72b52564cfe7550f4060c95bf9fec393",
+      "expected_bytes": 1573,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/ColorThemes_16.svg",
+      "Hash": "2e8d69b7f7f49361eabe4951df0148b9c203d5f1",
+      "expected_bytes": 1228,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/ColorThemes_20.svg",
+      "Hash": "b8fd97730b91e8c527b363362c8855615c93b012",
+      "expected_bytes": 1353,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Console.svg",
+      "Hash": "2449e9f1d87a57709031e89ae95125afbf046e47",
+      "expected_bytes": 353,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Copy.svg",
+      "Hash": "57fb5e5cf3a78d38377b8f4b166799092af26ced",
+      "expected_bytes": 322,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Cut.svg",
+      "Hash": "af59b877042777f329a992236a2415556d067d6f",
+      "expected_bytes": 224,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Dash_Horizontal.png",
+      "Hash": "e9d44d483e0c43c97e4479567b8bde0804ca2fd0",
+      "expected_bytes": 1835,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Dash_Vertical.png",
+      "Hash": "e5c6b9cbce9d71ce3696012bb0231dfa3b85d0c5",
+      "expected_bytes": 1838,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Delete.svg",
+      "Hash": "9539ffc43f40bb07903b3dde6c13a1d81f48a67c",
+      "expected_bytes": 1192,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Developer.svg",
+      "Hash": "54dcfea50f652cda86cd3da8d1cdc775661d0bc8",
+      "expected_bytes": 461,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/DropTargetBackground.png",
+      "Hash": "9da0ccefc9b39ef1f7ef551e86edb8502e3b402c",
+      "expected_bytes": 3936,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Duplicate.svg",
+      "Hash": "eb84cdee27fd9827907000c3ef39996503d9f805",
+      "expected_bytes": 230,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/EditToolbar.svg",
+      "Hash": "b866352c30c5dfe781f6c2bc7dbb2623d01712b6",
+      "expected_bytes": 1396,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/EyeDropper.svg",
+      "Hash": "48711f8af0cec3c2ed0487a467572b3969d2d68b",
+      "expected_bytes": 982,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/EyeDropper_20.svg",
+      "Hash": "b485284d7e7c894066db6e4a4f2e92b799b83bb7",
+      "expected_bytes": 1211,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Favorite.svg",
+      "Hash": "0a1aca297395529458bd336eeed01e30aa9a9692",
+      "expected_bytes": 297,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/FavoriteOutline.svg",
+      "Hash": "945b3ed093f416679608e33351c18fa10869685f",
+      "expected_bytes": 473,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/FilterAuto.svg",
+      "Hash": "52c8e311a9b77149abf9c5296457767740df9a6b",
+      "expected_bytes": 977,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/FlipHorizontal.svg",
+      "Hash": "0516caed3072a4b407ef130a6f9953a5a0615ef2",
+      "expected_bytes": 399,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/FlipVertical.svg",
+      "Hash": "65872d6aaca10acd067a2d84bdeff47096e972f5",
+      "expected_bytes": 391,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Group_20.svg",
+      "Hash": "4f82d0a5ee4a09fd7ccbffa1983309139bdbeb26",
+      "expected_bytes": 1835,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/HiddenInGame.svg",
+      "Hash": "18238476f440222f27b3ca1970a3da665331988c",
+      "expected_bytes": 850,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Info.svg",
+      "Hash": "0f3da09313f27a53475b4002a39fcd9786887425",
+      "expected_bytes": 526,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Layout.svg",
+      "Hash": "388df1eb81bc809c8a63b0cfa4566e72526bcb8c",
+      "expected_bytes": 260,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Linked.svg",
+      "Hash": "b26d19894600efb6143d0f31e9f508e667bfb590",
+      "expected_bytes": 1277,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/LookAt.svg",
+      "Hash": "030ea182f31c1df2153f3627c34b7f98c303044a",
+      "expected_bytes": 841,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Merge.svg",
+      "Hash": "cb80ed1e584d7abbded793a513cff33b13f36aff",
+      "expected_bytes": 274,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Monitor.svg",
+      "Hash": "4c6b7ec97de7677bdd0332a257321340efce1b31",
+      "expected_bytes": 402,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/OutputLog.svg",
+      "Hash": "bccc45f31f54d0406c93d00b21d0344a5b817b35",
+      "expected_bytes": 377,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/ParentHierarchy.svg",
+      "Hash": "f86b232da633cd66aa6503122d80acca45bc87d9",
+      "expected_bytes": 305,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Paste.svg",
+      "Hash": "4fe07a1b6911314691a00720d8cdbf7c4dab18cb",
+      "expected_bytes": 204,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/PlayerController.svg",
+      "Hash": "af490a4eb2f121f01fe6c7b65909c256d2344251",
+      "expected_bytes": 1183,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Preferences.svg",
+      "Hash": "ff7027441adb161fc52a90b0aea2e69fb1462dbe",
+      "expected_bytes": 1562,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/ProjectLauncher.svg",
+      "Hash": "6cabff064d012101f8bf7a45df588ecb6f16d898",
+      "expected_bytes": 2006,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Recent.svg",
+      "Hash": "6dc8bf98d3ecbc8b82ffc2308e82b28ea8b271a5",
+      "expected_bytes": 513,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Redo.svg",
+      "Hash": "9f47a79732c82aa7954e28167ae3c4ad37d7ad50",
+      "expected_bytes": 402,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Rename.svg",
+      "Hash": "4de85ff8d5cb1ac693ba6e966284ee16044b8b6c",
+      "expected_bytes": 297,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/ResetToDefault.svg",
+      "Hash": "0cd69f0dc7969a25565471be3de73abf9827f7f2",
+      "expected_bytes": 1101,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Role.svg",
+      "Hash": "ea223b1fb5c2c2506b4080fde37d13dd5cdcb971",
+      "expected_bytes": 1165,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Rotate180.svg",
+      "Hash": "e8eb131c4af27c0d88fb8561dd2e7864aca0340d",
+      "expected_bytes": 878,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Rotate90Clockwise.svg",
+      "Hash": "da2a6e3ee35d086a76dc4116d3e0e67822e7fcf9",
+      "expected_bytes": 678,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Rotate90Counterclockwise.svg",
+      "Hash": "4918ab949b0f7f802820388a36b07903c3e88ab5",
+      "expected_bytes": 684,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Search_20.svg",
+      "Hash": "d0917a63851c450c21d3c1d39d8df52fa280a4dc",
+      "expected_bytes": 715,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/SelectAll_16.svg",
+      "Hash": "2041a085cf0f9e6cd5a008e756228684854332c3",
+      "expected_bytes": 824,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/SessionFrontend.svg",
+      "Hash": "b9b5df0fc32c881b4b8c53fe7e751b0ede5eae62",
+      "expected_bytes": 1385,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/SortDown.svg",
+      "Hash": "aa2055d3012d8864416f7992206a4dcb2bb2b28a",
+      "expected_bytes": 595,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/SortUp.svg",
+      "Hash": "dfec5f8f18430a20257c5d954d38cf97a961cb60",
+      "expected_bytes": 592,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/TagCollection_16.svg",
+      "Hash": "0e41b31fd846026c2894fb62d5a0e3fc3388bd7a",
+      "expected_bytes": 1252,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/TagSimple_16.svg",
+      "Hash": "cdc8214151efcbbdda1890cb8091343c1b3c891e",
+      "expected_bytes": 684,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Test.svg",
+      "Hash": "98edb603c5ff463bd0c78d04a6526467c78250c8",
+      "expected_bytes": 811,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/TokenTextBox_16.svg",
+      "Hash": "1f32e64cb01f58672a6b70075d530c3c96ed870a",
+      "expected_bytes": 3103,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/TranslationPicker.svg",
+      "Hash": "731aed3303eb12bf75bd1becefa1665657904a78",
+      "expected_bytes": 689,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/UELogo.png",
+      "Hash": "47bebc63f052f69d2020213ce25af7aa8539ab29",
+      "expected_bytes": 4739,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/UELogo.svg",
+      "Hash": "13d13620e808c174dabe9f96b2458f684df579d6",
+      "expected_bytes": 10876,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Undo.svg",
+      "Hash": "902e24dc7006ca4bba59205cdc62c15f4dbb2859",
+      "expected_bytes": 445,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/UndoHistory.svg",
+      "Hash": "3f0d8f114f03c2319a78863398405b4a3db6f34a",
+      "expected_bytes": 619,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Unlinked.svg",
+      "Hash": "c5a7f52ca2ccde2bba7e06398fc80bd90814ab68",
+      "expected_bytes": 1012,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/UnsavedAssets.svg",
+      "Hash": "b4ccd61af7a2b15b1b0c44c773d672c4e59780b4",
+      "expected_bytes": 543,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/UnsavedAssetsWarning.svg",
+      "Hash": "2794e2280a1c604658642ce4cff7f56a9c4e39ce",
+      "expected_bytes": 2642,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Update.svg",
+      "Hash": "ad2a420588a8f0f539bf1b0a623c722ace9daa23",
+      "expected_bytes": 1214,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/VisibleInGame.svg",
+      "Hash": "2a207aa43e1025b0a35bfd2673ac0593d6cdddad",
+      "expected_bytes": 553,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/Visualizer.svg",
+      "Hash": "8a5673a8f616f07196cf170a2833cf01673b2b98",
+      "expected_bytes": 823,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/add-circle.svg",
+      "Hash": "d9390a60aaa414b2e0765048696bf0d48835ffba",
+      "expected_bytes": 509,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/alert-circle.svg",
+      "Hash": "3f776d2e8d4fc9384c33a4ac8b1d9d1c367879ab",
+      "expected_bytes": 620,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/alert-triangle-64.svg",
+      "Hash": "500beb26a7db5b5b4a37f3d32245f2e6af6a56f5",
+      "expected_bytes": 4021,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/alert-triangle-badge.svg",
+      "Hash": "f755139afff2b670a847652b68d19d91654e6c01",
+      "expected_bytes": 1983,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/alert-triangle-large.svg",
+      "Hash": "57f627741e5c82d0542eabd7273374886df6e798",
+      "expected_bytes": 967,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/alert-triangle-red-outlined.svg",
+      "Hash": "b690f573d7f4b176345db2141de8ce440c842d99",
+      "expected_bytes": 1146,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/alert-triangle.svg",
+      "Hash": "e9e5622d5338b3695d858b80bc146c493bcb7455",
+      "expected_bytes": 638,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/arrow-down.svg",
+      "Hash": "90d35edc9f1e2cca2910ff788d1c29758792aca9",
+      "expected_bytes": 314,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/arrow-left.svg",
+      "Hash": "499c36bf5ea72214e9fc659896393e63c5053e56",
+      "expected_bytes": 313,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/arrow-leftright.svg",
+      "Hash": "52d616d175310305eedf9a0c822506ef61e48ec5",
+      "expected_bytes": 437,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/arrow-right.svg",
+      "Hash": "4d1db6e977ab0a6eb96886aedeafd5335023bfb7",
+      "expected_bytes": 314,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/arrow-up.svg",
+      "Hash": "eae8dc069ba55a7a9051959cdcd139b7d85d4fa3",
+      "expected_bytes": 313,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/badge-modified.svg",
+      "Hash": "150052e2c14feff276cd889a6d1bd76a9cb870fc",
+      "expected_bytes": 155,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/badge.svg",
+      "Hash": "b272f31e0dea84ab3b8b30935a9a214e07922e83",
+      "expected_bytes": 410,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/blueprint.svg",
+      "Hash": "cf9799f3e5acb18a10975857c7abd6944289d3d4",
+      "expected_bytes": 628,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/box-perspective.svg",
+      "Hash": "d710efea03abd58620eedc3345b3c9cc27b6f66f",
+      "expected_bytes": 724,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/bullet-point.svg",
+      "Hash": "5b5616503b811637dee65012a0c1f45ddfe4551f",
+      "expected_bytes": 142,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/bullet-point16.svg",
+      "Hash": "775503ccef9990577f5eee2e97a7b167f0881905",
+      "expected_bytes": 147,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/caret-down.svg",
+      "Hash": "bdfd07b3278b208c36e9a57086b577dc14396b56",
+      "expected_bytes": 761,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/caret-right.svg",
+      "Hash": "3df085e2c72958f6673dbff56e9c367d100c5b6f",
+      "expected_bytes": 760,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/check-circle-large.svg",
+      "Hash": "5e3841f75bc3134d26e8bcdce84a85a3f92fa863",
+      "expected_bytes": 725,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/check-circle-solid.svg",
+      "Hash": "1723249a556017523bdfed380e5537e39b2bd18e",
+      "expected_bytes": 386,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/check-circle.svg",
+      "Hash": "4e6ab369b38d52ef016c6126af911b47f0078196",
+      "expected_bytes": 426,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/check.svg",
+      "Hash": "035113e778959f084da8ef5ab876ead596e4b5e0",
+      "expected_bytes": 243,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/checker.png",
+      "Hash": "e20badb423d06af5596d2337210304a727ad799a",
+      "expected_bytes": 1643,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/chevron-down.svg",
+      "Hash": "13b98ad3e0c91126cb6e6996738061a58ec5964b",
+      "expected_bytes": 208,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/chevron-left.svg",
+      "Hash": "3bbf6f8e97e116d294aacf443223a7683105164d",
+      "expected_bytes": 209,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/chevron-right.svg",
+      "Hash": "5d6bfdea60bf6ea4150a29c839cb3c79575e08fd",
+      "expected_bytes": 208,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/chevron-up.svg",
+      "Hash": "42bd922128bf54fd59b82def4da4f54a15980b05",
+      "expected_bytes": 209,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/circle-arrow-down.svg",
+      "Hash": "1091b6e0acacb04248da428ab17d8440965f71c6",
+      "expected_bytes": 413,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/circle-arrow-left.svg",
+      "Hash": "87ae7536082711dd549bcd88d87fdba28dbd2792",
+      "expected_bytes": 411,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/circle-arrow-right.svg",
+      "Hash": "abb0eb101aca498ca6a5b46fa6bc07ccad9a19c9",
+      "expected_bytes": 411,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/circle-arrow-up.svg",
+      "Hash": "d85dd0ef9f1fd554b51d994fc42ccd16aa4ea987",
+      "expected_bytes": 413,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/close-circle.svg",
+      "Hash": "70dab613899d426f952cc548b07947c9d381824f",
+      "expected_bytes": 1422,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/close-small.svg",
+      "Hash": "2151052357e97c20f8cc17f992eb9224882a4239",
+      "expected_bytes": 261,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/close.svg",
+      "Hash": "b47f5438eef2e6c4d7b2391beaa6f3eb27b31b33",
+      "expected_bytes": 305,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/color-grading-cross.svg",
+      "Hash": "64326a7c0521a9e70133e714415bb92cecf721b3",
+      "expected_bytes": 275,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/color-grading-selector.svg",
+      "Hash": "89425e704575b34ff9360edd023799798039dc7e",
+      "expected_bytes": 183,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/color-grading-spinbox-selector-v.png",
+      "Hash": "26cc3d0a42f6fe3f1ad8eff573726c320f778491",
+      "expected_bytes": 127,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/color-grading-spinbox-selector.png",
+      "Hash": "b4d43d0b4ce8ec05de8fa5eaac34334572b7293c",
+      "expected_bytes": 78,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/curve-editor-append-key-20.svg",
+      "Hash": "1878122bf8add9261cd14db9380ac87d2307bb18",
+      "expected_bytes": 722,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/cylinder.svg",
+      "Hash": "e2f9382f61cbad0e689bfefaeaa71ecb10403a5d",
+      "expected_bytes": 536,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/delete-outline.svg",
+      "Hash": "7cbf4c6da52f24be9284ca944fd9bd270eaeda49",
+      "expected_bytes": 478,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/drag-handle.svg",
+      "Hash": "8e05cb2ed0f4a2bb17ba974445a77e9de12ac081",
+      "expected_bytes": 1203,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/edit.svg",
+      "Hash": "0e1d157d9f7f3ab03ef9d3a54909a2d55f42e4bc",
+      "expected_bytes": 453,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/ellipsis-horizontal-narrow.svg",
+      "Hash": "42a9b18319643209d4e7c7a027d3ea5031c35432",
+      "expected_bytes": 239,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/ellipsis-vertical-narrow.svg",
+      "Hash": "3ff7763bab73dbf8362ba7926e98865eb51b2b98",
+      "expected_bytes": 242,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/export.svg",
+      "Hash": "85c8d63f6d1a62388ed9a3546708f4d7f8f36752",
+      "expected_bytes": 823,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/export_20.svg",
+      "Hash": "aaadfbbd4e05939a98b8ae03ba45eb51758140ca",
+      "expected_bytes": 1187,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/favorites-category.svg",
+      "Hash": "b7bacebb388438f8a8098dadeede6bcad4c50a45",
+      "expected_bytes": 289,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/fieldnotify_off.svg",
+      "Hash": "c39f123adef103221e799ded4663a67ed976ea1b",
+      "expected_bytes": 606,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/fieldnotify_on.svg",
+      "Hash": "5e2847c85831d1e78430448b51e13862da117570",
+      "expected_bytes": 406,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/file-tree-open.svg",
+      "Hash": "b6ed6e6b0ef7a48acb30de8519d0c566174cda86",
+      "expected_bytes": 1302,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/file-tree.svg",
+      "Hash": "6b71582185f7a3bd79519affa62dd44a176955c0",
+      "expected_bytes": 1215,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/file.svg",
+      "Hash": "e68d74a984702a8f98f5b05ae163a8cb2e41438a",
+      "expected_bytes": 245,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/filled-circle.svg",
+      "Hash": "7a9413e3e06c50935e2da99575c819f179a2fc90",
+      "expected_bytes": 419,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/filter.svg",
+      "Hash": "f9247729ef8e38cbd487533aea6a98430ca869db",
+      "expected_bytes": 409,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/folder-cleanup.svg",
+      "Hash": "c9e960300708498a326f0a38bbbffe68ee6b2bea",
+      "expected_bytes": 587,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/folder-closed.svg",
+      "Hash": "1e2d17e4ea7d7f20b34f88edf328e70db236dbb1",
+      "expected_bytes": 315,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/folder-open.svg",
+      "Hash": "fad1eebf00811feff723f0bc5fc1bff4bc7cea65",
+      "expected_bytes": 363,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/folder-plus.svg",
+      "Hash": "e9a375b4425faf8d62c09507c34c1cc6f4325fcc",
+      "expected_bytes": 365,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/folder-virtual-closed.svg",
+      "Hash": "71c1a45fb8d77f72d0b9435a7894885722bdff07",
+      "expected_bytes": 458,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/folder-virtual-open.svg",
+      "Hash": "9917fcf14ba1b13e4d81d3f4a6b8a5e9656e8280",
+      "expected_bytes": 709,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/help-solid.svg",
+      "Hash": "f555deeffdb34ad36acbaf842d342fd34d71856e",
+      "expected_bytes": 641,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/help.svg",
+      "Hash": "d63f93a2661b197830fcce73cb4f147aaacb5ea0",
+      "expected_bytes": 720,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/hidden.svg",
+      "Hash": "56dc5f1d8cb537df87864473bf37a518ab43ec1f",
+      "expected_bytes": 729,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/import.svg",
+      "Hash": "33dae9cead46bc97e347ce8c75ccf25849977ac7",
+      "expected_bytes": 713,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/import_20.svg",
+      "Hash": "88c4d2193310768436c2090a8b16d2640450906d",
+      "expected_bytes": 1095,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/info-circle-solid.svg",
+      "Hash": "f412bfc1d60ab43d192c70b2619fa0817fc54234",
+      "expected_bytes": 469,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/layout-header-body.svg",
+      "Hash": "ac6697a4a97366f0f88f9f11aab2b7f3ba48e8e3",
+      "expected_bytes": 256,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/layout-spreadsheet.svg",
+      "Hash": "f81d663db106a47e797cc187dbe2f0c6569a19d3",
+      "expected_bytes": 298,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/lock-unlocked.svg",
+      "Hash": "f26ff850012d9914e209eaeaa79bcb68670c8a02",
+      "expected_bytes": 1463,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/lock.svg",
+      "Hash": "8ccdc51475e93ac619623e4a69c8433dcc7a8233",
+      "expected_bytes": 1462,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/menu.svg",
+      "Hash": "1c90ecf355cfbaa8afcafb149488eef7b83d8734",
+      "expected_bytes": 398,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/minus-circle.svg",
+      "Hash": "d9c3c29c7ac0e653ef8d108102648b583f240e38",
+      "expected_bytes": 411,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/minus.svg",
+      "Hash": "4f95b7c260e79897ad435cb5ec4717e599b530e2",
+      "expected_bytes": 201,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/normalize.svg",
+      "Hash": "b313d0121d04d9f22138528fd361d0712653ffa6",
+      "expected_bytes": 575,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/play.svg",
+      "Hash": "72d5a639dffe0168755aade9feb338cb58d08944",
+      "expected_bytes": 239,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/plus-circle.svg",
+      "Hash": "715402227686eab1b0ef4b8083d95d5a477890f8",
+      "expected_bytes": 430,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/plus.svg",
+      "Hash": "8484cacb0123f5822e17be6d68aca8b51e83c703",
+      "expected_bytes": 299,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/preview-default.svg",
+      "Hash": "388b2efa9ecebb7171288255cabf9cc5c807c1ea",
+      "expected_bytes": 611,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/pyriamid.svg",
+      "Hash": "a5fcbb961143f9feb9faac8222fa7f78bbb0404f",
+      "expected_bytes": 571,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/refresh.svg",
+      "Hash": "f05f6903f4e0bc4b601a77d52987f8400746a5f4",
+      "expected_bytes": 368,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/reimport.svg",
+      "Hash": "e29cabe7825bb7137125514e3f49c85995ca5bb4",
+      "expected_bytes": 983,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/reject.svg",
+      "Hash": "4332631c6bbb53521e1f3ba7b7117dc654430239",
+      "expected_bytes": 399,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/save-modified.svg",
+      "Hash": "b4bf43b378fef0ea5c669c39d02256322ecd409a",
+      "expected_bytes": 683,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/save.svg",
+      "Hash": "63039619af1e44c43b87ce1f571d44f4f11e0335",
+      "expected_bytes": 265,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/search.svg",
+      "Hash": "86be600d7418e160129332e08ad4521f7c437239",
+      "expected_bytes": 468,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/server.svg",
+      "Hash": "1af29f479abf5c2084706d1885a4acd0b338af56",
+      "expected_bytes": 614,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/settings.svg",
+      "Hash": "20527e8c0e24f88bd643d0c61ae8224f0a7cf48b",
+      "expected_bytes": 1690,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/sphere.svg",
+      "Hash": "333cf9e48dbc14705a409f1b2fba5ee7e85ddf45",
+      "expected_bytes": 645,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/stop.svg",
+      "Hash": "a7567d63dd6700801dee9a7ce9c96087efbb1dbb",
+      "expected_bytes": 145,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/tile.svg",
+      "Hash": "69d225bf43f149da82bc09c396e9f07a264070d8",
+      "expected_bytes": 280,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/unreal-circle-thick.svg",
+      "Hash": "fb2b845882c9c0e8741e8c4bbefb01f142d96b25",
+      "expected_bytes": 1265,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/unreal-circle-thin.svg",
+      "Hash": "a2f39b68e77881d74089f24a280c8b66ba6cff1c",
+      "expected_bytes": 1244,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/unreal-small.svg",
+      "Hash": "053300e7c0ce45298c68573dd080736f11d2620d",
+      "expected_bytes": 10892,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/visible.svg",
+      "Hash": "5872c07e7adc0785644e745272ab65b7cdee8a93",
+      "expected_bytes": 434,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/world.svg",
+      "Hash": "f20450af4474970906adac936f8a3bcbd4139b0e",
+      "expected_bytes": 1616,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Common/x-circle.svg",
+      "Hash": "009fcb9fab02b873405d8dd939faf09b9a01d3e0",
+      "expected_bytes": 1274,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/CheckBox/CheckBoxIndeterminate_12.svg",
+      "Hash": "ca5abd6874a308c6474f28eacac3a03c13f084ed",
+      "expected_bytes": 181,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/CheckBox/CheckBoxIndeterminate_14.svg",
+      "Hash": "c8370d6c3696e50333f6e3a58fb45702034be3f6",
+      "expected_bytes": 189,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/CheckBox/check.svg",
+      "Hash": "035113e778959f084da8ef5ab876ead596e4b5e0",
+      "expected_bytes": 243,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/CheckBox/indeterminate.svg",
+      "Hash": "e16dedbbd174bd079a9ac9f55006ba19e6eb858f",
+      "expected_bytes": 182,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/CheckBox/radio-off.svg",
+      "Hash": "aa803881f4242a21cb2c86556628db75ae170871",
+      "expected_bytes": 300,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/CheckBox/radio-on.svg",
+      "Hash": "63ee8da52a4f3058525e014cbe6a8fee5533b860",
+      "expected_bytes": 514,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/ComboBox/corner-dropdown.svg",
+      "Hash": "ffe2a64399529fedc937228e357ca461e4d9f1f6",
+      "expected_bytes": 201,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/ComboBox/wide-chevron-down.svg",
+      "Hash": "492623cba5503adc932ae9dbbdd2a28f4956d9f3",
+      "expected_bytes": 211,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/FilterBar/FilterColorSegment.svg",
+      "Hash": "484dddc138abe7ff78f263d4007d63933ea23f2f",
+      "expected_bytes": 191,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/NumericEntryBox/NarrowDecorator.svg",
+      "Hash": "436d2ee58d81394c526ead5e472d54a9fb88878a",
+      "expected_bytes": 235,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/ProgressBar/ProgressMarquee.png",
+      "Hash": "1172986368669bf0b08eb6dee15f41ac1097ec29",
+      "expected_bytes": 277,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/SegmentedBox/left.png",
+      "Hash": "ec1ab598842a8cdd759e9504ccc7cddb1b3e9f6c",
+      "expected_bytes": 193,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/SegmentedBox/left.svg",
+      "Hash": "2aa5c1edd3b1c91e62786dc59f18fd1e4d5e32fe",
+      "expected_bytes": 194,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/SegmentedBox/right.png",
+      "Hash": "9ceca0959cd26bed33b4d6cfe9b4a70ad2745494",
+      "expected_bytes": 177,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/SegmentedBox/right.svg",
+      "Hash": "7df3beb929712ad467a284e5b55ba47881e3ce13",
+      "expected_bytes": 198,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/TableView/PinnedItemShadow.png",
+      "Hash": "f884ba8b7bc4f8e9b7b22bce1956a9aefd470964",
+      "expected_bytes": 347,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/TableView/sort-down-arrow.svg",
+      "Hash": "8a04426589f7aaede153eeabf4c069bdeaa90bbf",
+      "expected_bytes": 312,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/TableView/sort-down-arrows.svg",
+      "Hash": "ba6a9801f0f7a188eb310b686a44e549337e6365",
+      "expected_bytes": 543,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/TableView/sort-up-arrow.svg",
+      "Hash": "1828e15c3cade9625491a23868b7c6f320188d61",
+      "expected_bytes": 314,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/TableView/sort-up-arrows.svg",
+      "Hash": "07453cd17c5127a0eb4507320e9ec57a89e1d69e",
+      "expected_bytes": 554,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/Window/close.svg",
+      "Hash": "08caa79322634a824f67d8f463421be6e2b3bf48",
+      "expected_bytes": 211,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/Window/enter_fullscreen.svg",
+      "Hash": "1b5451b7a5369fba13ffff784ea2e9ec38ed54a9",
+      "expected_bytes": 353,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/Window/exit_fullscreen.svg",
+      "Hash": "89d373c339cafc51a9be13ad1d172ed6c3590028",
+      "expected_bytes": 357,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/Window/maximize.svg",
+      "Hash": "448230fa669a624db014a8b5fcd5dd9ce952ea55",
+      "expected_bytes": 164,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/Window/minimize.svg",
+      "Hash": "fafb8967a7d64fe2a1a2ab1346e87d5d102dc470",
+      "expected_bytes": 162,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/CoreWidgets/Window/restore.svg",
+      "Hash": "f168da2b553ef090c1194e818682383b2a3d9b52",
+      "expected_bytes": 291,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Docking/DockTab_Active.png",
+      "Hash": "f064a0cae86dd8b85c7c9b780a81d5c751127b15",
+      "expected_bytes": 139,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Docking/DockTab_Foreground.png",
+      "Hash": "cdf4ed6138738e00e762191696522a2dc4fb998e",
+      "expected_bytes": 185,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Docking/DockTab_Hover.png",
+      "Hash": "3d90afe92325c2cd95918e68aaa4fa78647e06cf",
+      "expected_bytes": 184,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Docking/Dock_Tab_Active.png",
+      "Hash": "d88561e8d774b0bdd2d803d3865a12829482a280",
+      "expected_bytes": 135,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Docking/OpenTabInWindow.svg",
+      "Hash": "b54757ab57f684f76ad6c4f96ba37d6fb00d3e51",
+      "expected_bytes": 603,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Docking/drawer-shadow.png",
+      "Hash": "9a6303057c0c15e6c8716b4012714a8c8553c000",
+      "expected_bytes": 2112,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Docking/pin.svg",
+      "Hash": "18257ce9d2b714b6bf942a3be5064282689956ee",
+      "expected_bytes": 750,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Docking/show-tab-well.svg",
+      "Hash": "10bd550aa53c9f76feafdc77d6275aea852a6d9e",
+      "expected_bytes": 151,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/AllTracks_20.svg",
+      "Hash": "21a8a5c9e80b7e1742bf1b68adcc698925a69005",
+      "expected_bytes": 1528,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Annotation.svg",
+      "Hash": "645acd81607ebc3fc484aaf8eb109442fbe0ba45",
+      "expected_bytes": 154,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Annotation_20.svg",
+      "Hash": "90f760e19697ea7df8748dd64f332cace29ef291",
+      "expected_bytes": 176,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/AutoScrollDown_20.svg",
+      "Hash": "12cc19942233952051a3b15bb706295c74035c8f",
+      "expected_bytes": 395,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/AutoScrollRight_20.svg",
+      "Hash": "2558188e7b747963a24c7471631bd1dab271a93d",
+      "expected_bytes": 422,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/BudgetSettings.svg",
+      "Hash": "cccbc3be60ddfba5c346c2e491671a709eaf20f6",
+      "expected_bytes": 510,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Callees.svg",
+      "Hash": "4a0f1866bea39946e0984a66bffd75f8f146595e",
+      "expected_bytes": 520,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Callees_20.svg",
+      "Hash": "5be6217408f575f65cce9e55a110deb21055f771",
+      "expected_bytes": 471,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Callers.svg",
+      "Hash": "854b3e42711d2daa28455d90112b6288748cdf88",
+      "expected_bytes": 395,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Callers_20.svg",
+      "Hash": "66d0421c87298895af604d5219272b9aec500cfc",
+      "expected_bytes": 460,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Connection.svg",
+      "Hash": "15984f36e8e634dd0bda580de08dc32f80810ace",
+      "expected_bytes": 982,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/ControlsFirst.svg",
+      "Hash": "4ebe50066ad1d683de9074a43c19b889804ea0da",
+      "expected_bytes": 314,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/ControlsLast.svg",
+      "Hash": "a8a29346fc634c2914a167c1ef99c21b1b294ed7",
+      "expected_bytes": 325,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/ControlsNext.svg",
+      "Hash": "968a010cca46ab7aa0c9c5d7f384fb926c4bbca3",
+      "expected_bytes": 226,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/ControlsPrevious.svg",
+      "Hash": "b4bc69663abbaac1b0933ccf3d772363a1054282",
+      "expected_bytes": 216,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Counter.svg",
+      "Hash": "5a6ba1c734846154bda0b9f3991ec28421413aa3",
+      "expected_bytes": 198,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Counter_20.svg",
+      "Hash": "d75cc623c9f8639627aba3acc8ebc36acd18970d",
+      "expected_bytes": 222,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/CpuGpuTracks_20.svg",
+      "Hash": "040537a45c628fc1e7f41dc5ac3cc0d3ff7cb4e0",
+      "expected_bytes": 413,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/CpuThread_12.svg",
+      "Hash": "3ca615d6299af093fc494a2aee85cbc76d36a938",
+      "expected_bytes": 489,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Filter.svg",
+      "Hash": "cb0ecb47215fe36ccc16c9187ee436f3550fe9da",
+      "expected_bytes": 170,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/FilterConfig.svg",
+      "Hash": "5bfd53b3126136b69aee88c9d361a0401f5c0f2d",
+      "expected_bytes": 2097,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Frames.svg",
+      "Hash": "21bd5fc7b4034c950c19ca04c3e2bcf3de8e27dc",
+      "expected_bytes": 340,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Frames_20.svg",
+      "Hash": "8135889306fcc6a4bf9f412058dfdf121c7fb187",
+      "expected_bytes": 343,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Function.svg",
+      "Hash": "05893473a681bff446b25c8e9f1907d6d7296c39",
+      "expected_bytes": 1233,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/HotPath_12.svg",
+      "Hash": "31f27d2a323ffefa5ed58a934a4fd6d23f94861a",
+      "expected_bytes": 1147,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/InfoTag_12.svg",
+      "Hash": "4c443178d2c9f8f3f7634f45624731f64c880066",
+      "expected_bytes": 712,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Log.svg",
+      "Hash": "26b9dd852817750c7fa77933b6747466245ad5c8",
+      "expected_bytes": 381,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Log_20.svg",
+      "Hash": "10d37ea77d894714ad6cd240d4d1fddab0f49ad1",
+      "expected_bytes": 1219,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/MemAllocTable.svg",
+      "Hash": "1635462549a4b0d3c05acae3b85afa4912fd1c72",
+      "expected_bytes": 503,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/MemInvestigation.svg",
+      "Hash": "062d8251dc7f5f2a5cb132e95f42412e90e6d0d9",
+      "expected_bytes": 860,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/MemInvestigation_20.svg",
+      "Hash": "36d70814a6f380cdfd9d0ddc8cc158bbe4202b29",
+      "expected_bytes": 733,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/MemTagSet_AssetClasses.svg",
+      "Hash": "87d8fcb51241ca7e06080f4a64b6ec93c84d7144",
+      "expected_bytes": 2261,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/MemTagSet_Assets.svg",
+      "Hash": "2695324374e210b3a361d813639d6ac31a156b3b",
+      "expected_bytes": 876,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/MemTagSet_Systems.svg",
+      "Hash": "c3eaeb9cf26ef3174b407ad878538e55a7283f0a",
+      "expected_bytes": 5788,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/MemTag_Asset_12.svg",
+      "Hash": "9d940eb1212c2783cb1a73f3a9de47deeded598c",
+      "expected_bytes": 814,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/MemTag_Class_12.svg",
+      "Hash": "c97726f2b6b4a81e88d4e60837c3bd9bd8e9c135",
+      "expected_bytes": 2167,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/MemTag_System_12.svg",
+      "Hash": "525b5569114e8d4dd37930f1bc68a0b2cb0673db",
+      "expected_bytes": 3006,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/MemTags.svg",
+      "Hash": "14e8fbb8f02908b01fc7dd7dfdad470523abe263",
+      "expected_bytes": 1546,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/MemTags_20.svg",
+      "Hash": "159a765516657a85db3217a74277d0fc23a49d24",
+      "expected_bytes": 1907,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Memory.svg",
+      "Hash": "d375b2accb0d2aa01c161a8d770612d8239a2a0e",
+      "expected_bytes": 651,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/MemoryAnalysisSnapshot_16.svg",
+      "Hash": "52f1ec606ed446b8b46cd0489174b59406ded31a",
+      "expected_bytes": 1623,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/MemoryAnalysis_16.svg",
+      "Hash": "65e49e958e0633a8a98a84147475ca81afa95b81",
+      "expected_bytes": 853,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/NetStats.svg",
+      "Hash": "9a764cf4fa8686bf52fede6eee7b975cb981e546",
+      "expected_bytes": 2263,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/NetStats_20.svg",
+      "Hash": "9174ad0092a4e81ab4be9a2e90af7882d3c18ccd",
+      "expected_bytes": 3080,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Networking.svg",
+      "Hash": "ff7d1e756d58129f2c24466d78533b5556aad047",
+      "expected_bytes": 2085,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Object.svg",
+      "Hash": "56226e167e8caf1665062f1d52b3bb0043e446e8",
+      "expected_bytes": 512,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/PacketContent.svg",
+      "Hash": "aec0fa922592d1ae2e1284ae318faa8eef0f9107",
+      "expected_bytes": 1589,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/PacketContent_20.svg",
+      "Hash": "de07f99adf0fcb4ab703fe839df9e20e0715a5c3",
+      "expected_bytes": 1733,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Packets.svg",
+      "Hash": "9cad5f3484b7646114a2d824578b3715230d0f3d",
+      "expected_bytes": 547,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Packets_20.svg",
+      "Hash": "ceefd30fd944365ab5db8051c895cbbde809962c",
+      "expected_bytes": 627,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/PluginTracks_20.svg",
+      "Hash": "73a0a2c20fffdee9f1fbab4228fee946b62cbcd8",
+      "expected_bytes": 333,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/RoundedBullet.svg",
+      "Hash": "0363ff77bc434cabb0a960a695b3b62b164b9542",
+      "expected_bytes": 161,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Session.svg",
+      "Hash": "a4b9d929da02e3ac6f3e5a056d35df68a0dcee92",
+      "expected_bytes": 2074,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/SizeLarge.svg",
+      "Hash": "6b6288edd678e75a9bfe49b28fe002b55b43696b",
+      "expected_bytes": 263,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/SizeLarge_20.svg",
+      "Hash": "5a734cc3d9885fd2338fa3ab09edf1dc95ded6e8",
+      "expected_bytes": 263,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/SizeMedium.svg",
+      "Hash": "0af829aea2997aa69d9b469ff54b0274249a781a",
+      "expected_bytes": 263,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/SizeMedium_20.svg",
+      "Hash": "419d8da08ac1d3d0725fb4754a94559f38b34525",
+      "expected_bytes": 263,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/SizeSmall.svg",
+      "Hash": "a2d533c2a7b6805717402d375fdd2a1126512028",
+      "expected_bytes": 260,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/SizeSmall_20.svg",
+      "Hash": "5029803c01c16b20744780f7fe35f2f01c80148d",
+      "expected_bytes": 263,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/SpecialTracks_20.svg",
+      "Hash": "9427cbc4c59ce53d457b2003f089f770fbaf755f",
+      "expected_bytes": 513,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Tasks.svg",
+      "Hash": "bd5d0cf4ad59ae32a539947863b74e1ad99182c5",
+      "expected_bytes": 1012,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Tasks_20.svg",
+      "Hash": "de19d00838a242ceb117edf16d609b8a8c28c63d",
+      "expected_bytes": 961,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Threads.svg",
+      "Hash": "4febfebdd72bbeb73d63a833c98b7b56252be047",
+      "expected_bytes": 643,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Threads_20.svg",
+      "Hash": "04a588e3c60423939056e334078c0a7b4a63fb33",
+      "expected_bytes": 659,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/TimeMarkerSettings.svg",
+      "Hash": "51fc8a86ca1f7becc60ee17aabb6a3bda2bab706",
+      "expected_bytes": 391,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Timer.svg",
+      "Hash": "811918f35faffa732a4a90a6f4038e157fa8d56f",
+      "expected_bytes": 2133,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Timer_20.svg",
+      "Hash": "47b31b9e344cc527c665041f41b78e1c86b20526",
+      "expected_bytes": 4432,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Timing.svg",
+      "Hash": "d1347db6f79e9cbbd913416d424f05e84332591e",
+      "expected_bytes": 784,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/Timing_20.svg",
+      "Hash": "c24a4596f2629053b7b38a2d97ec6c7ceb766e17",
+      "expected_bytes": 1689,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/TraceStore.svg",
+      "Hash": "617c9abe57ebd2a04adf418539fb7c733fc8ca5d",
+      "expected_bytes": 483,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/TraceStore_20.svg",
+      "Hash": "87774980bb5181f766097c74080873b30723aef7",
+      "expected_bytes": 505,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/TraceTools/RecordTraceCenter.svg",
+      "Hash": "dfd7f489e774bc870667f6376d3b7019664028a8",
+      "expected_bytes": 328,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/TraceTools/RecordTraceOutline.svg",
+      "Hash": "ed5e5d9f8c0dc29e666f4902b68cb68acff4f8a0",
+      "expected_bytes": 167,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/TraceTools/RecordTraceRecording.svg",
+      "Hash": "f10f6d5329d0ef0c4ff50769183d499f3312d5b4",
+      "expected_bytes": 392,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/TraceTools/TracePause.svg",
+      "Hash": "d93d40d1f1c000c0d52a2e0d5755a7ade6ff541a",
+      "expected_bytes": 201,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/TraceTools/TraceResume.svg",
+      "Hash": "72d5a639dffe0168755aade9feb338cb58d08944",
+      "expected_bytes": 239,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/TraceTools/TraceSnapshot.svg",
+      "Hash": "52ceeeca3334d9ce452cbc8d015515f95e60bbd9",
+      "expected_bytes": 943,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/TraceTools/TraceStart.svg",
+      "Hash": "daa0363b2766d6986e1624c0391a6f9a0bd383fa",
+      "expected_bytes": 406,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/TraceTools/TraceStop.svg",
+      "Hash": "e2c47ec5114fe1559723f61fe10fce8f974cf4f3",
+      "expected_bytes": 249,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/UObject.svg",
+      "Hash": "fd4a758f8cd5269e5f00d5ac3228b4cc6bd9102c",
+      "expected_bytes": 2466,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/UObject_12.svg",
+      "Hash": "a55803a968a21c8eac1759f098a22959423991af",
+      "expected_bytes": 2382,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/UTrace.svg",
+      "Hash": "96f2778c28655ed6d31c5defe735a230eb31f376",
+      "expected_bytes": 866,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/UnrealInsights.svg",
+      "Hash": "034972ca79c1ee6bb7c2d1049eb0d9c59a4a2f90",
+      "expected_bytes": 1400,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/ViewMode_20.svg",
+      "Hash": "ae7280e05c3af5b77094db8174b614f6b39bfcd4",
+      "expected_bytes": 1072,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Insights/ZeroCountFilter.svg",
+      "Hash": "cae631dc1c74923ed65f41f55ed0bca235cae7e0",
+      "expected_bytes": 1267,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Launcher/PaperAirplane.svg",
+      "Hash": "f9b8eb40ed57162006718632062cd778d3f1e619",
+      "expected_bytes": 328,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/Notifications/Throbber.png",
+      "Hash": "6e60be7cf5d274175856c304d036292f5381d9ec",
+      "expected_bytes": 1002,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_Added.svg",
+      "Hash": "140483db9af051f5c7ecf11b454755aa047c3fd8",
+      "expected_bytes": 299,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_Archived.svg",
+      "Hash": "99a0a1131c04dabecb8f428ddfc942501a8df2f1",
+      "expected_bytes": 667,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_Branch.svg",
+      "Hash": "0c127ce5d36ecfb0eaef07b73e1cb3d7a437901c",
+      "expected_bytes": 471,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_BranchExplorer.svg",
+      "Hash": "0c127ce5d36ecfb0eaef07b73e1cb3d7a437901c",
+      "expected_bytes": 471,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_BranchGlyph.svg",
+      "Hash": "617ebaa9831491363dedab2d22e09fba4afe622c",
+      "expected_bytes": 521,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_BranchModifiedBadge.svg",
+      "Hash": "9ed069aa08f80410244ac7d2c4a32fbd061223de",
+      "expected_bytes": 551,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_CheckGlyph.svg",
+      "Hash": "b018ba59727deaef66b96a109b0978c0a07d6149",
+      "expected_bytes": 249,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_CheckIn.svg",
+      "Hash": "8287253f4598e7422b596299b195945ce84e545a",
+      "expected_bytes": 375,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_CheckInAvailable.svg",
+      "Hash": "686d86ec9adf310f31f5ccd9a6621ca058a26458",
+      "expected_bytes": 955,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_CheckInAvailableRewound.svg",
+      "Hash": "e8489615a6e04dd83b7673d6b93cc9d07b6e56db",
+      "expected_bytes": 1184,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_CheckedBranch.svg",
+      "Hash": "fa38a27e606d46816e04aa7786f9ce559e2f8467",
+      "expected_bytes": 584,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_CheckedBranchBadge.svg",
+      "Hash": "f089b0af65b856d4ff38d0385d6238d379ff9f2a",
+      "expected_bytes": 429,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_CheckedOther.svg",
+      "Hash": "aba072d9c0167af59d554f4096329533f947347b",
+      "expected_bytes": 1464,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_CheckedOtherBadge.svg",
+      "Hash": "46cd0636296f4cf1fc43babba10b87b94c0a32f9",
+      "expected_bytes": 430,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_Circle.svg",
+      "Hash": "83df47fa60b76d5625688767be2063600331cc5f",
+      "expected_bytes": 511,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_ConflictResolution_Clear.svg",
+      "Hash": "c52c928529df9e618adeb833710ee78edbbe8c6c",
+      "expected_bytes": 390,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_ConflictResolution_OpenExternal.svg",
+      "Hash": "72876dd0ba6a954c6098060e9117d13609de6fdb",
+      "expected_bytes": 593,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_Conflicted.svg",
+      "Hash": "e6a6b754bc12d05b66896d5789bcebe8be549c08",
+      "expected_bytes": 593,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_ConflictedState.svg",
+      "Hash": "f25ee97541130f2d6aa10a1f5aabf2c4df7c6882",
+      "expected_bytes": 667,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_Diff.svg",
+      "Hash": "faaed2d8f39431efac17919ab50e3745d38fcd1f",
+      "expected_bytes": 982,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_DiskSize.svg",
+      "Hash": "ba91dc82c0cc4dfaaba51e064c8003f3f6710c72",
+      "expected_bytes": 1104,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_File.svg",
+      "Hash": "8ca5e5320318de59039db1bb5cd6efb970b7d04d",
+      "expected_bytes": 2169,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_LineCircle.svg",
+      "Hash": "860b60376a129eb94ac6c451029ebd46faca747f",
+      "expected_bytes": 484,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_MainProject.svg",
+      "Hash": "999dfba5ad186ebb09695ca3b58adbaabb253c6d",
+      "expected_bytes": 2449,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_MarkedForAdd.svg",
+      "Hash": "c895b169c3a812280ac17ab6c87a13f81d2a8a37",
+      "expected_bytes": 303,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_Merged.svg",
+      "Hash": "3e7f571a1ccc0ed70053800bd7d014b3ea0fc5ba",
+      "expected_bytes": 276,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_Modified.svg",
+      "Hash": "42df4a9b5caf890e1fab2533422f8ed92fd69bd5",
+      "expected_bytes": 382,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_ModifiedLocally.svg",
+      "Hash": "799745cae20f0f5fe30948c131692028572bc14a",
+      "expected_bytes": 477,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_NewBranch.svg",
+      "Hash": "409952c1fc3c4dd111101eeac5767727520d905e",
+      "expected_bytes": 481,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_NewerVersion.svg",
+      "Hash": "981d91249d372b87f1aef511cebbd541513b6639",
+      "expected_bytes": 446,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_Promote.svg",
+      "Hash": "16641bc63256844e3cb90c3702d7bef5d739ce30",
+      "expected_bytes": 2395,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_Promote_Large.svg",
+      "Hash": "b3ebc4d8a34ec713865f841e0004c305aae135ec",
+      "expected_bytes": 2115,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_Removed.svg",
+      "Hash": "256d1fdcf6fc303a56c27c8e44b4c837dbe16871",
+      "expected_bytes": 537,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_Rewind.svg",
+      "Hash": "69df199472532d12641829793082a93e54fef102",
+      "expected_bytes": 1228,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_Rewound.svg",
+      "Hash": "165935c3d7d5da51f44fdd60782a0c849cc76090",
+      "expected_bytes": 511,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_SidePanelLeftClose.svg",
+      "Hash": "521e618a98e5547fbb475597b4265763b3a7450e",
+      "expected_bytes": 814,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_SidePanelLeftOpen.svg",
+      "Hash": "6fafff6fa4f1c32ef4fe0383baa08004addb18b7",
+      "expected_bytes": 743,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_SidePanelRightClose.svg",
+      "Hash": "0a765cc7be38e8e15fe0eb2edb84831c1a837d22",
+      "expected_bytes": 859,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_SidePanelRightOpen.svg",
+      "Hash": "7692cc315e23f508072a2bed684247e2f20b9f3c",
+      "expected_bytes": 786,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_StatusLocalUpToDate.svg",
+      "Hash": "397d80958df06d8d8b8ddd4a0ac04571b2aad666",
+      "expected_bytes": 872,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_StatusLocalUpload.svg",
+      "Hash": "f6d47773b830352687f3ceb06ae563bebf689c88",
+      "expected_bytes": 663,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_StatusRemoteDownload.svg",
+      "Hash": "981d91249d372b87f1aef511cebbd541513b6639",
+      "expected_bytes": 446,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_StatusRemoteUpToDate.svg",
+      "Hash": "ec13cc21481cd292211f30a2a971045740bbc2d0",
+      "expected_bytes": 858,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_Sync.svg",
+      "Hash": "149801b0e4b04407601100baf6ff2f5450cd6d16",
+      "expected_bytes": 377,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_SyncAndCheckOut.svg",
+      "Hash": "76d1f79789910d2b4fb00a7b4321c4a4b1f24e06",
+      "expected_bytes": 435,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_TailDown.svg",
+      "Hash": "0391274da100072c24779605dd4510e896116721",
+      "expected_bytes": 163,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_TailUp.svg",
+      "Hash": "7195e7df21be5e07fe94da2328fcfef09b8e6718",
+      "expected_bytes": 161,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_VerticalLine.svg",
+      "Hash": "6b3aaebffa5b573065879dba614992556f3da2b5",
+      "expected_bytes": 159,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_VerticalLineDashed.svg",
+      "Hash": "a0225665da77eea2e72eef46bf849c5ca80dcf98",
+      "expected_bytes": 479,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_VerticalLineEnd.svg",
+      "Hash": "bc5c75275ecf293edcdee9b210a581a6c70f2448",
+      "expected_bytes": 244,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/RC_VerticalLineStart.svg",
+      "Hash": "5af90ea4a5bc656b40d6d93f7bca082ba35aa6a2",
+      "expected_bytes": 214,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/SCC_Action_Diff.svg",
+      "Hash": "10d0ea79ddf301579a2819fdad51b5862cfc44ff",
+      "expected_bytes": 210,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/SCC_Action_Integrate.svg",
+      "Hash": "ce5ddce6f4be125ecb57bd9007e0119c2090784a",
+      "expected_bytes": 312,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/SCC_Branched.svg",
+      "Hash": "56df48459b77ca343e41e34b435b052f2d5b1e6e",
+      "expected_bytes": 629,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/SCC_Changelist.svg",
+      "Hash": "6dadeb53c111d3843d6585ceeb83a6f00ad8c22e",
+      "expected_bytes": 146,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/SCC_CheckedOut.svg",
+      "Hash": "49427d3df3649acbb89bc79a1689359f2c57dbfd",
+      "expected_bytes": 221,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/SCC_ContentAdd.svg",
+      "Hash": "371d19b45a5f7b3ae1021072697f85b5ed112a6c",
+      "expected_bytes": 291,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/SCC_DlgCheckedOutOther.svg",
+      "Hash": "7bae6565c587fb77e2a61ff2db17b38790b1d89b",
+      "expected_bytes": 803,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/SCC_DlgNotCurrent.svg",
+      "Hash": "2dab3830dda7a1bba95680f766dc7031c8c98085",
+      "expected_bytes": 653,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/SCC_DlgReadOnly.svg",
+      "Hash": "67a6df3c7e2490d52469578250dd5bbc1286ddb7",
+      "expected_bytes": 1515,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/SCC_Lock.svg",
+      "Hash": "60d1a2bee29fb33e8cf83a43cd91be1c903777c8",
+      "expected_bytes": 2928,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/SCC_MarkedForDelete.svg",
+      "Hash": "e48a3ebbbba00c1e56e24f9428f3226eb62918c5",
+      "expected_bytes": 685,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/SCC_ModifiedOtherBranch.svg",
+      "Hash": "c0ef408e5ef17db4252056c426275dd491564faa",
+      "expected_bytes": 878,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/SCC_NotInDepot.svg",
+      "Hash": "78d822d2baee547c4cd04eb03199b12fe0bb6635",
+      "expected_bytes": 1297,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/SCC_Shelved.svg",
+      "Hash": "f57ae058cc82ffac673312429514a2cb57b7078a",
+      "expected_bytes": 408,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/SourceControl.svg",
+      "Hash": "94882e8a614e36e7be1eab76f5eb76729ceefd02",
+      "expected_bytes": 835,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/Status/RevisionControl.svg",
+      "Hash": "fd27a8f1ae66c2193d2d9accd007a163a80e58f0",
+      "expected_bytes": 847,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/Status/RevisionControlBadgeConnected.svg",
+      "Hash": "a4676416ff8edac31b7bed10a9521184583848f7",
+      "expected_bytes": 1445,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/Status/RevisionControlBadgeWarning.svg",
+      "Hash": "f755139afff2b670a847652b68d19d91654e6c01",
+      "expected_bytes": 1983,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/icon_SCC_Change_Source_Control_Settings.svg",
+      "Hash": "851c48987af19180f4df37bc0d0e0aec25e113b9",
+      "expected_bytes": 1494,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/icon_SCC_History.svg",
+      "Hash": "da9b36e2427593971a6ec8021ffdaa121183bd9e",
+      "expected_bytes": 1356,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/SourceControl/icon_SCC_Revert.svg",
+      "Hash": "691320e167083fd8d64ce93143705e130d0658c0",
+      "expected_bytes": 350,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/StaticMeshEditor/DisabledOverlay_x16.png",
+      "Hash": "9adac312285ebf7d39c097d2d4cb160a124ae9c0",
+      "expected_bytes": 183,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Starship/StatusBar/drawer-shadow-bottom.png",
+      "Hash": "6a9f4caf2c976313c492335e2914bccbf78cac9d",
+      "expected_bytes": 2424,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Testing/BrushWireframe.png",
+      "Hash": "e0b83bfb134ecfcedbcdbabe6ab807af275f4ff5",
+      "expected_bytes": 3282,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Testing/DefaultPawn_16px.png",
+      "Hash": "a5e4e27c471ad90dbc241a7c7ff322764fd3cb05",
+      "expected_bytes": 37370,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Testing/FlatColorSquare.png",
+      "Hash": "53a6aa1f9d327c0909154731b6361f2548e13074",
+      "expected_bytes": 2791,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Testing/Hyperlink.png",
+      "Hash": "fdf13717a1da6d22cf012e8def1d2c49c1d58a98",
+      "expected_bytes": 303,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Testing/Lit.png",
+      "Hash": "a2c963b78b38a4df2ed7dc0e86bfb24b3f130f12",
+      "expected_bytes": 3487,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Testing/NewLevelBlank.png",
+      "Hash": "87fba7651eff40e54dec6975844790d7c727d6ba",
+      "expected_bytes": 3533,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Testing/TestRotation.png",
+      "Hash": "08a997b7e86c69129c91d02f76456e092513f752",
+      "expected_bytes": 854,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Testing/Unlit.png",
+      "Hash": "5651b6c1fd31023b4d1fca603263ec84d18983b1",
+      "expected_bytes": 3440,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Testing/Wireframe.png",
+      "Hash": "9ca3f5a457ff0af99151a9d93c497163cc5cff9c",
+      "expected_bytes": 3368,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Tutorials/TutorialBorder.png",
+      "Hash": "626f4fdf6a2491a67ed92b1285cd6204931a9844",
+      "expected_bytes": 1289,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Tutorials/TutorialShadow.png",
+      "Hash": "91b2089066b0628d8edd04322d311836fae1d1ed",
+      "expected_bytes": 957,
+      "materialized": false
+    }
+  ],
+  "largest_slate_files": [
+    {
+      "Name": "Engine/Content/Slate/Fonts/DroidSansFallback.ttf",
+      "Hash": "c5e4f11e2f1d0b84e5f268a7ebfd28b54dc6bcdc",
+      "expected_bytes": 3939852,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/pin/reitment.psd",
+      "Hash": "4ccabcd91258fb9ae40c46cfb2a23162de8a8503",
+      "expected_bytes": 601227,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Common/ColorSpectrum.png",
+      "Hash": "2269089cd99bb6633b6e9202583ffedaa0889e4e",
+      "expected_bytes": 266833,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-Medium.ttf",
+      "Hash": "f6783010d5def128c4a1539333324f75701d9bab",
+      "expected_bytes": 171656,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-Light.ttf",
+      "Hash": "73a2bb2d6e591a90ffb4ed118a3989fb17b54c7b",
+      "expected_bytes": 170420,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-BlackItalic.ttf",
+      "Hash": "67907afda4a0fc301e49f6befa402317840d413b",
+      "expected_bytes": 166320,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-BoldItalic.ttf",
+      "Hash": "9cfd661f459c98f17d3c88191d9df87b960c2ae6",
+      "expected_bytes": 165864,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-Black.ttf",
+      "Hash": "9eb4f9d1aaceb455483d15ce81fd6dcb1fbdb062",
+      "expected_bytes": 164936,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-BoldCondensedItalic.ttf",
+      "Hash": "4d713416816079267467f0abf05e9491a58b7544",
+      "expected_bytes": 163584,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-Bold.ttf",
+      "Hash": "d313ab2c45756bf4e972647f5b2ad691ad250990",
+      "expected_bytes": 163448,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Old/Tiles/Roboto-Bold.ttf",
+      "Hash": "d313ab2c45756bf4e972647f5b2ad691ad250990",
+      "expected_bytes": 163448,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-BoldCondensed.ttf",
+      "Hash": "55c1735e4085089e2ea3b03e9809fb933c3b5db7",
+      "expected_bytes": 161308,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-Italic.ttf",
+      "Hash": "2a5ad885c7e58322832e6e651156ffc131e27f2e",
+      "expected_bytes": 160736,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/Roboto-Regular.ttf",
+      "Hash": "a18dcbf99c8d2325c2fbf22a64e8cc28a0cf4d3b",
+      "expected_bytes": 158604,
+      "materialized": false
+    },
+    {
+      "Name": "Engine/Content/Slate/Fonts/NotoNaskhArabicUI-Regular.ttf",
+      "Hash": "02e530d7ec5b60be4ecbf3afa9c415359ee63f3f",
+      "expected_bytes": 146548,
+      "materialized": false
+    }
+  ],
+  "limitations": [
+    "Expected raw asset lengths come from pinned metadata, not downloaded or hash-verified contents",
+    "No compressed increment can be measured without the actual bytes",
+    "Does not include new Slate global shaders, used UI-material shader maps, cooked WidgetBlueprint/referenced content or runtime defaults outside these prefixes",
+    "SlateDebug is DebugNonUFS and can be excluded from a release estimate explicitly; it is not in the UFS subtotal",
+    "Source tree lookup had no Engine/Content/Slate entries; assets are GitDependencies payloads rather than Git/LFS pointers"
+  ]
+}
