@@ -16,12 +16,8 @@ public class RiveUeReferenceRenderer : ModuleRules
         string PrototypeRoot = Path.GetFullPath(Path.Combine(ModuleDirectory, "../.."));
         string NativeRoot = Path.Combine(PrototypeRoot, "vendor", "rive-unreal", "Source", "ThirdParty", "RiveLibrary");
         string IncludeRoot = Environment.GetEnvironmentVariable("RIVE_LITE_INCLUDE_DIR") ?? Path.Combine(NativeRoot, "Includes");
-        string LibraryRoot = Environment.GetEnvironmentVariable("RIVE_LITE_NATIVE_LIB_DIR") ?? Path.Combine(NativeRoot, "Libraries", "Linux");
         PublicSystemIncludePaths.Add(IncludeRoot);
-        if (Directory.Exists(LibraryRoot))
-            foreach (string Archive in Directory.GetFiles(LibraryRoot, "*.a"))
-                if (!Archive.EndsWith("_d.a", StringComparison.Ordinal) && Path.GetFileName(Archive) != "rive_libzlib.a")
-                    PublicAdditionalLibraries.Add(Archive);
+        RiveNativeLibraries.Add(this, Target, NativeRoot);
         AddEngineThirdPartyPrivateStaticDependencies(Target, "zlib");
         PublicDefinitions.AddRange(new[] {
             "RIVE_UNREAL", "WITH_RIVE=1", "RIVE_CANVAS=1", "RIVE_ORE=1", "ORE_BACKEND_RHI=1",

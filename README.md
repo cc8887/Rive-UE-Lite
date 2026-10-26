@@ -2,6 +2,12 @@
 
 源码、工具和交付物均放在此独立目录，Linux 构建另用专属缓存。`engine/` 固定为 UE6 `62d7c1a7125b52b10ee1b714838f515f3563f795`；`vendor/rive-unreal/` 固定为 `8461a2dc90924aeadc1f7eed99e6ae2de1b490f0`，原生 runtime 固定为 `47d1cd54ccefd468db7cb26ecc4699ae1723dd85`。不修改原引擎、Rive 仓库或现有工程。
 
+## macOS 适配与交叉编译尝试
+
+已增加 Mac 的 MetalRHI 选择、Engine/Slate 依赖隔离补丁、arm64/x64 原生库选择，以及构建、独立 shader cook、打包和截图对照脚本。默认仍只构建 `RiveRhiLite`；开发 cooker/reference 须显式调用。**当前尚未在 Mac 上编译或运行成功**，WSL 实际尝试受 Mac SDK/目标头文件缺失阻塞，不能据此发布 macOS 二进制。Linux 默认包已重新构建，并在隐藏 GPU 和开发目录后与原生 UE 截图零差异。
+
+入口：`bash scripts/build_ui.sh --platform=macos --arch=arm64`。环境准备、验证步骤和未验证边界见 [macOS 构建说明](prototype/macos.md)。
+
 ## 可选 UMG 已实现与实测
 
 同一个 `RiveRhiLite.uproject` 提供两个独立缓存的渲染构建目标：默认 `RiveRhiLite`，显式 `--with-umg` 选择 `RiveUmgHost`；可选 VerseVM worker 见下文。原始 UE/Rive 工程的 HEAD 与工作区 diff 哈希均未变化。Linux 构建入口（私有 mount namespace 需要 root，实际 UBT 以 uid 1000 运行）：

@@ -29,6 +29,10 @@
 #include "rive/renderer/rive_renderer.hpp"
 #endif
 
+#if WITH_ENGINE || RIVE_HOST_WITH_UMG
+#error RiveRhiLite must remain an Engine-free, UMG-free Program.
+#endif
+
 IMPLEMENT_APPLICATION(RiveRhiLite, "RiveRhiLite");
 DEFINE_LOG_CATEGORY_STATIC(LogRiveLiteHost, Log, All);
 
@@ -145,7 +149,7 @@ INT32_MAIN_INT32_ARGC_TCHAR_ARGV()
     RHIStarted = true;
     if (GUsingNullRHI)
     {
-        UE_LOG(LogRiveLiteHost, Error, TEXT("A real Vulkan RHI is required; NullRHI cannot produce validation pixels"));
+        UE_LOG(LogRiveLiteHost, Error, TEXT("A real platform RHI (Vulkan/Metal) is required; NullRHI cannot produce validation pixels"));
         return 7;
     }
     PipelineStateCache::Init();

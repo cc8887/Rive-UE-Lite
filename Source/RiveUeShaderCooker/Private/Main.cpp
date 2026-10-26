@@ -68,7 +68,15 @@ extern ENGINE_API void InitializeRenderingCVarsCaching();
 
 namespace
 {
+#if PLATFORM_MAC
+constexpr EShaderPlatform CookPlatform = SP_METAL_SM5;
+constexpr const TCHAR* CookTarget = TEXT("Mac");
+constexpr const TCHAR* CookEditorTarget = TEXT("MacEditor");
+#else
 constexpr EShaderPlatform CookPlatform = SP_VULKAN_SM5_LINUX;
+constexpr const TCHAR* CookTarget = TEXT("Linux");
+constexpr const TCHAR* CookEditorTarget = TEXT("LinuxEditor");
+#endif
 
 bool IsSelectedType(const FShaderType& Type)
 {
@@ -120,7 +128,7 @@ int32 Cook(const FString& Output, const FString& ShaderDirectory)
     GShaderPlatformForFeatureLevel[ERHIFeatureLevel::SM5] = CookPlatform;
     RenderUtilsInit();
     const bool EditorShaders = FParse::Param(FCommandLine::Get(), TEXT("EditorShaders"));
-    ITargetPlatform* TargetPlatform = GetTargetPlatformManagerRef().FindTargetPlatform(EditorShaders ? TEXT("LinuxEditor") : TEXT("Linux"));
+    ITargetPlatform* TargetPlatform = GetTargetPlatformManagerRef().FindTargetPlatform(EditorShaders ? CookEditorTarget : CookTarget);
     if (!TargetPlatform || TargetPlatform->HasEditorOnlyData() != EditorShaders) return 3;
     FPlatformTypeLayoutParameters TargetLayout;
     TargetLayout.InitializeForPlatform(TargetPlatform);

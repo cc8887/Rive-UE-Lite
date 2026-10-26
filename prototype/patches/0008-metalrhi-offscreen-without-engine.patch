@@ -1,0 +1,169 @@
+diff --git a/Engine/Source/Runtime/Apple/MetalRHI/MetalRHI.Build.cs b/Engine/Source/Runtime/Apple/MetalRHI/MetalRHI.Build.cs
+--- a/Engine/Source/Runtime/Apple/MetalRHI/MetalRHI.Build.cs
++++ b/Engine/Source/Runtime/Apple/MetalRHI/MetalRHI.Build.cs
+@@ -13,16 +13,19 @@
+ 			new string[] {
+ 				"Core",
+ 				"ApplicationCore",
+-				"Engine",
+ 				"RHI",
+ 				"RHICore",
+ 				"RenderCore",
+ 				"Projects",
+-				"TraceLog",
+-				"Slate",
+-				"SlateCore"
++				"TraceLog"
+ 			}
+ 			);
++
++		// Offscreen Programs use Metal textures/RDG without Slate windows.
++		if (Target.bCompileAgainstEngine)
++		{
++			PrivateDependencyModuleNames.AddRange(new[] { "Engine", "Slate", "SlateCore" });
++		}
+ 
+ 		PublicIncludePathModuleNames.Add("MetalCPP");
+ 
+diff --git a/Engine/Source/Runtime/Apple/MetalRHI/Private/MetalCommands.cpp b/Engine/Source/Runtime/Apple/MetalRHI/Private/MetalCommands.cpp
+--- a/Engine/Source/Runtime/Apple/MetalRHI/Private/MetalCommands.cpp
++++ b/Engine/Source/Runtime/Apple/MetalRHI/Private/MetalCommands.cpp
+@@ -21,7 +21,9 @@
+ #include "MetalProfiler.h"
+ #include "MetalCommandBuffer.h"
+ #include "StaticBoundShaderState.h"
++#if WITH_ENGINE
+ #include "EngineGlobals.h"
++#endif
+ #include "PipelineStateCache.h"
+ #include "RHICoreShader.h"
+ #include "RHIShaderParametersShared.h"
+diff --git a/Engine/Source/Runtime/Apple/MetalRHI/Private/MetalProfiler.cpp b/Engine/Source/Runtime/Apple/MetalRHI/Private/MetalProfiler.cpp
+--- a/Engine/Source/Runtime/Apple/MetalRHI/Private/MetalProfiler.cpp
++++ b/Engine/Source/Runtime/Apple/MetalRHI/Private/MetalProfiler.cpp
+@@ -7,7 +7,9 @@
+ #include "MetalProfiler.h"
+ #include "MetalRHIPrivate.h"
+ #include "MetalDynamicRHI.h"
++#if WITH_ENGINE
+ #include "EngineGlobals.h"
++#endif
+ #include "StaticBoundShaderState.h"
+ #include "MetalCommandBuffer.h"
+ #include "MetalRHIContext.h"
+diff --git a/Engine/Source/Runtime/Apple/MetalRHI/Private/MetalRHI.cpp b/Engine/Source/Runtime/Apple/MetalRHI/Private/MetalRHI.cpp
+--- a/Engine/Source/Runtime/Apple/MetalRHI/Private/MetalRHI.cpp
++++ b/Engine/Source/Runtime/Apple/MetalRHI/Private/MetalRHI.cpp
+@@ -43,9 +43,13 @@
+ #include "Math/UnrealMathUtility.h"
+ #include "MetalShaderResources.h"
+ #include "MetalLLM.h"
++#if WITH_ENGINE
+ #include "Engine/RendererSettings.h"
++#endif
+ #include "MetalTransitionData.h"
++#if WITH_ENGINE
+ #include "EngineGlobals.h"
++#endif
+ #include "MetalBindlessDescriptors.h"
+ #include "DataDrivenShaderPlatformInfo.h"
+ #include "MetalResourceCollection.h"
+diff --git a/Engine/Source/Runtime/Apple/MetalRHI/Public/MetalViewport.h b/Engine/Source/Runtime/Apple/MetalRHI/Public/MetalViewport.h
+--- a/Engine/Source/Runtime/Apple/MetalRHI/Public/MetalViewport.h
++++ b/Engine/Source/Runtime/Apple/MetalRHI/Public/MetalViewport.h
+@@ -12,7 +12,9 @@
+ #include "RHIResources.h"
+ #include "MetalResources.h"
+ 
++#if WITH_ENGINE
+ #include "Widgets/SWindow.h"
++#endif
+ 
+ #if PLATFORM_MAC
+ #include "Mac/MacSystemIncludes.h"
+@@ -115,7 +117,7 @@
+     void PresentImmersive(const MetalRHIVisionOS::PresentImmersiveParams& Params);
+ #endif
+ 	
+-#if PLATFORM_MAC
++#if PLATFORM_MAC && WITH_ENGINE
+ 	TSharedPtr<SWindow> GetBackingSlateWindow();
+ #endif
+ 	
+@@ -229,7 +231,9 @@
+     FCustomPresentRHIRef CustomPresent;
+ #endif
+ 	
++#if WITH_ENGINE
+ 	TWeakPtr<SWindow> BackingSlateWindow;
++#endif
+ };
+ 
+ template<>
+diff --git a/Engine/Source/Runtime/Apple/MetalRHI/Private/MetalViewport.cpp b/Engine/Source/Runtime/Apple/MetalRHI/Private/MetalViewport.cpp
+--- a/Engine/Source/Runtime/Apple/MetalRHI/Private/MetalViewport.cpp
++++ b/Engine/Source/Runtime/Apple/MetalRHI/Private/MetalViewport.cpp
+@@ -30,10 +30,11 @@
+ #include "Containers/Set.h"
+ #include "CoreGlobals.h"
+ #include "RenderUtils.h"
++#if WITH_ENGINE
+ #include "Engine/RendererSettings.h"
+-
+ #include "Input/HittestGrid.h"
+ #include "Framework/Application/SlateApplication.h"
++#endif
+ 
+ extern int32 GMetalSupportsIntermediateBackBuffer;
+ extern float GMetalPresentFramePacing;
+@@ -86,6 +87,7 @@
+ 
+ - (NSView *) hitTest:(NSPoint) point
+ {
++#if WITH_ENGINE
+ 	// we unconditionally allow the bottommost layer to go through:
+ 	// there's no way that a WKWebView/native view could incorrectly
+ 	// preempt its input, and we need to have it go through due to the
+@@ -130,6 +132,9 @@
+ 	{
+ 		return [super hitTest: point];
+ 	}
++#else
++	return [super hitTest: point];
++#endif
+ }
+ 
+ - (BOOL)isOpaque
+@@ -362,7 +367,11 @@
+ 		TSharedPtr<FMacWindow> MacWindow = MacApplication->FindWindowByNSWindow(WindowHandle);
+ 		if (MacWindow.IsValid())
+ 		{
++#if WITH_ENGINE
+ 			const float ContentScaleFactor = FSlateApplication::Get().GetApplicationScale() * MacWindow->GetDPIScaleFactor();
++#else
++			const float ContentScaleFactor = MacWindow->GetDPIScaleFactor();
++#endif
+ 			const NSRect ContentRect = WindowHandle.openGLFrame;
+ 			const uint32 NewSizeX = ContentScaleFactor * ContentRect.size.width;
+ 			const uint32 NewSizeY = ContentScaleFactor * ContentRect.size.height;
+@@ -488,7 +497,7 @@
+ 	}
+ }
+ 
+-#if PLATFORM_MAC
++#if PLATFORM_MAC && WITH_ENGINE
+ TSharedPtr<SWindow> FMetalViewport::GetBackingSlateWindow()
+ {
+ 	TSharedPtr<SWindow> BackingSlateWindowStrong = BackingSlateWindow.Pin();
+@@ -634,7 +643,11 @@
+ 		WindowScaleDPIFactor = MacApplication->FindWindowByNSWindow(WindowHandle)->GetDPIScaleFactor();
+ 	}
+ 	
++#if WITH_ENGINE
+ 	float ContentScaleFactor = FSlateApplication::Get().GetApplicationScale() * WindowScaleDPIFactor;
++#else
++	float ContentScaleFactor = WindowScaleDPIFactor;
++#endif
+ 	
+ 	SizeX = ContentScaleFactor * InSizeX;
+ 	SizeY = ContentScaleFactor * InSizeY;

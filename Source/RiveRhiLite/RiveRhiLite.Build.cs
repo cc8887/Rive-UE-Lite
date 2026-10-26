@@ -11,8 +11,9 @@ public class RiveRhiLite : ModuleRules
         PrivateIncludePaths.Add(Path.GetFullPath(Path.Combine(ModuleDirectory, "../RivePlayback/Public")));
         PrivateDependencyModuleNames.AddRange(new[] {
             "Core", "CoreUObject", "Projects", "ApplicationCore", "RHI", "RHICore",
-            "RenderCore", "ImageCore", "ImageWrapper", "VulkanRHI", "Json"
+            "RenderCore", "ImageCore", "ImageWrapper", "Json"
         });
+        PrivateDependencyModuleNames.Add(Target.Platform == UnrealTargetPlatform.Mac ? "MetalRHI" : "VulkanRHI");
         if (Target.Name != "RiveLiteRhiProbe")
             PrivateDependencyModuleNames.Add("RiveLiteRenderer");
     }

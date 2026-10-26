@@ -1,2 +1,4 @@
 # Linux entry points must remain runnable after a Windows checkout.
 *.sh text eol=lf
+# Unified diff context lines intentionally prefix tabs/blank lines with a space.
+*.patch text eol=lf -whitespace

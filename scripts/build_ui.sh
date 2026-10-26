@@ -2,6 +2,21 @@
 # Build exactly one runtime flavor. Shader cooking and packaging are explicit.
 set -euo pipefail
 TASK_ROOT="$(cd -- "$(dirname -- "$0")/.." && pwd)"
+# Mac keeps the same default lightweight target. Its cooker/reference are explicit
+# development commands, and optional Linux hosts are not silently enabled there.
+PLATFORM="$(uname -s)"
+FORWARD=()
+for ARG in "$@"; do
+    case "$ARG" in
+        --platform=macos) PLATFORM=Darwin ;;
+        --platform=linux) PLATFORM=Linux ;;
+        *) FORWARD+=("$ARG") ;;
+    esac
+done
+if [[ "$PLATFORM" == Darwin ]]; then
+    exec bash "$TASK_ROOT/scripts/build_macos.sh" "${FORWARD[@]}"
+fi
+set -- "${FORWARD[@]}"
 TARGET=RiveRhiLite
 FLAVOR=rive
 PLAN_ONLY=0
@@ -12,7 +27,7 @@ for ARG in "$@"; do
         --with-umg) TARGET=RiveUmgHost; FLAVOR=umg ;;
         --with-verse) WITH_VERSE=1 ;;
         --plan) PLAN_ONLY=1 ;;
-        --help|-h) echo 'Usage: build_ui.sh [--with-umg] [--with-verse] [--plan] [UBT arguments]'; exit 0 ;;
+        --help|-h) echo 'Usage: build_ui.sh [--platform=linux|macos] [--with-umg] [--with-verse] [--plan] [UBT arguments]'; exit 0 ;;
         --*) echo "Unknown option: $ARG" >&2; exit 2 ;;
         *) ARGS+=("$ARG") ;;
     esac

@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-26",
+  "status": "source_adapted_native_mac_validation_blocked",
+  "engine_commit": "62d7c1a7125b52b10ee1b714838f515f3563f795",
+  "rive_runtime_commit": "47d1cd54ccefd468db7cb26ecc4699ae1723dd85",
+  "default_runtime": "RiveRhiLite",
+  "verified": {
+    "linux_default_build": true,
+    "linux_cooker_build": true,
+    "linux_actual_link_excludes_engine_renderer_umg_slate_and_optional_verse": true,
+    "linux_fresh_package_gpu_and_development_sources_hidden": true,
+    "linux_native_reference_different_pixels": 0,
+    "script_and_metrics_tests_passed": 23,
+    "pinned_patch_stack_postimages_match": true,
+    "metal_preprocessor_only_engine_on_tokens_preserved_files": 5,
+    "metal_preprocessor_only_engine_off_slate_types_absent_files": 5
+  },
+  "cross_attempts": {
+    "host": "WSL Ubuntu Linux",
+    "architectures": ["arm64", "x64"],
+    "ue_target": "RiveLiteRhiProbe Mac Development",
+    "ubt_exit_code": 6,
+    "ubt_blocker": "Platform Mac is not a valid platform to build. SDK validation failed",
+    "rive_translation_unit": "src/math/aabb.cpp",
+    "rive_compile_exit_code": 1,
+    "rive_blocker": "Darwin target lacks a Mac SDK/system header environment; host stdint include fails",
+    "apple_sdk_validation_bypassed": false
+  },
+  "not_verified": [
+    "Mac native Rive library build",
+    "Mac UE compilation and complete link dependency closure",
+    "Metal shader cooking",
+    "Mac screenshot equivalence",
+    "Mac portable package dependency closure",
+    "Mac package size, peak RSS, startup and incremental build time",
+    "Mac animation/state-machine/UMG/Verse paths",
+    "Mac code signing and notarization"
+  ],
+  "local_evidence": [
+    "artifacts/macos/prepare.json",
+    "artifacts/macos/source-boundary.json",
+    "artifacts/macos/cross-arm64/report.json",
+    "artifacts/macos/cross-x64/report.json",
+    "artifacts/macos/linux-regression-build.log",
+    "artifacts/macos/linux-cooker-regression.log",
+    "artifacts/macos/linux-regression/report.json"
+  ]
+}
