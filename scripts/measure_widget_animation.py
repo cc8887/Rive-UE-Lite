@@ -28,6 +28,8 @@ def main():
     p.add_argument('--animated', type=Path, required=True)
     p.add_argument('--output-dir', type=Path, required=True)
     p.add_argument('--runs', type=int, default=5)
+    p.add_argument('--textured-content', type=Path, help='Optional image/texture workload instead of the legacy animation-only third case')
+    p.add_argument('--textured-asset', default='/Game/UI/WBP_Textured')
     a = p.parse_args(); out = a.output_dir.resolve()
     if out.exists(): p.error('Use a fresh directory')
     if os.environ.get('RIVE_UE_LITE_GPU_DEVICES_HIDDEN') != '1' or (ROOT/'engine/Engine/Config/Base.ini').exists():
@@ -35,13 +37,15 @@ def main():
     if a.runs < 3: p.error('Use at least 3 measured runs')
     out.mkdir(parents=True)
     cpus = sorted(os.sched_getaffinity(0))[:2]; os.sched_setaffinity(0, cpus)
-    packages = {'baseline_static': a.baseline.resolve(), 'new_static': a.animated.resolve(), 'new_animation': a.animated.resolve()}
+    last_case = 'new_textured' if a.textured_content else 'new_animation'
+    packages = {'baseline_static': a.baseline.resolve(), 'new_static': a.animated.resolve(), last_case: a.animated.resolve()}
     for package in set(packages.values()):
         manifest = json.loads((package/'package-manifest.json').read_text())
         assert manifest['status'] == 'staged' and not manifest['missing']
         assert all(sha256(package/f['path']) == f['sha256'] for f in manifest['files'])
     cases = list(packages)
     report = {'status': 'incomplete', 'scope': 'deployed source WBP worker startup and first CPU Vulkan PNG; no UEFN/full Editor UI',
+        'paired_input_policy': 'baseline_static and new_static read identical source bytes; third case is a different workload, not code overhead',
         'cpu_affinity': cpus, 'cpu_count': 2, 'gpu_nodes': {p: Path(p).exists() for p in ['/dev/dxg', '/dev/dri']},
         'cache_policy': 'One excluded warmup per case; OS cache may be warm. Separate fresh user/Mesa cache for every invocation.',
         'host_scope': 'WSL Ubuntu shared host; affinity limited, no dedicated CPU/cgroup or cold-boot control',
@@ -56,13 +60,15 @@ def main():
         package = packages[case]
         # Static cases read the exact same original source bytes. Playback reads
         # the authored animation package, including both source and native clone.
-        content = a.baseline.resolve()/'Content' if case != 'new_animation' else a.animated.resolve()/'Content'
+        content = (a.textured_content.resolve() if a.textured_content else a.animated.resolve()/'Content') if case == last_case else a.baseline.resolve()/'Content'
+        asset = a.textured_asset if case == 'new_textured' else '/Game/UI/WBP_Card'
         png = directory/'output.png'; metadata = directory/'asset.json'
         command = ['bash', str(package/'worker.sh'), '-Mode=render', '-vulkan', '-sm5', '-AllowCPUDevices',
             '-AllowCommandletRendering', '-RenderOffscreen', '-norhithread', f'-ContentDir={content}',
-            '-Asset=/Game/UI/WBP_Card', f'-ShaderArchive={package}/shaders/global.bin', f'-Output={png}',
+            f'-Asset={asset}', f'-ShaderArchive={package}/shaders/global.bin', f'-Output={png}',
             f'-Metadata={metadata}', f'-UserDir={directory}/user/', f'-abslog={directory}/ue.log']
         if case == 'new_animation': command += ['-Animation=Intro', '-AnimationTime=0.5']
+        if case == 'new_textured': command += ['-Animation=FadeImage', '-AnimationTime=0.5']
         times = {}; text_lines = []; maps = set(); start = time.monotonic()
         process = subprocess.Popen(['/usr/bin/time','-v','-o',str(directory/'time.txt'),'--',*command], cwd='/tmp',
             env=dict(env, MESA_SHADER_CACHE_DIR=str(directory/'mesa-cache')),
@@ -79,6 +85,9 @@ def main():
                             children = Path(f'/proc/{process.pid}/task/{process.pid}/children').read_text().split()
                             for pid in children:
                                 maps.update(Path(f'/proc/{pid}/maps').read_text().splitlines())
+                                status = Path(f'/proc/{pid}/status').read_text()
+                                ready_rss = re.search(r'VmRSS:\s*(\d+)', status)
+                                if ready_rss: times['ready_rss_kib'] = int(ready_rss[1])
                         except (OSError, ProcessLookupError): pass
 
         reader = threading.Thread(target=read_log); reader.start()
@@ -114,7 +123,7 @@ def main():
             'worker_sha256':sha256(package/'Engine/Binaries/Linux/RiveUmgBlueprintWorker'),
             'mapped_paths_at_ready':mapped_paths,'forbidden_development_mappings':forbidden,
             'generated_cache_mappings':[path for path in mapped_paths if path.startswith(str(directory/'mesa-cache')+'/')],
-            'output':str(png),'source_sha256':sha256(content/'UI/WBP_Card.uasset')}
+            'output':str(png),'source_sha256':sha256(content/(asset.removeprefix('/Game/')+'.uasset'))}
         report['runs'].append(result); save()
         print(json.dumps({'case':case,'index':index,'status':result['status'], 'ready_seconds':times.get('ready_seconds'),
             'first_png_seconds':times.get('first_png_seconds')}), flush=True)
@@ -128,14 +137,16 @@ def main():
             runs = [run for run in report['runs'] if run['case']==case and not run['warmup']]
             report['groups'][case] = {key:{'median':statistics.median(run[key] for run in runs),
                 'min':min(run[key] for run in runs),'max':max(run[key] for run in runs)} for key in
-                ['ready_seconds','first_png_seconds','complete_seconds','wall_seconds','peak_rss_kib']}
-        baseline = report['groups']['baseline_static']; new_static = report['groups']['new_static']; animated = report['groups']['new_animation']
+                ['ready_seconds','first_png_seconds','complete_seconds','wall_seconds','peak_rss_kib','ready_rss_kib']}
+        baseline = report['groups']['baseline_static']; new_static = report['groups']['new_static']; animated = report['groups'][last_case]
         report['deltas'] = {label:{key:right[key]['median']-left[key]['median'] for key in baseline} for label,left,right in
-            [('code_only_vs_baseline',baseline,new_static),('animated_first_image_vs_baseline',baseline,animated),('animation_eval_vs_new_static',new_static,animated)]}
+            [('code_only_vs_baseline',baseline,new_static),
+             ('different_textured_workload_vs_baseline' if a.textured_content else 'animated_first_image_vs_baseline',baseline,animated),
+             ('different_textured_workload_vs_new_static' if a.textured_content else 'animation_eval_vs_new_static',new_static,animated)]}
         for index in range(1,a.runs+1):
             comparison = compare_images(out/f'baseline_static-{index}/output.png',out/f'new_static-{index}/output.png')
             report['comparisons'].append({'name':f'static-regression-{index}',**comparison}); assert comparison['different_pixels']==0
-        animated_hashes = {sha256(out/f'new_animation-{i}/output.png') for i in range(1,a.runs+1)}
+        animated_hashes = {sha256(out/f'{last_case}-{i}/output.png') for i in range(1,a.runs+1)}
         assert len(animated_hashes)==1
         report['animated_output_repeatable'] = True
         report['status']='passed'

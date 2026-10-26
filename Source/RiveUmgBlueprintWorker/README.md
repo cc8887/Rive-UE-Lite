@@ -1,5 +1,10 @@
 # Source UMG Blueprint worker
 
+Texture/Image authoring is available through `texture import/read`, `Image` in
+WidgetTree specifications and Image/Border `brush` patches. PNG/JPEG imports are
+saved as native source Texture2D assets; exports include direct brush texture
+dependencies and can be reimported as a ZIP. See [texture workflow and scope](../../prototype/widget-textures.md).
+
 Native animations are also available through `animation list/create/patch` and
 `preview --animation ...`. See [animation implementation and measurements](../../prototype/umg-animation.md).
 The older static figures below are historical snapshots, not animation metrics

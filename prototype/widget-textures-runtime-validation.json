@@ -1,0 +1,273 @@
+{
+  "status": "passed_scoped",
+  "date": "2026-10-27",
+  "metric": "Actual uncompressed executables, dependencies and filesystem deployment; excludes archive/compression comparisons",
+  "native_worker": {
+    "path": "components/widget/Engine/Binaries/Linux/RiveUmgBlueprintWorker",
+    "kind": "changed",
+    "category": "native_executables",
+    "before_bytes": 393207656,
+    "after_bytes": 393293656,
+    "delta_bytes": 86000
+  },
+  "added_native_libraries": [
+    {
+      "path": "components/widget/Engine/Binaries/ThirdParty/nvTextureTools/Linux/x86_64-unknown-linux-gnu/libnvcore.so",
+      "kind": "added",
+      "category": "native_shared_libraries",
+      "before_bytes": 0,
+      "after_bytes": 309824,
+      "delta_bytes": 309824
+    },
+    {
+      "path": "components/widget/Engine/Binaries/ThirdParty/nvTextureTools/Linux/x86_64-unknown-linux-gnu/libnvimage.so",
+      "kind": "added",
+      "category": "native_shared_libraries",
+      "before_bytes": 0,
+      "after_bytes": 133704,
+      "delta_bytes": 133704
+    },
+    {
+      "path": "components/widget/Engine/Binaries/ThirdParty/nvTextureTools/Linux/x86_64-unknown-linux-gnu/libnvmath.so",
+      "kind": "added",
+      "category": "native_shared_libraries",
+      "before_bytes": 0,
+      "after_bytes": 26320,
+      "delta_bytes": 26320
+    },
+    {
+      "path": "components/widget/Engine/Binaries/ThirdParty/nvTextureTools/Linux/x86_64-unknown-linux-gnu/libnvtt.so",
+      "kind": "added",
+      "category": "native_shared_libraries",
+      "before_bytes": 0,
+      "after_bytes": 89200,
+      "delta_bytes": 89200
+    }
+  ],
+  "native_executable_and_library_delta_bytes": 645048,
+  "shared_library_delta_bytes": 559048,
+  "whole_toolkit_deployment": {
+    "before": {
+      "files": 3303,
+      "logical_file_bytes": 947392080,
+      "content_deduplicated_bytes": 801309408,
+      "inode_deduplicated_bytes": 801309408,
+      "allocated_bytes": 807047168
+    },
+    "after": {
+      "files": 3315,
+      "logical_file_bytes": 948042044,
+      "content_deduplicated_bytes": 801956414,
+      "inode_deduplicated_bytes": 801956414,
+      "allocated_bytes": 807723008
+    }
+  },
+  "whole_toolkit_unique_delta_bytes": 647006,
+  "whole_toolkit_allocated_delta_bytes": 675840,
+  "category_deltas_bytes": {
+    "cli_docs_and_other": 10306,
+    "configuration": 0,
+    "content_and_fonts": 0,
+    "editor_shader_sources": 0,
+    "examples": 5916,
+    "manifests_and_receipts": -11306,
+    "native_executables": 86000,
+    "native_shared_libraries": 559048,
+    "precompiled_shaders": 0
+  },
+  "unchanged_runtime_components": [
+    "Rive",
+    "UMG host",
+    "Verse"
+  ],
+  "direct_worker_needed_added": [
+    "libnvtt.so"
+  ],
+  "added_library_dependency_graph": {
+    "libnvcore.so": [
+      "libm.so.6",
+      "libc.so.6",
+      "libgcc_s.so.1",
+      "libpthread.so.0",
+      "libdl.so.2"
+    ],
+    "libnvimage.so": [
+      "libm.so.6",
+      "libc.so.6",
+      "libgcc_s.so.1",
+      "libpthread.so.0",
+      "libnvcore.so",
+      "libnvmath.so",
+      "libdl.so.2"
+    ],
+    "libnvmath.so": [
+      "libm.so.6",
+      "libc.so.6",
+      "libgcc_s.so.1",
+      "libpthread.so.0",
+      "libnvcore.so",
+      "libdl.so.2"
+    ],
+    "libnvtt.so": [
+      "libm.so.6",
+      "libc.so.6",
+      "libgcc_s.so.1",
+      "libpthread.so.0",
+      "libnvcore.so",
+      "libnvmath.so",
+      "libnvimage.so",
+      "libdl.so.2"
+    ]
+  },
+  "actual_mapped_libraries_at_ready": {
+    "before": {
+      "Engine/Binaries/ThirdParty/ShaderConductor/Linux/x86_64-unknown-linux-gnu/libdxcompiler.so": 27369128,
+      "Engine/Binaries/ThirdParty/ShaderConductor/Linux/x86_64-unknown-linux-gnu/libShaderConductor.so": 4420360,
+      "Engine/Binaries/ThirdParty/FreeImage/Linux/libfreeimage-3.18.0.so": 7929024,
+      "Binaries/Linux/libtbb.so.12": 830632,
+      "Binaries/Linux/libembree4.so.4": 37680720,
+      "Binaries/Linux/libtbbmalloc.so.2": 146104,
+      "Engine/Binaries/ThirdParty/FBX/2020.2/Linux/x86_64-unknown-linux-gnu/libfbxsdk_ue.so": 11681936
+    },
+    "after": {
+      "Engine/Binaries/ThirdParty/FreeImage/Linux/libfreeimage-3.18.0.so": 7929024,
+      "Engine/Binaries/ThirdParty/ShaderConductor/Linux/x86_64-unknown-linux-gnu/libdxcompiler.so": 27369128,
+      "Engine/Binaries/ThirdParty/nvTextureTools/Linux/x86_64-unknown-linux-gnu/libnvimage.so": 133704,
+      "Engine/Binaries/ThirdParty/ShaderConductor/Linux/x86_64-unknown-linux-gnu/libShaderConductor.so": 4420360,
+      "Binaries/Linux/libtbbmalloc.so.2": 146104,
+      "Binaries/Linux/libembree4.so.4": 37680720,
+      "Engine/Binaries/ThirdParty/nvTextureTools/Linux/x86_64-unknown-linux-gnu/libnvmath.so": 26320,
+      "Engine/Binaries/ThirdParty/nvTextureTools/Linux/x86_64-unknown-linux-gnu/libnvcore.so": 309824,
+      "Binaries/Linux/libtbb.so.12": 830632,
+      "Engine/Binaries/ThirdParty/FBX/2020.2/Linux/x86_64-unknown-linux-gnu/libfbxsdk_ue.so": 11681936,
+      "Engine/Binaries/ThirdParty/nvTextureTools/Linux/x86_64-unknown-linux-gnu/libnvtt.so": 89200
+    }
+  },
+  "new_libraries_mapped_even_without_images": true,
+  "system_mapped_file_set_unchanged": true,
+  "runtime": {
+    "runs_per_case": 3,
+    "excluded_warmups_per_case": 1,
+    "groups": {
+      "baseline_static": {
+        "ready_seconds": {
+          "median": 2.6461964420000044,
+          "min": 2.436900563000009,
+          "max": 2.905226331999998
+        },
+        "first_png_seconds": {
+          "median": 2.902472366000012,
+          "min": 2.7139634550000125,
+          "max": 3.160040495000004
+        },
+        "complete_seconds": {
+          "median": 2.911273672000007,
+          "min": 2.7186075840000115,
+          "max": 3.1614978859999923
+        },
+        "wall_seconds": {
+          "median": 3.137245156000006,
+          "min": 2.9980117110000037,
+          "max": 3.3814565739999978
+        },
+        "peak_rss_kib": {
+          "median": 762340,
+          "min": 756276,
+          "max": 764452
+        },
+        "ready_rss_kib": {
+          "median": 708468,
+          "min": 696612,
+          "max": 714956
+        }
+      },
+      "new_static": {
+        "ready_seconds": {
+          "median": 3.188317361000003,
+          "min": 2.909650401999997,
+          "max": 3.3936891280000054
+        },
+        "first_png_seconds": {
+          "median": 3.7660018330000042,
+          "min": 3.172373393000001,
+          "max": 3.7772730199999955
+        },
+        "complete_seconds": {
+          "median": 3.7691546779999925,
+          "min": 3.173298729999999,
+          "max": 3.773960775000006
+        },
+        "wall_seconds": {
+          "median": 4.111343357999999,
+          "min": 3.4610562279999897,
+          "max": 4.146995821000004
+        },
+        "peak_rss_kib": {
+          "median": 774832,
+          "min": 766408,
+          "max": 776796
+        },
+        "ready_rss_kib": {
+          "median": 713400,
+          "min": 713276,
+          "max": 717372
+        }
+      },
+      "new_textured": {
+        "ready_seconds": {
+          "median": 3.131171981999998,
+          "min": 3.021529877000006,
+          "max": 3.1779830139999916
+        },
+        "first_png_seconds": {
+          "median": 3.4496111429999985,
+          "min": 3.3782822130000056,
+          "max": 3.551538237999992
+        },
+        "complete_seconds": {
+          "median": 3.451481205999997,
+          "min": 3.3761497299999945,
+          "max": 3.5557814120000018
+        },
+        "wall_seconds": {
+          "median": 3.8335123549999963,
+          "min": 3.6559058570000076,
+          "max": 3.8459050539999993
+        },
+        "peak_rss_kib": {
+          "median": 796072,
+          "min": 795956,
+          "max": 797976
+        },
+        "ready_rss_kib": {
+          "median": 715128,
+          "min": 713048,
+          "max": 719116
+        }
+      }
+    },
+    "same_input_code_delta": {
+      "ready_seconds": 0.5421209189999985,
+      "first_png_seconds": 0.8635294669999922,
+      "complete_seconds": 0.8578810059999853,
+      "wall_seconds": 0.9740982019999933,
+      "peak_rss_kib": 12492,
+      "ready_rss_kib": 4932
+    },
+    "paired_static_screenshots_exact": true,
+    "textured_output_repeatable": true,
+    "gpu_and_development_resources_hidden": true,
+    "cpu_affinity": [
+      0,
+      1
+    ],
+    "cache_policy": "One excluded warmup per case; OS cache may be warm. Separate fresh user/Mesa cache for every invocation.",
+    "host_scope": "WSL Ubuntu shared host; affinity limited, no dedicated CPU/cgroup or cold-boot control",
+    "workload_warning": "new_textured is a different scene with four textures and Image animation; it is not a paired code overhead measurement"
+  },
+  "evidence": {
+    "files": "artifacts/widget-textures/runtime-files-01/summary.json",
+    "runtime": "artifacts/widget-textures/runtime-benchmark-01/summary.json"
+  },
+  "scope": "Linux x86_64 deployed artifacts running on CPU Vulkan under WSL; no full Editor viewport or UEFN receiver qualification"
+}

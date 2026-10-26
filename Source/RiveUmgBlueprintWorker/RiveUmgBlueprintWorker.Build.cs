@@ -10,9 +10,10 @@ public class RiveUmgBlueprintWorker : ModuleRules
             "Core", "CoreUObject", "ApplicationCore", "Projects", "Engine", "Renderer", "RHI", "RHICore",
             "RenderCore", "ImageCore", "ImageWrapper", "VulkanRHI", "Json", "Slate", "SlateCore", "SlateRHIRenderer",
             "UMG", "UMGEditor", "UnrealEd", "BlueprintGraph", "Kismet", "AssetRegistry", "NullDrv", "SlateNullRenderer", "TargetPlatform",
-            "MovieScene", "MovieSceneTracks"
+            "MovieScene", "MovieSceneTracks", "DerivedDataCache"
         });
         DynamicallyLoadedModuleNames.Add("LinuxTargetPlatform");
+        DynamicallyLoadedModuleNames.AddRange(new[] { "TextureFormatUncompressed", "TextureFormatDXT" });
         PrivateIncludePaths.Add(System.IO.Path.Combine(GetModuleDirectory("RenderCore"), "Internal"));
     }
 }

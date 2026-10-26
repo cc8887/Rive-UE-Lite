@@ -40,7 +40,7 @@ CATALOG = {
     'capabilities': 'Describe available components, commands and validation boundaries as JSON.',
     'doctor': 'Check runtime files, CPU Vulkan ICD and required host programs; --verify hashes the bundle.',
     'render': 'Render a .riv through --ui rive|umg, with optional playback scenario JSON.',
-    'widget': 'capabilities/create/read/import/patch/preview/export; animation list/create/patch. Default Content is workspace/Content.',
+    'widget': 'capabilities/create/read/import/patch/preview/export; animation list/create/patch; texture import/read. Default Content is workspace/Content.',
     'verse run': 'Compile and run a source file defining Main(Args:[]string, Env:[string]string)<suspends>:void.',
     'verse test': 'Run the supplied native VM event, suspension/cancellation and rollback tests.',
     'verse ui': 'Run the shared controller and bridge its Pressed command into Rive or the native UMG/Rive host.',
@@ -121,6 +121,8 @@ def capabilities(toolkit):
         'execution': 'Persistent local coordinator; serialized operations; separate native worker processes per operation.',
         'relative_paths': 'Paths inside commands are relative to --workspace; input files may also use absolute paths.',
         'widget': {'read_existing': True, 'write_properties': True, 'read_graphs': True, 'edit_graphs': False,
+                   'image_widgets': True, 'native_texture_import': ['PNG', 'JPEG', 'source Texture2D .uasset'],
+                   'texture_dependency_export': True,
                    'animation_properties': ['opacity', 'render_translation', 'render_scale', 'render_angle'],
                    'animation_interpolation': ['constant', 'linear']},
         'examples': ['examples/widget/card.json', 'examples/widget/card.patch.json', 'examples/widget/intro.animation.json',
@@ -239,7 +241,7 @@ def render(toolkit, ws, job, params):
 
 def widget(toolkit, ws, job, params):
     argv = list(params.get('argv', []))
-    if not argv or argv[0] not in ['create', 'read', 'inspect', 'import', 'patch', 'preview', 'export', 'animation']:
+    if not argv or argv[0] not in ['create', 'read', 'inspect', 'import', 'patch', 'preview', 'export', 'animation', 'texture']:
         raise ToolError('invalid_widget_command', CATALOG['widget'])
     path_flags = {'--content-dir', '--input', '--spec', '--patch', '--output', '--playback-script', '--shader-archive'}
     for i, item in enumerate(argv):

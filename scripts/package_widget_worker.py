@@ -68,8 +68,8 @@ def main():
     stage(ROOT/'scripts/measure_no_gpu.sh', 'scripts/measure_no_gpu.sh')
     stage(a.shader_archive.resolve(), 'shaders/global.bin')
     stage(a.receipt.resolve(), 'worker.target')
-    for src in sorted((ROOT/'fixtures/widget-blueprint').glob('*.json')):
-        stage(src, Path('examples')/src.name)
+    for src in sorted((ROOT/'fixtures/widget-blueprint').iterdir()):
+        if src.is_file() and src.suffix in ['.json', '.png', '.jpg']: stage(src, Path('examples')/src.name)
     if a.content_dir:
         for src in sorted(a.content_dir.resolve().rglob('*.uasset')):
             stage(src, Path('Content')/src.relative_to(a.content_dir.resolve()))

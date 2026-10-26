@@ -9,6 +9,7 @@ struct FWidgetProperties
     TOptional<int32> FontSize;
     TOptional<bool> Enabled, Variable;
     TOptional<ESlateVisibility> Visibility;
+    TOptional<FSlateBrush> Brush;
 };
 
 static bool AuthoringError(const FString& Message)
@@ -31,6 +32,7 @@ static UClass* SupportedWidgetClass(const FString& Type)
     if (Type == TEXT("Border")) return UBorder::StaticClass();
     if (Type == TEXT("Button")) return UButton::StaticClass();
     if (Type == TEXT("TextBlock")) return UTextBlock::StaticClass();
+    if (Type == TEXT("Image")) return UImage::StaticClass();
     return nullptr;
 }
 
@@ -58,8 +60,10 @@ static bool NumberArray(const TSharedPtr<FJsonValue>& Value, int32 Count, TArray
     return true;
 }
 
+#include "BlueprintTextures.inl"
+
 static bool ValidateWidgetProperties(const TSharedPtr<FJsonObject>& Json, UClass* Class,
-    bool CanvasSlot, bool Spec, FWidgetProperties& Out)
+    bool CanvasSlot, bool Spec, FWidgetProperties& Out, const FSlateBrush* ExistingBrush = nullptr)
 {
     for (const auto& Pair : Json->Values)
     {
@@ -81,11 +85,20 @@ static bool ValidateWidgetProperties(const TSharedPtr<FJsonObject>& Json, UClass
             }
         }
         else if (Key == TEXT("color") && (Class->IsChildOf(UTextBlock::StaticClass()) ||
-            Class->IsChildOf(UBorder::StaticClass()) || Class->IsChildOf(UButton::StaticClass())))
+            Class->IsChildOf(UBorder::StaticClass()) || Class->IsChildOf(UButton::StaticClass()) || Class->IsChildOf(UImage::StaticClass())))
         {
             TArray<double> Numbers;
             if (NumberArray(Value, 4, Numbers) && Algo::AllOf(Numbers, [](double N) { return N >= 0 && N <= 1; }))
             { Out.Color = FLinearColor(Numbers[0], Numbers[1], Numbers[2], Numbers[3]); Valid = true; }
+        }
+        else if (Key == TEXT("brush") && Value->Type == EJson::Object &&
+            (Class->IsChildOf(UImage::StaticClass()) || Class->IsChildOf(UBorder::StaticClass())))
+        {
+            FSlateBrush Brush;
+            Brush.DrawAs = ESlateBrushDrawType::Image;
+            if (ExistingBrush) Brush = *ExistingBrush;
+            if (!ReadTextureBrush(Value->AsObject(), Brush)) return false;
+            Out.Brush = Brush; Valid = true;
         }
         else if (Key == TEXT("padding") && Class->IsChildOf(UBorder::StaticClass()))
         {
@@ -123,6 +136,11 @@ static bool ValidateWidgetProperties(const TSharedPtr<FJsonObject>& Json, UClass
 static void ApplyWidgetProperties(UWidget* Widget, const FWidgetProperties& Properties)
 {
     Widget->Modify();
+    if (Properties.Brush)
+    {
+        if (auto* Image = Cast<UImage>(Widget)) Image->SetBrush(*Properties.Brush);
+        else CastChecked<UBorder>(Widget)->SetBrush(*Properties.Brush);
+    }
     if (Properties.Text) CastChecked<UTextBlock>(Widget)->SetText(FText::FromString(*Properties.Text));
     if (Properties.FontSize)
     {
@@ -132,7 +150,13 @@ static void ApplyWidgetProperties(UWidget* Widget, const FWidgetProperties& Prop
     if (Properties.Color)
     {
         if (auto* Text = Cast<UTextBlock>(Widget)) Text->SetColorAndOpacity(*Properties.Color);
-        else if (auto* Border = Cast<UBorder>(Widget)) Border->SetBrush(FSlateColorBrush(*Properties.Color));
+        else if (auto* Image = Cast<UImage>(Widget)) Image->SetColorAndOpacity(*Properties.Color);
+        else if (auto* Border = Cast<UBorder>(Widget))
+        {
+            // A tint edit must not discard an existing texture, UV or box margins.
+            FSlateBrush Brush = Border->Background;
+            Brush.TintColor = *Properties.Color; Border->SetBrush(Brush);
+        }
         else CastChecked<UButton>(Widget)->SetBackgroundColor(*Properties.Color);
     }
     if (Properties.Padding)

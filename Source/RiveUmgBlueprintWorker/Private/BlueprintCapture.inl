@@ -72,6 +72,10 @@ static bool RenderBlueprint(UWidgetBlueprint* Blueprint, const FString& Output, 
             TSubclassOf<UUserWidget>(Blueprint->GeneratedClass), TEXT("SourceAssetPreview")));
     }
     if (!Instance.IsValid() || !Instance->WidgetTree || !Instance->WidgetTree->RootWidget) return false;
+    // Source Texture2D PostLoad may schedule a native derived-data build. A
+    // command-line capture has no editor idle loop to finish it for us.
+    FTextureCompilingManager::Get().FinishAllCompilation();
+    FlushRenderingCommands();
     Instance->SetDesignerFlags(EWidgetDesignFlags::Designing);
     // Keep the real Slate tree alive through geometry inspection. UWidget only
     // keeps weak references; DrawWidget's temporary virtual window is released.

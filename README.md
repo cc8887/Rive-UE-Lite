@@ -4,11 +4,11 @@
 
 当前整合入口为 [统一命令行工具包](prototype/cli-toolkit.md)：一个包包含 Rive、原生 UMG、VerseVM 和 Widget Blueprint/UMG 动画编辑工具，通过 `rive-tool` 的 JSON 命令操作。`start/status/stop` 管理轻量后台协调服务，原生 worker 按操作启动；资产和任务记录保存在显式工作区。构建整套工具使用 `--all-tools`，默认构建仍只选择 Rive。
 
-下面 preview.3 的体积是此前分别发布的组件包，不能当作整合包的实际体积；整合包的去重体积和运行验收单独记录。
+最新统一包见 [preview.5](https://github.com/cc8887/Rive-UE-Lite/releases/tag/v0.1.0-preview.5)：加入原生 Texture2D 的 PNG/JPEG 导入、读取与替换，UMG Image/Border 画刷编辑，以及包含直接纹理依赖的蓝图 ZIP 导入/导出。它继续包含 Rive、UMG、VerseVM、蓝图和动画编辑，通过同一个 CLI 操作。Linux x86_64 使用 CPU Vulkan；Windows 使用同包的 PowerShell → WSL Ubuntu 入口。
 
-最新打包轮次见 [preview.3](https://github.com/cc8887/Rive-UE-Lite/releases/tag/v0.1.0-preview.3)：Linux 的 Rive、UMG、Verse 和 Widget Blueprint 动画编辑 worker 分包交付，Windows 为 Rive-only。macOS 已复用已有 Zig 交叉编译出真实 Rive arm64 对象，但缺少 Metal SDK，完整 UE 程序仍未构建成功；不将源码或对象文件作为可运行的 Mac 包。
+功能边界及实际运行证据见 [Texture/Image 说明](prototype/widget-textures.md)、[功能验收](prototype/widget-textures-validation.json) 和 [运行文件、动态依赖及启动测量](prototype/widget-textures-runtime-validation.json)。最后一份报告直接核对未压缩文件和进程实际加载的动态库，并记录相同蓝图的配对运行；不以压缩率推算依赖开销。
 
-从已生成的 `package-manifest.json` 输出发布归档可使用 `scripts/prepare_release.py --tag <新标签> --package <平台> <功能> <包目录>`；随后在 Linux 运行 `scripts/verify_release_linux.py --release-dir artifacts/release/<标签>`，Windows 使用 `scripts/verify_windows_package.py` 验证实际解压包。归档绑定源码提交和每个文件的 SHA-256，运行验收单独记录。
+整包发布使用 `scripts/package_toolkit.py`，从已验证组件生成一个去重归档，附源码提交、文件 SHA-256 和单独的运行验收记录。此前 preview.3 的分组件体积和独立 Windows Rive-only 包属于历史结果。macOS 完整 SDK/Metal 构建仍未完成，没有可运行的 Mac 包。
 
 源码、工具和交付物均放在此独立目录，Linux 构建另用专属缓存。`engine/` 固定为 UE6 `62d7c1a7125b52b10ee1b714838f515f3563f795`；`vendor/rive-unreal/` 固定为 `8461a2dc90924aeadc1f7eed99e6ae2de1b490f0`，原生 runtime 固定为 `47d1cd54ccefd468db7cb26ecc4699ae1723dd85`。不修改原引擎、Rive 仓库或现有工程。
 
@@ -62,7 +62,9 @@ UE6 非 constinit 配置使用引擎原有 lazy CDO API 完成真实类/属性�
 
 ## UMG 源蓝图最小闭环
 
-新建、读取和修改源 Widget Blueprint 使用 `python scripts/widget_bp.py`，包括 `create/read/import/patch/preview/export`；Windows 自动调用 WSL Ubuntu 原生 worker。`read` 直接加载已有 `.uasset`，`patch` 修改现有控件并原生编译保存，保留未编辑控件及已有图表；不是只重建 JSON 样例。创建支持自定义 CanvasPanel/Border/Button/TextBlock 布局。编辑依赖通过 `bash scripts/build_ui.sh --with-widget-blueprint` 显式构建，默认 Rive 不包含它。完整用法和范围见 [Widget Blueprint 工具入口](prototype/widget-blueprint-authoring.md)。
+新建、读取和修改源 Widget Blueprint 使用 `python scripts/widget_bp.py`，包括 `create/read/import/patch/preview/export`；Windows 自动调用 WSL Ubuntu 原生 worker。`read` 直接加载已有 `.uasset`，`patch` 修改现有控件并原生编译保存，保留未编辑控件及已有图表；不是只重建 JSON 样例。创建支持自定义 CanvasPanel/Border/Button/TextBlock/Image 布局。编辑依赖通过 `bash scripts/build_ui.sh --with-widget-blueprint` 显式构建，默认 Rive 不包含它。完整用法和范围见 [Widget Blueprint 工具入口](prototype/widget-blueprint-authoring.md)。
+
+`widget texture import/read` 支持 PNG/JPEG 与原生 Texture2D 源资产，Image/Border 可通过 `brush` 绑定和修改纹理。蓝图导出 ZIP 包含直接 brush 纹理依赖，可重导入到另一工作区。使用方法和支持范围见 [Texture2D / UMG Image](prototype/widget-textures.md)。
 
 原生 UMG 动画入口为 `animation list/create/patch`，并可用 `preview --animation Intro --time 0.5` 或播放控制脚本进行 CPU Vulkan 预览；支持 opacity、平移、缩放、旋转的常量/线性关键帧，保留未修改轨道。实现范围、native 求值路径及包体/启动对照见 [UMG 动画](prototype/umg-animation.md)。动画依赖仍位于可选编辑 worker 中。
 

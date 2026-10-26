@@ -47,7 +47,7 @@ python scripts/widget_bp.py export --content-dir artifacts/widget-jobs/existing/
 
 ## 支持的描述和修改范围
 
-创建描述用按父级优先排序的扁平 `widgets` 数组，首个控件为根 CanvasPanel。当前可创建 CanvasPanel、Border、Button、TextBlock；Border/Button 最多一个直接子控件。名称唯一，不可通过描述注入未知原生类。
+创建描述用按父级优先排序的扁平 `widgets` 数组，首个控件为根 CanvasPanel。当前可创建 CanvasPanel、Border、Button、TextBlock、Image；Border/Button 最多一个直接子控件。名称唯一，不可通过描述注入未知原生类。Image/Border 的纹理画刷以及 `texture import/read`、带纹理依赖的 ZIP 交接见 [Texture2D / UMG Image](widget-textures.md)。
 
 ```json
 {

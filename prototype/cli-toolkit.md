@@ -35,6 +35,12 @@
 ./rive-tool --workspace /data/ui-demo widget import --asset /Game/UI/WBP_Existing --input /assets/WBP_Existing.uasset
 ./rive-tool --workspace /data/ui-demo widget export --asset /Game/UI/WBP_Card --output exports/card.zip
 
+# 原生 Texture2D 与 Image/Border 画刷；创建描述支持 type: Image
+./rive-tool --workspace /data/ui-demo widget texture import --asset /Game/Textures/T_Logo --input /assets/logo.png
+./rive-tool --workspace /data/ui-demo widget texture read --asset /Game/Textures/T_Logo
+# export ZIP 包含直接 brush 纹理依赖，import 可将它们一同放到新工作区
+./rive-tool --workspace /data/ui-copy widget import --asset /Game/UI/WBP_Card --input /data/ui-demo/exports/card.zip
+
 # UMG 动画读写和原生播放预览
 ./rive-tool --workspace /data/ui-demo widget animation create --asset /Game/UI/WBP_Card --spec examples/widget/intro.animation.json
 ./rive-tool --workspace /data/ui-demo widget animation list --asset /Game/UI/WBP_Card
@@ -60,6 +66,10 @@
 支持读取已有蓝图节点/连线及变量，现有写接口覆盖控件属性与已支持的动画通道；任意图表编辑、复杂
 动画轨道和 UEFN 资产兼容范围见 capabilities 及原编辑工具文档。普通用户可直接进行 CPU Vulkan
 预览；正式无 GPU 验收另在私有 namespace 隐藏 GPU 和开发目录，并核对实际 llvmpipe 设备和截图。
+
+Image/Border 的 `brush` 支持原生 Texture2D、tint、image_size、九宫格 margin、draw_as、tiling 局部修改。
+纹理导入默认 sRGB，可选 `--linear` 和 `--filter nearest|linear`；替换要求 `--replace`，可用
+`--expected-sha256` 拒绝过期编辑。详细 schema 与原生资产交接范围见源码文档 `prototype/widget-textures.md`。
 
 Windows 使用同包的 `rive-tool.ps1`，它转交给 WSL Ubuntu 执行整套 Linux 工具。它不是原生 Windows
 全功能构建。macOS 完整 SDK、Metal 构建和运行仍未验证。

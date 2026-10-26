@@ -80,6 +80,9 @@ static void BootstrapWorkerCore(bool AssetOnly)
     });
     FPackageName::RegisterShortPackageNamesForUObjectModules();
     IPackageResourceManager::Initialize();
+    // Texture source data uses EditorBulkData even in a non-rendering job.
+    // Match the native launch lifetime of the package resource manager.
+    IBulkDataRegistry::Initialize();
 
     GIsRunning = true;
 }

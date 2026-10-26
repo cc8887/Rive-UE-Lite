@@ -34,6 +34,11 @@
 #include "Components/CanvasPanel.h"
 #include "Components/CanvasPanelSlot.h"
 #include "Components/TextBlock.h"
+#include "Components/Image.h"
+#include "Engine/Texture2D.h"
+#include "TextureCompiler.h"
+#include "DerivedDataCache.h"
+#include "DerivedDataBuild.h"
 #include "DataDrivenShaderPlatformInfo.h"
 #include "DeviceProfiles/DeviceProfileManager.h"
 #include "Dom/JsonObject.h"
@@ -49,6 +54,7 @@
 #include "HAL/PlatformOutputDevices.h"
 #include "HAL/PlatformTLS.h"
 #include "IImageWrapperModule.h"
+#include "IImageWrapper.h"
 #include "ImageCore.h"
 #include "Internationalization/EnginePackageLocalizationCache.h"
 #include "Internationalization/PackageLocalizationManager.h"
@@ -87,6 +93,7 @@
 #include "Serialization/JsonReader.h"
 #include "Serialization/JsonSerializer.h"
 #include "Serialization/MemoryReader.h"
+#include "Serialization/BulkDataRegistry.h"
 #include "ShaderCodeLibrary.h"
 #include "ShaderParameterMetadata.h"
 #include "ShaderSymbolExport.h"
@@ -119,6 +126,7 @@ static TUniquePtr<FOutputDeviceStdOutput> GWorkerStdOut;
 extern ENGINE_API void InitializeRenderingCVarsCaching();
 #include "WorkerBootstrap.inl"
 static TArray<TSharedPtr<FJsonValue>> DescribeAnimations(UWidgetBlueprint* Blueprint);
+static bool GWorkerTextureObjectsCreated = false;
 #include "BlueprintAssets.inl"
 #include "BlueprintAnimations.inl"
 #include "BlueprintCapture.inl"
@@ -128,7 +136,7 @@ INT32_MAIN_INT32_ARGC_TCHAR_ARGV()
     const double Started = FPlatformTime::Seconds();
     FTaskTagScope Scope(ETaskTag::EGameThread);
     FCommandLine::Set(*FCommandLine::BuildFromArgV(nullptr, ArgC, ArgV, nullptr));
-    FString Mode, ContentDir, Asset, PatchPath, SpecPath, Output, MetadataPath, ShaderArchive, ProjectDirectory;
+    FString Mode, ContentDir, Asset, PatchPath, SpecPath, Output, MetadataPath, ShaderArchive, ProjectDirectory, InputPath, TextureFilter;
     FParse::Value(FCommandLine::Get(), TEXT("Mode="), Mode);
     FParse::Value(FCommandLine::Get(), TEXT("ContentDir="), ContentDir);
     FParse::Value(FCommandLine::Get(), TEXT("Asset="), Asset);
@@ -138,20 +146,35 @@ INT32_MAIN_INT32_ARGC_TCHAR_ARGV()
     FParse::Value(FCommandLine::Get(), TEXT("Metadata="), MetadataPath);
     FParse::Value(FCommandLine::Get(), TEXT("ShaderArchive="), ShaderArchive);
     FParse::Value(FCommandLine::Get(), TEXT("ProjectDir="), ProjectDirectory);
+    FParse::Value(FCommandLine::Get(), TEXT("Input="), InputPath);
+    FParse::Value(FCommandLine::Get(), TEXT("TextureFilter="), TextureFilter);
     int32 Width = 640, Height = 400;
     FParse::Value(FCommandLine::Get(), TEXT("Width="), Width);
     FParse::Value(FCommandLine::Get(), TEXT("Height="), Height);
     const bool AnimationWrite = Mode == TEXT("animation-create") || Mode == TEXT("animation-patch");
-    if ((Mode != TEXT("create") && Mode != TEXT("patch") && Mode != TEXT("render") && Mode != TEXT("inspect") && !AnimationWrite) ||
+    const bool TextureOperation = Mode == TEXT("texture-import") || Mode == TEXT("texture-inspect");
+    if ((Mode != TEXT("create") && Mode != TEXT("patch") && Mode != TEXT("render") && Mode != TEXT("inspect") && !AnimationWrite && !TextureOperation) ||
         ContentDir.IsEmpty() || !Asset.StartsWith(TEXT("/Game/")) || Asset.Contains(TEXT("..")) ||
         ((Mode == TEXT("patch") || Mode == TEXT("animation-patch")) && PatchPath.IsEmpty()) ||
         (Mode == TEXT("animation-create") && SpecPath.IsEmpty()) ||
+        (Mode == TEXT("texture-import") && InputPath.IsEmpty()) ||
         (Mode == TEXT("render") && (Output.IsEmpty() || ShaderArchive.IsEmpty() ||
             Width < 1 || Width > 4096 || Height < 1 || Height > 4096))) return 2;
     if (!ProjectDirectory.IsEmpty())
     {
         FPaths::SetProjectFilePath(ProjectDirectory / TEXT("RiveRhiLite.uproject"));
         FPlatformMisc::SetOverrideProjectDir(*FPaths::ConvertRelativePathToFull(ProjectDirectory));
+    }
+    // Reuse the prototype's local-only DDC graph. Each CLI job owns its cache;
+    // a packaged preview does not need a Zen service or a writable install.
+    FString CacheOption;
+    if (!FParse::Value(FCommandLine::Get(), TEXT("DDC="), CacheOption))
+        FCommandLine::Append(TEXT(" -DDC=RiveLiteOffline"));
+    if (!FParse::Value(FCommandLine::Get(), TEXT("LocalDataCachePath="), CacheOption))
+    {
+        const FString Cache = MetadataPath.IsEmpty() ? FPaths::ProjectSavedDir() / TEXT("TextureDDC") :
+            FPaths::GetPath(MetadataPath) / TEXT("TextureDDC");
+        FCommandLine::Append(*FString::Printf(TEXT(" -LocalDataCachePath=\"%ls\""), *Cache));
     }
     BootstrapWorkerCore(Mode != TEXT("render"));
     ContentDir = FPaths::ConvertRelativePathToFull(ContentDir) + TEXT("/");
@@ -175,7 +198,8 @@ INT32_MAIN_INT32_ARGC_TCHAR_ARGV()
         // before native event pools are torn down (not at C++ static shutdown).
         if (GMaxRHIShaderPlatform < SP_NumPlatforms)
             FShaderSymbolExport::Shutdown(LegacyShaderPlatformToShaderFormat(GMaxRHIShaderPlatform));
-        if (GWorkerAnimationObjectsCreated)
+        if (GWorkerTextureObjectsCreated) FTextureCompilingManager::Get().FinishAllCompilation();
+        if (GWorkerAnimationObjectsCreated || GWorkerTextureObjectsCreated)
         {
             TeardownStage(TEXT("animation_gc"));
             CollectGarbage(RF_NoFlags, true);
@@ -204,6 +228,7 @@ INT32_MAIN_INT32_ARGC_TCHAR_ARGV()
         TeardownStage(TEXT("delegates"));
         FCoreDelegates::OnPreExit.Broadcast();
         FCoreDelegates::OnExit.Broadcast();
+        IBulkDataRegistry::Shutdown();
         IPackageResourceManager::Shutdown();
         FIoDispatcher::Shutdown();
         TeardownStage(TEXT("modules"));
@@ -257,8 +282,31 @@ INT32_MAIN_INT32_ARGC_TCHAR_ARGV()
     // platform config futures while modules and task pools are still alive,
     // using Core's public synchronization path before any asset operation.
     FConfigCacheIni::PreInitializePlatformPlugins();
+    if (Mode == TEXT("render"))
+    {
+        // Native texture compilation first touches the cache/build system from
+        // worker threads. As in FEngineLoop, initialize both on the game thread.
+        UE::DerivedData::GetCache();
+        UE::DerivedData::GetBuild();
+    }
     UE_LOGF(LogUmgBlueprintWorker, Display, "UMG_BP_WORKER_READY mode=%ls content=%ls", *Mode, *ContentDir);
     const double ReadyMs = (FPlatformTime::Seconds() - Started) * 1000.0;
+    if (TextureOperation)
+    {
+        UTexture2D* Texture = Mode == TEXT("texture-import") ? ImportTextureAsset(Asset, InputPath,
+            !FParse::Param(FCommandLine::Get(), TEXT("LinearTexture")), TextureFilter,
+            FParse::Param(FCommandLine::Get(), TEXT("ReplaceTexture")),
+            FParse::Param(FCommandLine::Get(), TEXT("DefaultTextureCompression"))) : LoadBrushTexture(Asset);
+        if (!Texture) return 5;
+        auto Metadata = DescribeTexture(Texture);
+        Metadata->SetStringField(TEXT("mode"), Mode);
+        Metadata->SetNumberField(TEXT("worker_ready_ms"), ReadyMs);
+        Metadata->SetNumberField(TEXT("elapsed_ms"), (FPlatformTime::Seconds() - Started) * 1000.0);
+        Metadata->SetNumberField(TEXT("pid"), FPlatformProcess::GetCurrentProcessId());
+        if (!MetadataPath.IsEmpty() && !WriteJson(MetadataPath, Metadata)) return 8;
+        UE_LOGF(LogUmgBlueprintWorker, Display, "UMG_BP_COMPLETE mode=%ls", *Mode);
+        return 0;
+    }
     UWidgetBlueprint* Blueprint = nullptr;
     if (Mode == TEXT("create"))
     {

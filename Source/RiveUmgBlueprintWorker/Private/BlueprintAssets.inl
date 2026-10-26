@@ -158,7 +158,8 @@ static bool PatchBlueprint(UWidgetBlueprint* Blueprint, const FString& Path)
         UWidget* Widget = Blueprint->WidgetTree->FindWidget(FName(*Name));
         if (!Widget || Object->Values.Num() < 2) return AuthoringError(TEXT("Unknown widget or empty edit: ") + Name);
         FWidgetProperties Properties;
-        if (!ValidateWidgetProperties(Object, Widget->GetClass(), Cast<UCanvasPanelSlot>(Widget->Slot) != nullptr, false, Properties)) return false;
+        if (!ValidateWidgetProperties(Object, Widget->GetClass(), Cast<UCanvasPanelSlot>(Widget->Slot) != nullptr,
+            false, Properties, GetWidgetTextureBrush(Widget))) return false;
         Validated.Emplace(Widget, MoveTemp(Properties));
     }
     // Validate the complete request before modifying any native object.
@@ -239,6 +240,7 @@ static TSharedRef<FJsonObject> DescribeBlueprint(UWidgetBlueprint* Blueprint, UU
     TArray<UWidget*> Widgets;
     Blueprint->WidgetTree->GetAllWidgets(Widgets);
     TArray<TSharedPtr<FJsonValue>> Entries;
+    TMap<FString, UTexture2D*> TextureDependencies;
     for (UWidget* Widget : Widgets)
     {
         auto Entry = MakeShared<FJsonObject>();
@@ -249,6 +251,14 @@ static TSharedRef<FJsonObject> DescribeBlueprint(UWidgetBlueprint* Blueprint, UU
         Entry->SetNumberField(TEXT("opacity"), Widget->GetRenderOpacity());
         Entry->SetBoolField(TEXT("enabled"), Widget->GetIsEnabled());
         Entry->SetBoolField(TEXT("is_variable"), Widget->bIsVariable);
+        if (const FSlateBrush* Brush = GetWidgetTextureBrush(Widget))
+        {
+            Entry->SetObjectField(TEXT("brush"), DescribeTextureBrush(*Brush));
+            if (auto* Texture = Cast<UTexture2D>(Brush->GetResourceObject()))
+                TextureDependencies.Add(Texture->GetPathName(), Texture);
+        }
+        if (auto* Image = Cast<UImage>(Widget))
+            Entry->SetArrayField(TEXT("color"), ColorJson(Image->GetColorAndOpacity()));
         if (auto* LabelWidget = Cast<UTextBlock>(Widget))
         {
             Entry->SetStringField(TEXT("text"), LabelWidget->GetText().ToString());
@@ -263,6 +273,11 @@ static TSharedRef<FJsonObject> DescribeBlueprint(UWidgetBlueprint* Blueprint, UU
                 MakeShared<FJsonValueNumber>(Padding.Top), MakeShared<FJsonValueNumber>(Padding.Right), MakeShared<FJsonValueNumber>(Padding.Bottom)});
         }
         if (auto* Button = Cast<UButton>(Widget)) Entry->SetArrayField(TEXT("color"), ColorJson(Button->GetBackgroundColor()));
+        if (auto* Button = Cast<UButton>(Widget))
+            for (const FSlateBrush* Brush : {&Button->GetStyle().Normal, &Button->GetStyle().Hovered,
+                &Button->GetStyle().Pressed, &Button->GetStyle().Disabled})
+                if (auto* Texture = Cast<UTexture2D>(Brush->GetResourceObject()))
+                    TextureDependencies.Add(Texture->GetPathName(), Texture);
         if (auto* Slot = Cast<UCanvasPanelSlot>(Widget->Slot))
         {
             Entry->SetArrayField(TEXT("position"), VectorJson(Slot->GetPosition()));
@@ -292,5 +307,10 @@ static TSharedRef<FJsonObject> DescribeBlueprint(UWidgetBlueprint* Blueprint, UU
         Entries.Add(MakeShared<FJsonValueObject>(Entry));
     }
     Result->SetArrayField(TEXT("widgets"), Entries);
+    TArray<FString> TexturePaths; TextureDependencies.GetKeys(TexturePaths); TexturePaths.Sort();
+    TArray<TSharedPtr<FJsonValue>> Textures;
+    for (const FString& Path : TexturePaths)
+        Textures.Add(MakeShared<FJsonValueObject>(DescribeTexture(TextureDependencies[Path])));
+    Result->SetArrayField(TEXT("texture_dependencies"), Textures);
     return Result;
 }

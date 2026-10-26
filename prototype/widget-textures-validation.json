@@ -1,0 +1,81 @@
+{
+  "status": "passed_scoped",
+  "date": "2026-10-27",
+  "engine_commit": "62d7c1a7125b52b10ee1b714838f515f3563f795",
+  "scope": "Native Texture2D source assets, UMG Image/Border brush authoring and texture dependency ZIP; same unified CLI; Linux CPU Vulkan and Windows through WSL",
+  "qualified_images": [
+    "8-bit RGBA PNG including alpha and non-power-of-two 64x37",
+    "JPEG",
+    "source Texture2D .uasset",
+    "UI BGRA8 and native Linux DXT compression"
+  ],
+  "gates": {
+    "native_source_texture_suite": true,
+    "four_native_rgba_reference_pairs": true,
+    "archive_extracted_manifest_verified": true,
+    "extracted_unified_cli_without_gpu_sdk_or_dev_engine": true,
+    "source_and_extracted_pixels_exact": true,
+    "post_save_texture_replace_restore": true,
+    "post_save_new_texture_cleanup": true,
+    "existing_blueprint_authoring_regression": true,
+    "existing_native_animation_regression": true,
+    "windows_wsl_frontend": true,
+    "unit_contracts": true,
+    "default_rive_dependency_exclusion": true,
+    "default_build_zero_actions": true
+  },
+  "source_cli_cases": 22,
+  "portable_cli_cases": 22,
+  "native_reference_pairs": 4,
+  "source_vs_archive_pairs": 5,
+  "contract_tests": 31,
+  "legacy_authoring_cases": 17,
+  "legacy_animation_cases": 32,
+  "legacy_animation_gates": 48,
+  "new_link_modules": [
+    "TextureBuild",
+    "TextureFormatDXT",
+    "TextureFormatUncompressed"
+  ],
+  "link_module_count_before": 394,
+  "link_module_count_after": 397,
+  "new_native_libraries": [
+    "libnvcore.so",
+    "libnvimage.so",
+    "libnvmath.so",
+    "libnvtt.so"
+  ],
+  "package": {
+    "path": "package/rive-toolkit-textures-01.tar.gz",
+    "bytes": 301746279,
+    "sha256": "555a2f04be75c4b1bc46376e9b7838c20c410627467c20a68ffb84fd9781689f",
+    "delta_from_previous_all_tools_bytes": 282237,
+    "worker_elf_delta_bytes": 86000,
+    "worker_component_archive_delta_bytes": 251327,
+    "source_dirty_at_packaging": true,
+    "published": false
+  },
+  "measurements": {
+    "final_build_actions": 6,
+    "final_build_wall_seconds": 125.84,
+    "build_scope": "This rebuild includes the first compilation of three new modules; not a controlled steady-state incremental comparison",
+    "paired_startup_delta_measured": true,
+    "paired_startup_evidence": "artifacts/widget-textures/runtime-benchmark-01/summary.json",
+    "primary_size_metric": "Actual deployed executable/dependency bytes; archive fields above are historical delivery metadata"
+  },
+  "evidence": {
+    "source": "artifacts/widget-textures/source-03/summary.json",
+    "image_animation_reference": "artifacts/widget-textures/animation-reference-01/summary.json",
+    "portable": "artifacts/widget-textures/portable-02/summary.json",
+    "archive_extraction": "artifacts/widget-textures/archive-extraction.json",
+    "source_vs_archive": "artifacts/widget-textures/source-vs-archive.json",
+    "windows": "artifacts/widget-textures/windows-01/summary.json"
+  },
+  "limitations": [
+    "No full Unreal Editor viewport or UEFN receiver acceptance",
+    "No UI material/render-target/video/Sprite authoring qualification",
+    "Existing tree supports property/animation edits, not add/remove/reparent",
+    "Dependency export covers direct Texture2D Image/Border/Button style brushes, not arbitrary project closure"
+  ],
+  "runtime_deployment_validation": "prototype/widget-textures-runtime-validation.json"
+}

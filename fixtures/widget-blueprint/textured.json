@@ -1,0 +1,13 @@
+{
+  "widgets": [
+    {"name":"RootCanvas","type":"CanvasPanel"},
+    {"name":"Background","type":"Border","parent":"RootCanvas","position":[0,0],"size":[640,400],"color":[0,0,0,1]},
+    {"name":"Title","type":"TextBlock","parent":"RootCanvas","position":[32,24],"size":[580,40],"font_size":24,"text":"Native Texture2D / UMG Image"},
+    {"name":"Logo","type":"Image","parent":"RootCanvas","position":[32,80],"size":[128,128],"brush":{"texture":"/Game/Textures/T_Icon","draw_as":"Image"}},
+    {"name":"Photo","type":"Image","parent":"RootCanvas","position":[192,80],"size":[128,128],"brush":{"texture":"/Game/Textures/T_Photo","image_size":[64,64]}},
+    {"name":"LinearPhoto","type":"Image","parent":"RootCanvas","position":[352,80],"size":[128,128],"brush":{"texture":"/Game/Textures/T_Linear"}},
+    {"name":"CompressedPhoto","type":"Image","parent":"RootCanvas","position":[512,80],"size":[96,128],"brush":{"texture":"/Game/Textures/T_Compressed"}},
+    {"name":"Frame","type":"Border","parent":"RootCanvas","position":[32,240],"size":[448,80],"brush":{"texture":"/Game/Textures/T_Icon","draw_as":"Box","margin":[0.25,0.25,0.25,0.25]}},
+    {"name":"Footer","type":"TextBlock","parent":"RootCanvas","position":[32,348],"size":[580,28],"font_size":16,"text":"PNG alpha | JPEG | sRGB and linear | native nine-slice"}
+  ]
+}
