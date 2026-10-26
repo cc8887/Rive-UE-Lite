@@ -1,6 +1,6 @@
 # 同项目的可选 UMG 构建方案
 
-状态：源码评估与建议，尚未实现开关、UMG 宿主或运行时切换；当前已验证的 Rive 构建和截图结论不变。
+状态：构建开关、最小原生 UMG 宿主、独立 shader 对照及测量已经实现。实际接口和验收见 [宿主说明](../Source/RiveUmgHost/README.md) 与 [汇总](../artifacts/umg-optional/summary.json)。下文保留设计背景；独立 worker 仍是后续建议。
 
 ## 结论
 
@@ -11,18 +11,18 @@
 | 用户选择 | 构建产物 | 可以运行的 UI 路径 | 包体依据 |
 | --- | --- | --- | --- |
 | 默认，UMG 关闭 | 现有 `RiveRhiLite` | Rive | 当前部署包 51.08 MiB，gzip 16.73 MiB |
-| 构建时开启 UMG | 建议新增 `RiveUmgHost` | Rive、UMG，及集成后的混合路径 | 先前原始 190–220 MiB / 压缩 70–90 MiB 的估算；尚无真实 UMG 包 |
+| 构建时开启 UMG | 已新增 `RiveUmgHost` | Rive、UMG，及集成后的混合路径 | 本轮实测原始 186.11 MiB / 压缩 70.86 MiB |
 | 已开启 UMG 的产物运行时选择 Rive | 仍是 `RiveUmgHost` | Rive | 不会因此变回精简包；Engine 初始化和内存节省不可预先保证 |
 
-上表容量沿用已保存的测量与预算，不是本次重新打包；系统 CPU Vulkan 驱动和依赖另计，Designer 不在 UMG Runtime 预算内。
+上表更新为当前实际应用包数据；系统 CPU Vulkan 驱动和依赖另计，不含 Designer。
 
 ## 开关与依赖边界
 
-建议外部命令界面如下，以下命令是待实现的接口示意，当前没有 `build_ui.sh`：
+已实现的构建入口如下（需要 root 私有 mount namespace，实际 UBT 以 uid 1000 运行）：
 
 ```sh
-bash scripts/build_ui.sh                    # 默认只选择 RiveRhiLite
-bash scripts/build_ui.sh --with-umg         # 选择建议新增的 RiveUmgHost
+sudo bash scripts/build_ui.sh                    # 默认只选择 RiveRhiLite
+sudo bash scripts/build_ui.sh --with-umg         # 选择 RiveUmgHost
 ```
 
 不要在同名 Target 上反复翻转全局 `WITH_ENGINE`，也不要让运行时 INI 决定是否编译 UMG。两个 Target 在相同项目下共享业务源码，但使用独立的中间产物、规则环境、最终程序和包目录。
@@ -31,7 +31,7 @@ bash scripts/build_ui.sh --with-umg         # 选择建议新增的 RiveUmgHost
 | --- | --- | --- |
 | Target | `bCompileAgainstEngine=false`、`bUsesSlate=false` | `bCompileAgainstEngine=true`、`bUsesSlate=true`、`bCompileAgainstEditor=false`，使用 Unique 构建环境 |
 | 共享模块 | 协议、时间线、Rive RHI/RDG renderer；公共接口不暴露 UWidget/UUserWidget | 复用相同共享源码，按本 Target 的宏与 ABI 编译 |
-| 可选模块 | 不进入依赖图、不处理其中的 UHT 类、不编译 | 建议新增 `RiveUmgBridge`，拥有 UCLASS、UWidget/Slate 包装、布局与输入适配 |
+| 可选模块 | 不进入依赖图、不处理其中的 UHT 类、不编译 | 已新增 `RiveUmgBridge`，拥有 UCLASS、UWidget/Slate 包装、布局与输入适配 |
 | 引擎依赖 | 不引入 Engine/Renderer/UMG/Slate 等重依赖 | 加入 UMG、Engine、Renderer、Slate/SlateCore、SlateRHIRenderer 及其原生传递依赖 |
 | shader 与资源 | 只用 Lite 自己的 Rive/utility archive 和资源清单 | 对本宿主注册的类型独立 cook，补全 Slate shaders、字体、实际使用的材质与资产 |
 | 工具调度 | 不调用 Reference、原生 Engine cooker、UMG 编译/Designer 工具 | 显式调度需要的 cooker；运行已烘焙 WBP 与编译源 WBP 分开配置 |

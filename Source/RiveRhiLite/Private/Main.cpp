@@ -54,8 +54,10 @@ INT32_MAIN_INT32_ARGC_TCHAR_ARGV()
     FTaskTagScope Scope(ETaskTag::EGameThread);
     bool RenderingStarted = false;
     bool RHIStarted = false;
+    bool BootstrapStarted = false;
     ON_SCOPE_EXIT
     {
+        if (!BootstrapStarted) return;
         if (RenderingStarted) ShutdownRenderingThread();
         if (RHIStarted)
         {
@@ -78,10 +80,23 @@ INT32_MAIN_INT32_ARGC_TCHAR_ARGV()
     // Select the package/config root before PreInit caches any project paths.
     FString ProjectDirectory;
     const FString BootstrapCommandLine = FCommandLine::BuildFromArgV(nullptr, ArgC, ArgV, nullptr);
+    if (FParse::Param(*BootstrapCommandLine, TEXT("Capabilities")))
+    {
+        FPlatformMisc::LowLevelOutputDebugString(TEXT("{\"rive\":true,\"umg\":false}\n"));
+        return 0;
+    }
+    FString Ui = TEXT("rive");
+    FParse::Value(*BootstrapCommandLine, TEXT("Ui="), Ui);
+    if (Ui != TEXT("rive"))
+    {
+        FPlatformMisc::LowLevelOutputDebugString(TEXT("UMG_NOT_COMPILED: rebuild with --with-umg to use -Ui=umg\n"));
+        return 9;
+    }
     if (FParse::Value(*BootstrapCommandLine, TEXT("ProjectDir="), ProjectDirectory))
     {
         FGenericPlatformMisc::SetOverrideProjectDir(ProjectDirectory);
     }
+    BootstrapStarted = true;
     if (int32 Result = GEngineLoop.PreInit(ArgC, ArgV)) return Result;
 
     FString Input, Output, ShaderArchive, ShaderDirectory;

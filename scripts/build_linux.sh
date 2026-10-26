@@ -12,7 +12,7 @@ if [[ -n "${UE_GIT_OBJECTS:-}" ]]; then
 fi
 if [[ ! -d "$TASK_ROOT/engine/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v26_clang-20.1.8-rockylinux8" ]]; then
     # Reuse only this experiment's verified native-build SDK cache.
-    RIVE_LITE_CACHE_ROOT="${RIVE_LITE_CACHE_ROOT:-$HOME/.cache/rive-ue-lite}"
+    RIVE_LITE_CACHE_ROOT="${RIVE_LITE_CACHE_ROOT:-/home/yuchencui/.cache/rive-ue-lite-20261024}"
     export LINUX_MULTIARCH_ROOT="$RIVE_LITE_CACHE_ROOT/native/engine/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v26_clang-20.1.8-rockylinux8"
 fi
 export PATH="$DOTNET_ROOT:$PATH"
@@ -25,7 +25,7 @@ elif [[ "${1:-}" == "ubt" ]]; then
     shift
     dotnet build Engine/Source/Programs/UnrealBuildTool/UnrealBuildTool.csproj -c Development -v minimal "$@"
 else
-    TARGET="${1:-RiveLiteRhiProbe}"
+    TARGET="${1:-RiveRhiLite}"
     shift || true
     PARALLEL_ARG=-MaxParallelActions=12
     for ARG in "$@"; do

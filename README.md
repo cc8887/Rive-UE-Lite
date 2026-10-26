@@ -2,6 +2,63 @@
 
 源码、工具和交付物均放在此独立目录，Linux 构建另用专属缓存。`engine/` 固定为 UE6 `62d7c1a7125b52b10ee1b714838f515f3563f795`；`vendor/rive-unreal/` 固定为 `8461a2dc90924aeadc1f7eed99e6ae2de1b490f0`，原生 runtime 固定为 `47d1cd54ccefd468db7cb26ecc4699ae1723dd85`。不修改原引擎、Rive 仓库或现有工程。
 
+## 可选 UMG 已实现与实测
+
+同一个 `RiveRhiLite.uproject` 提供两个独立缓存的渲染构建目标：默认 `RiveRhiLite`，显式 `--with-umg` 选择 `RiveUmgHost`；可选 VerseVM worker 见下文。原始 UE/Rive 工程的 HEAD 与工作区 diff 哈希均未变化。Linux 构建入口（私有 mount namespace 需要 root，实际 UBT 以 uid 1000 运行）：
+
+```sh
+sudo bash scripts/build_ui.sh
+sudo bash scripts/build_ui.sh --with-umg
+```
+
+| 本轮真实交付 / 构建测量 | 默认 Rive | 开启 UMG |
+| --- | ---: | ---: |
+| 原始部署文件，含清单 | 51.08 MiB | 186.11 MiB |
+| 实际 tar.gz | 16.74 MiB | 70.86 MiB |
+| 去除调试信息后的 ELF | 29.85 MiB | 162.35 MiB |
+| 单 Main.cpp 重新编译 + 完整链接，入口总耗时 | 51.32 秒 | 177.11 秒 |
+| 其中 UBT 耗时 | 48.33 秒 | 171.99 秒 |
+
+编译数据来自本机 Ryzen 9950X / WSL2、Linux Development 单体构建、依赖缓存已存在、最多 12 个并行动作。通过只更新时间戳使一个 Main.cpp 失效，实际均执行一次 Compile、一次 Link 和 metadata，随后恢复原时间戳，源码字节不变。Link 包含正常符号导出和 strip；这是单次观察，首次冷构建没有独立成功计时。系统 CPU Vulkan ICD、LLVM 和系统库另计，包中不含 SDK、调试文件或 Designer。
+
+增强版的最小界面使用真实 UCanvasPanel、UBorder、UButton、UNativeWidgetHost，以及保留 Rive 原 RHI/RDG 算法的 Slate 自定义绘制。`package/ui-umg-02` 已在隐藏 `/dev/dxg`、`/dev/dri`、开发 engine/vendor 后实际出图并正常退出。原生 UE Engine Program 参考端使用原生 Rive adapter；两端独立 cook 生成不同路径、不同 SHA 的完整 Rive/utility/Slate archive，各 11,520 个排列，其中 Slate 为 43 类型、51 排列。
+
+最终 12 次进程 / 6 对全图 RGBA 和 alpha 全部零差异，无掩码或容差，播放 metadata 相同，无运行 error/ensure。覆盖 Bounce 0 / 0.75 秒、隐藏 Rive 控制、bankcard 羽化、Rocket 状态机 idle / pressed；动画、状态机和隐藏 Rive 都确实改变画面。每端每例使用自己的新 Mesa 缓存，CPU affinity 与 Mesa 线程均为 2。增强宿主峰值 RSS 350.31–379.30 MiB，完整首图 3.35–4.22 秒（六个单次样例，含隐藏控制；不是连续帧率）。这是选定的无 World UMG Program 路径，不是 Editor 视口、任意 Widget Blueprint 或 UI 材质验收。
+
+默认路径的实际 100 份编译/共享响应文件、21 模块链接输入、3 模块 UHT 清单和部署包均排除 UMG、Slate、Engine、Renderer 等重依赖。默认不调用原生 Engine cooker、UMG 参考端或字体下载。开启后再关闭开关的构建为 up to date / 0 actions。Lite 的 `-Capabilities` 返回 `umg=false`，`-Ui=umg` 明确返回退出码 9；增强版同时支持 `-Ui=umg` 和 `-Ui=rive`，后者也已与原生 Rive 图逐像素对照通过。包标志与 receipt 不匹配会被拒绝。
+
+UE6 非 constinit 配置使用引擎原有 lazy CDO API 完成真实类/属性注册，再按需构造 CDO/config，消除了首轮 SlateSettings 尚未链接的 ensure；未修改引擎核心、默认资产或错误门槛。Linux 指标工具 18 项单测通过。
+
+- [完整使用、构建、cook、打包与复现命令](Source/RiveUmgHost/README.md)
+- [验收与测量汇总](artifacts/umg-optional/summary.json)、[6 对截图及进程/内存/时间](artifacts/umg-optional/matrix-01/summary.json)
+- [UMG 实际截图](artifacts/umg-optional/matrix-01/bankcard/host/output.png)、[原生 UE 参考图](artifacts/umg-optional/matrix-01/bankcard/reference/output.png)
+- [默认依赖排除审计](artifacts/umg-optional/lite-exclusion-final.json)、[命令与打包负例](artifacts/umg-optional/cli-guards.json)
+- [Rive 包体](artifacts/umg-optional/package-rive-01/report.json)、[UMG 包体](artifacts/umg-optional/package-umg-02/report.json)
+- [Rive 实际增量构建](artifacts/umg-optional/incremental-rive-01/report.json)、[UMG 实际增量构建](artifacts/umg-optional/incremental-umg-01/report.json)
+
+## UMG 源蓝图最小闭环
+
+独立 `RiveUmgBlueprintWorker` 已完成真实未 cook `.uasset` 的加载、原生布局出图、文案/位置/尺寸修改、原生蓝图编译保存、两次新进程重载。9 个进程全部正常退出，无运行 error/ensure；修改前后与独立设置属性的原生 UE WidgetTree 预览参照均为全图 RGBA 零差异，重载复现也为零差异。修改确实改变 16,887 个像素，嵌套 Border 子控件按 UE 布局规则跟随父级变化。
+
+隐藏 GPU 设备并使用 llvmpipe、CPU affinity/Mesa 线程均为 2 时，生成类预览首张完整 PNG 为 12.82–13.45 秒，峰值 RSS 701.58–717.21 MiB；修改编译保存并正常退出为 4.53 秒。编辑 worker ELF 为 568.68 MiB，此数值不含部署依赖闭包；编辑后的源蓝图 23,268 字节，下载 ZIP 5,339 字节。这是选定的原生控件静态 WBP、640×400/DPI 1 的离屏验证，不是完整 Editor 视口或任意项目依赖验收。
+
+编辑 worker 明确链接 UMGEditor/UnrealEd，须单独构建；默认 Rive 和 `--with-umg` 运行宿主的选择入口不变。当前源蓝图样例使用 CanvasPanel/Border/TextBlock，已有 Rive RHI/RDG 路径保留在原目标中。
+
+- [构建与服务端操作流程](Source/RiveUmgBlueprintWorker/README.md)
+- [完整闭环与测量记录](artifacts/umg-blueprint/roundtrip-03/summary.json)
+- [修改后的可下载蓝图](artifacts/umg-blueprint/roundtrip-03/WBP_RoundTrip-edited.zip)
+- [修改前](artifacts/umg-blueprint/roundtrip-03/04-load-original/output.png)、[修改后](artifacts/umg-blueprint/roundtrip-03/07-reload-edited/output.png)、[原生参照](artifacts/umg-blueprint/roundtrip-03/08-native-edited/output.png)
+
+## 可选 VerseVM：真实执行与 UI 出图
+
+默认仍只构建 Rive；`sudo bash scripts/build_ui.sh --with-verse` 增加独立的 `RiveVerseWorker`（无 Engine/Renderer/UMG，新 VerseVM + AutoRTFM）。已跑通同份 Verse 控制器 → 真实字节码 → UI 命令 → 现有 Rive UE RHI/RDG → 无 GPU Linux 截图。事件、Await 恢复、race 取消/defer/迟到事件、失败回滚以及 3 组故障注入通过；按下/空闲与原生 UE 独立 shader cook 的两组截图 RGBA 零差异。
+
+合计部署包 **98.70 MiB / tar.gz 34.96 MiB**，比原 Rive 包增加 **47.62 MiB / 压缩约 18.21 MiB**。两核独立进程的 worker 就绪中位数 **2.926 秒**，编译/加载阶段 **355.8 毫秒**，整条链路首图 **4.764 秒**。worker 单 C++ 文件直接缓存 target 的实际增量编译/链接 **60.67 秒**，完整构建入口含准备校验 **124.11 秒**。不是冷构建或冷整机启动基准。
+
+**同进程二次代码加载实验触发原生包导入断言，未通过，交付采用每次修改重启 worker。** 共享控制器尚未回到真实 UEFN 对照；本地适配器也没有实现 Fortnite 玩家/设备/UI 原生 API。默认构建排除 worker、VerseCompiler/VerseNative/Solaris/libpas 和 UMG，Rive/UMG 两个既有渲染二进制 SHA 未变化。详见 [实现、测试范围、全部指标与复现](prototype/verse-vm.md)、[机器汇总](artifacts/verse-vm/summary.json) 和 [部署包](package/verse-ui-02/verse-ui.sh)。
+
+此前仅测前端的 **2.40 MiB** 增量不是完整 VM 成本；历史数据保留在 [接入前评估](prototype/verse-assessment.md)。
+
 ## 独立 shader、动画与状态机实测
 
 本轮已将真实 `LinearAnimationInstance` / `StateMachineInstance` 播放驱动接入两个宿主。时间线按固定步长从零重放，在事件的实际时刻应用输入并结算；每张图保存实际驱动选择、调用次数、输入值和状态变化。覆盖 Bounce 动画、bool Hover/Press、number 转换、重复 trigger 和 pointer 开关五个确定性样例。
@@ -33,7 +90,7 @@
 
 包内 bankcard 和 Bounce 0.75 秒均在隐藏 engine/vendor/GPU 的 namespace 中通过实际启动器出图并正常退出：bankcard 与本轮原生 UE 参考图、Bounce 与已验证关键帧均 RGBA/alpha 零差异。包内容运行前后哈希相同。gzip SHA256 为 `ae6fc93ca0fd6c37ace80bbb0ebb52703d9972dece2d783054fe17a50c1b0f3e`。
 
-一致性结论限于这些固定样例的 UE Program 离屏 `FRenderTarget` / RHI / RDG 路径。尚未验证 Editor 视口、UMG/Slate 合成、硬件 GPU 对照、GPU Canvas/Ore、脚本或整个 Rive 库；关键帧是每次从零重放后的截图，不是连续渲染帧率测试。
+一致性结论限于这些固定样例的 UE Program 离屏 `FRenderTarget` / RHI / RDG 路径。此处旧报告不覆盖 UMG/Slate 合成，新的最小 UMG 对照见文首。Editor 视口、硬件 GPU 对照、GPU Canvas/Ore、脚本或整个 Rive 库仍未验收；关键帧是每次从零重放后的截图，不是连续渲染帧率测试。
 
 ```sh
 bash package/playback-02/render.sh package/playback-02/fixtures/ball_test.riv /tmp/bounce.png \
@@ -43,13 +100,13 @@ bash package/playback-02/render.sh package/playback-02/fixtures/ball_test.riv /t
 
 ## 同项目按需启用 UMG 的构建方案
 
-源码评估支持“默认只编译 Rive，显式开启后才编译 UMG 及其依赖”。建议保留同一个 `.uproject` 和共享源码，用一个外部构建开关选择两个独立缓存的 Target；增强产物再在运行时选择 Rive 或 UMG。当前单体 Lite 程序无法在运行中临时加载未编入的 UMG，`WITH_ENGINE` 也改变 UObject 接口，不能混用不同构建底座的插件。
+已按方案保留同一个 `.uproject` 和共享源码，用外部构建开关选择两个独立缓存的 Target；默认只构建 Rive，增强产物在运行参数中选择 Rive 或 UMG。当前单体 Lite 程序无法在运行中临时加载未编入的 UMG，`WITH_ENGINE` 也改变 UObject 接口，不能混用不同构建底座的插件。
 
-[可选 UMG 方案与源码依据](prototype/optional-umg-design.md) 记录了模块边界、默认工具与资源排除、shader 初始化、缓存和按需 worker 方案。本次只完成设计评估，尚未实现构建开关或新增 UMG 宿主；现有源码构建配置、二进制和截图结论不变。
+[可选 UMG 方案与源码依据](prototype/optional-umg-design.md) 记录了模块边界、默认工具与资源排除、shader 初始化、缓存和按需 worker 方案。构建开关与最小 UMG 宿主已实现；实现和测量入口见 [UMG 宿主说明](Source/RiveUmgHost/README.md)。
 
-## 接入原生 UMG 的容量与编译成本评估
+## 接入前的原生 UMG 容量与编译成本历史评估
 
-这是现有二进制、构建日志、原生源码和容量样本的评估，尚未新增 UMG 截图验收。现有 Reference 已实际链接 UMG、SlateRHIRenderer、MovieScene 等 156 个模块，并在最终符号表保留 `UWidget::TakeWidget`、`UUserWidget::Initialize` 和 `FWidgetRenderer::DrawWindow`；它提供了接入所需重依赖的实测容量锚点。普通非 Server UMG 依赖 Engine/Renderer，不能继续套用轻量目标的模块排除结论。
+以下为接入前的历史二进制、构建日志、原生源码和容量样本评估；本轮真实 UMG 交付与验收见文首。现有 Reference 已实际链接 UMG、SlateRHIRenderer、MovieScene 等 156 个模块，并在最终符号表保留 `UWidget::TakeWidget`、`UUserWidget::Initialize` 和 `FWidgetRenderer::DrawWindow`；它提供了接入所需重依赖的实测容量锚点。普通非 Server UMG 依赖 Engine/Renderer，不能继续套用轻量目标的模块排除结论。
 
 | 相同资源基础的容量样本 | 轻量程序 | Engine/UMG 依赖参考程序 |
 | --- | ---: | ---: |

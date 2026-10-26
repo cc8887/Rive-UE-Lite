@@ -9,7 +9,7 @@ public class RiveUeShaderCooker : ModuleRules
         PrivateDependencyModuleNames.AddRange(new[] {
             "Core", "CoreUObject", "Projects", "ApplicationCore", "Engine", "Renderer",
             "RHI", "RHICore", "RenderCore", "TargetPlatform", "ShaderCompilerCommon",
-            "VulkanShaderFormat", "DerivedDataCache", "NullDrv", "Json", "RiveUeReferenceRenderer"
+            "VulkanShaderFormat", "DerivedDataCache", "NullDrv", "Json", "RiveUeReferenceRenderer", "SlateRHIRenderer"
         });
         DynamicallyLoadedModuleNames.Add("LinuxTargetPlatform");
         PrivateIncludePaths.Add(Path.Combine(GetModuleDirectory("RenderCore"), "Internal"));

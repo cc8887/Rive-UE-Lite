@@ -6,6 +6,7 @@ public class RiveRhiLite : ModuleRules
     public RiveRhiLite(ReadOnlyTargetRules Target) : base(Target)
     {
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+        PrivateDefinitions.Add("RIVE_HOST_WITH_UMG=0");
         PublicIncludePathModuleNames.Add("Launch");
         PrivateIncludePaths.Add(Path.GetFullPath(Path.Combine(ModuleDirectory, "../RivePlayback/Public")));
         PrivateDependencyModuleNames.AddRange(new[] {

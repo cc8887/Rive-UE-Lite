@@ -83,7 +83,11 @@ bool IsSelectedType(const FShaderType& Type)
         TEXT("/Engine/Private/RenderGraphUtilities.usf"),
         TEXT("/Engine/Private/ResolvePixelShader.usf"),
     };
-    if (Filename.StartsWith(TEXT("/Plugin/Rive/"))) return true;
+    // Source-Blueprint worker has no Rive shader types linked. Cook a separate
+    // native Slate/utility archive instead of loading unrelated Rive sections.
+    if (Filename.StartsWith(TEXT("/Plugin/Rive/")))
+        return !FParse::Param(FCommandLine::Get(), TEXT("SlateOnly"));
+    if (FParse::Param(FCommandLine::Get(), TEXT("IncludeSlate")) && Filename.StartsWith(TEXT("/Engine/Private/Slate"))) return true;
     for (const TCHAR* Utility : UtilityFiles) if (Filename == Utility) return true;
     return false;
 }
@@ -115,8 +119,9 @@ int32 Cook(const FString& Output, const FString& ShaderDirectory)
     GMaxRHIFeatureLevel = ERHIFeatureLevel::SM5;
     GShaderPlatformForFeatureLevel[ERHIFeatureLevel::SM5] = CookPlatform;
     RenderUtilsInit();
-    ITargetPlatform* TargetPlatform = GetTargetPlatformManagerRef().FindTargetPlatform(TEXT("Linux"));
-    if (!TargetPlatform || TargetPlatform->HasEditorOnlyData()) return 3;
+    const bool EditorShaders = FParse::Param(FCommandLine::Get(), TEXT("EditorShaders"));
+    ITargetPlatform* TargetPlatform = GetTargetPlatformManagerRef().FindTargetPlatform(EditorShaders ? TEXT("LinuxEditor") : TEXT("Linux"));
+    if (!TargetPlatform || TargetPlatform->HasEditorOnlyData() != EditorShaders) return 3;
     FPlatformTypeLayoutParameters TargetLayout;
     TargetLayout.InitializeForPlatform(TargetPlatform);
     const EShaderPermutationFlags PermutationFlags = GetShaderPermutationFlags(TargetLayout);

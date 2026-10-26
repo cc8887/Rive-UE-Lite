@@ -87,6 +87,8 @@ private:
     FTextureRHIRef Texture;
 };
 
+#include "RiveUmgCapture.inl"
+
 static void CreateReferencePool(FQueuedThreadPool*& Pool, int32 Threads, EThreadPriority Priority, const TCHAR* Name)
 {
     Pool = FQueuedThreadPool::Allocate();
@@ -210,6 +212,15 @@ INT32_MAIN_INT32_ARGC_TCHAR_ARGV()
         return 2;
     }
     TSharedPtr<FJsonObject> PlaybackMetadata;
+    FString Ui = TEXT("rive");
+    FParse::Value(FCommandLine::Get(), TEXT("Ui="), Ui);
+    if (FParse::Param(FCommandLine::Get(), TEXT("Capabilities")))
+    {
+        FPlatformMisc::LowLevelOutputDebugString(TEXT("{\"rive\":true,\"umg\":true}\n"));
+        return 0;
+    }
+    const bool UseUmg = Ui == TEXT("umg");
+    if (!UseUmg && Ui != TEXT("rive")) return 2;
     const bool UseUTextureTarget = FParse::Param(FCommandLine::Get(), TEXT("UTextureTarget"));
     if (Input.IsEmpty() || Output.IsEmpty() || ShaderArchive.IsEmpty() || ShaderDirectory.IsEmpty() ||
         Width <= 0 || Height <= 0 || Width > 8192 || Height > 8192)
@@ -223,6 +234,7 @@ INT32_MAIN_INT32_ARGC_TCHAR_ARGV()
     ON_SCOPE_EXIT
     {
         RequestEngineExit(TEXT("Rive Engine Program reference complete"));
+        ShutdownRiveUmg();
         if (RenderingStarted) ShutdownRenderingThread();
         if (RHIStarted)
         {
@@ -304,6 +316,14 @@ INT32_MAIN_INT32_ARGC_TCHAR_ARGV()
     };
     TArray<FColor> Pixels;
     bool RenderOK = false;
+    if (UseUmg)
+    {
+        RenderOK = CaptureUmgFrame(RiveBytes, Scenario, Seconds, Width, Height,
+            FParse::Param(FCommandLine::Get(), TEXT("HideRive")), Pixels, PlaybackMetadata, PlaybackError);
+        if (!RenderOK) UE_LOG(LogRiveUeReference, Error, TEXT("UMG capture failed: %s"), *PlaybackError);
+    }
+    else
+    {
     ENQUEUE_RENDER_COMMAND(RiveUeReferenceCapture)([&](FRHICommandListImmediate& RHICmdList)
     {
         FTextureRHIRef Texture;
@@ -359,6 +379,7 @@ INT32_MAIN_INT32_ARGC_TCHAR_ARGV()
         RHICmdList.SubmitAndBlockUntilGPUIdle();
         RenderOK = Pixels.Num() == Width * Height;
     });
+    }
     FlushRenderingCommands();
     if (!RenderOK) return 5;
     auto& ImageWrapper = FModuleManager::LoadModuleChecked<IImageWrapperModule>(TEXT("ImageWrapper"));
@@ -372,8 +393,8 @@ INT32_MAIN_INT32_ARGC_TCHAR_ARGV()
         return 8;
     }
     UE_LOG(LogRiveUeReference, Display,
-           TEXT("RIVE_UE_REFERENCE_CAPTURE path=\"%s\" width=%d height=%d seconds=%.3f first_image_ms=%.3f adapter=\"%s\" render_path=UE_RHI_RDG engine_linked=1 renderer_linked=1 engine_frender_target=1 utexture_target=%d editor_viewport=0 umg_composite=0"),
+           TEXT("RIVE_UE_REFERENCE_CAPTURE path=\"%s\" width=%d height=%d seconds=%.3f first_image_ms=%.3f adapter=\"%s\" render_path=UE_RHI_RDG engine_linked=1 renderer_linked=1 engine_frender_target=1 utexture_target=%d editor_viewport=0 umg_composite=%d"),
            *Output, Width, Height, Scenario.bEnabled ? Scenario.TargetTime : static_cast<double>(Seconds),
-           (FPlatformTime::Seconds() - StartSeconds) * 1000.0, *GRHIAdapterName, UseUTextureTarget);
+           (FPlatformTime::Seconds() - StartSeconds) * 1000.0, *GRHIAdapterName, UseUTextureTarget, UseUmg);
     return 0;
 }
