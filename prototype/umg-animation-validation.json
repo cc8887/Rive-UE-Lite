@@ -1,0 +1,304 @@
+{
+  "status": "passed_scoped",
+  "date": "2026-10-26",
+  "engine_commit": "62d7c1a7125b52b10ee1b714838f515f3563f795",
+  "gates": {
+    "native_animation_suite": true,
+    "cpu_native_reference_exact": true,
+    "paired_startup": true,
+    "portable_baseline": true,
+    "portable_animation": true,
+    "packages_complete_for_scope": true,
+    "no_new_link_modules": true,
+    "actual_source_binary_packaged": true,
+    "windows_nested_cli_and_preview": true,
+    "default_dependency_exclusion": true,
+    "default_build_noop": true,
+    "default_runtime_regression": true,
+    "runtime_source_paths_unmodified": true
+  },
+  "native_cli_cases": 32,
+  "native_checks": 48,
+  "package_before": {
+    "status": "staged",
+    "package": "${PROTOTYPE_ROOT}/package/widget-static-baseline-02",
+    "file_count": 2246,
+    "payload_bytes": 593803763,
+    "logical_bytes": 594232866,
+    "tar_gz_bytes": 222597062,
+    "tar_gz_sha256": "568e8d8fd55d5a281da44f268722b1167fdf3dcfd730b3e6232493e1f80d6025",
+    "worker_bytes": 393151960,
+    "worker_sha256": "17f33d6e53f5f552c88d320a8383188f15f5e3dba8e162b17cec62984c8b90d6",
+    "missing_count": 0
+  },
+  "package_after": {
+    "status": "staged",
+    "package": "${PROTOTYPE_ROOT}/package/widget-animation-01",
+    "file_count": 2246,
+    "payload_bytes": 593882353,
+    "logical_bytes": 594311420,
+    "tar_gz_bytes": 222635060,
+    "tar_gz_sha256": "8d65f29c21ee42c99072b2d8f12de5cbf056d0c67aaeca3f96e3cb265a732628",
+    "worker_bytes": 393207656,
+    "worker_sha256": "ad8308518f60179b4c866a4d22eaeefd6333b69dfb1aaa114146e61313fea4f3",
+    "missing_count": 0
+  },
+  "added_bytes": {
+    "logical_bytes": 78554,
+    "payload_bytes": 78590,
+    "tar_gz_bytes": 37998,
+    "worker_bytes": 55696
+  },
+  "package_changed_files": [
+    {
+      "path": "Content/UI/WBP_Card.uasset",
+      "before_bytes": 19765,
+      "after_bytes": 42659,
+      "delta_bytes": 22894
+    },
+    {
+      "path": "Engine/Binaries/Linux/RiveUmgBlueprintWorker",
+      "before_bytes": 393151960,
+      "after_bytes": 393207656,
+      "delta_bytes": 55696
+    },
+    {
+      "path": "worker.target",
+      "before_bytes": 84719,
+      "after_bytes": 84719,
+      "delta_bytes": 0
+    }
+  ],
+  "package_added_files": [],
+  "package_removed_files": [],
+  "link_module_count_before": 394,
+  "link_module_count_after": 394,
+  "added_link_modules": [],
+  "removed_link_modules": [],
+  "startup_groups": {
+    "baseline_static": {
+      "ready_seconds": {
+        "median": 2.503306973000008,
+        "min": 2.3819724089999,
+        "max": 2.61072032900006
+      },
+      "first_png_seconds": {
+        "median": 2.736020984000106,
+        "min": 2.618846142999928,
+        "max": 2.8397033119999833
+      },
+      "complete_seconds": {
+        "median": 2.739275454000108,
+        "min": 2.621487489999936,
+        "max": 2.8393933779999543
+      },
+      "wall_seconds": {
+        "median": 2.9750748530000237,
+        "min": 2.849488413999893,
+        "max": 3.148935606000009
+      },
+      "peak_rss_kib": {
+        "median": 757116,
+        "min": 747284,
+        "max": 761116
+      }
+    },
+    "new_static": {
+      "ready_seconds": {
+        "median": 2.4238487070000474,
+        "min": 2.3693274430000884,
+        "max": 2.630370684000013
+      },
+      "first_png_seconds": {
+        "median": 2.6675037659999816,
+        "min": 2.6187295450000647,
+        "max": 2.8775779369999555
+      },
+      "complete_seconds": {
+        "median": 2.664964681000015,
+        "min": 2.623111523000034,
+        "max": 2.8819531980000193
+      },
+      "wall_seconds": {
+        "median": 2.9031381759999704,
+        "min": 2.8746882400000686,
+        "max": 3.1544336260000136
+      },
+      "peak_rss_kib": {
+        "median": 761504,
+        "min": 757168,
+        "max": 768020
+      }
+    },
+    "new_animation": {
+      "ready_seconds": {
+        "median": 2.52395905100002,
+        "min": 2.3958929809999745,
+        "max": 2.60061693199998
+      },
+      "first_png_seconds": {
+        "median": 2.7649127020000606,
+        "min": 2.6253148990000454,
+        "max": 2.849684060999948
+      },
+      "complete_seconds": {
+        "median": 2.7633523970000624,
+        "min": 2.6310463450000725,
+        "max": 2.8495424279999497
+      },
+      "wall_seconds": {
+        "median": 2.992695774000026,
+        "min": 2.8555820550000135,
+        "max": 3.1054189650000126
+      },
+      "peak_rss_kib": {
+        "median": 763000,
+        "min": 754052,
+        "max": 766564
+      }
+    }
+  },
+  "startup_deltas": {
+    "code_only_vs_baseline": {
+      "ready_seconds": -0.07945826599996053,
+      "first_png_seconds": -0.06851721800012456,
+      "complete_seconds": -0.07431077300009292,
+      "wall_seconds": -0.07193667700005335,
+      "peak_rss_kib": 4388
+    },
+    "animated_first_image_vs_baseline": {
+      "ready_seconds": 0.020652078000011898,
+      "first_png_seconds": 0.02889171799995438,
+      "complete_seconds": 0.024076942999954554,
+      "wall_seconds": 0.017620921000002454,
+      "peak_rss_kib": 5884
+    },
+    "animation_eval_vs_new_static": {
+      "ready_seconds": 0.10011034399997243,
+      "first_png_seconds": 0.09740893600007894,
+      "complete_seconds": 0.09838771600004748,
+      "wall_seconds": 0.0895575980000558,
+      "peak_rss_kib": 1496
+    }
+  },
+  "native_animation_instrumentation_medians_ms": {
+    "owner_systems_manager": 4.126296999970691,
+    "first_evaluation": 0.4914250000638276,
+    "sum": 4.562720999956582
+  },
+  "timing_interpretation": "5 interleaved measured processes per case after one warmup; 2 CPUs, ext4, fresh user/Mesa cache; OS cache may be warm. Shared WSL host. Ready is before asset/animation load; first PNG includes it. Ranges overlap: median deltas are observations, not fixed startup penalties or improvements.",
+  "default_binary_note": {
+    "pre_task_sha256": "03e8314d779b245deb13eb8c9fd465ed0a21448814d44f0635e9b880588f653d",
+    "current_sha256": "81a96d8197f7cb9b9cf39938a2a8fb74eeb5d9c077efbf6ecccf8580403d56f9",
+    "same_sha256": false,
+    "reason": "Build verification switched debug flags then restored original build options, rebuilding the default binary. No animation/runtime source edits; same pre-task Rive PNG. Historical runtime packages remain frozen, not repacked or globally requalified."
+  },
+  "asset_sizes": {
+    "base_bytes": 19765,
+    "animated_bytes": 42659,
+    "added_bytes": 22894,
+    "base_sha256": "91de242d5b277da3b39998c161c6525bc6410c1a797942e5e2d25b50aff2c0c8",
+    "animated_sha256": "9671515c955536c46c8975e9ff257f0224c69449826b0459c9632e2e86e6d113"
+  },
+  "windows_comparison": {
+    "status": "passed",
+    "comparison_space": "encoded RGBA8 values; no color transform",
+    "alpha_policy": "compare alpha as a fourth channel; do not premultiply",
+    "channel_tolerance": 0,
+    "max_different_fraction": 0.0,
+    "mask": {
+      "policy": "include all pixels",
+      "included_pixels": 256000,
+      "excluded_pixels": 0
+    },
+    "reference": {
+      "path": "${PROTOTYPE_ROOT}/artifacts/umg-animation/Windows animation preview.png",
+      "sha256": "b988ee278dd365ed6ca196309dda606add41b26d24bd5b64df7e6a9dfa31276c",
+      "width": 640,
+      "height": 400,
+      "bit_depth": 8,
+      "color_type": 6,
+      "interlaced": false,
+      "color_metadata": {},
+      "color_transform_applied": false,
+      "decoder": "stdlib PNG RGBA8"
+    },
+    "actual": {
+      "path": "${PROTOTYPE_ROOT}/artifacts/umg-animation/acceptance-03/11-frame-2.png",
+      "sha256": "b988ee278dd365ed6ca196309dda606add41b26d24bd5b64df7e6a9dfa31276c",
+      "width": 640,
+      "height": 400,
+      "bit_depth": 8,
+      "color_type": 6,
+      "interlaced": false,
+      "color_metadata": {},
+      "color_transform_applied": false,
+      "decoder": "stdlib PNG RGBA8"
+    },
+    "different_pixels": 0,
+    "different_pixel_fraction": 0.0,
+    "alpha_different_pixels": 0,
+    "max_channel_error": 0,
+    "mean_absolute_channel_error": 0.0,
+    "rms_channel_error": 0.0,
+    "color_metadata_equal": true,
+    "color_space_description": "both untagged; transfer function unspecified"
+  },
+  "portable_comparison": {
+    "status": "passed",
+    "comparison_space": "encoded RGBA8 values; no color transform",
+    "alpha_policy": "compare alpha as a fourth channel; do not premultiply",
+    "channel_tolerance": 0,
+    "max_different_fraction": 0.0,
+    "mask": {
+      "policy": "include all pixels",
+      "included_pixels": 256000,
+      "excluded_pixels": 0
+    },
+    "reference": {
+      "path": "${PROTOTYPE_ROOT}/artifacts/umg-animation/animated-portable-01/frame.png",
+      "sha256": "b988ee278dd365ed6ca196309dda606add41b26d24bd5b64df7e6a9dfa31276c",
+      "width": 640,
+      "height": 400,
+      "bit_depth": 8,
+      "color_type": 6,
+      "interlaced": false,
+      "color_metadata": {},
+      "color_transform_applied": false,
+      "decoder": "stdlib PNG RGBA8"
+    },
+    "actual": {
+      "path": "${PROTOTYPE_ROOT}/artifacts/umg-animation/acceptance-03/11-frame-2.png",
+      "sha256": "b988ee278dd365ed6ca196309dda606add41b26d24bd5b64df7e6a9dfa31276c",
+      "width": 640,
+      "height": 400,
+      "bit_depth": 8,
+      "color_type": 6,
+      "interlaced": false,
+      "color_metadata": {},
+      "color_transform_applied": false,
+      "decoder": "stdlib PNG RGBA8"
+    },
+    "different_pixels": 0,
+    "different_pixel_fraction": 0.0,
+    "alpha_different_pixels": 0,
+    "max_channel_error": 0,
+    "mean_absolute_channel_error": 0.0,
+    "rms_channel_error": 0.0,
+    "color_metadata_equal": true,
+    "color_space_description": "both untagged; transfer function unspecified"
+  },
+  "evidence": {
+    "acceptance": "${PROTOTYPE_ROOT}/artifacts/umg-animation/acceptance-03/summary.json",
+    "startup": "${PROTOTYPE_ROOT}/artifacts/umg-animation/startup-03/summary.json",
+    "native_build": "${PROTOTYPE_ROOT}/artifacts/umg-animation/build-07.log",
+    "default_runtime": "${PROTOTYPE_ROOT}/artifacts/umg-animation/default-runtime/summary.json",
+    "lite_boundary": "${PROTOTYPE_ROOT}/artifacts/umg-animation/lite-exclusion.json"
+  },
+  "remaining_scope": [
+    "UEFN asset/version compatibility and View Bindings/Verse triggers",
+    "Full Editor viewport or arbitrary project/animation library qualification",
+    "Color/material/slot/event animation authoring; structural animation rename/delete/graph edits"
+  ],
+  "report_scope": "Completed implementation and paired measurement before preview.3 release packaging; original compressed delta excludes added release documentation/metadata."
+}

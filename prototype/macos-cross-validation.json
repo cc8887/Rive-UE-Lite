@@ -1,0 +1,133 @@
+{
+  "host": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "target": "Mac",
+  "architecture": "arm64",
+  "results": {
+    "ubt": {
+      "command": [
+        "${PROTOTYPE_ROOT}/engine/Engine/Binaries/ThirdParty/DotNet/10.0/linux-x64/dotnet",
+        "${PROTOTYPE_ROOT}/engine/Engine/Binaries/DotNET/UnrealBuildTool/UnrealBuildTool.dll",
+        "RiveRhiLite",
+        "Mac",
+        "Development",
+        "-architecture=arm64",
+        "-Project=${PROTOTYPE_ROOT}/RiveRhiLite.uproject",
+        "-NoUBA",
+        "-NoUbaLocal",
+        "-Log=${PROTOTYPE_ROOT}/artifacts/release/preview3/macos-zig-arm64/ubt-detail.log"
+      ],
+      "exit_code": 6,
+      "elapsed_seconds": 10.156960019,
+      "log": "${PROTOTYPE_ROOT}/artifacts/release/preview3/macos-zig-arm64/ubt.log"
+    },
+    "compiler-backend": {
+      "command": [
+        "${BUILD_CACHE}/native/engine/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v26_clang-20.1.8-rockylinux8/x86_64-unknown-linux-gnu/bin/clang++",
+        "-target",
+        "arm64-apple-macos15.0",
+        "-ffreestanding",
+        "-c",
+        "${PROTOTYPE_ROOT}/artifacts/release/preview3/macos-zig-arm64/backend.cpp",
+        "-o",
+        "${PROTOTYPE_ROOT}/artifacts/release/preview3/macos-zig-arm64/backend.o"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.17882108000000052,
+      "log": "${PROTOTYPE_ROOT}/artifacts/release/preview3/macos-zig-arm64/compiler-backend.log"
+    },
+    "object-format": {
+      "command": [
+        "file",
+        "${PROTOTYPE_ROOT}/artifacts/release/preview3/macos-zig-arm64/backend.o"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.015613968000000256,
+      "log": "${PROTOTYPE_ROOT}/artifacts/release/preview3/macos-zig-arm64/object-format.log"
+    },
+    "rive-source": {
+      "command": [
+        "${BUILD_CACHE}/native/engine/Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/Linux_x64/v26_clang-20.1.8-rockylinux8/x86_64-unknown-linux-gnu/bin/clang++",
+        "-target",
+        "arm64-apple-macos15.0",
+        "-std=c++20",
+        "-c",
+        "${PROTOTYPE_ROOT}/vendor/rive-unreal/submodules/rive-runtime/src/math/aabb.cpp",
+        "-I${PROTOTYPE_ROOT}/vendor/rive-unreal/submodules/rive-runtime/include",
+        "-o",
+        "${PROTOTYPE_ROOT}/artifacts/release/preview3/macos-zig-arm64/rive-aabb.o"
+      ],
+      "exit_code": 1,
+      "elapsed_seconds": 0.9213049140000003,
+      "log": "${PROTOTYPE_ROOT}/artifacts/release/preview3/macos-zig-arm64/rive-source.log"
+    },
+    "zig-version": {
+      "command": [
+        "${USER_HOME}/zig-0.15.2/zig-x86_64-windows-0.15.2/zig.exe",
+        "version"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.08954749600000156,
+      "log": "${PROTOTYPE_ROOT}/artifacts/release/preview3/macos-zig-arm64/zig-version.log"
+    },
+    "zig-rive-source": {
+      "command": [
+        "${USER_HOME}/zig-0.15.2/zig-x86_64-windows-0.15.2/zig.exe",
+        "c++",
+        "-target",
+        "aarch64-macos.15.0",
+        "-std=c++20",
+        "-c",
+        "${PROTOTYPE_ROOT}\\vendor\\rive-unreal\\submodules\\rive-runtime\\src\\math\\aabb.cpp",
+        "-I${PROTOTYPE_ROOT}\\vendor\\rive-unreal\\submodules\\rive-runtime\\include",
+        "-o",
+        "${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\macos-zig-arm64\\zig-rive-aabb.o"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 1.1751248040000029,
+      "log": "${PROTOTYPE_ROOT}/artifacts/release/preview3/macos-zig-arm64/zig-rive-source.log"
+    },
+    "zig-rive-object-format": {
+      "command": [
+        "file",
+        "${PROTOTYPE_ROOT}/artifacts/release/preview3/macos-zig-arm64/zig-rive-aabb.o"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.01275658099999788,
+      "log": "${PROTOTYPE_ROOT}/artifacts/release/preview3/macos-zig-arm64/zig-rive-object-format.log"
+    },
+    "zig-metal-sdk": {
+      "command": [
+        "${USER_HOME}/zig-0.15.2/zig-x86_64-windows-0.15.2/zig.exe",
+        "c++",
+        "-target",
+        "aarch64-macos.15.0",
+        "-x",
+        "objective-c++",
+        "-c",
+        "${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\macos-zig-arm64\\metal-sdk.cpp",
+        "-o",
+        "${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\macos-zig-arm64\\metal-sdk.o"
+      ],
+      "exit_code": 1,
+      "elapsed_seconds": 0.1916252579999984,
+      "log": "${PROTOTYPE_ROOT}/artifacts/release/preview3/macos-zig-arm64/zig-metal-sdk.log"
+    }
+  },
+  "mac_runtime_validated": false,
+  "status": "blocked",
+  "ue_target": "RiveRhiLite",
+  "sdk_supplied": false,
+  "metal_screenshot": null,
+  "compiler_backend_object_generated": true,
+  "full_ue_program_linked": false,
+  "sdk_candidates": [],
+  "limitation": "Portable non-SDK-dependent objects are separate from a complete UE Metal executable and Metal shader cook.",
+  "zig_rive_object_generated": true,
+  "existing_toolchain": "Zig 0.15.2, Darwin SDKSettings display version 15.5; Windows executable invoked from WSL interop",
+  "existing_toolchain_location": "${USER_HOME}/zig-0.15.2/zig-x86_64-windows-0.15.2/zig.exe",
+  "search_scope": [
+    "Ubuntu standard SDK locations",
+    "Podman WSL image storage (328 images)",
+    "Windows user profile and local D/F/G development disks"
+  ]
+}

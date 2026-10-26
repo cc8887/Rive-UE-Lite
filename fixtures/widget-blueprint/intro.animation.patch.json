@@ -1,0 +1,6 @@
+{
+  "name": "Intro",
+  "tracks": [
+    {"widget": "Title", "property": "opacity", "interpolation": "linear", "keys": [{"frame": 0, "value": 0.2}, {"frame": 60, "value": 0.8}]}
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "widgets": [
+    {"name":"RootCanvas","type":"CanvasPanel"},
+    {"name":"Background","type":"Border","parent":"RootCanvas","position":[0,0],"size":[640,400],"color":[0.025,0.045,0.08,1]},
+    {"name":"Card","type":"Border","parent":"RootCanvas","position":[32,96],"size":[576,244],"color":[0.07,0.12,0.19,1]},
+    {"name":"Title","type":"TextBlock","parent":"RootCanvas","text":"Created from a widget description","font_size":26,"position":[48,32],"size":[544,44],"color":[0.9,0.95,1,1],"is_variable":true},
+    {"name":"Body","type":"TextBlock","parent":"RootCanvas","text":"Editable native Widget Blueprint asset","font_size":19,"position":[56,120],"size":[520,44],"color":[0.9,0.95,1,1]},
+    {"name":"Confirm","type":"Button","parent":"RootCanvas","position":[56,256],"size":[240,48],"color":[0.12,0.55,0.4,1],"is_variable":true},
+    {"name":"ConfirmLabel","type":"TextBlock","parent":"Confirm","text":"Confirm","font_size":20,"color":[1,1,1,1]}
+  ]
+}

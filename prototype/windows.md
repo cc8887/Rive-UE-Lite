@@ -78,6 +78,18 @@ It is not evidence that the optional Verse worker has been enabled.
 
 ## Verified results (2026-10-26)
 
+The preview.3 follow-up encountered `VK_ERROR_INITIALIZATION_FAILED` when this
+driver created the extra async-compute queues. Repeated captures succeeded
+with `-DisableAsyncCompute`; the packaged launcher and both verification hosts
+now use that flag. All five static/animation/state-machine comparisons passed
+again against the independent native UE archive. Rive's shaders and RHI/RDG
+rendering implementation were not changed. This is a scoped queue-scheduling
+workaround, not a claim about every Windows driver.
+
+The figures below describe the earlier Windows package; preview.3's final
+archive sizes, hashes and extracted-package verification are reported with
+that release.
+
 See [windows-validation.json](windows-validation.json) for hashes and measured
 results. All five exact RGBA8 comparisons passed: bankcard, Bounce at 0 and
 0.25 seconds, and trigger state machine at 0 and 0.5 seconds. Both dynamic

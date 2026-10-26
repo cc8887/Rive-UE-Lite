@@ -1,5 +1,20 @@
 # Source UMG Blueprint worker
 
+Native animations are also available through `animation list/create/patch` and
+`preview --animation ...`. See [animation implementation and measurements](../../prototype/umg-animation.md).
+The older static figures below are historical snapshots, not animation metrics
+or the current complete deployment package size.
+
+Current user entry: `python scripts/widget_bp.py` (`create`, `read`, `import`,
+`patch`, `preview`, `export`). Windows forwards to WSL Ubuntu. Build explicitly
+with `sudo bash scripts/build_ui.sh --with-widget-blueprint`. See
+[the authoring workflow](../../prototype/widget-blueprint-authoring.md).
+Creation accepts `-Spec=` for a custom typed WidgetTree, including Button.
+Patching reads existing source assets and accepts the documented typed widget
+properties. Graph/pin snapshots and member variables are readable; this entry
+does not edit graph nodes/links. The fixed fixture and measurements below are
+historical scoped evidence, not qualification of arbitrary project assets.
+
 This separate Editor-capable Program implements a source-asset round trip. The
 default `scripts/build_ui.sh` still selects `RiveRhiLite`; `--with-umg` still
 selects the existing runtime `RiveUmgHost`. Neither selects this authoring worker.
@@ -13,8 +28,9 @@ is used to display the Blueprint.
 
 `create` authors a small test asset using the same native Blueprint factory APIs
 used by UE's widget editor subsystem. `patch`, `inspect`, and `render` load a
-source Blueprint from the selected content mount. `patch` accepts only TextBlock
-text and CanvasPanelSlot position/size. It validates the complete request before
+source Blueprint from the selected content mount. `patch` accepts typed text,
+font/color, visibility/opacity/enabled/variable properties and Canvas slot layout.
+It validates the complete request before
 modifying any objects, compiles natively, and saves the source package.
 
 ## Build and native shader cook

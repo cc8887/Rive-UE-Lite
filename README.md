@@ -1,5 +1,9 @@
 # Rive UE RHI/RDG 轻量原型
 
+最新打包轮次见 [preview.3](https://github.com/cc8887/Rive-UE-Lite/releases/tag/v0.1.0-preview.3)：Linux 的 Rive、UMG、Verse 和 Widget Blueprint 动画编辑 worker 分包交付，Windows 为 Rive-only。macOS 已复用已有 Zig 交叉编译出真实 Rive arm64 对象，但缺少 Metal SDK，完整 UE 程序仍未构建成功；不将源码或对象文件作为可运行的 Mac 包。
+
+从已生成的 `package-manifest.json` 输出发布归档可使用 `scripts/prepare_release.py --tag <新标签> --package <平台> <功能> <包目录>`；随后在 Linux 运行 `scripts/verify_release_linux.py --release-dir artifacts/release/<标签>`，Windows 使用 `scripts/verify_windows_package.py` 验证实际解压包。归档绑定源码提交和每个文件的 SHA-256，运行验收单独记录。
+
 源码、工具和交付物均放在此独立目录，Linux 构建另用专属缓存。`engine/` 固定为 UE6 `62d7c1a7125b52b10ee1b714838f515f3563f795`；`vendor/rive-unreal/` 固定为 `8461a2dc90924aeadc1f7eed99e6ae2de1b490f0`，原生 runtime 固定为 `47d1cd54ccefd468db7cb26ecc4699ae1723dd85`。不修改原引擎、Rive 仓库或现有工程。
 
 ## Windows Rive-only 已验证
@@ -51,6 +55,10 @@ UE6 非 constinit 配置使用引擎原有 lazy CDO API 完成真实类/属性�
 - [Rive 实际增量构建](artifacts/umg-optional/incremental-rive-01/report.json)、[UMG 实际增量构建](artifacts/umg-optional/incremental-umg-01/report.json)
 
 ## UMG 源蓝图最小闭环
+
+新建、读取和修改源 Widget Blueprint 使用 `python scripts/widget_bp.py`，包括 `create/read/import/patch/preview/export`；Windows 自动调用 WSL Ubuntu 原生 worker。`read` 直接加载已有 `.uasset`，`patch` 修改现有控件并原生编译保存，保留未编辑控件及已有图表；不是只重建 JSON 样例。创建支持自定义 CanvasPanel/Border/Button/TextBlock 布局。编辑依赖通过 `bash scripts/build_ui.sh --with-widget-blueprint` 显式构建，默认 Rive 不包含它。完整用法和范围见 [Widget Blueprint 工具入口](prototype/widget-blueprint-authoring.md)。
+
+原生 UMG 动画入口为 `animation list/create/patch`，并可用 `preview --animation Intro --time 0.5` 或播放控制脚本进行 CPU Vulkan 预览；支持 opacity、平移、缩放、旋转的常量/线性关键帧，保留未修改轨道。实现范围、native 求值路径及包体/启动对照见 [UMG 动画](prototype/umg-animation.md)。动画依赖仍位于可选编辑 worker 中。
 
 独立 `RiveUmgBlueprintWorker` 已完成真实未 cook `.uasset` 的加载、原生布局出图、文案/位置/尺寸修改、原生蓝图编译保存、两次新进程重载。9 个进程全部正常退出，无运行 error/ensure；修改前后与独立设置属性的原生 UE WidgetTree 预览参照均为全图 RGBA 零差异，重载复现也为零差异。修改确实改变 16,887 个像素，嵌套 Border 子控件按 UE 布局规则跟随父级变化。
 

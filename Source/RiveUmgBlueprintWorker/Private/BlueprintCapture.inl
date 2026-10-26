@@ -1,3 +1,5 @@
+#include "BlueprintAnimationPlayback.inl"
+
 class FBlueprintNativeTarget final : public FRenderTarget
 {
 public:
@@ -74,6 +76,8 @@ static bool RenderBlueprint(UWidgetBlueprint* Blueprint, const FString& Output, 
     // Keep the real Slate tree alive through geometry inspection. UWidget only
     // keeps weak references; DrawWidget's temporary virtual window is released.
     const TSharedRef<SWidget> SlateWidget = Instance->TakeWidget();
+    FBlueprintAnimationSession AnimationSession(Instance.Get());
+    if (!AnimationSession.Evaluate(Blueprint, NativeDesignerReference)) return false;
     FTextureRHIRef Texture;
     ENQUEUE_RENDER_COMMAND(CreateBlueprintOutput)([&](FRHICommandListImmediate& Cmd)
     {
@@ -89,6 +93,7 @@ static bool RenderBlueprint(UWidgetBlueprint* Blueprint, const FString& Output, 
         FlushRenderingCommands();
     }
     Metadata = DescribeBlueprint(Blueprint, Instance.Get());
+    if (AnimationSession.Info) Metadata->SetObjectField(TEXT("animation_playback"), AnimationSession.Info.ToSharedRef());
     Metadata->SetArrayField(TEXT("viewport_size"), VectorJson(FVector2D(Size.X, Size.Y)));
     Metadata->SetNumberField(TEXT("dpi_scale"), 1.0);
     Metadata->SetStringField(TEXT("target_format"), TEXT("linear RGBA8, one sample"));

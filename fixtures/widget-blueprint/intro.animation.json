@@ -1,0 +1,11 @@
+{
+  "name": "Intro",
+  "fps": 60,
+  "duration_frames": 60,
+  "tracks": [
+    {"widget": "Title", "property": "opacity", "interpolation": "linear", "keys": [{"frame": 0, "value": 0}, {"frame": 60, "value": 1}]},
+    {"widget": "Title", "property": "render_translation", "interpolation": "linear", "keys": [{"frame": 0, "value": [0, 32]}, {"frame": 60, "value": [80, 0]}]},
+    {"widget": "Title", "property": "render_scale", "interpolation": "linear", "keys": [{"frame": 0, "value": [0.8, 0.8]}, {"frame": 60, "value": [1, 1]}]},
+    {"widget": "Title", "property": "render_angle", "interpolation": "linear", "keys": [{"frame": 0, "value": -8}, {"frame": 60, "value": 8}]}
+  ]
+}

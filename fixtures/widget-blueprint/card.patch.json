@@ -1,0 +1,7 @@
+{
+  "widgets": [
+    {"name":"Title","text":"Loaded, edited and saved","font_size":28,"position":[64,40],"size":[520,52]},
+    {"name":"Confirm","position":[320,256],"size":[240,56],"color":[0.55,0.18,0.42,1]},
+    {"name":"ConfirmLabel","text":"Saved .uasset"}
+  ]
+}

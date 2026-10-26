@@ -64,11 +64,29 @@ Verification currently scripts a static bankcard pair and exact RGBA comparison.
 
 ## WSL attempts
 
+The release follow-up also searched Ubuntu, the Podman WSL image cache and the
+local development disks. An existing Zig 0.15.2 installation was found at
+`${USER_HOME}/zig-0.15.2/zig-x86_64-windows-0.15.2/zig.exe`. Its Darwin support
+reports SDK display version 15.5 and provides libc headers/link stubs and a small
+set of framework link stubs. It is not a complete Apple platform SDK.
+
+Invoked through WSL interop, that existing Zig compiler **successfully compiled
+the real Rive `src/math/aabb.cpp` into an arm64 Mach-O object**. An Objective-C++
+probe including `<Metal/Metal.h>` failed because that header is absent.
+Actual `RiveRhiLite Mac Development -architecture=arm64` still failed UBT SDK
+validation. No SDK checks were bypassed. No UE Mac executable, Metal shader
+archive, package size or Mac startup result was produced. The missing SDK is
+only the first blocker: full UBT link/tool support, native library closure and
+Metal cooking/runtime acceptance also remain to be qualified.
+
 ```sh
 python3 scripts/probe_macos_cross.py --arch arm64
 python3 scripts/probe_macos_cross.py --arch x64
 # Optional: point at an existing SDK; this does not configure UBT's Apple SDK.
 python3 scripts/probe_macos_cross.py --arch arm64 --sdk /path/to/MacOSX.sdk
+# Reuse a previously installed Zig compiler; Windows zig.exe works via WSL interop.
+python3 scripts/probe_macos_cross.py --arch arm64 --target RiveRhiLite \
+  --zig /path/to/zig.exe --output-dir artifacts/macos/new-zig-probe
 ```
 
 The probe runs actual UBT (`RiveLiteRhiProbe Mac Development`) and an actual Rive translation unit with a Darwin target triple. It preserves commands, exit codes, timing and errors under `artifacts/macos/cross-<arch>`. An object-only success would still not establish a linked UE program or Metal rendering. Run probes serially with other UBT builds.
