@@ -22,7 +22,7 @@ def main():
     def git(*args,env=None,input=None):
         return subprocess.run(['git','-C',str(engine),*args],capture_output=True,text=True,encoding='utf-8',env=env,input=input)
     if git('rev-parse','HEAD').stdout.strip()!=PIN: raise RuntimeError('Unexpected engine revision')
-    numbers={1,2,3,4,5,6,7,9} if a.with_tools else {1,2}
+    numbers={1,2,3,4,5,6,7,9,10} if a.with_tools else {1,2,10}
     patches=[p for p in sorted((ROOT/'prototype/patches').glob('*.patch')) if int(p.name[:4]) in numbers]
     paths=sorted({name for p in patches for name in re.findall(r'^\+\+\+ b/(.+)$',p.read_text(encoding='utf-8'),re.M)})
     output=ROOT/'artifacts/windows'; output.mkdir(parents=True,exist_ok=True)

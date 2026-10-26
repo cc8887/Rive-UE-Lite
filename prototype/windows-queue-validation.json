@@ -1,0 +1,1050 @@
+{
+  "date": "2026-10-26",
+  "status": "native_scope_passed_final_archive_pending",
+  "engine_commit": "62d7c1a7125b52b10ee1b714838f515f3563f795",
+  "independent_vulkan_api_probe": [
+    {
+      "adapter": "NVIDIA GeForce RTX 5080",
+      "iteration": 0,
+      "case": "one",
+      "requested": [
+        [
+          0,
+          1
+        ]
+      ],
+      "vkCreateDevice": 0
+    },
+    {
+      "adapter": "NVIDIA GeForce RTX 5080",
+      "iteration": 0,
+      "case": "all-graphics",
+      "requested": [
+        [
+          0,
+          16
+        ]
+      ],
+      "vkCreateDevice": 0
+    },
+    {
+      "adapter": "NVIDIA GeForce RTX 5080",
+      "iteration": 0,
+      "case": "all-graphics-compute",
+      "requested": [
+        [
+          0,
+          16
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "vkCreateDevice": -3
+    },
+    {
+      "adapter": "NVIDIA GeForce RTX 5080",
+      "iteration": 1,
+      "case": "one",
+      "requested": [
+        [
+          0,
+          1
+        ]
+      ],
+      "vkCreateDevice": 0
+    },
+    {
+      "adapter": "NVIDIA GeForce RTX 5080",
+      "iteration": 1,
+      "case": "all-graphics",
+      "requested": [
+        [
+          0,
+          16
+        ]
+      ],
+      "vkCreateDevice": 0
+    },
+    {
+      "adapter": "NVIDIA GeForce RTX 5080",
+      "iteration": 1,
+      "case": "all-graphics-compute",
+      "requested": [
+        [
+          0,
+          16
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "vkCreateDevice": -3
+    },
+    {
+      "adapter": "NVIDIA GeForce RTX 5080",
+      "iteration": 2,
+      "case": "one",
+      "requested": [
+        [
+          0,
+          1
+        ]
+      ],
+      "vkCreateDevice": 0
+    },
+    {
+      "adapter": "NVIDIA GeForce RTX 5080",
+      "iteration": 2,
+      "case": "all-graphics",
+      "requested": [
+        [
+          0,
+          16
+        ]
+      ],
+      "vkCreateDevice": 0
+    },
+    {
+      "adapter": "NVIDIA GeForce RTX 5080",
+      "iteration": 2,
+      "case": "all-graphics-compute",
+      "requested": [
+        [
+          0,
+          16
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "vkCreateDevice": -3
+    }
+  ],
+  "api_probe_scope": "Vulkan 1.1; no enabled device extensions or requested optional features; no Rive or UE involved",
+  "insufficient_fix": "-DisableAsyncCompute alone passed native pairs but failed the third final extracted-package capture and its launcher",
+  "patch": "0010-vulkan-offscreen-single-queue.patch",
+  "flags": [
+    "-RenderOffscreen",
+    "-DisableAsyncCompute",
+    "-VulkanSingleQueue"
+  ],
+  "queue_usage_source": "Pinned FVulkanQueue constructor initializes QueueIndex to 0 and calls vkGetDeviceQueue with that index",
+  "native_windows_comparison": {
+    "status": "passed",
+    "cases": [
+      {
+        "case": "bankcard",
+        "captures": [
+          {
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 2.6060562999919057,
+            "peak_working_set_bytes": 283262976,
+            "first_image_ms": 1348.218,
+            "adapter": "NVIDIA GeForce RTX 5080",
+            "executable_sha256": "868fd431bf1b10bd11ecbd45cec3ba38d08b0a01f4d9af3b7b22d7f9996ba813",
+            "shader_sha256": "501a54353d456489fe2c75799a8b67dda438ef4de782f6e6f99581e40bd59c0b",
+            "png_sha256": "0bcb4b8237fa1677bbfc6e5bbf4a49bb1bc6c0486a161c86d66b9374acb79376",
+            "playback": null,
+            "command": [
+              "${PROTOTYPE_ROOT}\\Binaries\\Win64\\RiveRhiLite.exe",
+              "-vulkan",
+              "-sm5",
+              "-RenderOffscreen",
+              "-norhithread",
+              "-DisableAsyncCompute",
+              "-VulkanSingleQueue",
+              "-unattended",
+              "-stdout",
+              "-NoSplash",
+              "-ProjectDir=${PROTOTYPE_ROOT}/",
+              "-Input=${PROTOTYPE_ROOT}\\fixtures\\bankcard.riv",
+              "-Output=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\bankcard-RiveRhiLite.png",
+              "-ShaderArchive=${PROTOTYPE_ROOT}\\artifacts\\windows\\cook-03\\lite\\global.bin",
+              "-ShaderDirectory=${PROTOTYPE_ROOT}\\Shaders",
+              "-abslog=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\bankcard-RiveRhiLite.log"
+            ]
+          },
+          {
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 4.226375099970028,
+            "peak_working_set_bytes": 308629504,
+            "first_image_ms": 592.566,
+            "adapter": "NVIDIA GeForce RTX 5080",
+            "executable_sha256": "1d4e54911e8977ff428896da73617fe0fd78d2782cca20aa41e7842e424711b6",
+            "shader_sha256": "5f04da22abde15ef29634f1497e7bee388a69fdd2929418bc009bbca2fd3e0ed",
+            "png_sha256": "0bcb4b8237fa1677bbfc6e5bbf4a49bb1bc6c0486a161c86d66b9374acb79376",
+            "playback": null,
+            "command": [
+              "${PROTOTYPE_ROOT}\\Binaries\\Win64\\RiveUeReference.exe",
+              "-vulkan",
+              "-sm5",
+              "-RenderOffscreen",
+              "-norhithread",
+              "-DisableAsyncCompute",
+              "-VulkanSingleQueue",
+              "-unattended",
+              "-stdout",
+              "-NoSplash",
+              "-ProjectDir=${PROTOTYPE_ROOT}/",
+              "-Input=${PROTOTYPE_ROOT}\\fixtures\\bankcard.riv",
+              "-Output=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\bankcard-RiveUeReference.png",
+              "-ShaderArchive=${PROTOTYPE_ROOT}\\artifacts\\windows\\cook-03\\reference\\global.bin",
+              "-ShaderDirectory=${PROTOTYPE_ROOT}\\Shaders",
+              "-abslog=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\bankcard-RiveUeReference.log"
+            ]
+          }
+        ],
+        "comparison": {
+          "status": "passed",
+          "comparison_space": "encoded RGBA8 values; no color transform",
+          "alpha_policy": "compare alpha as a fourth channel; do not premultiply",
+          "channel_tolerance": 0,
+          "max_different_fraction": 0.0,
+          "mask": {
+            "policy": "include all pixels",
+            "included_pixels": 262144,
+            "excluded_pixels": 0
+          },
+          "reference": {
+            "path": "${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\bankcard-RiveUeReference.png",
+            "sha256": "0bcb4b8237fa1677bbfc6e5bbf4a49bb1bc6c0486a161c86d66b9374acb79376",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "actual": {
+            "path": "${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\bankcard-RiveRhiLite.png",
+            "sha256": "0bcb4b8237fa1677bbfc6e5bbf4a49bb1bc6c0486a161c86d66b9374acb79376",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "different_pixels": 0,
+          "different_pixel_fraction": 0.0,
+          "alpha_different_pixels": 0,
+          "max_channel_error": 0,
+          "mean_absolute_channel_error": 0.0,
+          "rms_channel_error": 0.0,
+          "color_metadata_equal": true,
+          "color_space_description": "both untagged; transfer function unspecified"
+        }
+      },
+      {
+        "case": "animation",
+        "captures": [
+          {
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 1.1499085000250489,
+            "peak_working_set_bytes": 280051712,
+            "first_image_ms": 968.29,
+            "adapter": "NVIDIA GeForce RTX 5080",
+            "executable_sha256": "868fd431bf1b10bd11ecbd45cec3ba38d08b0a01f4d9af3b7b22d7f9996ba813",
+            "shader_sha256": "501a54353d456489fe2c75799a8b67dda438ef4de782f6e6f99581e40bd59c0b",
+            "png_sha256": "ce56f2f249881118d327ae4ff60203626856ccd5d28841bb9e009d324defb2f7",
+            "playback": {
+              "schema_version": 1,
+              "api_calls": {
+                "animation_advance": 16,
+                "animation_apply": 16,
+                "artboard_advance": 16,
+                "state_machine_advance_and_apply": 0,
+                "pointer_down": 0,
+                "pointer_up": 0,
+                "pointer_move": 0,
+                "pointer_exit": 0,
+                "bool_set": 0,
+                "number_set": 0,
+                "trigger_fire": 0
+              },
+              "animation": "Bounce",
+              "animation_duration_seconds": 1,
+              "animation_time": 0.25,
+              "animation_total_time": 0.25,
+              "animation_fps": 60,
+              "animation_did_loop": false,
+              "status": "completed",
+              "mode": "animation",
+              "artboard": "Nested Artboard 2",
+              "artboard_index": 1,
+              "selected_index": 0,
+              "fixed_delta": 0.016666666666666666,
+              "target_time": 0.25,
+              "advanced_time": 0.25,
+              "advance_count": 15,
+              "initialization_advance_count": 1,
+              "event_settle_advance_count": 0,
+              "events_applied": [],
+              "state_changes": [],
+              "final_inputs": [],
+              "current_animations": []
+            },
+            "command": [
+              "${PROTOTYPE_ROOT}\\Binaries\\Win64\\RiveRhiLite.exe",
+              "-vulkan",
+              "-sm5",
+              "-RenderOffscreen",
+              "-norhithread",
+              "-DisableAsyncCompute",
+              "-VulkanSingleQueue",
+              "-unattended",
+              "-stdout",
+              "-NoSplash",
+              "-ProjectDir=${PROTOTYPE_ROOT}/",
+              "-Input=${PROTOTYPE_ROOT}\\fixtures\\ball_test.riv",
+              "-Output=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-RiveRhiLite.png",
+              "-ShaderArchive=${PROTOTYPE_ROOT}\\artifacts\\windows\\cook-03\\lite\\global.bin",
+              "-ShaderDirectory=${PROTOTYPE_ROOT}\\Shaders",
+              "-abslog=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-RiveRhiLite.log",
+              "-Scenario=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-sample.json",
+              "-PlaybackMetadata=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-RiveRhiLite.playback.json"
+            ]
+          },
+          {
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 1.0816486000549048,
+            "peak_working_set_bytes": 308031488,
+            "first_image_ms": 686.965,
+            "adapter": "NVIDIA GeForce RTX 5080",
+            "executable_sha256": "1d4e54911e8977ff428896da73617fe0fd78d2782cca20aa41e7842e424711b6",
+            "shader_sha256": "5f04da22abde15ef29634f1497e7bee388a69fdd2929418bc009bbca2fd3e0ed",
+            "png_sha256": "ce56f2f249881118d327ae4ff60203626856ccd5d28841bb9e009d324defb2f7",
+            "playback": {
+              "schema_version": 1,
+              "api_calls": {
+                "animation_advance": 16,
+                "animation_apply": 16,
+                "artboard_advance": 16,
+                "state_machine_advance_and_apply": 0,
+                "pointer_down": 0,
+                "pointer_up": 0,
+                "pointer_move": 0,
+                "pointer_exit": 0,
+                "bool_set": 0,
+                "number_set": 0,
+                "trigger_fire": 0
+              },
+              "animation": "Bounce",
+              "animation_duration_seconds": 1,
+              "animation_time": 0.25,
+              "animation_total_time": 0.25,
+              "animation_fps": 60,
+              "animation_did_loop": false,
+              "status": "completed",
+              "mode": "animation",
+              "artboard": "Nested Artboard 2",
+              "artboard_index": 1,
+              "selected_index": 0,
+              "fixed_delta": 0.016666666666666666,
+              "target_time": 0.25,
+              "advanced_time": 0.25,
+              "advance_count": 15,
+              "initialization_advance_count": 1,
+              "event_settle_advance_count": 0,
+              "events_applied": [],
+              "state_changes": [],
+              "final_inputs": [],
+              "current_animations": []
+            },
+            "command": [
+              "${PROTOTYPE_ROOT}\\Binaries\\Win64\\RiveUeReference.exe",
+              "-vulkan",
+              "-sm5",
+              "-RenderOffscreen",
+              "-norhithread",
+              "-DisableAsyncCompute",
+              "-VulkanSingleQueue",
+              "-unattended",
+              "-stdout",
+              "-NoSplash",
+              "-ProjectDir=${PROTOTYPE_ROOT}/",
+              "-Input=${PROTOTYPE_ROOT}\\fixtures\\ball_test.riv",
+              "-Output=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-RiveUeReference.png",
+              "-ShaderArchive=${PROTOTYPE_ROOT}\\artifacts\\windows\\cook-03\\reference\\global.bin",
+              "-ShaderDirectory=${PROTOTYPE_ROOT}\\Shaders",
+              "-abslog=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-RiveUeReference.log",
+              "-Scenario=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-sample.json",
+              "-PlaybackMetadata=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-RiveUeReference.playback.json"
+            ]
+          }
+        ],
+        "comparison": {
+          "status": "passed",
+          "comparison_space": "encoded RGBA8 values; no color transform",
+          "alpha_policy": "compare alpha as a fourth channel; do not premultiply",
+          "channel_tolerance": 0,
+          "max_different_fraction": 0.0,
+          "mask": {
+            "policy": "include all pixels",
+            "included_pixels": 262144,
+            "excluded_pixels": 0
+          },
+          "reference": {
+            "path": "${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-RiveUeReference.png",
+            "sha256": "ce56f2f249881118d327ae4ff60203626856ccd5d28841bb9e009d324defb2f7",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "actual": {
+            "path": "${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-RiveRhiLite.png",
+            "sha256": "ce56f2f249881118d327ae4ff60203626856ccd5d28841bb9e009d324defb2f7",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "different_pixels": 0,
+          "different_pixel_fraction": 0.0,
+          "alpha_different_pixels": 0,
+          "max_channel_error": 0,
+          "mean_absolute_channel_error": 0.0,
+          "rms_channel_error": 0.0,
+          "color_metadata_equal": true,
+          "color_space_description": "both untagged; transfer function unspecified"
+        }
+      },
+      {
+        "case": "state-machine",
+        "captures": [
+          {
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 0.8245969999115914,
+            "peak_working_set_bytes": 278507520,
+            "first_image_ms": 612.151,
+            "adapter": "NVIDIA GeForce RTX 5080",
+            "executable_sha256": "868fd431bf1b10bd11ecbd45cec3ba38d08b0a01f4d9af3b7b22d7f9996ba813",
+            "shader_sha256": "501a54353d456489fe2c75799a8b67dda438ef4de782f6e6f99581e40bd59c0b",
+            "png_sha256": "ef1e226a54f6f14a3ed705b5a9f5c9bd11186e3180a0fc1f8f5ea13178e65bdb",
+            "playback": {
+              "schema_version": 1,
+              "api_calls": {
+                "animation_advance": 0,
+                "animation_apply": 0,
+                "artboard_advance": 0,
+                "state_machine_advance_and_apply": 32,
+                "pointer_down": 0,
+                "pointer_up": 0,
+                "pointer_move": 0,
+                "pointer_exit": 0,
+                "bool_set": 0,
+                "number_set": 0,
+                "trigger_fire": 1
+              },
+              "state_machine": "State Machine 1",
+              "status": "completed",
+              "mode": "state_machine",
+              "artboard": "main",
+              "artboard_index": 0,
+              "selected_index": 0,
+              "fixed_delta": 0.016666666666666666,
+              "target_time": 0.5,
+              "advanced_time": 0.5,
+              "advance_count": 30,
+              "initialization_advance_count": 1,
+              "event_settle_advance_count": 1,
+              "events_applied": [
+                {
+                  "time": 0.25,
+                  "tick": 15,
+                  "type": "trigger",
+                  "name": "Trigger 1"
+                }
+              ],
+              "state_changes": [
+                {
+                  "time": 0.25,
+                  "tick": 15,
+                  "layer_index": 0,
+                  "state_index": 2,
+                  "core_type": 61,
+                  "animation": "Timeline 1",
+                  "kind": "animation"
+                }
+              ],
+              "final_inputs": [
+                {
+                  "name": "Trigger 1",
+                  "type": "trigger",
+                  "fire_count": 1
+                }
+              ],
+              "current_animations": [
+                {
+                  "name": "Timeline 1",
+                  "time": 0.25,
+                  "duration_seconds": 1
+                }
+              ]
+            },
+            "command": [
+              "${PROTOTYPE_ROOT}\\Binaries\\Win64\\RiveRhiLite.exe",
+              "-vulkan",
+              "-sm5",
+              "-RenderOffscreen",
+              "-norhithread",
+              "-DisableAsyncCompute",
+              "-VulkanSingleQueue",
+              "-unattended",
+              "-stdout",
+              "-NoSplash",
+              "-ProjectDir=${PROTOTYPE_ROOT}/",
+              "-Input=${PROTOTYPE_ROOT}\\fixtures\\state_machine_triggers.riv",
+              "-Output=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-RiveRhiLite.png",
+              "-ShaderArchive=${PROTOTYPE_ROOT}\\artifacts\\windows\\cook-03\\lite\\global.bin",
+              "-ShaderDirectory=${PROTOTYPE_ROOT}\\Shaders",
+              "-abslog=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-RiveRhiLite.log",
+              "-Scenario=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-sample.json",
+              "-PlaybackMetadata=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-RiveRhiLite.playback.json"
+            ]
+          },
+          {
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 1.0785571999149397,
+            "peak_working_set_bytes": 305459200,
+            "first_image_ms": 683.924,
+            "adapter": "NVIDIA GeForce RTX 5080",
+            "executable_sha256": "1d4e54911e8977ff428896da73617fe0fd78d2782cca20aa41e7842e424711b6",
+            "shader_sha256": "5f04da22abde15ef29634f1497e7bee388a69fdd2929418bc009bbca2fd3e0ed",
+            "png_sha256": "ef1e226a54f6f14a3ed705b5a9f5c9bd11186e3180a0fc1f8f5ea13178e65bdb",
+            "playback": {
+              "schema_version": 1,
+              "api_calls": {
+                "animation_advance": 0,
+                "animation_apply": 0,
+                "artboard_advance": 0,
+                "state_machine_advance_and_apply": 32,
+                "pointer_down": 0,
+                "pointer_up": 0,
+                "pointer_move": 0,
+                "pointer_exit": 0,
+                "bool_set": 0,
+                "number_set": 0,
+                "trigger_fire": 1
+              },
+              "state_machine": "State Machine 1",
+              "status": "completed",
+              "mode": "state_machine",
+              "artboard": "main",
+              "artboard_index": 0,
+              "selected_index": 0,
+              "fixed_delta": 0.016666666666666666,
+              "target_time": 0.5,
+              "advanced_time": 0.5,
+              "advance_count": 30,
+              "initialization_advance_count": 1,
+              "event_settle_advance_count": 1,
+              "events_applied": [
+                {
+                  "time": 0.25,
+                  "tick": 15,
+                  "type": "trigger",
+                  "name": "Trigger 1"
+                }
+              ],
+              "state_changes": [
+                {
+                  "time": 0.25,
+                  "tick": 15,
+                  "layer_index": 0,
+                  "state_index": 2,
+                  "core_type": 61,
+                  "animation": "Timeline 1",
+                  "kind": "animation"
+                }
+              ],
+              "final_inputs": [
+                {
+                  "name": "Trigger 1",
+                  "type": "trigger",
+                  "fire_count": 1
+                }
+              ],
+              "current_animations": [
+                {
+                  "name": "Timeline 1",
+                  "time": 0.25,
+                  "duration_seconds": 1
+                }
+              ]
+            },
+            "command": [
+              "${PROTOTYPE_ROOT}\\Binaries\\Win64\\RiveUeReference.exe",
+              "-vulkan",
+              "-sm5",
+              "-RenderOffscreen",
+              "-norhithread",
+              "-DisableAsyncCompute",
+              "-VulkanSingleQueue",
+              "-unattended",
+              "-stdout",
+              "-NoSplash",
+              "-ProjectDir=${PROTOTYPE_ROOT}/",
+              "-Input=${PROTOTYPE_ROOT}\\fixtures\\state_machine_triggers.riv",
+              "-Output=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-RiveUeReference.png",
+              "-ShaderArchive=${PROTOTYPE_ROOT}\\artifacts\\windows\\cook-03\\reference\\global.bin",
+              "-ShaderDirectory=${PROTOTYPE_ROOT}\\Shaders",
+              "-abslog=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-RiveUeReference.log",
+              "-Scenario=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-sample.json",
+              "-PlaybackMetadata=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-RiveUeReference.playback.json"
+            ]
+          }
+        ],
+        "comparison": {
+          "status": "passed",
+          "comparison_space": "encoded RGBA8 values; no color transform",
+          "alpha_policy": "compare alpha as a fourth channel; do not premultiply",
+          "channel_tolerance": 0,
+          "max_different_fraction": 0.0,
+          "mask": {
+            "policy": "include all pixels",
+            "included_pixels": 262144,
+            "excluded_pixels": 0
+          },
+          "reference": {
+            "path": "${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-RiveUeReference.png",
+            "sha256": "ef1e226a54f6f14a3ed705b5a9f5c9bd11186e3180a0fc1f8f5ea13178e65bdb",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "actual": {
+            "path": "${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-RiveRhiLite.png",
+            "sha256": "ef1e226a54f6f14a3ed705b5a9f5c9bd11186e3180a0fc1f8f5ea13178e65bdb",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "different_pixels": 0,
+          "different_pixel_fraction": 0.0,
+          "alpha_different_pixels": 0,
+          "max_channel_error": 0,
+          "mean_absolute_channel_error": 0.0,
+          "rms_channel_error": 0.0,
+          "color_metadata_equal": true,
+          "color_space_description": "both untagged; transfer function unspecified"
+        }
+      },
+      {
+        "case": "animation-initial",
+        "captures": [
+          {
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 0.9220580999972299,
+            "peak_working_set_bytes": 278310912,
+            "first_image_ms": 493.038,
+            "adapter": "NVIDIA GeForce RTX 5080",
+            "executable_sha256": "868fd431bf1b10bd11ecbd45cec3ba38d08b0a01f4d9af3b7b22d7f9996ba813",
+            "shader_sha256": "501a54353d456489fe2c75799a8b67dda438ef4de782f6e6f99581e40bd59c0b",
+            "png_sha256": "9b6464f9cee670edcefb995f365661eba519c31651a56495654a8160d26a91ea",
+            "playback": {
+              "schema_version": 1,
+              "api_calls": {
+                "animation_advance": 1,
+                "animation_apply": 1,
+                "artboard_advance": 1,
+                "state_machine_advance_and_apply": 0,
+                "pointer_down": 0,
+                "pointer_up": 0,
+                "pointer_move": 0,
+                "pointer_exit": 0,
+                "bool_set": 0,
+                "number_set": 0,
+                "trigger_fire": 0
+              },
+              "animation": "Bounce",
+              "animation_duration_seconds": 1,
+              "animation_time": 0,
+              "animation_total_time": 0,
+              "animation_fps": 60,
+              "animation_did_loop": false,
+              "status": "completed",
+              "mode": "animation",
+              "artboard": "Nested Artboard 2",
+              "artboard_index": 1,
+              "selected_index": 0,
+              "fixed_delta": 0.016666666666666666,
+              "target_time": 0,
+              "advanced_time": 0,
+              "advance_count": 0,
+              "initialization_advance_count": 1,
+              "event_settle_advance_count": 0,
+              "events_applied": [],
+              "state_changes": [],
+              "final_inputs": [],
+              "current_animations": []
+            },
+            "command": [
+              "${PROTOTYPE_ROOT}\\Binaries\\Win64\\RiveRhiLite.exe",
+              "-vulkan",
+              "-sm5",
+              "-RenderOffscreen",
+              "-norhithread",
+              "-DisableAsyncCompute",
+              "-VulkanSingleQueue",
+              "-unattended",
+              "-stdout",
+              "-NoSplash",
+              "-ProjectDir=${PROTOTYPE_ROOT}/",
+              "-Input=${PROTOTYPE_ROOT}\\fixtures\\ball_test.riv",
+              "-Output=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-initial-RiveRhiLite.png",
+              "-ShaderArchive=${PROTOTYPE_ROOT}\\artifacts\\windows\\cook-03\\lite\\global.bin",
+              "-ShaderDirectory=${PROTOTYPE_ROOT}\\Shaders",
+              "-abslog=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-initial-RiveRhiLite.log",
+              "-Scenario=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-initial.json",
+              "-PlaybackMetadata=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-initial-RiveRhiLite.playback.json"
+            ]
+          },
+          {
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 0.9614935999270529,
+            "peak_working_set_bytes": 305778688,
+            "first_image_ms": 537.981,
+            "adapter": "NVIDIA GeForce RTX 5080",
+            "executable_sha256": "1d4e54911e8977ff428896da73617fe0fd78d2782cca20aa41e7842e424711b6",
+            "shader_sha256": "5f04da22abde15ef29634f1497e7bee388a69fdd2929418bc009bbca2fd3e0ed",
+            "png_sha256": "9b6464f9cee670edcefb995f365661eba519c31651a56495654a8160d26a91ea",
+            "playback": {
+              "schema_version": 1,
+              "api_calls": {
+                "animation_advance": 1,
+                "animation_apply": 1,
+                "artboard_advance": 1,
+                "state_machine_advance_and_apply": 0,
+                "pointer_down": 0,
+                "pointer_up": 0,
+                "pointer_move": 0,
+                "pointer_exit": 0,
+                "bool_set": 0,
+                "number_set": 0,
+                "trigger_fire": 0
+              },
+              "animation": "Bounce",
+              "animation_duration_seconds": 1,
+              "animation_time": 0,
+              "animation_total_time": 0,
+              "animation_fps": 60,
+              "animation_did_loop": false,
+              "status": "completed",
+              "mode": "animation",
+              "artboard": "Nested Artboard 2",
+              "artboard_index": 1,
+              "selected_index": 0,
+              "fixed_delta": 0.016666666666666666,
+              "target_time": 0,
+              "advanced_time": 0,
+              "advance_count": 0,
+              "initialization_advance_count": 1,
+              "event_settle_advance_count": 0,
+              "events_applied": [],
+              "state_changes": [],
+              "final_inputs": [],
+              "current_animations": []
+            },
+            "command": [
+              "${PROTOTYPE_ROOT}\\Binaries\\Win64\\RiveUeReference.exe",
+              "-vulkan",
+              "-sm5",
+              "-RenderOffscreen",
+              "-norhithread",
+              "-DisableAsyncCompute",
+              "-VulkanSingleQueue",
+              "-unattended",
+              "-stdout",
+              "-NoSplash",
+              "-ProjectDir=${PROTOTYPE_ROOT}/",
+              "-Input=${PROTOTYPE_ROOT}\\fixtures\\ball_test.riv",
+              "-Output=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-initial-RiveUeReference.png",
+              "-ShaderArchive=${PROTOTYPE_ROOT}\\artifacts\\windows\\cook-03\\reference\\global.bin",
+              "-ShaderDirectory=${PROTOTYPE_ROOT}\\Shaders",
+              "-abslog=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-initial-RiveUeReference.log",
+              "-Scenario=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-initial.json",
+              "-PlaybackMetadata=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-initial-RiveUeReference.playback.json"
+            ]
+          }
+        ],
+        "comparison": {
+          "status": "passed",
+          "comparison_space": "encoded RGBA8 values; no color transform",
+          "alpha_policy": "compare alpha as a fourth channel; do not premultiply",
+          "channel_tolerance": 0,
+          "max_different_fraction": 0.0,
+          "mask": {
+            "policy": "include all pixels",
+            "included_pixels": 262144,
+            "excluded_pixels": 0
+          },
+          "reference": {
+            "path": "${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-initial-RiveUeReference.png",
+            "sha256": "9b6464f9cee670edcefb995f365661eba519c31651a56495654a8160d26a91ea",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "actual": {
+            "path": "${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\animation-initial-RiveRhiLite.png",
+            "sha256": "9b6464f9cee670edcefb995f365661eba519c31651a56495654a8160d26a91ea",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "different_pixels": 0,
+          "different_pixel_fraction": 0.0,
+          "alpha_different_pixels": 0,
+          "max_channel_error": 0,
+          "mean_absolute_channel_error": 0.0,
+          "rms_channel_error": 0.0,
+          "color_metadata_equal": true,
+          "color_space_description": "both untagged; transfer function unspecified"
+        }
+      },
+      {
+        "case": "state-machine-initial",
+        "captures": [
+          {
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 0.660789200104773,
+            "peak_working_set_bytes": 278077440,
+            "first_image_ms": 470.894,
+            "adapter": "NVIDIA GeForce RTX 5080",
+            "executable_sha256": "868fd431bf1b10bd11ecbd45cec3ba38d08b0a01f4d9af3b7b22d7f9996ba813",
+            "shader_sha256": "501a54353d456489fe2c75799a8b67dda438ef4de782f6e6f99581e40bd59c0b",
+            "png_sha256": "460865a60393e7656274d8590aad0861db655deae7bc517bdf3af4e6f8359d9e",
+            "playback": {
+              "schema_version": 1,
+              "api_calls": {
+                "animation_advance": 0,
+                "animation_apply": 0,
+                "artboard_advance": 0,
+                "state_machine_advance_and_apply": 1,
+                "pointer_down": 0,
+                "pointer_up": 0,
+                "pointer_move": 0,
+                "pointer_exit": 0,
+                "bool_set": 0,
+                "number_set": 0,
+                "trigger_fire": 0
+              },
+              "state_machine": "State Machine 1",
+              "status": "completed",
+              "mode": "state_machine",
+              "artboard": "main",
+              "artboard_index": 0,
+              "selected_index": 0,
+              "fixed_delta": 0.016666666666666666,
+              "target_time": 0,
+              "advanced_time": 0,
+              "advance_count": 0,
+              "initialization_advance_count": 1,
+              "event_settle_advance_count": 0,
+              "events_applied": [],
+              "state_changes": [],
+              "final_inputs": [
+                {
+                  "name": "Trigger 1",
+                  "type": "trigger",
+                  "fire_count": 0
+                }
+              ],
+              "current_animations": []
+            },
+            "command": [
+              "${PROTOTYPE_ROOT}\\Binaries\\Win64\\RiveRhiLite.exe",
+              "-vulkan",
+              "-sm5",
+              "-RenderOffscreen",
+              "-norhithread",
+              "-DisableAsyncCompute",
+              "-VulkanSingleQueue",
+              "-unattended",
+              "-stdout",
+              "-NoSplash",
+              "-ProjectDir=${PROTOTYPE_ROOT}/",
+              "-Input=${PROTOTYPE_ROOT}\\fixtures\\state_machine_triggers.riv",
+              "-Output=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-initial-RiveRhiLite.png",
+              "-ShaderArchive=${PROTOTYPE_ROOT}\\artifacts\\windows\\cook-03\\lite\\global.bin",
+              "-ShaderDirectory=${PROTOTYPE_ROOT}\\Shaders",
+              "-abslog=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-initial-RiveRhiLite.log",
+              "-Scenario=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-initial.json",
+              "-PlaybackMetadata=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-initial-RiveRhiLite.playback.json"
+            ]
+          },
+          {
+            "passed": true,
+            "exit_code": 0,
+            "wall_seconds": 0.9279972000513226,
+            "peak_working_set_bytes": 307879936,
+            "first_image_ms": 506.738,
+            "adapter": "NVIDIA GeForce RTX 5080",
+            "executable_sha256": "1d4e54911e8977ff428896da73617fe0fd78d2782cca20aa41e7842e424711b6",
+            "shader_sha256": "5f04da22abde15ef29634f1497e7bee388a69fdd2929418bc009bbca2fd3e0ed",
+            "png_sha256": "460865a60393e7656274d8590aad0861db655deae7bc517bdf3af4e6f8359d9e",
+            "playback": {
+              "schema_version": 1,
+              "api_calls": {
+                "animation_advance": 0,
+                "animation_apply": 0,
+                "artboard_advance": 0,
+                "state_machine_advance_and_apply": 1,
+                "pointer_down": 0,
+                "pointer_up": 0,
+                "pointer_move": 0,
+                "pointer_exit": 0,
+                "bool_set": 0,
+                "number_set": 0,
+                "trigger_fire": 0
+              },
+              "state_machine": "State Machine 1",
+              "status": "completed",
+              "mode": "state_machine",
+              "artboard": "main",
+              "artboard_index": 0,
+              "selected_index": 0,
+              "fixed_delta": 0.016666666666666666,
+              "target_time": 0,
+              "advanced_time": 0,
+              "advance_count": 0,
+              "initialization_advance_count": 1,
+              "event_settle_advance_count": 0,
+              "events_applied": [],
+              "state_changes": [],
+              "final_inputs": [
+                {
+                  "name": "Trigger 1",
+                  "type": "trigger",
+                  "fire_count": 0
+                }
+              ],
+              "current_animations": []
+            },
+            "command": [
+              "${PROTOTYPE_ROOT}\\Binaries\\Win64\\RiveUeReference.exe",
+              "-vulkan",
+              "-sm5",
+              "-RenderOffscreen",
+              "-norhithread",
+              "-DisableAsyncCompute",
+              "-VulkanSingleQueue",
+              "-unattended",
+              "-stdout",
+              "-NoSplash",
+              "-ProjectDir=${PROTOTYPE_ROOT}/",
+              "-Input=${PROTOTYPE_ROOT}\\fixtures\\state_machine_triggers.riv",
+              "-Output=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-initial-RiveUeReference.png",
+              "-ShaderArchive=${PROTOTYPE_ROOT}\\artifacts\\windows\\cook-03\\reference\\global.bin",
+              "-ShaderDirectory=${PROTOTYPE_ROOT}\\Shaders",
+              "-abslog=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-initial-RiveUeReference.log",
+              "-Scenario=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-initial.json",
+              "-PlaybackMetadata=${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-initial-RiveUeReference.playback.json"
+            ]
+          }
+        ],
+        "comparison": {
+          "status": "passed",
+          "comparison_space": "encoded RGBA8 values; no color transform",
+          "alpha_policy": "compare alpha as a fourth channel; do not premultiply",
+          "channel_tolerance": 0,
+          "max_different_fraction": 0.0,
+          "mask": {
+            "policy": "include all pixels",
+            "included_pixels": 262144,
+            "excluded_pixels": 0
+          },
+          "reference": {
+            "path": "${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-initial-RiveUeReference.png",
+            "sha256": "460865a60393e7656274d8590aad0861db655deae7bc517bdf3af4e6f8359d9e",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "actual": {
+            "path": "${PROTOTYPE_ROOT}\\artifacts\\release\\preview3\\windows-native-single-queue\\state-machine-initial-RiveRhiLite.png",
+            "sha256": "460865a60393e7656274d8590aad0861db655deae7bc517bdf3af4e6f8359d9e",
+            "width": 512,
+            "height": 512,
+            "bit_depth": 8,
+            "color_type": 6,
+            "interlaced": false,
+            "color_metadata": {},
+            "color_transform_applied": false,
+            "decoder": "stdlib PNG RGBA8"
+          },
+          "different_pixels": 0,
+          "different_pixel_fraction": 0.0,
+          "alpha_different_pixels": 0,
+          "max_channel_error": 0,
+          "mean_absolute_channel_error": 0.0,
+          "rms_channel_error": 0.0,
+          "color_metadata_equal": true,
+          "color_space_description": "both untagged; transfer function unspecified"
+        }
+      }
+    ],
+    "independent_archives": true,
+    "visible_changes": {
+      "animation": true,
+      "state-machine": true
+    },
+    "scope": "Windows Vulkan on recorded adapter; static, one animation and one trigger state machine; no CPU-only Windows, UMG or Verse claim"
+  },
+  "remaining": [
+    "Final release archive extraction and repeated portable launcher validation",
+    "Other Windows drivers and Windows CPU rendering are unverified"
+  ]
+}

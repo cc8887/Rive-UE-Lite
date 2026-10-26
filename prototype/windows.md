@@ -78,13 +78,27 @@ It is not evidence that the optional Verse worker has been enabled.
 
 ## Verified results (2026-10-26)
 
-The preview.3 follow-up encountered `VK_ERROR_INITIALIZATION_FAILED` when this
-driver created the extra async-compute queues. Repeated captures succeeded
-with `-DisableAsyncCompute`; the packaged launcher and both verification hosts
-now use that flag. All five static/animation/state-machine comparisons passed
-again against the independent native UE archive. Rive's shaders and RHI/RDG
-rendering implementation were not changed. This is a scoped queue-scheduling
-workaround, not a claim about every Windows driver.
+The preview.3 follow-up encountered `VK_ERROR_INITIALIZATION_FAILED` during
+device creation. Disabling async compute passed the five native comparisons,
+but the final extracted-package repeat still failed on its third process.
+It was insufficient as a stability fix.
+
+A separate Vulkan 1.1 API probe with no enabled device extensions repeated
+three cases three times: one graphics queue succeeded; all 16 graphics queues
+succeeded; 16 graphics plus 8 compute queues failed each time with result -3.
+The pinned `FVulkanQueue` constructor only obtains queue index zero, while
+device creation requested every queue advertised by the selected families.
+
+Patch `0010-vulkan-offscreen-single-queue.patch` adds an explicit
+`-VulkanSingleQueue` option gated by `-RenderOffscreen`. It requests one queue
+per selected family and sizes/fills the matching priority arrays. Without
+these flags the original behavior is retained. The Windows launcher and both
+comparison hosts use that flag together with `-DisableAsyncCompute`.
+Both actual Windows targets rebuilt, and all five static/animation/state-machine
+comparisons passed again. Rive's shaders and RHI/RDG rendering algorithm were
+not changed. This qualifies the selected offscreen path, not every driver.
+See [queue validation](windows-queue-validation.json); final extracted-package
+acceptance is recorded separately with the release.
 
 The figures below describe the earlier Windows package; preview.3's final
 archive sizes, hashes and extracted-package verification are reported with

@@ -19,7 +19,7 @@ class MemoryCounters(ctypes.Structure):
 
 def capture(binary, root, archive, fixture, png, scenario=None, shader_directory=None, env=None):
     log=png.with_suffix('.log')
-    cmd=[str(binary),'-vulkan','-sm5','-RenderOffscreen','-norhithread','-DisableAsyncCompute','-unattended','-stdout','-NoSplash',
+    cmd=[str(binary),'-vulkan','-sm5','-RenderOffscreen','-norhithread','-DisableAsyncCompute','-VulkanSingleQueue','-unattended','-stdout','-NoSplash',
          '-ProjectDir='+str(root)+'/', '-Input='+str(fixture),'-Output='+str(png),
          '-ShaderArchive='+str(archive),'-ShaderDirectory='+str(shader_directory or root/'Shaders'),'-abslog='+str(log)]
     if scenario: cmd+=['-Scenario='+str(scenario),'-PlaybackMetadata='+str(png.with_suffix('.playback.json'))]

@@ -1,0 +1,36 @@
+diff --git a/Engine/Source/Runtime/VulkanRHI/Private/VulkanDevice.cpp b/Engine/Source/Runtime/VulkanRHI/Private/VulkanDevice.cpp
+--- a/Engine/Source/Runtime/VulkanRHI/Private/VulkanDevice.cpp
++++ b/Engine/Source/Runtime/VulkanRHI/Private/VulkanDevice.cpp
+@@ -429,6 +429,9 @@
+ 	int32 ComputeQueueFamilyIndex = -1;
+ 	int32 TransferQueueFamilyIndex = -1;
+ 	UE_LOGF(LogVulkanRHI, Display, "Found %d Queue Families", QueueFamilyProps.Num());
++	// Offscreen hosts use queue index zero; leave normal engine builds unchanged.
++	const bool bSingleQueue = FParse::Param(FCommandLine::Get(), TEXT("VulkanSingleQueue")) &&
++		FParse::Param(FCommandLine::Get(), TEXT("RenderOffscreen"));
+ 	uint32 NumPriorities = 0;
+ 	for (int32 FamilyIndex = 0; FamilyIndex < QueueFamilyProps.Num(); ++FamilyIndex)
+ 	{
+@@ -498,9 +501,9 @@
+ 		VkDeviceQueueCreateInfo& CurrQueue = QueueFamilyInfos.AddZeroed_GetRef();
+ 		CurrQueue.sType = VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO;
+ 		CurrQueue.queueFamilyIndex = FamilyIndex;
+-		CurrQueue.queueCount = CurrProps.queueCount;
+-		NumPriorities += CurrProps.queueCount;
+-		UE_LOGF(LogVulkanRHI, Display, "Initializing Queue Family %d: %d queues%ls", FamilyIndex, CurrProps.queueCount, *GetQueueInfoString(CurrProps));
++		CurrQueue.queueCount = bSingleQueue ? 1u : CurrProps.queueCount;
++		NumPriorities += CurrQueue.queueCount;
++		UE_LOGF(LogVulkanRHI, Display, "Initializing Queue Family %d: %d queues%ls", FamilyIndex, CurrQueue.queueCount, *GetQueueInfoString(CurrProps));
+ 	}
+ 
+ 	TArray<float> QueuePriorities;
+@@ -511,8 +514,7 @@
+ 		VkDeviceQueueCreateInfo& CurrQueue = QueueFamilyInfos[Index];
+ 		CurrQueue.pQueuePriorities = CurrentPriority;
+ 
+-		const VkQueueFamilyProperties& CurrProps = QueueFamilyProps[CurrQueue.queueFamilyIndex];
+-		for (int32 QueueIndex = 0; QueueIndex < (int32)CurrProps.queueCount; ++QueueIndex)
++		for (uint32 QueueIndex = 0; QueueIndex < CurrQueue.queueCount; ++QueueIndex)
+ 		{
+ 			*CurrentPriority++ = 1.0f;
+ 		}

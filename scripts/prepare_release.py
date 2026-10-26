@@ -153,7 +153,7 @@ def main():
             'platform': platform, 'flavor': flavor, 'files': files}, indent=2) + '\n', encoding='utf-8')
         destination = assets / (name + ('.zip' if platform.startswith('windows') else '.tar.gz'))
         archive(stage, destination, platform.startswith('windows'))
-        item = {'platform': platform, 'flavor': flavor, 'file': destination.name, 'bytes': destination.stat().st_size,
+        item = {'platform': platform, 'flavor': flavor, 'source_commit': revision, 'file': destination.name, 'bytes': destination.stat().st_size,
                 'sha256': sha(destination), 'payload_bytes': sum(path.stat().st_size for path in stage.rglob('*') if path.is_file())}
         result['assets'].append(item)
         print(json.dumps(item), flush=True)
