@@ -2,7 +2,7 @@
 # Namespace-local bind of an isolated ext4 source cache avoids slow NTFS header IO.
 set -euo pipefail
 TASK_ROOT="$(cd -- "$(dirname -- "$0")/.." && pwd)"
-export RIVE_LITE_CACHE_ROOT="${RIVE_LITE_CACHE_ROOT:-$HOME/.cache/rive-ue-lite}"
+export RIVE_LITE_CACHE_ROOT="${RIVE_LITE_CACHE_ROOT:-/home/yuchencui/.cache/rive-ue-lite-20261024}"
 CACHE_ROOT="$RIVE_LITE_CACHE_ROOT/engine-source"
 if [[ -n "${UE_GIT_OBJECTS:-}" ]]; then
     export GIT_ALTERNATE_OBJECT_DIRECTORIES="$UE_GIT_OBJECTS"
@@ -36,4 +36,5 @@ shift
 mount --make-rprivate /
 mount --bind "$CACHE_ROOT/Runtime" "$TASK_ROOT/engine/Engine/Source/Runtime"
 exec setpriv --reuid=1000 --regid=1000 --init-groups --reset-env -- \
+    env RIVE_LITE_CACHE_ROOT="$RIVE_LITE_CACHE_ROOT" \
     bash "$TASK_ROOT/scripts/build_linux.sh" "$@"

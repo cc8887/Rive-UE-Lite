@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "checks": {
+    "RiveRhiLite": true,
+    "RiveUeReference": true,
+    "lite.capacity-only.tar.gz": true,
+    "engine_umg_linked_reference.capacity-only.tar.gz": true,
+    "capacity_samples_are_explicitly_not_deployable": true,
+    "README_links": true
+  },
+  "missing_links": [],
+  "scope": "report/archive identity and unchanged existing runtime binaries; no UMG runtime proof"
+}

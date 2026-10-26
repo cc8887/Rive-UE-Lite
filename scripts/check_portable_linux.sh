@@ -27,7 +27,7 @@ fi
 if [[ "$MODE" != --inside ]]; then
     [[ "$(id -u)" == 0 && $# -ge 2 ]] || { echo 'Usage (root): check_portable_linux.sh package-dir output.png [host flags]' >&2; exit 2; }
     PACKAGE_ROOT="$(realpath -- "$1")"
-    [[ -x "$PACKAGE_ROOT/Engine/Binaries/Linux/RiveRhiLite" ]]
+    [[ -x "$PACKAGE_ROOT/Engine/Binaries/Linux/RiveRhiLite" || -x "$PACKAGE_ROOT/Engine/Binaries/Linux/RiveUmgHost" ]]
     [[ "$PACKAGE_ROOT" != "$TASK_ROOT/engine"* && "$PACKAGE_ROOT" != "$TASK_ROOT/vendor"* ]]
     export RIVE_LITE_PORTABLE_ORIGIN="$(readlink /proc/self/ns/mnt)"
     shift

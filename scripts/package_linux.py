@@ -21,8 +21,12 @@ def main():
                    help="Also stage selected playback fixtures and their deterministic scenarios")
     p.add_argument("--output", type=Path, default=ROOT / "package")
     p.add_argument("--strip", type=Path)
+    p.add_argument("--with-umg", action="store_true", help="Stage the explicitly selected RiveUmgHost flavor")
     a = p.parse_args()
     receipt = json.loads(a.receipt.read_text())
+    expected_target = "RiveUmgHost" if a.with_umg else "RiveRhiLite"
+    if receipt.get("TargetName") != expected_target:
+        raise RuntimeError(f"Flavor/receipt mismatch: expected {expected_target}, got {receipt.get('TargetName')}")
     engine = (ROOT / "engine/Engine").resolve()
     output = a.output.resolve()
     if output.exists() and any(output.iterdir()):
@@ -53,6 +57,8 @@ def main():
             continue
         if src.suffix in (".debug", ".sym", ".map"):
             continue
+        if not a.with_umg and any(part in ("Slate", "SlateDebug", "UMG", "UMGEditor") for part in src.parts):
+            raise RuntimeError(f"Optional UMG/Slate content leaked into the Lite receipt: {src}")
         try:
             dest = Path("Engine") / src.resolve().relative_to(engine)
         except ValueError:
@@ -100,6 +106,10 @@ def main():
             stage(scenario, Path("fixtures/playback") / scenario.name)
         stage(playback_manifest, Path("fixtures/playback/scenarios.json"))
     stage(ROOT / "prototype/runtime/render.sh", Path("render.sh"))
+    if a.with_umg:
+        launcher = output / "render.sh"
+        launcher.write_text(launcher.read_text().replace("Engine/Binaries/Linux/RiveRhiLite", "Engine/Binaries/Linux/RiveUmgHost"), newline="\n")
+        entries["render.sh"].update(bytes=launcher.stat().st_size, sha256=sha256(launcher))
     for empty_directory in ("Engine/Shaders",):
         (output / empty_directory).mkdir(parents=True, exist_ok=True)
     report = {
@@ -107,6 +117,7 @@ def main():
         "scope": "application payload includes the fallback Vulkan loader; selected system loader, CPU ICD and their host dependency closure are inventoried separately",
         "engine_commit": subprocess.check_output(["git", "-C", str(ROOT / "engine"), "rev-parse", "HEAD"], text=True).strip(),
         "receipt_sha256": sha256(a.receipt),
+        "target": expected_target, "capabilities": {"rive": True, "umg": a.with_umg},
         "stripped_by_packager": bool(a.strip), "debug_symbol_products_excluded": True,
         "empty_shader_mapping_directories": ["Engine/Shaders"],
         "playback_manifest_sha256": sha256(a.playback_manifest) if a.playback_manifest else None,

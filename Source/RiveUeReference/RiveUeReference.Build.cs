@@ -9,7 +9,7 @@ public class RiveUeReference : ModuleRules
         PrivateIncludePaths.Add(Path.GetFullPath(Path.Combine(ModuleDirectory, "../RivePlayback/Public")));
         PrivateDependencyModuleNames.AddRange(new[] {
             "Core", "CoreUObject", "Projects", "ApplicationCore", "Engine", "Renderer", "RHI", "RHICore",
-            "RenderCore", "ImageCore", "ImageWrapper", "VulkanRHI", "RiveUeReferenceRenderer", "Json"
+            "RenderCore", "ImageCore", "ImageWrapper", "VulkanRHI", "RiveUeReferenceRenderer", "Json", "RiveUmgBridge", "SlateCore"
         });
     }
 }
