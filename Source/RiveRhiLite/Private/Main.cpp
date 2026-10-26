@@ -1,4 +1,6 @@
 #include "CoreMinimal.h"
+#include <cstdio>
+#include <cstdlib>
 #include "RequiredProgramMainCPPInclude.h"
 #include "DataDrivenShaderPlatformInfo.h"
 #include "DynamicRHI.h"
@@ -86,14 +88,24 @@ INT32_MAIN_INT32_ARGC_TCHAR_ARGV()
     const FString BootstrapCommandLine = FCommandLine::BuildFromArgV(nullptr, ArgC, ArgV, nullptr);
     if (FParse::Param(*BootstrapCommandLine, TEXT("Capabilities")))
     {
-        FPlatformMisc::LowLevelOutputDebugString(TEXT("{\"rive\":true,\"umg\":false}\n"));
+        std::fputs("{\"rive\":true,\"umg\":false}\n", stdout);
+        std::fflush(stdout);
+#if PLATFORM_WINDOWS
+        // CoreUObject has static listeners whose destructors require full engine
+        // initialization. This CLI-only path has deliberately not initialized it.
+        std::_Exit(0);
+#endif
         return 0;
     }
     FString Ui = TEXT("rive");
     FParse::Value(*BootstrapCommandLine, TEXT("Ui="), Ui);
     if (Ui != TEXT("rive"))
     {
-        FPlatformMisc::LowLevelOutputDebugString(TEXT("UMG_NOT_COMPILED: rebuild with --with-umg to use -Ui=umg\n"));
+        std::fputs("UMG_NOT_COMPILED: rebuild with --with-umg to use -Ui=umg\n", stderr);
+        std::fflush(stderr);
+#if PLATFORM_WINDOWS
+        std::_Exit(9);
+#endif
         return 9;
     }
     if (FParse::Value(*BootstrapCommandLine, TEXT("ProjectDir="), ProjectDirectory))

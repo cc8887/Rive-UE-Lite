@@ -2,6 +2,14 @@
 
 源码、工具和交付物均放在此独立目录，Linux 构建另用专属缓存。`engine/` 固定为 UE6 `62d7c1a7125b52b10ee1b714838f515f3563f795`；`vendor/rive-unreal/` 固定为 `8461a2dc90924aeadc1f7eed99e6ae2de1b490f0`，原生 runtime 固定为 `47d1cd54ccefd468db7cb26ecc4699ae1723dd85`。不修改原引擎、Rive 仓库或现有工程。
 
+## Windows Rive-only 已验证
+
+Windows x64 已使用原型目录内的 MSVC 14.50.35731 构建，保留 UE Vulkan RHI/RDG 路径。两份独立原生 UE cooker archive 的静态、动画和状态机共五组截图对照均为 RGBA 零差异。实际 ZIP 解压后隐藏开发 engine/vendor，三次运行及包内启动脚本均通过。
+
+Windows ZIP 为 23.46 MiB，解压后 59.97 MiB；RTX 5080 上三次独立进程首图 0.88–1.94 秒，峰值 working set 387.34–388.12 MiB。单源文件重编译 15.39 秒，无改动构建 3.81 秒，均使用已有依赖和构建缓存。默认仍不编译或打包 Engine/Renderer/UMG/Slate 和可选 Verse 模块；Windows Core 自带的外部 libpas 分配器保留。Windows 无 GPU、UMG 和 Verse 包尚未验证。
+
+入口为 `scripts/build_windows.ps1`；详见 [Windows 构建说明](prototype/windows.md)、[实测报告](prototype/windows-validation.json) 和 [当前 Release](https://github.com/cc8887/Rive-UE-Lite/releases/tag/v0.1.0-preview.2)。
+
 ## macOS 适配与交叉编译尝试
 
 已增加 Mac 的 MetalRHI 选择、Engine/Slate 依赖隔离补丁、arm64/x64 原生库选择，以及构建、独立 shader cook、打包和截图对照脚本。默认仍只构建 `RiveRhiLite`；开发 cooker/reference 须显式调用。**当前尚未在 Mac 上编译或运行成功**，WSL 实际尝试受 Mac SDK/目标头文件缺失阻塞，不能据此发布 macOS 二进制。Linux 默认包已重新构建，并在隐藏 GPU 和开发目录后与原生 UE 截图零差异。

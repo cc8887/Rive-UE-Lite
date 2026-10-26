@@ -12,7 +12,8 @@ public class RiveUeShaderCooker : ModuleRules
             "DerivedDataCache", "NullDrv", "Json", "RiveUeReferenceRenderer", "SlateRHIRenderer"
         });
         PrivateDependencyModuleNames.Add(Target.Platform == UnrealTargetPlatform.Mac ? "MetalShaderFormat" : "VulkanShaderFormat");
-        DynamicallyLoadedModuleNames.Add(Target.Platform == UnrealTargetPlatform.Mac ? "MacTargetPlatform" : "LinuxTargetPlatform");
+        DynamicallyLoadedModuleNames.Add(Target.Platform == UnrealTargetPlatform.Mac ? "MacTargetPlatform" :
+            Target.Platform == UnrealTargetPlatform.Win64 ? "WindowsTargetPlatform" : "LinuxTargetPlatform");
         PrivateIncludePaths.Add(Path.Combine(GetModuleDirectory("RenderCore"), "Internal"));
     }
 }

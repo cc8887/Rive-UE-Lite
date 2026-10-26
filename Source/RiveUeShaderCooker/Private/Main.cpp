@@ -72,6 +72,10 @@ namespace
 constexpr EShaderPlatform CookPlatform = SP_METAL_SM5;
 constexpr const TCHAR* CookTarget = TEXT("Mac");
 constexpr const TCHAR* CookEditorTarget = TEXT("MacEditor");
+#elif PLATFORM_WINDOWS
+constexpr EShaderPlatform CookPlatform = SP_VULKAN_SM5;
+constexpr const TCHAR* CookTarget = TEXT("Windows");
+constexpr const TCHAR* CookEditorTarget = TEXT("WindowsEditor");
 #else
 constexpr EShaderPlatform CookPlatform = SP_VULKAN_SM5_LINUX;
 constexpr const TCHAR* CookTarget = TEXT("Linux");

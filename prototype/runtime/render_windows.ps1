@@ -1,0 +1,8 @@
+param([string]$Output='output.png', [string]$InputFile, [string]$Scenario)
+$ErrorActionPreference='Stop'
+$root=$PSScriptRoot
+if (!$InputFile) { $InputFile="$root/fixtures/input.riv" }
+$extra=@()
+if ($Scenario) { $extra += "-Scenario=$([IO.Path]::GetFullPath($Scenario))" }
+& "$root/Engine/Binaries/Win64/RiveRhiLite.exe" -vulkan -sm5 -RenderOffscreen -norhithread -unattended -stdout -NoSplash "-ProjectDir=$root/" "-Input=$([IO.Path]::GetFullPath($InputFile))" "-Output=$([IO.Path]::GetFullPath($Output))" "-ShaderArchive=$root/shaders/global.bin" "-ShaderDirectory=$root/Engine/Shaders" @extra
+exit $LASTEXITCODE

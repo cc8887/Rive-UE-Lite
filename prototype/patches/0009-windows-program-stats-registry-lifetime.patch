@@ -1,0 +1,21 @@
+diff --git a/Engine/Source/Runtime/Engine/Private/SpanAllocatorStats.cpp b/Engine/Source/Runtime/Engine/Private/SpanAllocatorStats.cpp
+index 756632b5e3cd..f998ed4e4d3a 100644
+--- a/Engine/Source/Runtime/Engine/Private/SpanAllocatorStats.cpp
++++ b/Engine/Source/Runtime/Engine/Private/SpanAllocatorStats.cpp
+@@ -22,8 +22,16 @@ DEFINE_LOG_CATEGORY_STATIC(LogSpanAllocatorStats, Display, All);
+ 
+ FSpanAllocatorStatsRegistry& FSpanAllocatorStatsRegistry::Get()
+ {
++#if PLATFORM_WINDOWS && IS_PROGRAM && IS_MONOLITHIC
++	// Global renderer owners can be constructed before their first registration.
++	// Their CRT destructors consequently run after a function-static registry's
++	// destructor. Keep this process registry alive for those final Unregisters.
++	static FSpanAllocatorStatsRegistry* Registry = new FSpanAllocatorStatsRegistry;
++	return *Registry;
++#else
+ 	static FSpanAllocatorStatsRegistry Registry;
+ 	return Registry;
++#endif
+ }
+ 
+ void FSpanAllocatorStatsRegistry::Register(const void* Owner, TFunction<FSpanAllocatorStats()> StatsGetter, FName Name, uint32 BytesPerElement, FName Context, bool bIsPrimary)

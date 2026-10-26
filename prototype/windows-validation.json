@@ -1,0 +1,233 @@
+{
+  "status": "passed",
+  "date": "2026-10-26",
+  "platform": "Windows x64",
+  "configuration": "Development Rive-only",
+  "source_revision": "The commit containing this report; release asset metadata records its exact SHA",
+  "engine_revision": "62d7c1a7125b52b10ee1b714838f515f3563f795",
+  "rive_unreal_revision": "8461a2dc90924aeadc1f7eed99e6ae2de1b490f0",
+  "rive_runtime_revision": "47d1cd54ccefd468db7cb26ecc4699ae1723dd85",
+  "toolchain": {
+    "msvc": "14.50.35731",
+    "directory_version": "14.50.35717",
+    "sdk": "10.0.26100.0",
+    "installation": "prototype-local AutoSDK; global Visual Studio unmodified",
+    "download_bytes": 117728717,
+    "installed_toolchain_bytes": 406656113
+  },
+  "adapter": "NVIDIA GeForce RTX 5080",
+  "os": "Windows 11 Pro 10.0.26100",
+  "render_path": "UE Vulkan RHI/RDG",
+  "archive": {
+    "file": "Rive-UE-Lite-v0.1.0-preview.2-windows-x86_64-rive.zip",
+    "bytes": 24594292,
+    "sha256": "cebb756549584880e1b2bf597562c3c593380e6b7d0d90204138d71e24a3fbed",
+    "uncompressed_bytes_including_manifest": 62879541,
+    "files": 57,
+    "all_extracted_file_hashes_match": true
+  },
+  "executable_sha256": "e90e45b31a3485dd1277b7c1543a777ea039a0fee76c6d5aae8adbacab2e39a8",
+  "default_boundary": {
+    "status": "passed",
+    "checks": {
+      "receipt": true,
+      "linkage": true,
+      "vulkan_linked": true,
+      "heavy_modules_excluded": true,
+      "compile_definitions": true,
+      "compile_responses_present": true,
+      "pe_binary": true
+    },
+    "definitions": {
+      "WITH_ENGINE": [
+        "0"
+      ],
+      "WITH_VERSE_VM": [
+        "0"
+      ],
+      "WITH_VERSE_COMPILER": [
+        "0"
+      ]
+    },
+    "platform_baseline_note": "Pinned Windows Core unconditionally links the external libpas allocator; this is not optional VerseVM or VerseCompiler activation."
+  },
+  "compiled_modules": [
+    "ApplicationCore",
+    "AutoRTFM",
+    "BuildSettings",
+    "Cbor",
+    "Core",
+    "CorePreciseFP",
+    "CoreUObject",
+    "GPUReshapeUE",
+    "ImageCore",
+    "ImageWrapper",
+    "Json",
+    "Projects",
+    "RHI",
+    "RHICore",
+    "RenderCore",
+    "RiveLiteRenderer",
+    "RiveRhiLite",
+    "ShaderRuntime",
+    "StateStream",
+    "TraceLog",
+    "VulkanRHI",
+    "WindowsD3D"
+  ],
+  "native_cooks": [
+    {
+      "flavor": "lite",
+      "archive_sha256": "501a54353d456489fe2c75799a8b67dda438ef4de782f6e6f99581e40bd59c0b",
+      "separate_ddc": true,
+      "process_exit_code": 0,
+      "complete": true,
+      "submitted_jobs": 11469,
+      "succeeded_jobs": 11469,
+      "failed_jobs": 0,
+      "archive_bytes": 7082146,
+      "elapsed_seconds": 122.79272359982133,
+      "target_platform": "Windows",
+      "shader_platform": "VULKAN_SM5",
+      "loads_lite_archive": false
+    },
+    {
+      "flavor": "reference",
+      "archive_sha256": "5f04da22abde15ef29634f1497e7bee388a69fdd2929418bc009bbca2fd3e0ed",
+      "separate_ddc": true,
+      "process_exit_code": 0,
+      "complete": true,
+      "submitted_jobs": 11469,
+      "succeeded_jobs": 11469,
+      "failed_jobs": 0,
+      "archive_bytes": 7082146,
+      "elapsed_seconds": 99.48180469870567,
+      "target_platform": "Windows",
+      "shader_platform": "VULKAN_SM5",
+      "loads_lite_archive": false
+    }
+  ],
+  "pixel_comparisons": [
+    {
+      "case": "bankcard",
+      "status": "passed",
+      "different_pixels": 0,
+      "channel_tolerance": 0,
+      "playback_metadata_equal": true,
+      "lite_png_sha256": "0bcb4b8237fa1677bbfc6e5bbf4a49bb1bc6c0486a161c86d66b9374acb79376",
+      "reference_png_sha256": "0bcb4b8237fa1677bbfc6e5bbf4a49bb1bc6c0486a161c86d66b9374acb79376"
+    },
+    {
+      "case": "animation",
+      "status": "passed",
+      "different_pixels": 0,
+      "channel_tolerance": 0,
+      "playback_metadata_equal": true,
+      "lite_png_sha256": "ce56f2f249881118d327ae4ff60203626856ccd5d28841bb9e009d324defb2f7",
+      "reference_png_sha256": "ce56f2f249881118d327ae4ff60203626856ccd5d28841bb9e009d324defb2f7"
+    },
+    {
+      "case": "state-machine",
+      "status": "passed",
+      "different_pixels": 0,
+      "channel_tolerance": 0,
+      "playback_metadata_equal": true,
+      "lite_png_sha256": "ef1e226a54f6f14a3ed705b5a9f5c9bd11186e3180a0fc1f8f5ea13178e65bdb",
+      "reference_png_sha256": "ef1e226a54f6f14a3ed705b5a9f5c9bd11186e3180a0fc1f8f5ea13178e65bdb"
+    },
+    {
+      "case": "animation-initial",
+      "status": "passed",
+      "different_pixels": 0,
+      "channel_tolerance": 0,
+      "playback_metadata_equal": true,
+      "lite_png_sha256": "9b6464f9cee670edcefb995f365661eba519c31651a56495654a8160d26a91ea",
+      "reference_png_sha256": "9b6464f9cee670edcefb995f365661eba519c31651a56495654a8160d26a91ea"
+    },
+    {
+      "case": "state-machine-initial",
+      "status": "passed",
+      "different_pixels": 0,
+      "channel_tolerance": 0,
+      "playback_metadata_equal": true,
+      "lite_png_sha256": "460865a60393e7656274d8590aad0861db655deae7bc517bdf3af4e6f8359d9e",
+      "reference_png_sha256": "460865a60393e7656274d8590aad0861db655deae7bc517bdf3af4e6f8359d9e"
+    }
+  ],
+  "visible_changes": {
+    "animation": true,
+    "state-machine": true
+  },
+  "portable_package": {
+    "status": "passed",
+    "checks": {
+      "capabilities": true,
+      "umg_rejected": true,
+      "public_launcher": true
+    },
+    "hidden_development_directories": [
+      "engine",
+      "vendor"
+    ],
+    "path_only_system32": true,
+    "runs": [
+      {
+        "exit_code": 0,
+        "first_image_ms": 1936.087,
+        "wall_seconds": 3.4920266999397427,
+        "peak_working_set_bytes": 406151168,
+        "shader_sha256": "501a54353d456489fe2c75799a8b67dda438ef4de782f6e6f99581e40bd59c0b",
+        "png_sha256": "0bcb4b8237fa1677bbfc6e5bbf4a49bb1bc6c0486a161c86d66b9374acb79376"
+      },
+      {
+        "exit_code": 0,
+        "first_image_ms": 878.641,
+        "wall_seconds": 1.3314066999591887,
+        "peak_working_set_bytes": 406323200,
+        "shader_sha256": "501a54353d456489fe2c75799a8b67dda438ef4de782f6e6f99581e40bd59c0b",
+        "png_sha256": "0bcb4b8237fa1677bbfc6e5bbf4a49bb1bc6c0486a161c86d66b9374acb79376"
+      },
+      {
+        "exit_code": 0,
+        "first_image_ms": 958.475,
+        "wall_seconds": 1.391889699967578,
+        "peak_working_set_bytes": 406974464,
+        "shader_sha256": "501a54353d456489fe2c75799a8b67dda438ef4de782f6e6f99581e40bd59c0b",
+        "png_sha256": "0bcb4b8237fa1677bbfc6e5bbf4a49bb1bc6c0486a161c86d66b9374acb79376"
+      }
+    ],
+    "timing_scope": "Three separate processes, OS/driver caches may be warm; not a cold-machine benchmark"
+  },
+  "incremental_builds": [
+    {
+      "case": "one-source-recompile",
+      "exit_code": 0,
+      "wall_seconds": 15.388642500038259,
+      "ubt_seconds": 12.9,
+      "compile_actions": 1,
+      "scope": "existing dependency/PCH/object cache; first case touches Main.cpp without changing bytes; not a cold build"
+    },
+    {
+      "case": "no-change",
+      "exit_code": 0,
+      "wall_seconds": 3.807904199929908,
+      "ubt_seconds": 1.3,
+      "compile_actions": 0,
+      "scope": "existing dependency/PCH/object cache; first case touches Main.cpp without changing bytes; not a cold build"
+    }
+  ],
+  "script_tests": {
+    "platform": "WSL Ubuntu",
+    "passed": 23,
+    "scope": "Existing Linux script suite; Linux loader tests are not a Windows suite"
+  },
+  "not_verified": [
+    "Windows CPU-only rendering",
+    "Windows UMG and Verse packages",
+    "macOS binary",
+    "UEFN APIs/session compatibility",
+    "Editor viewport parity",
+    "whole Rive feature library"
+  ],
+  "reference_scope": "Engine-linked native UE FRenderTarget offscreen reference; Rive and selected RenderCore shader types, not the entire UE global shader map"
+}
