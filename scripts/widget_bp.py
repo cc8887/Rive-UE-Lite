@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Create/read/edit real source Widget Blueprints through the native UE worker.
 
-Windows calls forward to the isolated Ubuntu worker in WSL. All output and edits
-stay inside this prototype. Import copies an existing asset before inspecting it.
+Windows calls forward to the isolated Ubuntu worker in WSL. Output and edits
+stay in the explicit workspace (this prototype by default). Import copies assets.
 """
 from pathlib import Path
 import argparse
@@ -21,6 +21,7 @@ import uuid
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
+WORKSPACE_ROOT = ROOT
 DEFAULT_SHADER_ARCHIVE = (ROOT/'shaders/global.bin' if (ROOT/'shaders/global.bin').is_file()
                           else ROOT/'artifacts/umg-blueprint/shaders-host/global.bin')
 ENGINE_COMMIT = '62d7c1a7125b52b10ee1b714838f515f3563f795'
@@ -49,9 +50,9 @@ def sha256(path):
 
 def inside(path):
     path = Path(path).expanduser().resolve()
-    if not path.is_relative_to(ROOT):
-        raise ValueError(f'Write paths must stay in the independent prototype: {path}. Use import for an external source asset.')
-    if path.is_relative_to(ROOT/'engine') or path.is_relative_to(ROOT/'vendor'):
+    if not path.is_relative_to(WORKSPACE_ROOT):
+        raise ValueError(f'Write paths must stay in the selected workspace: {path}. Use import for an external source asset.')
+    if any(path.is_relative_to(ROOT/name) for name in ['engine', 'vendor', 'Engine']):
         raise ValueError('Use an isolated job Content directory, not engine/vendor')
     return path
 
@@ -63,7 +64,7 @@ def wsl_path(value):
 
 def forward_windows(args):
     forwarded = list(sys.argv[1:])
-    path_options = {'--content-dir', '--report-dir', '--input', '--spec', '--patch', '--output', '--shader-archive', '--playback-script'}
+    path_options = {'--workspace-root', '--content-dir', '--report-dir', '--input', '--spec', '--patch', '--output', '--shader-archive', '--playback-script'}
     for index, item in enumerate(forwarded):
         if item in path_options and index+1 < len(forwarded):
             forwarded[index+1] = wsl_path(forwarded[index+1])
@@ -75,6 +76,7 @@ def forward_windows(args):
 
 def parse_args():
     p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--workspace-root', type=Path, default=ROOT, help='Explicit isolated write root; defaults to this prototype/package')
     sub = p.add_subparsers(dest='command', required=True)
     sub.add_parser('capabilities', help='List supported operations and limitations without starting UE')
     commands = [(name, sub.add_parser(name)) for name in ['create', 'read', 'inspect', 'import', 'patch', 'preview', 'export']]
@@ -103,23 +105,28 @@ def parse_args():
     return args
 
 def main():
+    global WORKSPACE_ROOT
     args = parse_args()
+    WORKSPACE_ROOT = args.workspace_root.expanduser().resolve()
     if args.command == 'capabilities':
         print(json.dumps(CAPABILITIES, indent=2)); return 0
     if platform.system() == 'Windows': return forward_windows(args)
     if platform.system() != 'Linux': raise ValueError('The authoring worker is currently qualified on Linux/WSL only')
-    # Root is used only for the private namespace. Native UE runs as uid 1000.
-    if os.geteuid() == 0 and os.environ.get('RIVE_UE_LITE_GPU_DEVICES_HIDDEN') != '1':
+    # Preserve the source experiment's namespace/drop-privilege workflow. The
+    # deployed Program workers also run without mount privileges, including in
+    # root containers; they force and verify CPU Vulkan independently below.
+    if os.geteuid() == 0 and (ROOT/'AGENTS.md').is_file() and os.environ.get('RIVE_UE_LITE_GPU_DEVICES_HIDDEN') != '1':
         return subprocess.call(['bash', str(ROOT/'scripts/measure_no_gpu.sh'), '--',
             'python3', '-B', str(Path(__file__).resolve()), *sys.argv[1:]])
-    if args.command == 'preview' and os.environ.get('RIVE_UE_LITE_GPU_DEVICES_HIDDEN') != '1':
-        raise ValueError('For CPU-only preview, run sudo python3 scripts/widget_bp.py preview ... (private GPU-hiding namespace)')
+    # Ordinary server users may preview without namespace privileges. The ICD
+    # is forced below and the selected CPU adapter is checked after capture.
+    # Formal no-GPU acceptance still runs in the GPU-hiding namespace wrapper.
     if not re.fullmatch(r'/Game/(?:[A-Za-z_][A-Za-z0-9_]*/)*[A-Za-z_][A-Za-z0-9_]*', args.asset):
         raise ValueError('Use an ASCII /Game/... package name without extension/object suffix')
     content = inside(args.content_dir)
     asset = content/(args.asset.removeprefix('/Game/')+'.uasset')
     if not asset.is_relative_to(content): raise ValueError('Asset escaped the Content mount')
-    report_dir = inside(args.report_dir) if args.report_dir else ROOT/'artifacts/widget-blueprint-jobs'/(
+    report_dir = inside(args.report_dir) if args.report_dir else WORKSPACE_ROOT/'artifacts/widget-blueprint-jobs'/(
         datetime.datetime.now().strftime('%Y%m%d-%H%M%S')+'-'+uuid.uuid4().hex[:8])
     if report_dir.exists(): raise ValueError('Use a fresh report directory')
     report_dir.mkdir(parents=True)
@@ -176,7 +183,9 @@ def main():
             if args.playback_script and not args.animation: raise ValueError('--playback-script requires --animation')
             archive = args.shader_archive.resolve()
             if not archive.is_file(): raise ValueError('Native LinuxEditor Slate archive missing; see Source/RiveUmgBlueprintWorker/README.md')
-            env.update(VK_ICD_FILENAMES='/usr/share/vulkan/icd.d/lvp_icd.json', VK_DRIVER_FILES='/usr/share/vulkan/icd.d/lvp_icd.json')
+            icd = Path(env['RIVE_LITE_ICD']) if env.get('RIVE_LITE_ICD') else next(iter(sorted(Path('/usr/share/vulkan/icd.d').glob('*lvp*.json'))), None)
+            if not icd or not icd.is_file(): raise ValueError('Mesa CPU Vulkan ICD missing; install Mesa or set RIVE_LITE_ICD')
+            env.update(VK_ICD_FILENAMES=str(icd), VK_DRIVER_FILES=str(icd))
             command += ['-vulkan', '-sm5', '-AllowCPUDevices', '-AllowCommandletRendering', '-RenderOffscreen',
                 '-norhithread', f'-ShaderArchive={archive}', f'-Output={output}', f'-Width={args.width}', f'-Height={args.height}']
             if args.animation:

@@ -1,5 +1,11 @@
 # Rive UE RHI/RDG 轻量原型
 
+## 整套工具的统一 CLI 包
+
+当前整合入口为 [统一命令行工具包](prototype/cli-toolkit.md)：一个包包含 Rive、原生 UMG、VerseVM 和 Widget Blueprint/UMG 动画编辑工具，通过 `rive-tool` 的 JSON 命令操作。`start/status/stop` 管理轻量后台协调服务，原生 worker 按操作启动；资产和任务记录保存在显式工作区。构建整套工具使用 `--all-tools`，默认构建仍只选择 Rive。
+
+下面 preview.3 的体积是此前分别发布的组件包，不能当作整合包的实际体积；整合包的去重体积和运行验收单独记录。
+
 最新打包轮次见 [preview.3](https://github.com/cc8887/Rive-UE-Lite/releases/tag/v0.1.0-preview.3)：Linux 的 Rive、UMG、Verse 和 Widget Blueprint 动画编辑 worker 分包交付，Windows 为 Rive-only。macOS 已复用已有 Zig 交叉编译出真实 Rive arm64 对象，但缺少 Metal SDK，完整 UE 程序仍未构建成功；不将源码或对象文件作为可运行的 Mac 包。
 
 从已生成的 `package-manifest.json` 输出发布归档可使用 `scripts/prepare_release.py --tag <新标签> --package <平台> <功能> <包目录>`；随后在 Linux 运行 `scripts/verify_release_linux.py --release-dir artifacts/release/<标签>`，Windows 使用 `scripts/verify_windows_package.py` 验证实际解压包。归档绑定源码提交和每个文件的 SHA-256，运行验收单独记录。
